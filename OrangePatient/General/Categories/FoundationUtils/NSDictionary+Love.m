@@ -1,0 +1,41 @@
+//
+//  NSDictionary+Love.m
+//  iLove
+//
+//  Created by mtf on 12-11-9.
+//  Copyright (c) 2012年 www.fanxer.com. All rights reserved.
+//
+
+#import "NSDictionary+Love.h"
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+@implementation NSDictionary (Love)
+
+- (void)each:(void (^)(id k, id v))block {
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        block(key, obj);
+    }];
+}
+
+- (void)eachKey:(void (^)(id k))block {
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        block(key);
+    }];
+}
+
+- (void)eachValue:(void (^)(id v))block {
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        block(obj);
+    }];
+}
+
+@end
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+@implementation NSMutableDictionary (Love)
+
+@end
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
