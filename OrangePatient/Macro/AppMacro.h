@@ -1,10 +1,9 @@
 //
 //  AppMacro.h
-//  iCatering
 //*****************************************
 //APP相关宏定义
 //*****************************************
-//  Created by ZhangQing on 14-3-3.
+//  Created by ZhangQing on 15-3-3.
 //  Copyright (c) 2014年 ZhangQing. All rights reserved.
 //
 
