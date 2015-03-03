@@ -1,8 +1,7 @@
 //
 //  MacroHeader.h
-//  iCatering
 //
-//  Created by ZhangQing on 14-3-4.
+//  Created by ZhangQing on 15-3-4.
 //  Copyright (c) 2014年 ZhangQing. All rights reserved.
 //
 

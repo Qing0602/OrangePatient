@@ -53,7 +53,7 @@ const char *UIControlBlocks;
     if (blockActions) {
         NSMutableArray *actionsForControlEvents = [blockActions objectForKey:[NSNumber numberWithInt:controlEvents]];
         if (actionsForControlEvents) {
-            for (int i = [actionsForControlEvents count]; i > 0; i--) {
+            for (int i = (int)[actionsForControlEvents count]; i > 0; i--) {
                 UIControlActionBlockWrapper *target = (UIControlActionBlockWrapper *)[actionsForControlEvents objectAtIndex:i];
                 [self removeTarget:target action:@selector(invokeBlock:) forControlEvents:controlEvents];
                 [actionsForControlEvents removeObjectAtIndex:i];

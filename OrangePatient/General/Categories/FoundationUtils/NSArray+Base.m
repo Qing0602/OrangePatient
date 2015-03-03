@@ -32,7 +32,7 @@
 
 - (void)eachWithIndex:(void (^)(id object, int index))block {
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        block(obj, idx);
+        block(obj, (int)idx);
     }];
 }
 @end

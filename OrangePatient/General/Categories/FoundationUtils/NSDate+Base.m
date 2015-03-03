@@ -425,7 +425,7 @@
 
 - (NSInteger)week {
     NSDateComponents *components = [[NSDate AZ_currentCalendar] components:NSWeekCalendarUnit fromDate:self];
-    return [components week];
+    return [components weekOfYear];
 }
 
 - (NSInteger)weekday {
