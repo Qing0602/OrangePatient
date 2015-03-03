@@ -6,11 +6,11 @@
 //  Copyright (c) 2012年 www.fanxer.com. All rights reserved.
 //
 
-#import "UIImage+Love.h"
+#import "UIImage+Base.h"
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-@implementation UIImage (Love)
+@implementation UIImage (Base)
 +(UIImage *) scaleImage: (UIImage *)image scaleFactor:(float)scaleFloat
 {
     CGSize size = CGSizeMake(image.size.width * scaleFloat, image.size.height * scaleFloat);

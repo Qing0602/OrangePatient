@@ -1,12 +1,7 @@
 //
-//  UIView+Love.m
-//  iLove
-//
-//  Created by mtf on 12-11-9.
-//  Copyright (c) 2012年 www.fanxer.com. All rights reserved.
 //
 
-#import "UIView+Love.h"
+#import "UIView+Base.h"
 #import <QuartzCore/QuartzCore.h>
 
 ////////////////////////////////////////////////////////////////////////////////

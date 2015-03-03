@@ -1,12 +1,6 @@
-//
-//  NSDate+iCatering.m
-//  iCatering
-//
-//  Created by ZhangQing on 14-3-4.
-//  Copyright (c) 2014年 ZhangQing. All rights reserved.
-//
 
-#import "NSDate+iCatering.h"
+
+#import "NSDate+Base.h"
 #define SECONDS_IN_MINUTE 60
 #define MINUTES_IN_HOUR 60
 #define DAYS_IN_WEEK 7

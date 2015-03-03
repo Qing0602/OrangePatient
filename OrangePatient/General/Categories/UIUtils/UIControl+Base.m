@@ -1,12 +1,7 @@
 //
-//  UIControl+Love.m
-//  iLove
-//
-//  Created by mtf on 12-11-14.
-//  Copyright (c) 2012年 www.fanxer.com. All rights reserved.
 //
 
-#import "UIControl+Love.h"
+#import "UIControl+Base.h"
 #import <objc/runtime.h>
 
 @interface UIControlActionBlockWrapper : NSObject

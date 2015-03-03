@@ -1,12 +1,7 @@
 //
-//  NSString+Love.m
-//  iLove
-//
-//  Created by mtf on 12-11-9.
-//  Copyright (c) 2012年 www.fanxer.com. All rights reserved.
 //
 
-#import "NSString+Love.h"
+#import "NSString+Base.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "RegexKitLite.h"
 ////////////////////////////////////////////////////////////////////////////////

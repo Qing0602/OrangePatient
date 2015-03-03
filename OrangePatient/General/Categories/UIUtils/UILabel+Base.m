@@ -1,14 +1,9 @@
 //
-//  UILabel+Love.m
-//  iLove
-//
-//  Created by mtf on 12-11-9.
-//  Copyright (c) 2012年 www.fanxer.com. All rights reserved.
 //
 
-#import "UILabel+Love.h"
+#import "UILabel+Base.h"
 
-@implementation UILabel (Love)
+@implementation UILabel (Base)
 + (UILabel *)getNavBarTitleLabel:(NSString *)text {
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
     titleLabel.text = text;

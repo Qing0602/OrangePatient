@@ -1,15 +1,10 @@
 //
-//  UIImageView+Love.m
-//  iLove
-//
-//  Created by mtf on 12-11-9.
-//  Copyright (c) 2012年 www.fanxer.com. All rights reserved.
 //
 
-#import "UIImageView+Love.h"
+#import "UIImageView+Base.h"
 #import <CoreImage/CoreImage.h>
 #import <QuartzCore/QuartzCore.h>
-@implementation UIImageView (Love)
+@implementation UIImageView (Base)
 
 @end
 @implementation UIImageView (UIImageView_FaceAwareFill)

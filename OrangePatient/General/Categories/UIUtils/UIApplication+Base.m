@@ -1,14 +1,9 @@
 //
-//  UIApplication+iCatering.m
-//  iCatering
-//
-//  Created by ZhangQing on 14-3-4.
-//  Copyright (c) 2014年 ZhangQing. All rights reserved.
 //
 
-#import "UIApplication+iCatering.h"
+#import "UIApplication+Base.h"
 
-@implementation UIApplication (iCatering)
+@implementation UIApplication (Base)
 
 @end
 

@@ -1,14 +1,9 @@
 //
-//  UIColor+Love.m
-//  iLove
-//
-//  Created by mtf on 12-11-9.
-//  Copyright (c) 2012年 www.fanxer.com. All rights reserved.
 //
 
-#import "UIColor+Love.h"
+#import "UIColor+Base.h"
 
-@implementation UIColor (Love)
+@implementation UIColor (Base)
 + (UIColor *) colorWithHexString: (NSString *) stringToConvert
 {
     NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];

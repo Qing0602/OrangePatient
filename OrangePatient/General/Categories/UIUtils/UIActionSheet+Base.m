@@ -1,12 +1,7 @@
 //
-//  UIActionSheet+Love.m
-//  iLove
-//
-//  Created by mtf on 12-11-15.
-//  Copyright (c) 2012年 www.fanxer.com. All rights reserved.
 //
 
-#import "UIActionSheet+Love.h"
+#import "UIActionSheet+Base.h"
 #import <objc/runtime.h>
 
 @implementation UIActionSheet (blocks)

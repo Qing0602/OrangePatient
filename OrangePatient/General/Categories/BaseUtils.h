@@ -9,8 +9,8 @@
 #ifndef iLove_LoveUtils_h
 #define iLove_LoveUtils_h
 
-#import "CommonFDUtils.h"
-#import "LoveUIUtils.h"
+#import "BaseFDUtils.h"
+#import "BaseUIUtils.h"
 
 
 // from Bee_framework,thanks 
