@@ -9,7 +9,6 @@
 #import "NSDate+Base.h"
 
 #import "pinyin.h"
-#import "ChineseToPinyin.h"
 
 
 #endif

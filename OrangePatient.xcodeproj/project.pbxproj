@@ -15,7 +15,6 @@
 		74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BE67B11A9F4AF7008F7C44 /* Images.xcassets */; };
 		74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BE67B31A9F4AF7008F7C44 /* LaunchScreen.xib */; };
 		74BE67C11A9F4AF7008F7C44 /* OrangePatientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67C01A9F4AF7008F7C44 /* OrangePatientTests.m */; };
-		74CE08F11AA4A52000DD9458 /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08351AA4A52000DD9458 /* ChineseToPinyin.m */; };
 		74CE08F21AA4A52000DD9458 /* NSArray+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08381AA4A52000DD9458 /* NSArray+Base.m */; };
 		74CE08F31AA4A52000DD9458 /* NSDate+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE083A1AA4A52000DD9458 /* NSDate+Base.m */; };
 		74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE083C1AA4A52000DD9458 /* NSDictionary+Base.m */; };
@@ -201,8 +200,6 @@
 		74BE67BA1A9F4AF7008F7C44 /* OrangePatientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangePatientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BE67BF1A9F4AF7008F7C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74BE67C01A9F4AF7008F7C44 /* OrangePatientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrangePatientTests.m; sourceTree = "<group>"; };
-		74CE08341AA4A52000DD9458 /* ChineseToPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
-		74CE08351AA4A52000DD9458 /* ChineseToPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyin.m; sourceTree = "<group>"; };
 		74CE08361AA4A52000DD9458 /* BaseFDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFDUtils.h; sourceTree = "<group>"; };
 		74CE08371AA4A52000DD9458 /* NSArray+Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Base.h"; sourceTree = "<group>"; };
 		74CE08381AA4A52000DD9458 /* NSArray+Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Base.m"; sourceTree = "<group>"; };
@@ -744,8 +741,6 @@
 		74CE08331AA4A52000DD9458 /* FoundationUtils */ = {
 			isa = PBXGroup;
 			children = (
-				74CE08341AA4A52000DD9458 /* ChineseToPinyin.h */,
-				74CE08351AA4A52000DD9458 /* ChineseToPinyin.m */,
 				74CE08361AA4A52000DD9458 /* BaseFDUtils.h */,
 				74CE08371AA4A52000DD9458 /* NSArray+Base.h */,
 				74CE08381AA4A52000DD9458 /* NSArray+Base.m */,
@@ -1173,7 +1168,6 @@
 				74CE092F1AA4A52000DD9458 /* SBJSON.m in Sources */,
 				74CE092E1AA4A52000DD9458 /* NSString+SBJSON.m in Sources */,
 				74CE09351AA4A52000DD9458 /* NSData+MKBase64.m in Sources */,
-				74CE08F11AA4A52000DD9458 /* ChineseToPinyin.m in Sources */,
 				74CE09331AA4A52000DD9458 /* JSONKit.m in Sources */,
 				74CE093C1AA4A52000DD9458 /* MKNetworkOperation.m in Sources */,
 				74CE092C1AA4A52000DD9458 /* FMResultSet.m in Sources */,
