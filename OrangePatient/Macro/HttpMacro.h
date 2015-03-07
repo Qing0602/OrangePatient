@@ -8,7 +8,6 @@
 #ifndef PropertyManagementSystem_HttpMacro_h
 #define PropertyManagementSystem_HttpMacro_h
 
-#import "MKNetworkKit.h"
 
 
 /**********************************************************************
