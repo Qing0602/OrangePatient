@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		195017471AAC2D7900A7E7A1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 195017461AAC2D7900A7E7A1 /* libxml2.dylib */; };
+		195017491AAC2D8B00A7E7A1 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 195017481AAC2D8B00A7E7A1 /* libz.1.2.5.dylib */; };
+		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
+		1950174D1AAC2DAE00A7E7A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */; };
 		19A679BA1AAB46B4006328DA /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AB1AAB46B4006328DA /* HttpEngine.m */; };
 		19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */; };
 		19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B01AAB46B4006328DA /* UIModelCoding.m */; };
@@ -109,6 +113,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		195017461AAC2D7900A7E7A1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		195017481AAC2D8B00A7E7A1 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		19A679AA1AAB46B4006328DA /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
 		19A679AB1AAB46B4006328DA /* HttpEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpEngine.m; sourceTree = "<group>"; };
 		19A679AD1AAB46B4006328DA /* AsiGetRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsiGetRequestModel.h; sourceTree = "<group>"; };
@@ -401,6 +409,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1950174D1AAC2DAE00A7E7A1 /* AVFoundation.framework in Frameworks */,
+				1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */,
+				195017491AAC2D8B00A7E7A1 /* libz.1.2.5.dylib in Frameworks */,
+				195017471AAC2D7900A7E7A1 /* libxml2.dylib in Frameworks */,
 				74CE094A1AA4B6F400DD9458 /* libicucore.dylib in Frameworks */,
 				74CE09491AA4B27700DD9458 /* Foundation.framework in Frameworks */,
 				74CE09471AA4B27100DD9458 /* UIKit.framework in Frameworks */,
@@ -576,6 +588,10 @@
 		19AEDE1D1AA4666A00AED60C /* FrameWork */ = {
 			isa = PBXGroup;
 			children = (
+				1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */,
+				1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */,
+				195017481AAC2D8B00A7E7A1 /* libz.1.2.5.dylib */,
+				195017461AAC2D7900A7E7A1 /* libxml2.dylib */,
 				74CE09481AA4B27700DD9458 /* Foundation.framework */,
 				74CE09461AA4B27100DD9458 /* UIKit.framework */,
 				74CE09441AA4B25E00DD9458 /* CFNetwork.framework */,
