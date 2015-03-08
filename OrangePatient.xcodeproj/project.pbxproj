@@ -87,13 +87,6 @@
 		74CE092A1AA4A52000DD9458 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08C01AA4A52000DD9458 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		74CE092B1AA4A52000DD9458 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08C21AA4A52000DD9458 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		74CE092C1AA4A52000DD9458 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08C41AA4A52000DD9458 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		74CE092D1AA4A52000DD9458 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08C81AA4A52000DD9458 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		74CE092E1AA4A52000DD9458 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08CA1AA4A52000DD9458 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		74CE092F1AA4A52000DD9458 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08CC1AA4A52000DD9458 /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		74CE09301AA4A52000DD9458 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08CE1AA4A52000DD9458 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		74CE09311AA4A52000DD9458 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08D01AA4A52000DD9458 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		74CE09321AA4A52000DD9458 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08D21AA4A52000DD9458 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		74CE09331AA4A52000DD9458 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08D51AA4A52000DD9458 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		74CE093E1AA4A52000DD9458 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08F01AA4A52000DD9458 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		74CE09431AA4B25900DD9458 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE09421AA4B25900DD9458 /* libsqlite3.0.dylib */; };
 		74CE09451AA4B25E00DD9458 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE09441AA4B25E00DD9458 /* CFNetwork.framework */; };
@@ -379,21 +372,6 @@
 		74CE08C21AA4A52000DD9458 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		74CE08C31AA4A52000DD9458 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		74CE08C41AA4A52000DD9458 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		74CE08C61AA4A52000DD9458 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		74CE08C71AA4A52000DD9458 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		74CE08C81AA4A52000DD9458 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
-		74CE08C91AA4A52000DD9458 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		74CE08CA1AA4A52000DD9458 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
-		74CE08CB1AA4A52000DD9458 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		74CE08CC1AA4A52000DD9458 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
-		74CE08CD1AA4A52000DD9458 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		74CE08CE1AA4A52000DD9458 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
-		74CE08CF1AA4A52000DD9458 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		74CE08D01AA4A52000DD9458 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		74CE08D11AA4A52000DD9458 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		74CE08D21AA4A52000DD9458 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		74CE08D41AA4A52000DD9458 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		74CE08D51AA4A52000DD9458 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		74CE08EF1AA4A52000DD9458 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		74CE08F01AA4A52000DD9458 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		74CE093F1AA4A83A00DD9458 /* Common-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Common-Prefix.pch"; sourceTree = "<group>"; };
@@ -1146,8 +1124,6 @@
 			children = (
 				74CE08AE1AA4A52000DD9458 /* EGOImageLoading */,
 				74CE08BE1AA4A52000DD9458 /* FMDB */,
-				74CE08C51AA4A52000DD9458 /* JSON */,
-				74CE08D31AA4A52000DD9458 /* JSONKit */,
 				74CE08EE1AA4A52000DD9458 /* Regex */,
 			);
 			path = Vendors;
@@ -1214,35 +1190,6 @@
 				74CE08C41AA4A52000DD9458 /* FMResultSet.m */,
 			);
 			path = FMDB;
-			sourceTree = "<group>";
-		};
-		74CE08C51AA4A52000DD9458 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				74CE08C61AA4A52000DD9458 /* JSON.h */,
-				74CE08C71AA4A52000DD9458 /* NSObject+SBJSON.h */,
-				74CE08C81AA4A52000DD9458 /* NSObject+SBJSON.m */,
-				74CE08C91AA4A52000DD9458 /* NSString+SBJSON.h */,
-				74CE08CA1AA4A52000DD9458 /* NSString+SBJSON.m */,
-				74CE08CB1AA4A52000DD9458 /* SBJSON.h */,
-				74CE08CC1AA4A52000DD9458 /* SBJSON.m */,
-				74CE08CD1AA4A52000DD9458 /* SBJsonBase.h */,
-				74CE08CE1AA4A52000DD9458 /* SBJsonBase.m */,
-				74CE08CF1AA4A52000DD9458 /* SBJsonParser.h */,
-				74CE08D01AA4A52000DD9458 /* SBJsonParser.m */,
-				74CE08D11AA4A52000DD9458 /* SBJsonWriter.h */,
-				74CE08D21AA4A52000DD9458 /* SBJsonWriter.m */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
-		74CE08D31AA4A52000DD9458 /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				74CE08D41AA4A52000DD9458 /* JSONKit.h */,
-				74CE08D51AA4A52000DD9458 /* JSONKit.m */,
-			);
-			path = JSONKit;
 			sourceTree = "<group>";
 		};
 		74CE08EE1AA4A52000DD9458 /* Regex */ = {
@@ -1373,9 +1320,6 @@
 				74CE08F91AA4A52000DD9458 /* UIAlertView+Base.m in Sources */,
 				74CE09041AA4A52000DD9458 /* BaseNSObject.m in Sources */,
 				74CE09281AA4A52000DD9458 /* EGOImageLoader.m in Sources */,
-				74CE092F1AA4A52000DD9458 /* SBJSON.m in Sources */,
-				74CE092E1AA4A52000DD9458 /* NSString+SBJSON.m in Sources */,
-				74CE09331AA4A52000DD9458 /* JSONKit.m in Sources */,
 				74CE092C1AA4A52000DD9458 /* FMResultSet.m in Sources */,
 				74CE08FE1AA4A52000DD9458 /* UIFont+Base.m in Sources */,
 				74CE09021AA4A52000DD9458 /* UIView+Base.m in Sources */,
@@ -1387,7 +1331,6 @@
 				74CE09271AA4A52000DD9458 /* EGOImageLoadConnection.m in Sources */,
 				74CE09251AA4A52000DD9458 /* README.mdown in Sources */,
 				19A679BD1AAB46B4006328DA /* NetWorkService.m in Sources */,
-				74CE092D1AA4A52000DD9458 /* NSObject+SBJSON.m in Sources */,
 				74CE092A1AA4A52000DD9458 /* FMDatabase.m in Sources */,
 				19A67A0F1AAB46F7006328DA /* ASIS3ObjectRequest.m in Sources */,
 				74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */,
@@ -1417,7 +1360,6 @@
 				74CE09291AA4A52000DD9458 /* EGOImageView.m in Sources */,
 				19A679FE1AAB46F7006328DA /* ASIDataDecompressor.m in Sources */,
 				74CE08F31AA4A52000DD9458 /* NSDate+Base.m in Sources */,
-				74CE09301AA4A52000DD9458 /* SBJsonBase.m in Sources */,
 				19A67A021AAB46F7006328DA /* ASIInputStream.m in Sources */,
 				19A67A131AAB46F7006328DA /* Reachability.m in Sources */,
 				74CE08FF1AA4A52000DD9458 /* UIImage+Base.m in Sources */,
@@ -1426,13 +1368,11 @@
 				74CE08FA1AA4A52000DD9458 /* UIApplication+Base.m in Sources */,
 				19A67A0A1AAB46F7006328DA /* ASICloudFilesObjectRequest.m in Sources */,
 				19A67A051AAB46F7006328DA /* ASICloudFilesCDNRequest.m in Sources */,
-				74CE09311AA4A52000DD9458 /* SBJsonParser.m in Sources */,
 				19A67A061AAB46F7006328DA /* ASICloudFilesContainer.m in Sources */,
 				74CE09061AA4A52000DD9458 /* BaseUILabel.m in Sources */,
 				19A679FF1AAB46F7006328DA /* ASIDownloadCache.m in Sources */,
 				74CE092B1AA4A52000DD9458 /* FMDatabaseAdditions.m in Sources */,
 				19A67A111AAB46F7006328DA /* ASIS3ServiceRequest.m in Sources */,
-				74CE09321AA4A52000DD9458 /* SBJsonWriter.m in Sources */,
 				74CE08FC1AA4A52000DD9458 /* UIColor+Base.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1565,6 +1505,7 @@
 				INFOPLIST_FILE = OrangePatient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1583,6 +1524,7 @@
 				INFOPLIST_FILE = OrangePatient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
