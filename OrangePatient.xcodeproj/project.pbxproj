@@ -875,6 +875,41 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		749C825C1AAD87020077388E /* Device */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		749C825D1AAD87020077388E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		749C825E1AAD87020077388E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		749C825F1AAD87020077388E /* Me */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		749C82601AAD87020077388E /* Report */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 		74BE67981A9F4AF7008F7C44 = {
 			isa = PBXGroup;
 			children = (
@@ -1016,6 +1051,11 @@
 		74CE085C1AA4A52000DD9458 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				749C825C1AAD87020077388E /* Device */,
+				749C825D1AAD87020077388E /* Home */,
+				749C825E1AAD87020077388E /* Login */,
+				749C825F1AAD87020077388E /* Me */,
+				749C82601AAD87020077388E /* Report */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
