@@ -1051,11 +1051,11 @@
 		74CE085C1AA4A52000DD9458 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				749C825C1AAD87020077388E /* Device */,
-				749C825D1AAD87020077388E /* Home */,
 				749C825E1AAD87020077388E /* Login */,
-				749C825F1AAD87020077388E /* Me */,
+				749C825D1AAD87020077388E /* Home */,
+				749C825C1AAD87020077388E /* Device */,
 				749C82601AAD87020077388E /* Report */,
+				749C825F1AAD87020077388E /* Me */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
