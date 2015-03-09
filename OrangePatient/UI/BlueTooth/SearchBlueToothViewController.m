@@ -8,6 +8,14 @@
 
 #import "SearchBlueToothViewController.h"
 
+//服务的UUID
+#define UUIDSTR_ISSC_PROPRIETARY_SERVICE        @"49535343-FE7D-4AE5-8FA9-9FAFD2O5E455"
+#define UUIDSTR_CONNECTION_PARAMETER_CHAR       @"49535343-6DAA-4DO2-ABF6-19569ACA69FE"
+#define UUIDSTR_AIR_PATCH_CHAR                  @"49535343-ACA3-481C-91EC-D85E28A6O318"
+#define UUIDSTR_ISSC_TRANS_TX                   @"49535343-8841-43F4-A8D4-ECBE34729BB3"
+// 读取特性的UUID
+#define UUIDSTR_ISSC_TRANS_RX                   @"49535343-1E4D-4BD9-BA61-23C647249616"
+
 @interface SearchBlueToothViewController ()
 
 @end
@@ -27,7 +35,6 @@
 
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central{
-    NSLog(@"1");
     switch (central.state) {
         case CBCentralManagerStatePoweredOn:
             [self.central scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
@@ -88,9 +95,41 @@
 }
 
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error{
+    CBCharacteristic *rx;
+    CBCharacteristic *tx;
     for(CBCharacteristic *c in service.characteristics){
-        NSLog(@"%@",c);
+        if ([c.UUID isEqual:[CBUUID UUIDWithString:UUIDSTR_ISSC_TRANS_RX]]) {
+            rx = c;
+        }
+        if ([c.UUID isEqual:[CBUUID UUIDWithString:UUIDSTR_ISSC_TRANS_TX]]) {
+            tx = c;
+        }
     }
+    if (rx != nil && tx != nil) {
+        Byte command[] = { 0x7D, 0x81, 0xA6, 0xFF, 0xFF };
+        NSData *adata = [[NSData alloc] initWithBytes:command length:5];
+        [self.peripheral setNotifyValue:YES forCharacteristic:rx];
+        [self.peripheral writeValue: adata forCharacteristic:tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
+    NSData *data = characteristic.value;
+    
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    NSLog(@"%@",dic);
+}
+
+-(void)getDeviceData:(NSDictionary *)dicDeviceData{
+    NSLog(@"%@",dicDeviceData);
+}
+
+-(void)getOperateResult:(NSDictionary *)dicOperateResult{
+    NSLog(@"1");
+}
+
+-(void)getError:(NSDictionary *)dicError{
+    NSLog(@"1");
 }
 
 @end
