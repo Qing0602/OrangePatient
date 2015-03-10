@@ -45,10 +45,10 @@
 		19A67A1A1AAB47B8006328DA /* SearchBlueToothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */; };
 		19A67A1B1AAB47B8006328DA /* UIManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A67A191AAB47B8006328DA /* UIManagement.m */; };
 		19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19AEDE9A1AA4666A00AED60C /* EaseMob.bundle */; };
+		743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D3C8B1AAF2C550060AA90 /* LoginViewController.m */; };
 		74BE67A71A9F4AF7008F7C44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A61A9F4AF7008F7C44 /* main.m */; };
 		74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */; };
 		74BE67AD1A9F4AF7008F7C44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67AC1A9F4AF7008F7C44 /* ViewController.m */; };
-		74BE67B01A9F4AF7008F7C44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74BE67AE1A9F4AF7008F7C44 /* Main.storyboard */; };
 		74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BE67B11A9F4AF7008F7C44 /* Images.xcassets */; };
 		74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BE67B31A9F4AF7008F7C44 /* LaunchScreen.xib */; };
 		74BE67C11A9F4AF7008F7C44 /* OrangePatientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67C01A9F4AF7008F7C44 /* OrangePatientTests.m */; };
@@ -282,6 +282,8 @@
 		19AEDE961AA4666A00AED60C /* EMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMError.h; sourceTree = "<group>"; };
 		19AEDE971AA4666A00AED60C /* EMErrorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorDefs.h; sourceTree = "<group>"; };
 		19AEDE9A1AA4666A00AED60C /* EaseMob.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseMob.bundle; sourceTree = "<group>"; };
+		743D3C8A1AAF2C550060AA90 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		743D3C8B1AAF2C550060AA90 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		74BE67A11A9F4AF7008F7C44 /* OrangePatient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangePatient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BE67A51A9F4AF7008F7C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74BE67A61A9F4AF7008F7C44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -289,7 +291,6 @@
 		74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		74BE67AB1A9F4AF7008F7C44 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		74BE67AC1A9F4AF7008F7C44 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		74BE67AF1A9F4AF7008F7C44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74BE67B11A9F4AF7008F7C44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		74BE67B41A9F4AF7008F7C44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		74BE67BA1A9F4AF7008F7C44 /* OrangePatientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangePatientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -892,6 +893,8 @@
 		749C825E1AAD87020077388E /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				743D3C8A1AAF2C550060AA90 /* LoginViewController.h */,
+				743D3C8B1AAF2C550060AA90 /* LoginViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -937,7 +940,6 @@
 				74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */,
 				74BE67AB1A9F4AF7008F7C44 /* ViewController.h */,
 				74BE67AC1A9F4AF7008F7C44 /* ViewController.m */,
-				74BE67AE1A9F4AF7008F7C44 /* Main.storyboard */,
 				74CE08311AA4A52000DD9458 /* General */,
 				74CE08941AA4A52000DD9458 /* Macro */,
 				74CE089B1AA4A52000DD9458 /* Resources */,
@@ -1322,7 +1324,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				74CE09191AA4A52000DD9458 /* MBProgressHUD.bundle in Resources */,
-				74BE67B01A9F4AF7008F7C44 /* Main.storyboard in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
@@ -1375,6 +1376,7 @@
 				19A67A0F1AAB46F7006328DA /* ASIS3ObjectRequest.m in Sources */,
 				74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */,
 				74BE67A71A9F4AF7008F7C44 /* main.m in Sources */,
+				743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */,
 				74CE08FB1AA4A52000DD9458 /* UIButton+Base.m in Sources */,
 				74CE09051AA4A52000DD9458 /* BaseUIButton.m in Sources */,
 				74CE09011AA4A52000DD9458 /* UILabel+Base.m in Sources */,
@@ -1436,14 +1438,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		74BE67AE1A9F4AF7008F7C44 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				74BE67AF1A9F4AF7008F7C44 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		74BE67B31A9F4AF7008F7C44 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
