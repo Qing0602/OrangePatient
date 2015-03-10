@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h> 
-#import "DeviceCommand.h"
 
-@interface SearchBlueToothViewController : UIViewController<CBCentralManagerDelegate,CBPeripheralDelegate,DeviceCommandDelegate>
+@interface SearchBlueToothViewController : UIViewController<CBCentralManagerDelegate,CBPeripheralDelegate>
 @property (nonatomic,strong) CBCentralManager *central;
 @property (nonatomic,strong) CBPeripheral *peripheral;
 @end

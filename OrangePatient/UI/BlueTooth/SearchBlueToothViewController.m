@@ -12,6 +12,7 @@
 #define UUIDSTR_ISSC_PROPRIETARY_SERVICE        @"49535343-FE7D-4AE5-8FA9-9FAFD2O5E455"
 #define UUIDSTR_CONNECTION_PARAMETER_CHAR       @"49535343-6DAA-4DO2-ABF6-19569ACA69FE"
 #define UUIDSTR_AIR_PATCH_CHAR                  @"49535343-ACA3-481C-91EC-D85E28A6O318"
+// 写入的特性UUID
 #define UUIDSTR_ISSC_TRANS_TX                   @"49535343-8841-43F4-A8D4-ECBE34729BB3"
 // 读取特性的UUID
 #define UUIDSTR_ISSC_TRANS_RX                   @"49535343-1E4D-4BD9-BA61-23C647249616"
@@ -118,18 +119,6 @@
     
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     NSLog(@"%@",dic);
-}
-
--(void)getDeviceData:(NSDictionary *)dicDeviceData{
-    NSLog(@"%@",dicDeviceData);
-}
-
--(void)getOperateResult:(NSDictionary *)dicOperateResult{
-    NSLog(@"1");
-}
-
--(void)getError:(NSDictionary *)dicError{
-    NSLog(@"1");
 }
 
 @end

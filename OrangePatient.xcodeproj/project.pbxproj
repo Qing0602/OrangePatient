@@ -44,7 +44,6 @@
 		19A67A131AAB46F7006328DA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679FB1AAB46F7006328DA /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		19A67A1A1AAB47B8006328DA /* SearchBlueToothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */; };
 		19A67A1B1AAB47B8006328DA /* UIManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A67A191AAB47B8006328DA /* UIManagement.m */; };
-		19AB201A1AAC9111000CFD56 /* libDeviceCommand.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AB20191AAC9111000CFD56 /* libDeviceCommand.a */; };
 		19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19AEDE9A1AA4666A00AED60C /* EaseMob.bundle */; };
 		74BE67A71A9F4AF7008F7C44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A61A9F4AF7008F7C44 /* main.m */; };
 		74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */; };
@@ -182,8 +181,6 @@
 		19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBlueToothViewController.m; sourceTree = "<group>"; };
 		19A67A181AAB47B8006328DA /* UIManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIManagement.h; sourceTree = "<group>"; };
 		19A67A191AAB47B8006328DA /* UIManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIManagement.m; sourceTree = "<group>"; };
-		19AB20181AAC9111000CFD56 /* DeviceCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceCommand.h; sourceTree = "<group>"; };
-		19AB20191AAC9111000CFD56 /* libDeviceCommand.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDeviceCommand.a; sourceTree = "<group>"; };
 		19AEDE231AA4666A00AED60C /* ICallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICallManagerDelegate.h; sourceTree = "<group>"; };
 		19AEDE251AA4666A00AED60C /* EMCallManagerCallDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerCallDelegate.h; sourceTree = "<group>"; };
 		19AEDE261AA4666A00AED60C /* EMCallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerDelegate.h; sourceTree = "<group>"; };
@@ -390,7 +387,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19AB201A1AAC9111000CFD56 /* libDeviceCommand.a in Frameworks */,
 				1950174D1AAC2DAE00A7E7A1 /* AVFoundation.framework in Frameworks */,
 				1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */,
 				195017491AAC2D8B00A7E7A1 /* libz.1.2.5.dylib in Frameworks */,
@@ -561,8 +557,6 @@
 		19A67A151AAB47B8006328DA /* BlueTooth */ = {
 			isa = PBXGroup;
 			children = (
-				19AB20181AAC9111000CFD56 /* DeviceCommand.h */,
-				19AB20191AAC9111000CFD56 /* libDeviceCommand.a */,
 				19A67A161AAB47B8006328DA /* SearchBlueToothViewController.h */,
 				19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */,
 			);
