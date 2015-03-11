@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Orange. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "OrangeBaseViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : OrangeBaseViewController
 
 @end

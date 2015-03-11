@@ -1,25 +1,22 @@
 //
-//  LoginViewController.m
+//  RegisterViewController.m
 //  OrangePatient
 //
-//  Created by ZhangQing on 3/10/15.
+//  Created by ZhangQing on 3/11/15.
 //  Copyright (c) 2015 Orange. All rights reserved.
 //
 
-#import "LoginViewController.h"
 #import "RegisterViewController.h"
 
-@interface LoginViewController ()
+@interface RegisterViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation RegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"账号登陆";
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注册" style:UIBarButtonItemStyleDone target:self action:@selector(registerAccount)];
+
     // Do any additional setup after loading the view.
 }
 
@@ -28,11 +25,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)registerAccount
-{
-    RegisterViewController *registerVC = [[RegisterViewController alloc] init];
-    [self.navigationController pushViewController:registerVC animated:YES];
-}
 /*
 #pragma mark - Navigation
 

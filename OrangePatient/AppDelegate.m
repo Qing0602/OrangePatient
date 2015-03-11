@@ -25,7 +25,8 @@
     
     self.window.rootViewController = nav;
     
-    //[[UINavigationBar appearance] set]
+    [UINavigationBar appearance].tintColor = [UIColor orangeColor];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{[UIColor orangeColor]:NSForegroundColorAttributeName}];
     
     [self.window makeKeyAndVisible];
     return YES;

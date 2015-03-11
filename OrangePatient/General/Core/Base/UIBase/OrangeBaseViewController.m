@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ws. All rights reserved.
 //
 
-#import "PalmViewController.h"
+#import "OrangeBaseViewController.h"
 
-@interface PalmViewController ()<UINavigationControllerDelegate>
+@interface OrangeBaseViewController ()<UINavigationControllerDelegate>
 #pragma mark -
 #pragma mark private MBProgressHUD Methods
 -(void) showProgress;
@@ -21,7 +21,7 @@
 -(void) receiveValue;
 @end
 
-@implementation PalmViewController
+@implementation OrangeBaseViewController
 @synthesize screenTop = _screenTop;
 
 - (id)init{
