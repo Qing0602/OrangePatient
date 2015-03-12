@@ -17,12 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.title = REGISTER_PAGE_TITLE;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:REGISTER_PAGE_TEXT_LOGIN style:UIBarButtonItemStyleDone target:self action:@selector(backToLogin)];
+    
+    UITableView *registerTable = [[UITableView alloc] initWithFrame:CGRectMake(0.f, 0.f, SCREEN_WIDTH, 200.f) style:UITableViewStylePlain];
+    [self.view addSubview:registerTable];
+    
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - ViewControllerMethod
+- (void)backToLogin
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

@@ -13,4 +13,5 @@
 #import "VendorMacro.h"
 #import "HttpMacro.h"
 #import "BaseUtils.h"
+#import "TextMacro.h"
 #endif

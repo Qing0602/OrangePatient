@@ -17,9 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"账号登陆";
+    self.title = LOGIN_PAGE_TITLE;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注册" style:UIBarButtonItemStyleDone target:self action:@selector(registerAccount)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:LOGIN_PAGE_TEXT_REGISTER style:UIBarButtonItemStyleDone target:self action:@selector(registerAccount)];
     // Do any additional setup after loading the view.
 }
 

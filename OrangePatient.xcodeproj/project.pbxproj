@@ -299,6 +299,7 @@
 		74BE67BA1A9F4AF7008F7C44 /* OrangePatientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrangePatientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BE67BF1A9F4AF7008F7C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74BE67C01A9F4AF7008F7C44 /* OrangePatientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrangePatientTests.m; sourceTree = "<group>"; };
+		74C071D41AB16D12007EEADD /* TextMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextMacro.h; sourceTree = "<group>"; };
 		74CE08361AA4A52000DD9458 /* BaseFDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFDUtils.h; sourceTree = "<group>"; };
 		74CE08371AA4A52000DD9458 /* NSArray+Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Base.h"; sourceTree = "<group>"; };
 		74CE08381AA4A52000DD9458 /* NSArray+Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Base.m"; sourceTree = "<group>"; };
@@ -1155,6 +1156,7 @@
 				74CE08971AA4A52000DD9458 /* MacroHeader.h */,
 				74CE08981AA4A52000DD9458 /* NotificationMacro.h */,
 				74CE08991AA4A52000DD9458 /* VendorMacro.h */,
+				74C071D41AB16D12007EEADD /* TextMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
