@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h> 
+#import "BlueToothDateData.h"
+#import "BlueToothTimeData.h"
+#import "BlueToothData.h"
 
 @interface SearchBlueToothViewController : UIViewController<CBCentralManagerDelegate,CBPeripheralDelegate>
 @property (nonatomic,strong) CBCentralManager *central;

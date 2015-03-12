@@ -44,7 +44,10 @@
 		19A67A131AAB46F7006328DA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679FB1AAB46F7006328DA /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		19A67A1A1AAB47B8006328DA /* SearchBlueToothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */; };
 		19A67A1B1AAB47B8006328DA /* UIManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A67A191AAB47B8006328DA /* UIManagement.m */; };
+		19AC432E1AB150B1004948DF /* BlueToothTimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AC432D1AB150B1004948DF /* BlueToothTimeData.m */; };
+		19AC43311AB1550E004948DF /* BlueToothData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AC43301AB1550E004948DF /* BlueToothData.m */; };
 		19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19AEDE9A1AA4666A00AED60C /* EaseMob.bundle */; };
+		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
 		74BE67A71A9F4AF7008F7C44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A61A9F4AF7008F7C44 /* main.m */; };
 		74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */; };
 		74BE67AD1A9F4AF7008F7C44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67AC1A9F4AF7008F7C44 /* ViewController.m */; };
@@ -181,6 +184,10 @@
 		19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBlueToothViewController.m; sourceTree = "<group>"; };
 		19A67A181AAB47B8006328DA /* UIManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIManagement.h; sourceTree = "<group>"; };
 		19A67A191AAB47B8006328DA /* UIManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIManagement.m; sourceTree = "<group>"; };
+		19AC432C1AB150B1004948DF /* BlueToothTimeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothTimeData.h; sourceTree = "<group>"; };
+		19AC432D1AB150B1004948DF /* BlueToothTimeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothTimeData.m; sourceTree = "<group>"; };
+		19AC432F1AB1550E004948DF /* BlueToothData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothData.h; sourceTree = "<group>"; };
+		19AC43301AB1550E004948DF /* BlueToothData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothData.m; sourceTree = "<group>"; };
 		19AEDE231AA4666A00AED60C /* ICallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICallManagerDelegate.h; sourceTree = "<group>"; };
 		19AEDE251AA4666A00AED60C /* EMCallManagerCallDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerCallDelegate.h; sourceTree = "<group>"; };
 		19AEDE261AA4666A00AED60C /* EMCallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerDelegate.h; sourceTree = "<group>"; };
@@ -282,6 +289,8 @@
 		19AEDE961AA4666A00AED60C /* EMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMError.h; sourceTree = "<group>"; };
 		19AEDE971AA4666A00AED60C /* EMErrorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorDefs.h; sourceTree = "<group>"; };
 		19AEDE9A1AA4666A00AED60C /* EaseMob.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseMob.bundle; sourceTree = "<group>"; };
+		19F0B7EB1AB09B720079CBD9 /* BlueToothDateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDateData.h; sourceTree = "<group>"; };
+		19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDateData.m; sourceTree = "<group>"; };
 		74BE67A11A9F4AF7008F7C44 /* OrangePatient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangePatient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BE67A51A9F4AF7008F7C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74BE67A61A9F4AF7008F7C44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -559,6 +568,12 @@
 			children = (
 				19A67A161AAB47B8006328DA /* SearchBlueToothViewController.h */,
 				19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */,
+				19F0B7EB1AB09B720079CBD9 /* BlueToothDateData.h */,
+				19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */,
+				19AC432C1AB150B1004948DF /* BlueToothTimeData.h */,
+				19AC432D1AB150B1004948DF /* BlueToothTimeData.m */,
+				19AC432F1AB1550E004948DF /* BlueToothData.h */,
+				19AC43301AB1550E004948DF /* BlueToothData.m */,
 			);
 			path = BlueTooth;
 			sourceTree = "<group>";
@@ -1347,6 +1362,7 @@
 				74CE08F71AA4A52000DD9458 /* pinyin.c in Sources */,
 				19A67A0B1AAB46F7006328DA /* ASICloudFilesRequest.m in Sources */,
 				19A67A121AAB46F7006328DA /* JSONKit.m in Sources */,
+				19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */,
 				19A67A001AAB46F7006328DA /* ASIFormDataRequest.m in Sources */,
 				19A679BF1AAB46B4006328DA /* HTTPRequest.m in Sources */,
 				19A679BE1AAB46B4006328DA /* FormDataRequest.m in Sources */,
@@ -1364,7 +1380,9 @@
 				74CE08FE1AA4A52000DD9458 /* UIFont+Base.m in Sources */,
 				74CE09021AA4A52000DD9458 /* UIView+Base.m in Sources */,
 				74CE08F51AA4A52000DD9458 /* NSObject+Base.m in Sources */,
+				19AC43311AB1550E004948DF /* BlueToothData.m in Sources */,
 				19A67A031AAB46F7006328DA /* ASINetworkQueue.m in Sources */,
+				19AC432E1AB150B1004948DF /* BlueToothTimeData.m in Sources */,
 				74CE09001AA4A52000DD9458 /* UIImageView+Base.m in Sources */,
 				74CE09261AA4A52000DD9458 /* EGOImageButton.m in Sources */,
 				74CE08F61AA4A52000DD9458 /* NSString+Base.m in Sources */,
