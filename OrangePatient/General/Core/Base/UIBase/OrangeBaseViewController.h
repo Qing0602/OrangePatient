@@ -39,7 +39,7 @@ typedef enum{
     kCustomNavRightType1,
 }CustomNavigationBarRightButton;
 
-@interface PalmViewController : UIViewController<MBProgressHUDDelegate,PalmVCBaseProtocol>{
+@interface OrangeBaseViewController : UIViewController<MBProgressHUDDelegate,PalmVCBaseProtocol>{
     BOOL isAutoCloseProgress;
 }
 /*! @brief 获取当前设备的屏幕高度

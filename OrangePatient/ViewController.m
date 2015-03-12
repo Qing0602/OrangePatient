@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "LoginViewController.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor redColor];
+    
+    UIButton *login = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [login setFrame:CGRectMake(110.f, 100.f, 100.f, 40.f)];
+    [login setTitle:@"登陆" forState:UIControlStateNormal];
+    [login addTarget:self action:@selector(loginPage) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:login];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)loginPage
+{
+    LoginViewController *login = [[LoginViewController alloc] init];
+    [self.navigationController pushViewController:login animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
