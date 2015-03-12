@@ -20,6 +20,10 @@
 @interface SearchBlueToothViewController ()
 @property (nonatomic,strong) NSMutableData *mutableData;
 @property (nonatomic,strong) NSMutableArray *analyesData;
+
+-(void) getBlueToothData;
+-(void) removeBlueToothData;
+
 -(BOOL) getDateWithByte : (Byte *) bytes withIndex : (int) index;
 -(BOOL) getTimeWithByte : (Byte *) bytes withIndex : (int) index;
 -(BOOL) getDataWithByte : (Byte *) bytes withIndex : (int) index;
