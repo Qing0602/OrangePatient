@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "MyDeviceViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,12 +20,26 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    ViewController *viewcontroller = [[ViewController alloc] init];
+    UITabBarController *tb = [[UITabBarController alloc]init];
+    self.window.rootViewController=tb;
     
+    ViewController *viewcontroller = [[ViewController alloc] init];
+    viewcontroller.tabBarItem.title = @"登录";
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewcontroller];
     
-    self.window.rootViewController = nav;
     
+    
+    MyDeviceViewController *deviceVC = [[MyDeviceViewController alloc] init];
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:deviceVC];
+    deviceVC.tabBarItem.title = @"监测";
+    deviceVC.tabBarItem.image = [UIImage imageNamed:@"icon"];
+    [deviceVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    
+    tb.viewControllers = @[nav,nav1];
+    
+    self.window.rootViewController = tb;
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:@{[UIColor blackColor]:NSForegroundColorAttributeName} forState:UIControlStateNormal];
     [UINavigationBar appearance].tintColor = [UIColor orangeColor];
     [[UINavigationBar appearance] setTitleTextAttributes:@{[UIColor orangeColor]:NSForegroundColorAttributeName}];
     

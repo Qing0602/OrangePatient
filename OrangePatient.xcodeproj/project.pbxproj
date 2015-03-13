@@ -11,6 +11,7 @@
 		195017491AAC2D8B00A7E7A1 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 195017481AAC2D8B00A7E7A1 /* libz.1.2.5.dylib */; };
 		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
 		1950174D1AAC2DAE00A7E7A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */; };
+		197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197766071AB314D500B21037 /* MyDeviceViewController.m */; };
 		19A679BA1AAB46B4006328DA /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AB1AAB46B4006328DA /* HttpEngine.m */; };
 		19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */; };
 		19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B01AAB46B4006328DA /* UIModelCoding.m */; };
@@ -114,6 +115,8 @@
 		195017481AAC2D8B00A7E7A1 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		197766061AB314D500B21037 /* MyDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDeviceViewController.h; sourceTree = "<group>"; };
+		197766071AB314D500B21037 /* MyDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDeviceViewController.m; sourceTree = "<group>"; };
 		19A679AA1AAB46B4006328DA /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
 		19A679AB1AAB46B4006328DA /* HttpEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpEngine.m; sourceTree = "<group>"; };
 		19A679AD1AAB46B4006328DA /* AsiGetRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsiGetRequestModel.h; sourceTree = "<group>"; };
@@ -890,6 +893,8 @@
 			isa = PBXGroup;
 			children = (
 				19A67A151AAB47B8006328DA /* BlueTooth */,
+				197766061AB314D500B21037 /* MyDeviceViewController.h */,
+				197766071AB314D500B21037 /* MyDeviceViewController.m */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -1398,6 +1403,7 @@
 				74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */,
 				74CE08FB1AA4A52000DD9458 /* UIButton+Base.m in Sources */,
 				74CE09051AA4A52000DD9458 /* BaseUIButton.m in Sources */,
+				197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */,
 				74CE09011AA4A52000DD9458 /* UILabel+Base.m in Sources */,
 				19A67A0E1AAB46F7006328DA /* ASIS3BucketRequest.m in Sources */,
 				74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */,
