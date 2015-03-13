@@ -183,8 +183,8 @@
 		19A679FB1AAB46F7006328DA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		19A67A161AAB47B8006328DA /* SearchBlueToothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBlueToothViewController.h; sourceTree = "<group>"; };
 		19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBlueToothViewController.m; sourceTree = "<group>"; };
-		19A67A181AAB47B8006328DA /* UIManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIManagement.h; sourceTree = "<group>"; };
-		19A67A191AAB47B8006328DA /* UIManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIManagement.m; sourceTree = "<group>"; };
+		19A67A181AAB47B8006328DA /* UIManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIManagement.h; path = ../../UI/UIManagement.h; sourceTree = "<group>"; };
+		19A67A191AAB47B8006328DA /* UIManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIManagement.m; path = ../../UI/UIManagement.m; sourceTree = "<group>"; };
 		19AC432C1AB150B1004948DF /* BlueToothTimeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothTimeData.h; sourceTree = "<group>"; };
 		19AC432D1AB150B1004948DF /* BlueToothTimeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothTimeData.m; sourceTree = "<group>"; };
 		19AC432F1AB1550E004948DF /* BlueToothData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothData.h; sourceTree = "<group>"; };
@@ -558,16 +558,6 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		19A67A141AAB47B8006328DA /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				19A67A151AAB47B8006328DA /* BlueTooth */,
-				19A67A181AAB47B8006328DA /* UIManagement.h */,
-				19A67A191AAB47B8006328DA /* UIManagement.m */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		19A67A151AAB47B8006328DA /* BlueTooth */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,7 +570,8 @@
 				19AC432F1AB1550E004948DF /* BlueToothData.h */,
 				19AC43301AB1550E004948DF /* BlueToothData.m */,
 			);
-			path = BlueTooth;
+			name = BlueTooth;
+			path = ../../../UI/BlueTooth;
 			sourceTree = "<group>";
 		};
 		19AEDE1D1AA4666A00AED60C /* FrameWork */ = {
@@ -898,6 +889,7 @@
 		749C825C1AAD87020077388E /* Device */ = {
 			isa = PBXGroup;
 			children = (
+				19A67A151AAB47B8006328DA /* BlueTooth */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -955,7 +947,6 @@
 		74BE67A31A9F4AF7008F7C44 /* OrangePatient */ = {
 			isa = PBXGroup;
 			children = (
-				19A67A141AAB47B8006328DA /* UI */,
 				19A679A91AAB46B4006328DA /* HttpEngine */,
 				74BE67A81A9F4AF7008F7C44 /* AppDelegate.h */,
 				74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */,
@@ -1074,6 +1065,8 @@
 		74CE085C1AA4A52000DD9458 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				19A67A181AAB47B8006328DA /* UIManagement.h */,
+				19A67A191AAB47B8006328DA /* UIManagement.m */,
 				749C825E1AAD87020077388E /* Login */,
 				749C825D1AAD87020077388E /* Home */,
 				749C825C1AAD87020077388E /* Device */,
