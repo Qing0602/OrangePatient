@@ -12,6 +12,12 @@
 #import "BlueToothTimeData.h"
 #import "BlueToothData.h"
 
+typedef enum {
+    kGetData,
+    kRemoveData,
+    kNone,
+} Action;
+
 @interface SearchBlueToothViewController : UIViewController<CBCentralManagerDelegate,CBPeripheralDelegate>
 @property (nonatomic,strong) CBCentralManager *central;
 @property (nonatomic,strong) CBPeripheral *peripheral;

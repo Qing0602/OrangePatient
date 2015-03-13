@@ -20,9 +20,10 @@
 @interface SearchBlueToothViewController ()
 @property (nonatomic,strong) NSMutableData *mutableData;
 @property (nonatomic,strong) NSMutableArray *analyesData;
+@property (nonatomic) Action action;
 
--(void) getBlueToothData;
--(void) removeBlueToothData;
+-(void) getBlueToothData : (CBCharacteristic *) rx withTx : (CBCharacteristic*) tx;
+-(void) removeBlueToothData : (CBCharacteristic*) rx withTx : (CBCharacteristic*) tx;
 
 -(BOOL) getDateWithByte : (Byte *) bytes withIndex : (int) index;
 -(BOOL) getTimeWithByte : (Byte *) bytes withIndex : (int) index;
@@ -34,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mutableData = nil;
+    self.action = kNone;
     self.central = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
@@ -45,6 +47,7 @@
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central{
     switch (central.state) {
         case CBCentralManagerStatePoweredOn:
+            // 扫描设备
             [self.central scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
             break;
         case CBCentralManagerStatePoweredOff:
@@ -72,8 +75,12 @@
 // 发现设备
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
     if (peripheral) {
+        
+        self.action = kGetData;
+//        self.action = kRemoveData;
         self.peripheral = peripheral;
         self.peripheral.delegate = self;
+        // 连接设备
         [self.central connectPeripheral:peripheral options:@{CBConnectPeripheralOptionNotifyOnConnectionKey : @YES}];
     }
 }
@@ -109,24 +116,53 @@
             tx = c;
         }
     }
+    
+    if (self.action == kGetData) {
+        [self getBlueToothData:rx withTx:tx];
+    }else if (self.action == kRemoveData){
+        [self removeBlueToothData:rx withTx:tx];
+    }
+}
+
+// 获取完整数据
+-(void) getBlueToothData : (CBCharacteristic *) rx withTx : (CBCharacteristic*) tx{
     if (rx != nil && tx != nil) {
         Byte command[] = { 0x7D, 0x81, 0xA6, 0xFF, 0xFF };
         self.mutableData = [[NSMutableData alloc] init];
         self.analyesData = [[NSMutableArray alloc] init];
-        NSData *adata = [[NSData alloc] initWithBytes:command length:5];
+        NSData *data = [[NSData alloc] initWithBytes:command length:5];
         [self.peripheral setNotifyValue:YES forCharacteristic:rx];
-        [self.peripheral writeValue: adata forCharacteristic:tx type:CBCharacteristicWriteWithResponse];
+        [self.peripheral writeValue: data forCharacteristic:tx type:CBCharacteristicWriteWithResponse];
     }
 }
 
+// 删除蓝牙数据
+-(void) removeBlueToothData : (CBCharacteristic*) rx withTx : (CBCharacteristic*) tx{
+    if (tx != nil) {
+        Byte command[] = { 0x7D, 0x81, 0xAE, 0xFF, 0xFF };
+        NSData *data = [[NSData alloc] initWithBytes:command length:5];
+        [self.peripheral setNotifyValue:YES forCharacteristic:rx];
+        [self.peripheral writeValue: data forCharacteristic:tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+// 监听数据
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
     NSData *data = characteristic.value;
     [self.mutableData appendData:data];
     Byte *byteData = (Byte *)[self.mutableData bytes];
     
-    for(int i=0;i<[self.mutableData length];i++){
-        if ( byteData[i] == 0x18 ) {
-            [self analyes:self.mutableData];
+    if (self.action == kRemoveData) {
+        // 删除完成
+    }else{
+        if (data.length == 4 && byteData[0] == 0x18) {
+            // 无数据
+        }else{
+            for(int i=0;i<[self.mutableData length];i++){
+                if ( byteData[i] == 0x18 ) {
+                    [self analyes:self.mutableData];
+                }
+            }
         }
     }
 }
