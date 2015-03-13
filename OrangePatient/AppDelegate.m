@@ -21,17 +21,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     UITabBarController *tb = [[UITabBarController alloc]init];
-    self.window.rootViewController=tb;
+    //self.window.rootViewController=tb;
     
     ViewController *viewcontroller = [[ViewController alloc] init];
-    viewcontroller.tabBarItem.title = @"登录";
+    viewcontroller.title = @"登录";
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewcontroller];
     
     
     
     MyDeviceViewController *deviceVC = [[MyDeviceViewController alloc] init];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:deviceVC];
-    deviceVC.tabBarItem.title = @"监测";
+    deviceVC.title = @"监测";
     deviceVC.tabBarItem.image = [UIImage imageNamed:@"icon"];
     [deviceVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     
