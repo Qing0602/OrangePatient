@@ -11,6 +11,9 @@
 
 @interface LoginViewController ()
 
+@property (nonatomic, strong)UITextField *username;
+@property (nonatomic, strong)UITextField *pwd;
+
 @end
 
 @implementation LoginViewController
@@ -20,6 +23,13 @@
     self.title = LOGIN_PAGE_TITLE;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:LOGIN_PAGE_TEXT_REGISTER style:UIBarButtonItemStyleDone target:self action:@selector(registerAccount)];
+    
+    
+    UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-522/3)/2, 50.f, 522/3, 528/3)];
+    [logo setImage:[UIImage imageNamed:@"Login_Logo"]];
+    [self.view addSubview:logo];
+    
+    
     // Do any additional setup after loading the view.
 }
 
