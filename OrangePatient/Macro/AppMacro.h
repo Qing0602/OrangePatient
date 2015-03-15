@@ -17,7 +17,8 @@
 
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
-
-
+//Login
+#define Login_TextField_Widht 200.f
+#define Login_TextField_Height 40.f
 
 #endif

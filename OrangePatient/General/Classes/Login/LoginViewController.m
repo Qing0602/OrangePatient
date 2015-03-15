@@ -29,6 +29,8 @@
     [logo setImage:[UIImage imageNamed:@"Login_Logo"]];
     [self.view addSubview:logo];
     
+    _username = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-Login_TextField_Widht)/2, CGRectGetMaxY(logo.frame)+30.f, Login_TextField_Widht, Login_TextField_Height)];
+    
     
     // Do any additional setup after loading the view.
 }
