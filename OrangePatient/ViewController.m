@@ -36,6 +36,7 @@
 - (void)loginPage
 {
     LoginViewController *login = [[LoginViewController alloc] init];
+    login.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:login animated:YES];
 }
 

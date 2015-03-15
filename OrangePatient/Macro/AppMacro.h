@@ -17,8 +17,10 @@
 
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
+#define KeyBoardHeight 216.f
+
 //Login
-#define Login_TextField_Widht 200.f
-#define Login_TextField_Height 40.f
+#define Login_TextField_Widht 240.f
+#define Login_TextField_Height 30.f
 
 #endif

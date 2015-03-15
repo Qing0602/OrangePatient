@@ -10,4 +10,6 @@
 
 @interface TextFieldWithLeftIcon : UITextField
 
+- (instancetype)initWithFrame:(CGRect)frame andLeftIcon:(UIImageView *)imageview;
+
 @end
