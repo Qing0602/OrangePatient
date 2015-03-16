@@ -24,6 +24,6 @@
 #define Login_TextField_Height 30.f
 
 //Register
-#define Register_TableviewCell_Height 46.f
+#define Register_TableviewCell_Height 52.f
 
 #endif
