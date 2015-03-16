@@ -51,6 +51,8 @@
 		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
 		743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D3C8B1AAF2C550060AA90 /* LoginViewController.m */; };
 		7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449C53E1AB67336009AF4DD /* ChooseSexControl.m */; };
+		7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5411AB674A9009AF4DD /* btn_selected@2x.png */; };
+		7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
 		74BE67A71A9F4AF7008F7C44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A61A9F4AF7008F7C44 /* main.m */; };
 		74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */; };
@@ -304,6 +306,8 @@
 		743D3C8B1AAF2C550060AA90 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7449C53D1AB67336009AF4DD /* ChooseSexControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSexControl.h; sourceTree = "<group>"; };
 		7449C53E1AB67336009AF4DD /* ChooseSexControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSexControl.m; sourceTree = "<group>"; };
+		7449C5411AB674A9009AF4DD /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
+		7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_unselected@2x.png"; sourceTree = "<group>"; };
 		74837E8F1AB086F200B030D0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		74BE67A11A9F4AF7008F7C44 /* OrangePatient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangePatient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -901,6 +905,15 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		7449C5401AB674A9009AF4DD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7449C5411AB674A9009AF4DD /* btn_selected@2x.png */,
+				7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		749C825C1AAD87020077388E /* Device */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,6 +1216,7 @@
 		74CE089B1AA4A52000DD9458 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7449C5401AB674A9009AF4DD /* Common */,
 				74CCFFE81AB55C0800DDD42E /* Login */,
 			);
 			path = Resources;
@@ -1374,8 +1388,10 @@
 				74CE09191AA4A52000DD9458 /* MBProgressHUD.bundle in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */,
+				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
+				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				74CCFFED1AB55C7A00DDD42E /* Login_password_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
