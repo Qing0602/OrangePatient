@@ -23,4 +23,7 @@
 #define Login_TextField_Widht 240.f
 #define Login_TextField_Height 30.f
 
+//Register
+#define Register_TableviewCell_Height 46.f
+
 #endif

@@ -41,6 +41,7 @@
     
     [[UITabBarItem appearance] setTitleTextAttributes:@{[UIColor blackColor]:NSForegroundColorAttributeName} forState:UIControlStateNormal];
     [UINavigationBar appearance].tintColor = [UIColor orangeColor];
+    [UINavigationBar appearance].backgroundColor = [UIColor whiteColor];
     [[UINavigationBar appearance] setTitleTextAttributes:@{[UIColor orangeColor]:NSForegroundColorAttributeName}];
     
     [self.window makeKeyAndVisible];
