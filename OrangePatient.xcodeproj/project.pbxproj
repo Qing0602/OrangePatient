@@ -50,6 +50,9 @@
 		19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19AEDE9A1AA4666A00AED60C /* EaseMob.bundle */; };
 		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
 		743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D3C8B1AAF2C550060AA90 /* LoginViewController.m */; };
+		7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449C53E1AB67336009AF4DD /* ChooseSexControl.m */; };
+		7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5411AB674A9009AF4DD /* btn_selected@2x.png */; };
+		7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
 		74BE67A71A9F4AF7008F7C44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A61A9F4AF7008F7C44 /* main.m */; };
 		74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */; };
@@ -57,6 +60,10 @@
 		74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BE67B11A9F4AF7008F7C44 /* Images.xcassets */; };
 		74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BE67B31A9F4AF7008F7C44 /* LaunchScreen.xib */; };
 		74BE67C11A9F4AF7008F7C44 /* OrangePatientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67C01A9F4AF7008F7C44 /* OrangePatientTests.m */; };
+		74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CCFFE91AB55C7A00DDD42E /* Login_Logo@2x.png */; };
+		74CCFFED1AB55C7A00DDD42E /* Login_password_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CCFFEA1AB55C7A00DDD42E /* Login_password_icon@2x.png */; };
+		74CCFFEE1AB55C7A00DDD42E /* Login_userName_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74CCFFEB1AB55C7A00DDD42E /* Login_userName_icon@2x.png */; };
+		74CCFFF11AB5646A00DDD42E /* TextFieldWithLeftIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CCFFF01AB5646A00DDD42E /* TextFieldWithLeftIcon.m */; };
 		74CE08F21AA4A52000DD9458 /* NSArray+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08381AA4A52000DD9458 /* NSArray+Base.m */; };
 		74CE08F31AA4A52000DD9458 /* NSDate+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE083A1AA4A52000DD9458 /* NSDate+Base.m */; };
 		74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE083C1AA4A52000DD9458 /* NSDictionary+Base.m */; };
@@ -297,6 +304,10 @@
 		19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDateData.m; sourceTree = "<group>"; };
 		743D3C8A1AAF2C550060AA90 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		743D3C8B1AAF2C550060AA90 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7449C53D1AB67336009AF4DD /* ChooseSexControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSexControl.h; sourceTree = "<group>"; };
+		7449C53E1AB67336009AF4DD /* ChooseSexControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSexControl.m; sourceTree = "<group>"; };
+		7449C5411AB674A9009AF4DD /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
+		7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_unselected@2x.png"; sourceTree = "<group>"; };
 		74837E8F1AB086F200B030D0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		74BE67A11A9F4AF7008F7C44 /* OrangePatient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangePatient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +323,11 @@
 		74BE67BF1A9F4AF7008F7C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74BE67C01A9F4AF7008F7C44 /* OrangePatientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrangePatientTests.m; sourceTree = "<group>"; };
 		74C071D41AB16D12007EEADD /* TextMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextMacro.h; sourceTree = "<group>"; };
+		74CCFFE91AB55C7A00DDD42E /* Login_Logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login_Logo@2x.png"; sourceTree = "<group>"; };
+		74CCFFEA1AB55C7A00DDD42E /* Login_password_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login_password_icon@2x.png"; sourceTree = "<group>"; };
+		74CCFFEB1AB55C7A00DDD42E /* Login_userName_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login_userName_icon@2x.png"; sourceTree = "<group>"; };
+		74CCFFEF1AB5646A00DDD42E /* TextFieldWithLeftIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldWithLeftIcon.h; sourceTree = "<group>"; };
+		74CCFFF01AB5646A00DDD42E /* TextFieldWithLeftIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldWithLeftIcon.m; sourceTree = "<group>"; };
 		74CE08361AA4A52000DD9458 /* BaseFDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFDUtils.h; sourceTree = "<group>"; };
 		74CE08371AA4A52000DD9458 /* NSArray+Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Base.h"; sourceTree = "<group>"; };
 		74CE08381AA4A52000DD9458 /* NSArray+Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Base.m"; sourceTree = "<group>"; };
@@ -889,6 +905,15 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		7449C5401AB674A9009AF4DD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7449C5411AB674A9009AF4DD /* btn_selected@2x.png */,
+				7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		749C825C1AAD87020077388E /* Device */ = {
 			isa = PBXGroup;
 			children = (
@@ -994,6 +1019,16 @@
 				74BE67BF1A9F4AF7008F7C44 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74CCFFE81AB55C0800DDD42E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				74CCFFE91AB55C7A00DDD42E /* Login_Logo@2x.png */,
+				74CCFFEA1AB55C7A00DDD42E /* Login_password_icon@2x.png */,
+				74CCFFEB1AB55C7A00DDD42E /* Login_userName_icon@2x.png */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		74CE08311AA4A52000DD9458 /* General */ = {
@@ -1145,6 +1180,10 @@
 			isa = PBXGroup;
 			children = (
 				74CE088C1AA4A52000DD9458 /* MBProgress */,
+				74CCFFEF1AB5646A00DDD42E /* TextFieldWithLeftIcon.h */,
+				74CCFFF01AB5646A00DDD42E /* TextFieldWithLeftIcon.m */,
+				7449C53D1AB67336009AF4DD /* ChooseSexControl.h */,
+				7449C53E1AB67336009AF4DD /* ChooseSexControl.m */,
 			);
 			path = UIUtil;
 			sourceTree = "<group>";
@@ -1177,6 +1216,8 @@
 		74CE089B1AA4A52000DD9458 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7449C5401AB674A9009AF4DD /* Common */,
+				74CCFFE81AB55C0800DDD42E /* Login */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1343,10 +1384,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74CCFFEE1AB55C7A00DDD42E /* Login_userName_icon@2x.png in Resources */,
 				74CE09191AA4A52000DD9458 /* MBProgressHUD.bundle in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */,
+				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
+				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
+				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
+				74CCFFED1AB55C7A00DDD42E /* Login_password_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1375,6 +1421,7 @@
 				74CE093E1AA4A52000DD9458 /* RegexKitLite.m in Sources */,
 				74CE09081AA4A52000DD9458 /* BaseUIView.m in Sources */,
 				19A679C01AAB46B4006328DA /* Operation.m in Sources */,
+				74CCFFF11AB5646A00DDD42E /* TextFieldWithLeftIcon.m in Sources */,
 				74BE67AD1A9F4AF7008F7C44 /* ViewController.m in Sources */,
 				19A67A101AAB46F7006328DA /* ASIS3Request.m in Sources */,
 				19A67A091AAB46F7006328DA /* ASICloudFilesObject.m in Sources */,
@@ -1407,6 +1454,7 @@
 				74CE09011AA4A52000DD9458 /* UILabel+Base.m in Sources */,
 				19A67A0E1AAB46F7006328DA /* ASIS3BucketRequest.m in Sources */,
 				74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */,
+				7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */,
 				19A67A011AAB46F7006328DA /* ASIHTTPRequest.m in Sources */,
 				19A67A071AAB46F7006328DA /* ASICloudFilesContainerRequest.m in Sources */,
 				19A679FC1AAB46F7006328DA /* ASIAuthenticationDialog.m in Sources */,
