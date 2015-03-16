@@ -50,6 +50,7 @@
 		19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19AEDE9A1AA4666A00AED60C /* EaseMob.bundle */; };
 		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
 		743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D3C8B1AAF2C550060AA90 /* LoginViewController.m */; };
+		7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449C53E1AB67336009AF4DD /* ChooseSexControl.m */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
 		74BE67A71A9F4AF7008F7C44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A61A9F4AF7008F7C44 /* main.m */; };
 		74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */; };
@@ -301,6 +302,8 @@
 		19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDateData.m; sourceTree = "<group>"; };
 		743D3C8A1AAF2C550060AA90 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		743D3C8B1AAF2C550060AA90 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7449C53D1AB67336009AF4DD /* ChooseSexControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSexControl.h; sourceTree = "<group>"; };
+		7449C53E1AB67336009AF4DD /* ChooseSexControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSexControl.m; sourceTree = "<group>"; };
 		74837E8F1AB086F200B030D0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		74BE67A11A9F4AF7008F7C44 /* OrangePatient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangePatient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1166,6 +1169,8 @@
 				74CE088C1AA4A52000DD9458 /* MBProgress */,
 				74CCFFEF1AB5646A00DDD42E /* TextFieldWithLeftIcon.h */,
 				74CCFFF01AB5646A00DDD42E /* TextFieldWithLeftIcon.m */,
+				7449C53D1AB67336009AF4DD /* ChooseSexControl.h */,
+				7449C53E1AB67336009AF4DD /* ChooseSexControl.m */,
 			);
 			path = UIUtil;
 			sourceTree = "<group>";
@@ -1433,6 +1438,7 @@
 				74CE09011AA4A52000DD9458 /* UILabel+Base.m in Sources */,
 				19A67A0E1AAB46F7006328DA /* ASIS3BucketRequest.m in Sources */,
 				74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */,
+				7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */,
 				19A67A011AAB46F7006328DA /* ASIHTTPRequest.m in Sources */,
 				19A67A071AAB46F7006328DA /* ASICloudFilesContainerRequest.m in Sources */,
 				19A679FC1AAB46F7006328DA /* ASIAuthenticationDialog.m in Sources */,
