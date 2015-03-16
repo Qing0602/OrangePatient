@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrangeBaseViewController.h"
 
-@interface MyDeviceViewController : UIViewController
+
+@interface MyDeviceViewController : OrangeBaseViewController
 
 @end
