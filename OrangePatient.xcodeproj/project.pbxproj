@@ -12,6 +12,10 @@
 		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
 		1950174D1AAC2DAE00A7E7A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */; };
 		197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197766071AB314D500B21037 /* MyDeviceViewController.m */; };
+		198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE11AB6EF990017A90B /* default-568h@2x.png */; };
+		198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE21AB6EF990017A90B /* default-667h@2x.png */; };
+		198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE31AB6EF990017A90B /* Default-736h@3x.png */; };
+		198F3FE81AB6EF990017A90B /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE41AB6EF990017A90B /* default@2x.png */; };
 		19A679BA1AAB46B4006328DA /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AB1AAB46B4006328DA /* HttpEngine.m */; };
 		19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */; };
 		19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B01AAB46B4006328DA /* UIModelCoding.m */; };
@@ -124,6 +128,10 @@
 		1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		197766061AB314D500B21037 /* MyDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDeviceViewController.h; sourceTree = "<group>"; };
 		197766071AB314D500B21037 /* MyDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDeviceViewController.m; sourceTree = "<group>"; };
+		198F3FE11AB6EF990017A90B /* default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-568h@2x.png"; sourceTree = "<group>"; };
+		198F3FE21AB6EF990017A90B /* default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-667h@2x.png"; sourceTree = "<group>"; };
+		198F3FE31AB6EF990017A90B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		198F3FE41AB6EF990017A90B /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		19A679AA1AAB46B4006328DA /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
 		19A679AB1AAB46B4006328DA /* HttpEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpEngine.m; sourceTree = "<group>"; };
 		19A679AD1AAB46B4006328DA /* AsiGetRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsiGetRequestModel.h; sourceTree = "<group>"; };
@@ -442,6 +450,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		198F3FE01AB6EDC10017A90B /* LaunchImage */ = {
+			isa = PBXGroup;
+			children = (
+				198F3FE11AB6EF990017A90B /* default-568h@2x.png */,
+				198F3FE21AB6EF990017A90B /* default-667h@2x.png */,
+				198F3FE31AB6EF990017A90B /* Default-736h@3x.png */,
+				198F3FE41AB6EF990017A90B /* default@2x.png */,
+			);
+			path = LaunchImage;
+			sourceTree = "<group>";
+		};
 		19A679A91AAB46B4006328DA /* HttpEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1216,6 +1235,7 @@
 		74CE089B1AA4A52000DD9458 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				198F3FE01AB6EDC10017A90B /* LaunchImage */,
 				7449C5401AB674A9009AF4DD /* Common */,
 				74CCFFE81AB55C0800DDD42E /* Login */,
 			);
@@ -1389,10 +1409,14 @@
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */,
 				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
+				198F3FE81AB6EF990017A90B /* default@2x.png in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				74CCFFED1AB55C7A00DDD42E /* Login_password_icon@2x.png in Resources */,
+				198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */,
+				198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */,
+				198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
