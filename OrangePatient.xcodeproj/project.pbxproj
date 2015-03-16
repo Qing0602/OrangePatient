@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537A1AB754990079C424 /* SearchDevice@2x.png */; };
+		193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537B1AB754990079C424 /* SearchDevice@3x.png */; };
 		195017471AAC2D7900A7E7A1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 195017461AAC2D7900A7E7A1 /* libxml2.dylib */; };
 		195017491AAC2D8B00A7E7A1 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 195017481AAC2D8B00A7E7A1 /* libz.1.2.5.dylib */; };
 		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
@@ -16,8 +18,6 @@
 		198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE21AB6EF990017A90B /* default-667h@2x.png */; };
 		198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE31AB6EF990017A90B /* Default-736h@3x.png */; };
 		198F3FE81AB6EF990017A90B /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE41AB6EF990017A90B /* default@2x.png */; };
-		198F3FEE1AB6F46D0017A90B /* SearchDevice@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FEB1AB6F46D0017A90B /* SearchDevice@2x.jpg */; };
-		198F3FEF1AB6F46D0017A90B /* SearchDevice@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FEC1AB6F46D0017A90B /* SearchDevice@3x.jpg */; };
 		19A679BA1AAB46B4006328DA /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AB1AAB46B4006328DA /* HttpEngine.m */; };
 		19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */; };
 		19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B01AAB46B4006328DA /* UIModelCoding.m */; };
@@ -124,6 +124,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		193C537A1AB754990079C424 /* SearchDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDevice@2x.png"; sourceTree = "<group>"; };
+		193C537B1AB754990079C424 /* SearchDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDevice@3x.png"; sourceTree = "<group>"; };
 		195017461AAC2D7900A7E7A1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		195017481AAC2D8B00A7E7A1 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -134,8 +136,6 @@
 		198F3FE21AB6EF990017A90B /* default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-667h@2x.png"; sourceTree = "<group>"; };
 		198F3FE31AB6EF990017A90B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		198F3FE41AB6EF990017A90B /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
-		198F3FEB1AB6F46D0017A90B /* SearchDevice@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "SearchDevice@2x.jpg"; sourceTree = "<group>"; };
-		198F3FEC1AB6F46D0017A90B /* SearchDevice@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "SearchDevice@3x.jpg"; sourceTree = "<group>"; };
 		19A679AA1AAB46B4006328DA /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
 		19A679AB1AAB46B4006328DA /* HttpEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpEngine.m; sourceTree = "<group>"; };
 		19A679AD1AAB46B4006328DA /* AsiGetRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsiGetRequestModel.h; sourceTree = "<group>"; };
@@ -468,8 +468,8 @@
 		198F3FE91AB6F43A0017A90B /* Device */ = {
 			isa = PBXGroup;
 			children = (
-				198F3FEB1AB6F46D0017A90B /* SearchDevice@2x.jpg */,
-				198F3FEC1AB6F46D0017A90B /* SearchDevice@3x.jpg */,
+				193C537A1AB754990079C424 /* SearchDevice@2x.png */,
+				193C537B1AB754990079C424 /* SearchDevice@3x.png */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -1421,13 +1421,13 @@
 				74CCFFEE1AB55C7A00DDD42E /* Login_userName_icon@2x.png in Resources */,
 				74CE09191AA4A52000DD9458 /* MBProgressHUD.bundle in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
-				198F3FEF1AB6F46D0017A90B /* SearchDevice@3x.jpg in Resources */,
 				19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */,
+				193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */,
 				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
+				193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */,
 				198F3FE81AB6EF990017A90B /* default@2x.png in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
-				198F3FEE1AB6F46D0017A90B /* SearchDevice@2x.jpg in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				74CCFFED1AB55C7A00DDD42E /* Login_password_icon@2x.png in Resources */,
 				198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */,
