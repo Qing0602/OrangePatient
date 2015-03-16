@@ -16,5 +16,5 @@
 
 //*****注册页*****//
 #define REGISTER_PAGE_TEXT_LOGIN @"登陆"
-#define REGISTER_PAGE_TITLE @"注册"
+#define REGISTER_PAGE_TITLE @"账号注册"
 #endif

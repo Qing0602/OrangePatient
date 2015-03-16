@@ -21,7 +21,12 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:REGISTER_PAGE_TEXT_LOGIN style:UIBarButtonItemStyleDone target:self action:@selector(backToLogin)];
     
-    UITableView *registerTable = [[UITableView alloc] initWithFrame:CGRectMake(0.f, 0.f, SCREEN_WIDTH, 200.f) style:UITableViewStylePlain];
+    UITableView *registerTable = [[UITableView alloc] initWithFrame:CGRectMake(0.f, 0.f, SCREEN_WIDTH, Register_TableviewCell_Height*4+1) style:UITableViewStylePlain];
+    registerTable.delegate = self;
+    registerTable.dataSource = self;
+    registerTable.scrollEnabled = NO;
+    //registerTable.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+    registerTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:registerTable];
     
     // Do any additional setup after loading the view.
@@ -46,12 +51,42 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return Register_TableviewCell_Height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = nil;
+    static NSString *cellIden = @"registerTableViewCellIden";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIden];
+        cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+        cell.textLabel.font = [UIFont systemFontOfSize:14.f];
+        switch (indexPath.row) {
+            case 0:
+            {
+                cell.textLabel.text = @"姓名:";
+            }
+                break;
+            case 1:
+            {
+                cell.textLabel.text = @"出生日期:";
+            }
+                break;
+            case 2:
+            {
+                cell.textLabel.text = @"手机号码:";
+            }
+                break;
+            case 3:
+            {
+                cell.textLabel.text = @"验证码:";
+            }
+                break;
+            default:
+                break;
+        }
+    }
     
     
     return cell;
