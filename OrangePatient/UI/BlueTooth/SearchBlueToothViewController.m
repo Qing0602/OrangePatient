@@ -7,6 +7,7 @@
 //
 
 #import "SearchBlueToothViewController.h"
+#import "UIModelCoding.h"
 
 //服务的UUID
 #define UUIDSTR_ISSC_PROPRIETARY_SERVICE        @"49535343-FE7D-4AE5-8FA9-9FAFD2O5E455"
@@ -20,8 +21,10 @@
 @interface SearchBlueToothViewController ()
 @property (nonatomic,strong) NSMutableData *mutableData;
 @property (nonatomic,strong) NSMutableArray *analyesData;
+@property (nonatomic,strong) NSMutableArray *uuidArray;
 @property (nonatomic) Action action;
 
+-(void) addBlueToothCache : (NSUUID *) identifier;
 -(void) getBlueToothData : (CBCharacteristic *) rx withTx : (CBCharacteristic*) tx;
 -(void) removeBlueToothData : (CBCharacteristic*) rx withTx : (CBCharacteristic*) tx;
 
@@ -36,6 +39,10 @@
     [super viewDidLoad];
     self.mutableData = nil;
     self.action = kNone;
+    self.uuidArray = [UIModelCoding deserializeModel:@"coreToothCache.cac"];
+    if (self.uuidArray == nil) {
+        self.uuidArray = [[NSMutableArray alloc] init];
+    }
     self.central = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
@@ -79,9 +86,25 @@
         self.action = kGetData;
 //        self.action = kRemoveData;
         self.peripheral = peripheral;
+        [self addBlueToothCache:peripheral.identifier];
         self.peripheral.delegate = self;
         // 连接设备
         [self.central connectPeripheral:peripheral options:@{CBConnectPeripheralOptionNotifyOnConnectionKey : @YES}];
+    }
+}
+
+-(void) addBlueToothCache : (NSUUID *) identifier{
+    BOOL isHave = NO;
+    for (NSUUID * uuid in self.uuidArray) {
+        if ([uuid.UUIDString isEqualToString:identifier.UUIDString]) {
+            isHave = YES;
+        }
+    }
+    
+    if (!isHave) {
+        [self.uuidArray addObject:identifier];
+        BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
+        NSLog(@"%d",result);
     }
 }
 

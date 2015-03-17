@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "OrangeBaseViewController.h"
+#import <CoreBluetooth/CoreBluetooth.h>
 
-
-@interface MyDeviceViewController : OrangeBaseViewController
+@interface MyDeviceViewController : OrangeBaseViewController<CBCentralManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @end

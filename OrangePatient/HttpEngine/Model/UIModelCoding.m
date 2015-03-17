@@ -39,31 +39,26 @@
 
 
 +(BOOL) serializeModel : (id) data withFileName:(NSString *)fileName{
-
-//    int userID = [UIManagement sharedInstance].userAccount.UserID;
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths objectAtIndex:0];
-//    
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,userID]]]) {
-//        NSString *myDirectory = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:CachePath,userID]];
-//        NSError *error;
-//        [[NSFileManager defaultManager] createDirectoryAtPath:myDirectory withIntermediateDirectories:NO attributes:nil error:&error];
-//    }
-//    
-//    NSData *cacheData = [NSKeyedArchiver archivedDataWithRootObject:data];
-//    NSString *filePath = [NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,userID],fileName];
-//    return [cacheData writeToFile:filePath atomically:YES];
-    return YES;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@%@",documentsDirectory,[NSString stringWithFormat:CachePath]]]) {
+        NSString *myDirectory = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:CachePath]];
+        NSError *error;
+        [[NSFileManager defaultManager] createDirectoryAtPath:myDirectory withIntermediateDirectories:NO attributes:nil error:&error];
+    }
+    
+    NSData *cacheData = [NSKeyedArchiver archivedDataWithRootObject:data];
+    NSString *filePath = [NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath],fileName];
+    return [cacheData writeToFile:filePath atomically:YES];
 }
 
 +(id) deserializeModel : (NSString *)fileName{
-//    int userID = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserID"] integerValue];
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths objectAtIndex:0];
-//    NSData *cacheData = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,userID],fileName]];
-//	id data = [NSKeyedUnarchiver unarchiveObjectWithData:cacheData];
-//    return data;
-    return nil;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSData *cacheData = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath],fileName]];
+	id data = [NSKeyedUnarchiver unarchiveObjectWithData:cacheData];
+    return data;
 }
 
 +(id) deserializeModelForResource : (NSString *)filePath{

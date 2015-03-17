@@ -54,6 +54,9 @@
 		19AC432E1AB150B1004948DF /* BlueToothTimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AC432D1AB150B1004948DF /* BlueToothTimeData.m */; };
 		19AC43311AB1550E004948DF /* BlueToothData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AC43301AB1550E004948DF /* BlueToothData.m */; };
 		19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19AEDE9A1AA4666A00AED60C /* EaseMob.bundle */; };
+		19AF65B21AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AF65B11AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.m */; };
+		19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AF65B31AB845D7002D03E9 /* DeviceImage@2x.png */; };
+		19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */; };
 		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
 		743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D3C8B1AAF2C550060AA90 /* LoginViewController.m */; };
 		7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449C53E1AB67336009AF4DD /* ChooseSexControl.m */; };
@@ -312,6 +315,10 @@
 		19AEDE961AA4666A00AED60C /* EMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMError.h; sourceTree = "<group>"; };
 		19AEDE971AA4666A00AED60C /* EMErrorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorDefs.h; sourceTree = "<group>"; };
 		19AEDE9A1AA4666A00AED60C /* EaseMob.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseMob.bundle; sourceTree = "<group>"; };
+		19AF65B01AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionedDeviceTableViewCell.h; sourceTree = "<group>"; };
+		19AF65B11AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionedDeviceTableViewCell.m; sourceTree = "<group>"; };
+		19AF65B31AB845D7002D03E9 /* DeviceImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeviceImage@2x.png"; sourceTree = "<group>"; };
+		19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeviceImage@3x.png"; sourceTree = "<group>"; };
 		19F0B7EB1AB09B720079CBD9 /* BlueToothDateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDateData.h; sourceTree = "<group>"; };
 		19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDateData.m; sourceTree = "<group>"; };
 		743D3C8A1AAF2C550060AA90 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -468,6 +475,8 @@
 		198F3FE91AB6F43A0017A90B /* Device */ = {
 			isa = PBXGroup;
 			children = (
+				19AF65B31AB845D7002D03E9 /* DeviceImage@2x.png */,
+				19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */,
 				193C537A1AB754990079C424 /* SearchDevice@2x.png */,
 				193C537B1AB754990079C424 /* SearchDevice@3x.png */,
 			);
@@ -952,6 +961,8 @@
 				19A67A151AAB47B8006328DA /* BlueTooth */,
 				197766061AB314D500B21037 /* MyDeviceViewController.h */,
 				197766071AB314D500B21037 /* MyDeviceViewController.m */,
+				19AF65B01AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.h */,
+				19AF65B11AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.m */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -1420,12 +1431,14 @@
 			files = (
 				74CCFFEE1AB55C7A00DDD42E /* Login_userName_icon@2x.png in Resources */,
 				74CE09191AA4A52000DD9458 /* MBProgressHUD.bundle in Resources */,
+				19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */,
 				193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */,
 				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
 				193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */,
 				198F3FE81AB6EF990017A90B /* default@2x.png in Resources */,
+				19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
@@ -1522,6 +1535,7 @@
 				19A67A1B1AAB47B8006328DA /* UIManagement.m in Sources */,
 				74CE08FA1AA4A52000DD9458 /* UIApplication+Base.m in Sources */,
 				19A67A0A1AAB46F7006328DA /* ASICloudFilesObjectRequest.m in Sources */,
+				19AF65B21AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.m in Sources */,
 				19A67A051AAB46F7006328DA /* ASICloudFilesCDNRequest.m in Sources */,
 				19A67A061AAB46F7006328DA /* ASICloudFilesContainer.m in Sources */,
 				74CE09061AA4A52000DD9458 /* BaseUILabel.m in Sources */,
