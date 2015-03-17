@@ -14,9 +14,14 @@
 
 #import <QuartzCore/QuartzCore.h>
 @interface RegisterViewController ()<UITableViewDataSource,UITableViewDelegate>
-
+//选择性别
 @property (nonatomic, strong)ChooseSexControl *sexControl;
-
+//选择生日
+@property (nonatomic, strong)UIButton *chooseBirthdayDate;
+//获取验证码
+@property (nonatomic, strong)UIButton *getVeriCode;
+//验证码输入框
+@property (nonatomic, strong)UITextField *veriCodeInput;
 @end
 
 @implementation RegisterViewController
@@ -88,6 +93,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIden];
         cell.textLabel.font = [UIFont systemFontOfSize:16.f];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         switch (indexPath.row) {
             case 0:
             {
@@ -100,11 +106,24 @@
             case 1:
             {
                 cell.textLabel.text = @"出生日期:";
+                
+                self.chooseBirthdayDate = [UIButton buttonWithType:UIButtonTypeCustom];
+                [self.chooseBirthdayDate setTitle:@"选择时间 >" forState:UIControlStateNormal];
+                [self.chooseBirthdayDate setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+                [self.chooseBirthdayDate setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/10-100.f, (Register_TableviewCell_Height-30.f)/2, 100.f, 30.f)];
+                [cell.contentView addSubview:self.chooseBirthdayDate];
             }
                 break;
             case 2:
             {
                 cell.textLabel.text = @"手机号码:";
+                
+                self.getVeriCode = [UIButton buttonWithType:UIButtonTypeCustom];
+                [self.getVeriCode setTitle:@"获取验证码" forState:UIControlStateNormal];
+                self.getVeriCode.titleLabel.font = [UIFont systemFontOfSize:14.f];
+                self.getVeriCode.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
+                [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/10-100.f, (Register_TableviewCell_Height-30.f)/2, 100.f, 30.f)];
+                [cell.contentView addSubview:self.getVeriCode];
             }
                 break;
             case 3:
