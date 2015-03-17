@@ -60,6 +60,10 @@
 		7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5411AB674A9009AF4DD /* btn_selected@2x.png */; };
 		7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
+		749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AB1AB86A6B0003F58B /* HomeViewController.m */; };
+		749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AF1AB86F580003F58B /* CustomPageControl.m */; };
+		749A11B31AB86F6E0003F58B /* ADBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11B21AB86F6E0003F58B /* ADBannerModel.m */; };
+		749A11B61AB86F7F0003F58B /* ADBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11B51AB86F7F0003F58B /* ADBannerScrollView.m */; };
 		74BE67A71A9F4AF7008F7C44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A61A9F4AF7008F7C44 /* main.m */; };
 		74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */; };
 		74BE67AD1A9F4AF7008F7C44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67AC1A9F4AF7008F7C44 /* ViewController.m */; };
@@ -322,6 +326,14 @@
 		7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_unselected@2x.png"; sourceTree = "<group>"; };
 		74837E8F1AB086F200B030D0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		749A11AA1AB86A6B0003F58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		749A11AB1AB86A6B0003F58B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		749A11AE1AB86F580003F58B /* CustomPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPageControl.h; sourceTree = "<group>"; };
+		749A11AF1AB86F580003F58B /* CustomPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPageControl.m; sourceTree = "<group>"; };
+		749A11B11AB86F6E0003F58B /* ADBannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBannerModel.h; sourceTree = "<group>"; };
+		749A11B21AB86F6E0003F58B /* ADBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBannerModel.m; sourceTree = "<group>"; };
+		749A11B41AB86F7F0003F58B /* ADBannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBannerScrollView.h; sourceTree = "<group>"; };
+		749A11B51AB86F7F0003F58B /* ADBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBannerScrollView.m; sourceTree = "<group>"; };
 		74BE67A11A9F4AF7008F7C44 /* OrangePatient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangePatient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BE67A51A9F4AF7008F7C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74BE67A61A9F4AF7008F7C44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -946,6 +958,19 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		749A11AD1AB86EC00003F58B /* ADBannerScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				749A11AE1AB86F580003F58B /* CustomPageControl.h */,
+				749A11AF1AB86F580003F58B /* CustomPageControl.m */,
+				749A11B41AB86F7F0003F58B /* ADBannerScrollView.h */,
+				749A11B51AB86F7F0003F58B /* ADBannerScrollView.m */,
+				749A11B11AB86F6E0003F58B /* ADBannerModel.h */,
+				749A11B21AB86F6E0003F58B /* ADBannerModel.m */,
+			);
+			path = ADBannerScrollView;
+			sourceTree = "<group>";
+		};
 		749C825C1AAD87020077388E /* Device */ = {
 			isa = PBXGroup;
 			children = (
@@ -959,6 +984,8 @@
 		749C825D1AAD87020077388E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				749A11AA1AB86A6B0003F58B /* HomeViewController.h */,
+				749A11AB1AB86A6B0003F58B /* HomeViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1009,11 +1036,11 @@
 		74BE67A31A9F4AF7008F7C44 /* OrangePatient */ = {
 			isa = PBXGroup;
 			children = (
-				19A679A91AAB46B4006328DA /* HttpEngine */,
 				74BE67A81A9F4AF7008F7C44 /* AppDelegate.h */,
 				74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */,
 				74BE67AB1A9F4AF7008F7C44 /* ViewController.h */,
 				74BE67AC1A9F4AF7008F7C44 /* ViewController.m */,
+				19A679A91AAB46B4006328DA /* HttpEngine */,
 				74CE08311AA4A52000DD9458 /* General */,
 				74CE08941AA4A52000DD9458 /* Macro */,
 				74CE089B1AA4A52000DD9458 /* Resources */,
@@ -1216,6 +1243,7 @@
 				74CCFFF01AB5646A00DDD42E /* TextFieldWithLeftIcon.m */,
 				7449C53D1AB67336009AF4DD /* ChooseSexControl.h */,
 				7449C53E1AB67336009AF4DD /* ChooseSexControl.m */,
+				749A11AD1AB86EC00003F58B /* ADBannerScrollView */,
 			);
 			path = UIUtil;
 			sourceTree = "<group>";
@@ -1450,6 +1478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749A11B31AB86F6E0003F58B /* ADBannerModel.m in Sources */,
 				74CE09071AA4A52000DD9458 /* BaseUITabBarController.m in Sources */,
 				74CE08F71AA4A52000DD9458 /* pinyin.c in Sources */,
 				19A67A0B1AAB46F7006328DA /* ASICloudFilesRequest.m in Sources */,
@@ -1473,6 +1502,7 @@
 				74CE08FE1AA4A52000DD9458 /* UIFont+Base.m in Sources */,
 				74CE09021AA4A52000DD9458 /* UIView+Base.m in Sources */,
 				74CE08F51AA4A52000DD9458 /* NSObject+Base.m in Sources */,
+				749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */,
 				19AC43311AB1550E004948DF /* BlueToothData.m in Sources */,
 				19A67A031AAB46F7006328DA /* ASINetworkQueue.m in Sources */,
 				19AC432E1AB150B1004948DF /* BlueToothTimeData.m in Sources */,
@@ -1502,6 +1532,7 @@
 				19A679BA1AAB46B4006328DA /* HttpEngine.m in Sources */,
 				74CE08FD1AA4A52000DD9458 /* UIControl+Base.m in Sources */,
 				19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */,
+				749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */,
 				19A67A041AAB46F7006328DA /* ASIWebPageRequest.m in Sources */,
 				19A67A081AAB46F7006328DA /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */,
@@ -1522,6 +1553,7 @@
 				19A67A1B1AAB47B8006328DA /* UIManagement.m in Sources */,
 				74CE08FA1AA4A52000DD9458 /* UIApplication+Base.m in Sources */,
 				19A67A0A1AAB46F7006328DA /* ASICloudFilesObjectRequest.m in Sources */,
+				749A11B61AB86F7F0003F58B /* ADBannerScrollView.m in Sources */,
 				19A67A051AAB46F7006328DA /* ASICloudFilesCDNRequest.m in Sources */,
 				19A67A061AAB46F7006328DA /* ASICloudFilesContainer.m in Sources */,
 				74CE09061AA4A52000DD9458 /* BaseUILabel.m in Sources */,
