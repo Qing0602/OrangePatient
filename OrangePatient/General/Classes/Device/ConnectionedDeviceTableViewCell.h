@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @interface ConnectionedDeviceTableViewCell : UITableViewCell
 @property (nonatomic,strong) UIImageView *deviceImage;
 @property (nonatomic,strong) UILabel *deviceName;
 @property (nonatomic,strong) UILabel *deviceDescription;
 @property (nonatomic,strong) UIButton *deleteButton;
--(void) setModel : (id) model;
+@property (nonatomic,strong) CBPeripheral *peripheral;
+-(void) setModel : (CBPeripheral *) model;
 @end

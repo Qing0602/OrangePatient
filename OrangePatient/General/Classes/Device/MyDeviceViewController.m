@@ -12,8 +12,10 @@
 
 @interface MyDeviceViewController ()
 @property (nonatomic,strong) NSMutableArray *uuidArray;
+@property (nonatomic,strong) NSArray *peripheralArray;
 @property (nonatomic,strong) UITableView *deviceTable;
 @property (nonatomic,strong) CBCentralManager *central;
+-(void) searchDevice;
 @end
 
 @implementation MyDeviceViewController
@@ -22,7 +24,7 @@
     [super viewDidLoad];
     
     self.uuidArray = [UIModelCoding deserializeModel:@"coreToothCache.cac"];
-    if (self.uuidArray == nil) {
+    if (self.uuidArray != nil) {
         self.uuidArray = [[NSMutableArray alloc] init];
     }
     
@@ -31,10 +33,11 @@
         [searchButton setImage:[UIImage imageNamed:@"SearchDevice"] forState:UIControlStateNormal];
         [searchButton setImage:[UIImage imageNamed:@"SearchDevice"] forState:UIControlStateHighlighted];
         searchButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [searchButton addTarget:self action:@selector(searchDevice) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:searchButton];
         
         NSDictionary *views = NSDictionaryOfVariableBindings(searchButton);
-        NSDictionary *metrics = @{@"imageEdge":@150.0};
+        NSDictionary *metrics = @{@"imageEdge":@252.0};
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[searchButton(imageEdge)]" options:0 metrics:metrics views:views]];
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[searchButton(imageEdge)]" options:0 metrics:metrics views:views]];
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:searchButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
@@ -55,7 +58,8 @@
 -(void) viewDidAppear:(BOOL)animated{
     if ([self.uuidArray count] != 0) {
         self.central = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
-        NSArray *array = [self.central retrievePeripheralsWithIdentifiers:self.uuidArray];
+        self.peripheralArray = [self.central retrievePeripheralsWithIdentifiers:self.uuidArray];
+        [self.deviceTable reloadData];
     }
 }
 
@@ -87,18 +91,26 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return [self.peripheralArray count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 90.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *connectionedCell = @"connectionedCell";
-    ConnectionedDeviceTableViewCell *cell;
-    if ([self.deviceTable dequeueReusableCellWithIdentifier:connectionedCell] != nil) {
-        cell = (ConnectionedDeviceTableViewCell *)[self.deviceTable dequeueReusableCellWithIdentifier:connectionedCell];
-    }else{
+    static NSString *connectionedCell = @"connectionedCellIdentifier";
+    ConnectionedDeviceTableViewCell *cell = [self.deviceTable dequeueReusableCellWithIdentifier:connectionedCell];
+    if (cell == nil) {
         cell = [[ConnectionedDeviceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:connectionedCell];
     }
+    [cell setModel:[self.peripheralArray objectAtIndex:indexPath.row]];
     return cell;
+}
+
+-(void) searchDevice{
+    SearchBlueToothViewController *search = [[SearchBlueToothViewController alloc] init];
+    [self.navigationController pushViewController:search animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

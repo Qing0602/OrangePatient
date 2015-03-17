@@ -8,6 +8,7 @@
 
 #import "SearchBlueToothViewController.h"
 #import "UIModelCoding.h"
+#import "UIColor+Base.h"
 
 //服务的UUID
 #define UUIDSTR_ISSC_PROPRIETARY_SERVICE        @"49535343-FE7D-4AE5-8FA9-9FAFD2O5E455"
@@ -43,7 +44,46 @@
     if (self.uuidArray == nil) {
         self.uuidArray = [[NSMutableArray alloc] init];
     }
-    self.central = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    
+    self.deviceCount = [[UILabel alloc] init];
+    self.deviceCount.translatesAutoresizingMaskIntoConstraints = NO;
+    self.deviceCount.backgroundColor = [UIColor colorWithHexString:@"#eb6100"];
+    self.deviceCount.textColor = [UIColor whiteColor];
+    self.deviceCount.textAlignment = UITextAlignmentCenter;
+    self.deviceCount.font = [UIFont boldSystemFontOfSize:15.0f];
+    [self.view addSubview:self.deviceCount];
+    
+    self.deviceTableView = [[UITableView alloc] init];
+    self.deviceTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.deviceTableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.deviceTableView.delegate = self;
+    self.deviceTableView.dataSource = self;
+    [self.view addSubview:self.deviceTableView];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(_deviceCount,_deviceTableView);
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_deviceCount]-0-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_deviceTableView]-0-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_deviceCount(46)]-[_deviceTableView]-0-|" options:0 metrics:nil views:views]];
+    
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 90.0f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    static NSString *connectionedCell = @"connectionedCellIdentifier";
+//    ConnectionedDeviceTableViewCell *cell = [self.deviceTable dequeueReusableCellWithIdentifier:connectionedCell];
+//    if (cell == nil) {
+//        cell = [[ConnectionedDeviceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:connectionedCell];
+//    }
+//    [cell setModel:[self.peripheralArray objectAtIndex:indexPath.row]];
+    return nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +118,10 @@
     }
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.central = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+}
 
 // 发现设备
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{

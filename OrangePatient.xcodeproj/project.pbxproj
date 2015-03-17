@@ -57,6 +57,7 @@
 		19AF65B21AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AF65B11AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.m */; };
 		19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AF65B31AB845D7002D03E9 /* DeviceImage@2x.png */; };
 		19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */; };
+		19AF65B91AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */; };
 		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
 		743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D3C8B1AAF2C550060AA90 /* LoginViewController.m */; };
 		7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449C53E1AB67336009AF4DD /* ChooseSexControl.m */; };
@@ -323,6 +324,8 @@
 		19AF65B11AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionedDeviceTableViewCell.m; sourceTree = "<group>"; };
 		19AF65B31AB845D7002D03E9 /* DeviceImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeviceImage@2x.png"; sourceTree = "<group>"; };
 		19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeviceImage@3x.png"; sourceTree = "<group>"; };
+		19AF65B71AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryDeviceTableViewCell.h; sourceTree = "<group>"; };
+		19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryDeviceTableViewCell.m; sourceTree = "<group>"; };
 		19F0B7EB1AB09B720079CBD9 /* BlueToothDateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDateData.h; sourceTree = "<group>"; };
 		19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDateData.m; sourceTree = "<group>"; };
 		743D3C8A1AAF2C550060AA90 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -641,6 +644,8 @@
 				19AC432D1AB150B1004948DF /* BlueToothTimeData.m */,
 				19AC432F1AB1550E004948DF /* BlueToothData.h */,
 				19AC43301AB1550E004948DF /* BlueToothData.m */,
+				19AF65B71AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.h */,
+				19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */,
 			);
 			name = BlueTooth;
 			path = ../../../UI/BlueTooth;
@@ -1548,6 +1553,7 @@
 				749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */,
 				19A67A041AAB46F7006328DA /* ASIWebPageRequest.m in Sources */,
 				19A67A081AAB46F7006328DA /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
+				19AF65B91AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m in Sources */,
 				19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */,
 				19A67A0D1AAB46F7006328DA /* ASIS3BucketObject.m in Sources */,
 				74CE090A1AA4A52000DD9458 /* OrangeBaseViewController.m in Sources */,

@@ -1,14 +1,14 @@
 //
-//  ConnectionedDeviceTableViewCell.m
+//  DiscoveryDeviceTableViewCell.m
 //  OrangePatient
 //
-//  Created by singlew on 15/3/17.
+//  Created by singlew on 15/3/18.
 //  Copyright (c) 2015年 Orange. All rights reserved.
 //
 
-#import "ConnectionedDeviceTableViewCell.h"
+#import "DiscoveryDeviceTableViewCell.h"
 
-@implementation ConnectionedDeviceTableViewCell
+@implementation DiscoveryDeviceTableViewCell
 
 -(id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -31,43 +31,37 @@
         self.deviceDescription.numberOfLines = 1;
         [self addSubview:self.deviceDescription];
         
-        self.deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.deleteButton setTitle:@"解除绑定" forState:UIControlStateNormal];
-        [self.deleteButton setTitle:@"解除绑定" forState:UIControlStateHighlighted];
-        self.deleteButton.titleLabel.textColor = [UIColor blackColor];
-        [self.deleteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.deleteButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-        [self addSubview:self.deleteButton];
+        self.addDevice = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.addDevice setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [self.addDevice setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
+        self.addDevice.titleLabel.textColor = [UIColor blackColor];
+        [self.addDevice setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.addDevice setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [self addSubview:self.addDevice];
     }
     return self;
 }
 
 -(void) layoutSubviews{
     [super layoutSubviews];
-    NSDictionary *views = NSDictionaryOfVariableBindings(_deviceImage,_deviceName,_deviceDescription,_deleteButton);
+    NSDictionary *views = NSDictionaryOfVariableBindings(_deviceImage,_deviceName,_deviceDescription,_addDevice);
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_deviceImage(87)]-10-[_deviceName(120)]" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_deviceImage(90)]" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_deviceDescription(120)]" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_deviceName]-15-[_deviceDescription]" options:NSLayoutFormatAlignAllLeft metrics:0 views:views]];
     
-    self.deleteButton.frame = CGRectMake(SCREEN_WIDTH - 80.0f - 10.0f, 20.0f, 80.0f, 40.0f);
+    self.addDevice.frame = CGRectMake(SCREEN_WIDTH - 80.0f - 10.0f, 20.0f, 80.0f, 40.0f);
     
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_deleteButton(40)]-10-|" options:0 metrics:nil views:views]];
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_deleteButton(40)]-10-|" options:0 metrics:nil views:views]];
+    //    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_deleteButton(40)]-10-|" options:0 metrics:nil views:views]];
+    //    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_deleteButton(40)]-10-|" options:0 metrics:nil views:views]];
     //        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.deleteButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
     //        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.deleteButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
 }
 
--(void) setModel:(CBPeripheral *)model{
-    if (model != nil) {
-        self.deviceName.text = @"动态血氧仪";
-        self.deviceDescription.text = model.name;
-        self.peripheral = model;
-    }
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
 
 @end

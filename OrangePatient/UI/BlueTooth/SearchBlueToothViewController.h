@@ -11,6 +11,7 @@
 #import "BlueToothDateData.h"
 #import "BlueToothTimeData.h"
 #import "BlueToothData.h"
+#import "DiscoveryDeviceTableViewCell.h"
 
 typedef enum {
     kGetData,
@@ -18,7 +19,10 @@ typedef enum {
     kNone,
 } Action;
 
-@interface SearchBlueToothViewController : UIViewController<CBCentralManagerDelegate,CBPeripheralDelegate>
+@interface SearchBlueToothViewController : UIViewController<CBCentralManagerDelegate,CBPeripheralDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) CBCentralManager *central;
 @property (nonatomic,strong) CBPeripheral *peripheral;
+
+@property (nonatomic,strong) UILabel *deviceCount;
+@property (nonatomic,strong) UITableView *deviceTableView;
 @end
