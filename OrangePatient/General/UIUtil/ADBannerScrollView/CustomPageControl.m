@@ -46,8 +46,8 @@
             //刷新
             [self setNeedsDisplay];
             //pagecontrol点击事件
-            if ([self._delegate respondsToSelector:@selector(itemTapped:)]) {
-                [self._delegate itemTapped:_currentPage];
+            if ([self.controlDelegate respondsToSelector:@selector(pageControlItemTapped:)]) {
+                [self.controlDelegate pageControlItemTapped:_currentPage];
             }
         }];
        
@@ -70,12 +70,12 @@
     for (int i = 0; i < _numberOfPages ; i++) {
 //        UIButton *btn = (UIButton *)[self viewWithTag:i+1];
         if (i == _currentPage) {
-            //controlBtn[i].backgroundColor = [UIColor whiteColor];
-            [controlBtn[i] setImage:[UIImage imageNamed:@"icon_im_point_whtie@2x.png"] forState:UIControlStateNormal];
+            controlBtn[i].backgroundColor = [UIColor whiteColor];
+            //[controlBtn[i] setImage:[UIImage imageNamed:@"icon_im_point_whtie@2x.png"] forState:UIControlStateNormal];
         }else
         {
-            [controlBtn[i] setImage:[UIImage imageNamed:@"icon_im_point_gray@2x.png"] forState:UIControlStateNormal];
-            //controlBtn[i].backgroundColor = [UIColor grayColor];
+            //[controlBtn[i] setImage:[UIImage imageNamed:@"icon_im_point_gray@2x.png"] forState:UIControlStateNormal];
+            controlBtn[i].backgroundColor = [UIColor grayColor];
         }
     }
 }

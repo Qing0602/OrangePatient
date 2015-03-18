@@ -10,4 +10,8 @@
 
 @interface ADBannerModel : NSObject
 
+@property (nonatomic, strong)NSURL *imageUrl;
+@property (nonatomic, strong)NSString *title;
+@property (nonatomic, strong)NSString *link;
+
 @end

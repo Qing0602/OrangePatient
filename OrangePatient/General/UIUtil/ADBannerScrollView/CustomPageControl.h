@@ -1,6 +1,5 @@
 //
 //  CustomPageControl.h
-//  WeyorApp
 //
 //  Created by ZhangQing on 13-3-27.
 //  Copyright (c) 2013年 ZhangQing. All rights reserved.
@@ -11,7 +10,7 @@
 @protocol CustomPageControlDelegate <NSObject>
 
 @required
--(void)itemTapped:(NSInteger)indexNumber;
+-(void)pageControlItemTapped:(NSInteger)indexNumber;
 
 @end
 
@@ -21,7 +20,7 @@
     NSInteger _currentPage;
     UIButton *controlBtn[5];
 }
-@property (nonatomic , assign) id<CustomPageControlDelegate> _delegate;
+@property (nonatomic , assign) id<CustomPageControlDelegate> controlDelegate;
 
 -(void)setNumberOfPages : (NSInteger) number;
 
