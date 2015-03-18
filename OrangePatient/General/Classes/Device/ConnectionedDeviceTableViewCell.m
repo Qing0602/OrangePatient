@@ -45,17 +45,12 @@
 -(void) layoutSubviews{
     [super layoutSubviews];
     NSDictionary *views = NSDictionaryOfVariableBindings(_deviceImage,_deviceName,_deviceDescription,_deleteButton);
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_deviceImage(87)]-10-[_deviceName(120)]" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_deviceImage(90)]" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_deviceImage(81)]-10-[_deviceName(120)]" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_deviceImage(80)]" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_deviceDescription(120)]" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_deviceName]-15-[_deviceDescription]" options:NSLayoutFormatAlignAllLeft metrics:0 views:views]];
     
     self.deleteButton.frame = CGRectMake(SCREEN_WIDTH - 80.0f - 10.0f, 20.0f, 80.0f, 40.0f);
-    
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_deleteButton(40)]-10-|" options:0 metrics:nil views:views]];
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_deleteButton(40)]-10-|" options:0 metrics:nil views:views]];
-    //        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.deleteButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
-    //        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.deleteButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
 }
 
 -(void) setModel:(CBPeripheral *)model{

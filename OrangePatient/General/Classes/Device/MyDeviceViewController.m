@@ -24,9 +24,20 @@
     [super viewDidLoad];
     
     self.uuidArray = [UIModelCoding deserializeModel:@"coreToothCache.cac"];
-    if (self.uuidArray != nil) {
+    if (self.uuidArray == nil) {
         self.uuidArray = [[NSMutableArray alloc] init];
     }
+    self.title = @"数据采集";
+    UIButton *rightButtonT=[UIButton buttonWithType:UIButtonTypeCustom];
+    rightButtonT.frame=CGRectMake(0.0f, 0.0f, 44.0f, 44.0f);
+    [rightButtonT setImage:[UIImage imageNamed:@"NavSearchDevice"] forState:UIControlStateNormal];
+    [rightButtonT setImage:[UIImage imageNamed:@"NavSearchDevice"] forState:UIControlStateHighlighted];
+    rightButtonT.backgroundColor = [UIColor clearColor];
+    [rightButtonT addTarget:self action:@selector(searchDevice) forControlEvents:UIControlEventTouchUpInside];
+    UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 44.0f, 44.0f)];
+    [rightView addSubview:rightButtonT];
+    UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithCustomView:rightView];
+    self.navigationItem.rightBarButtonItem = rightBar;
     
     if ([self.uuidArray count] == 0) {
         UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -37,7 +48,7 @@
         [self.view addSubview:searchButton];
         
         NSDictionary *views = NSDictionaryOfVariableBindings(searchButton);
-        NSDictionary *metrics = @{@"imageEdge":@252.0};
+        NSDictionary *metrics = @{@"imageEdge":@228.0};
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[searchButton(imageEdge)]" options:0 metrics:metrics views:views]];
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[searchButton(imageEdge)]" options:0 metrics:metrics views:views]];
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:searchButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
@@ -95,7 +106,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 90.0f;
+    return 80.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

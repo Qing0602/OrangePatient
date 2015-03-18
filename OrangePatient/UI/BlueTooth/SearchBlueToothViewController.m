@@ -47,6 +47,8 @@
     }
     self.peripheralArray = [[NSMutableArray alloc] init];
     
+    self.title = @"索搜设备";
+    
     self.deviceCount = [[UILabel alloc] init];
     self.deviceCount.translatesAutoresizingMaskIntoConstraints = NO;
     self.deviceCount.backgroundColor = [UIColor colorWithHexString:@"#eb6100"];
@@ -76,7 +78,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 207.0f;
+    return 138.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -136,6 +138,8 @@
             [self.peripheralArray addObject:peripheral];
             [self.deviceTableView reloadData];
         }
+        
+        self.deviceCount.text = [NSString stringWithFormat:@"索搜到%lu个新设备",(unsigned long)[self.peripheralArray count]];
         
         [self addBlueToothCache:peripheral.identifier];
         // 连接设备

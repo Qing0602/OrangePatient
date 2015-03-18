@@ -14,8 +14,10 @@
 		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
 		1950174D1AAC2DAE00A7E7A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */; };
 		197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197766071AB314D500B21037 /* MyDeviceViewController.m */; };
-		197F62EA1AB90F0A0054E72D /* SearchDeviceCellBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62E81AB90F0A0054E72D /* SearchDeviceCellBg@2x.png */; };
-		197F62EB1AB90F0A0054E72D /* SearchDeviceCellBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62E91AB90F0A0054E72D /* SearchDeviceCellBg@3x.png */; };
+		197F62EE1ABA188D0054E72D /* AddDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62EC1ABA188D0054E72D /* AddDevice@2x.png */; };
+		197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62ED1ABA188D0054E72D /* AddDevice@3x.png */; };
+		197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62F01ABA2AEF0054E72D /* NavSearchDevice@2x.png */; };
+		197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62F11ABA2AEF0054E72D /* NavSearchDevice@3x.png */; };
 		198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE11AB6EF990017A90B /* default-568h@2x.png */; };
 		198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE21AB6EF990017A90B /* default-667h@2x.png */; };
 		198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE31AB6EF990017A90B /* Default-736h@3x.png */; };
@@ -142,8 +144,10 @@
 		1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		197766061AB314D500B21037 /* MyDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDeviceViewController.h; sourceTree = "<group>"; };
 		197766071AB314D500B21037 /* MyDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDeviceViewController.m; sourceTree = "<group>"; };
-		197F62E81AB90F0A0054E72D /* SearchDeviceCellBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDeviceCellBg@2x.png"; sourceTree = "<group>"; };
-		197F62E91AB90F0A0054E72D /* SearchDeviceCellBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDeviceCellBg@3x.png"; sourceTree = "<group>"; };
+		197F62EC1ABA188D0054E72D /* AddDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddDevice@2x.png"; sourceTree = "<group>"; };
+		197F62ED1ABA188D0054E72D /* AddDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddDevice@3x.png"; sourceTree = "<group>"; };
+		197F62F01ABA2AEF0054E72D /* NavSearchDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavSearchDevice@2x.png"; sourceTree = "<group>"; };
+		197F62F11ABA2AEF0054E72D /* NavSearchDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavSearchDevice@3x.png"; sourceTree = "<group>"; };
 		198F3FE11AB6EF990017A90B /* default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-568h@2x.png"; sourceTree = "<group>"; };
 		198F3FE21AB6EF990017A90B /* default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-667h@2x.png"; sourceTree = "<group>"; };
 		198F3FE31AB6EF990017A90B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
@@ -494,8 +498,10 @@
 		198F3FE91AB6F43A0017A90B /* Device */ = {
 			isa = PBXGroup;
 			children = (
-				197F62E81AB90F0A0054E72D /* SearchDeviceCellBg@2x.png */,
-				197F62E91AB90F0A0054E72D /* SearchDeviceCellBg@3x.png */,
+				197F62F01ABA2AEF0054E72D /* NavSearchDevice@2x.png */,
+				197F62F11ABA2AEF0054E72D /* NavSearchDevice@3x.png */,
+				197F62EC1ABA188D0054E72D /* AddDevice@2x.png */,
+				197F62ED1ABA188D0054E72D /* AddDevice@3x.png */,
 				19AF65B31AB845D7002D03E9 /* DeviceImage@2x.png */,
 				19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */,
 				193C537A1AB754990079C424 /* SearchDevice@2x.png */,
@@ -1474,18 +1480,20 @@
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				19AEDE9B1AA4666A00AED60C /* EaseMob.bundle in Resources */,
 				193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */,
+				197F62EE1ABA188D0054E72D /* AddDevice@2x.png in Resources */,
 				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
+				197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */,
 				193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */,
 				198F3FE81AB6EF990017A90B /* default@2x.png in Resources */,
 				19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
-				197F62EB1AB90F0A0054E72D /* SearchDeviceCellBg@3x.png in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
+				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
 				74CCFFED1AB55C7A00DDD42E /* Login_password_icon@2x.png in Resources */,
 				198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */,
-				197F62EA1AB90F0A0054E72D /* SearchDeviceCellBg@2x.png in Resources */,
 				198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */,
+				197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */,
 				198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
