@@ -19,4 +19,6 @@
 #define REGISTER_PAGE_TITLE @"账号注册"
 #define REGISTER_PAGE_REGISTER_BTN_TITLE @"注册"
 #define REGISTER_PAGE_TIP @"提示：注册成功后，密码默认为手机号后六位数。"
+//*****首页*****//
+#define HOME_PAGE_TITLE @"橙意"
 #endif

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "LoginViewController.h"
-#import "SearchBlueToothViewController.h"
+#import "HomeViewController.h"
 @interface ViewController ()
 
 @end
@@ -27,7 +27,7 @@
     
     UIButton *blueTooth = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [blueTooth setFrame:CGRectMake(110.f, 200.f, 100.f, 40.f)];
-    [blueTooth setTitle:@"蓝牙" forState:UIControlStateNormal];
+    [blueTooth setTitle:@"首页" forState:UIControlStateNormal];
     [blueTooth addTarget:self action:@selector(blueTooth) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:blueTooth];
     // Do any additional setup after loading the view, typically from a nib.
@@ -42,7 +42,7 @@
 
 - (void)blueTooth
 {
-    SearchBlueToothViewController *blueTooth = [[SearchBlueToothViewController alloc] init];
+    HomeViewController *blueTooth = [[HomeViewController alloc] init];
     [self.navigationController pushViewController:blueTooth animated:YES];
 }
 

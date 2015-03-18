@@ -123,6 +123,10 @@
 		74CE09471AA4B27100DD9458 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE09461AA4B27100DD9458 /* UIKit.framework */; };
 		74CE09491AA4B27700DD9458 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE09481AA4B27700DD9458 /* Foundation.framework */; };
 		74CE094A1AA4B6F400DD9458 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE09401AA4B25200DD9458 /* libicucore.dylib */; };
+		74E1DE581AB9D45700FA86AD /* IconAsk.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE541AB9D45700FA86AD /* IconAsk.png */; };
+		74E1DE591AB9D45700FA86AD /* IconCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE551AB9D45700FA86AD /* IconCheck.png */; };
+		74E1DE5A1AB9D45700FA86AD /* IconDoctor.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE561AB9D45700FA86AD /* IconDoctor.png */; };
+		74E1DE5B1AB9D45700FA86AD /* IconMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -455,6 +459,10 @@
 		74CE09441AA4B25E00DD9458 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		74CE09461AA4B27100DD9458 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74CE09481AA4B27700DD9458 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		74E1DE541AB9D45700FA86AD /* IconAsk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconAsk.png; sourceTree = "<group>"; };
+		74E1DE551AB9D45700FA86AD /* IconCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconCheck.png; sourceTree = "<group>"; };
+		74E1DE561AB9D45700FA86AD /* IconDoctor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconDoctor.png; sourceTree = "<group>"; };
+		74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconMessage@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1304,6 +1312,7 @@
 		74CE089B1AA4A52000DD9458 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				74E1DE531AB9D45700FA86AD /* HomePage */,
 				198F3FE91AB6F43A0017A90B /* Device */,
 				198F3FE01AB6EDC10017A90B /* LaunchImage */,
 				7449C5401AB674A9009AF4DD /* Common */,
@@ -1392,6 +1401,17 @@
 				74CE08F01AA4A52000DD9458 /* RegexKitLite.m */,
 			);
 			path = Regex;
+			sourceTree = "<group>";
+		};
+		74E1DE531AB9D45700FA86AD /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				74E1DE541AB9D45700FA86AD /* IconAsk.png */,
+				74E1DE551AB9D45700FA86AD /* IconCheck.png */,
+				74E1DE561AB9D45700FA86AD /* IconDoctor.png */,
+				74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1490,10 +1510,17 @@
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
+				197F62EB1AB90F0A0054E72D /* SearchDeviceCellBg@3x.png in Resources */,
+				74E1DE591AB9D45700FA86AD /* IconCheck.png in Resources */,
+				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
+				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
+				74E1DE5B1AB9D45700FA86AD /* IconMessage@2x.png in Resources */,
 				74CCFFED1AB55C7A00DDD42E /* Login_password_icon@2x.png in Resources */,
 				198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */,
 				198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */,
 				197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */,
+				74E1DE5A1AB9D45700FA86AD /* IconDoctor.png in Resources */,
+				74E1DE581AB9D45700FA86AD /* IconAsk.png in Resources */,
 				198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
