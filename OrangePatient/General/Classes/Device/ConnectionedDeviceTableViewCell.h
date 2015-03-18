@@ -14,6 +14,7 @@
 @property (nonatomic,strong) UILabel *deviceName;
 @property (nonatomic,strong) UILabel *deviceDescription;
 @property (nonatomic,strong) UIButton *deleteButton;
+
 @property (nonatomic,strong) CBPeripheral *peripheral;
 -(void) setModel : (CBPeripheral *) model;
 @end

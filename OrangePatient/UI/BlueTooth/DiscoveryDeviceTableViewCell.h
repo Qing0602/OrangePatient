@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @interface DiscoveryDeviceTableViewCell : UITableViewCell
 @property (nonatomic,strong) UIImageView *bgImage;
@@ -14,4 +15,7 @@
 @property (nonatomic,strong) UILabel *deviceName;
 @property (nonatomic,strong) UILabel *deviceDescription;
 @property (nonatomic,strong) UIButton *addDevice;
+
+@property (nonatomic,strong) CBPeripheral *peripheral;
+-(void) setModel : (CBPeripheral *) peripheral;
 @end

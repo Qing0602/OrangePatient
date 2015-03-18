@@ -23,6 +23,7 @@
 @property (nonatomic,strong) NSMutableData *mutableData;
 @property (nonatomic,strong) NSMutableArray *analyesData;
 @property (nonatomic,strong) NSMutableArray *uuidArray;
+@property (nonatomic,strong) NSMutableArray *peripheralArray;
 @property (nonatomic) Action action;
 
 -(void) addBlueToothCache : (NSUUID *) identifier;
@@ -44,6 +45,7 @@
     if (self.uuidArray == nil) {
         self.uuidArray = [[NSMutableArray alloc] init];
     }
+    self.peripheralArray = [[NSMutableArray alloc] init];
     
     self.deviceCount = [[UILabel alloc] init];
     self.deviceCount.translatesAutoresizingMaskIntoConstraints = NO;
@@ -60,30 +62,31 @@
     self.deviceTableView.dataSource = self;
     [self.view addSubview:self.deviceTableView];
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(_deviceCount,_deviceTableView);
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_deviceCount]-0-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_deviceTableView]-0-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_deviceCount(46)]-[_deviceTableView]-0-|" options:0 metrics:nil views:views]];
+    NSDictionary *views = @{@"topLayoutGuide":self.topLayoutGuide,@"bottomLayoutGuide":self.bottomLayoutGuide,
+                            @"deviceCount":self.deviceCount,@"deviceTableView":self.deviceTableView};
     
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[deviceCount]-0-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[deviceTableView]-0-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-0-[deviceCount(46)]-0-[deviceTableView]-0-[bottomLayoutGuide]" options:0 metrics:nil views:views]];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
+    return [self.peripheralArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 90.0f;
+    return 207.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    static NSString *connectionedCell = @"connectionedCellIdentifier";
-//    ConnectionedDeviceTableViewCell *cell = [self.deviceTable dequeueReusableCellWithIdentifier:connectionedCell];
-//    if (cell == nil) {
-//        cell = [[ConnectionedDeviceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:connectionedCell];
-//    }
-//    [cell setModel:[self.peripheralArray objectAtIndex:indexPath.row]];
-    return nil;
+    static NSString *discoveryDeviceCell = @"discoveryDeviceTableViewCellIdentifier";
+    DiscoveryDeviceTableViewCell *cell = [self.deviceTableView dequeueReusableCellWithIdentifier:discoveryDeviceCell];
+    if (cell == nil) {
+        cell = [[DiscoveryDeviceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:discoveryDeviceCell];
+    }
+    [cell setModel:[self.peripheralArray objectAtIndex:indexPath.row]];
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,11 +132,14 @@
         
         self.action = kGetData;
 //        self.action = kRemoveData;
-        self.peripheral = peripheral;
+        if (![self.peripheralArray containsObject:peripheral]) {
+            [self.peripheralArray addObject:peripheral];
+            [self.deviceTableView reloadData];
+        }
+        
         [self addBlueToothCache:peripheral.identifier];
-        self.peripheral.delegate = self;
         // 连接设备
-        [self.central connectPeripheral:peripheral options:@{CBConnectPeripheralOptionNotifyOnConnectionKey : @YES}];
+//        [self.central connectPeripheral:peripheral options:@{CBConnectPeripheralOptionNotifyOnConnectionKey : @YES}];
     }
 }
 
@@ -147,8 +153,7 @@
     
     if (!isHave) {
         [self.uuidArray addObject:identifier];
-        BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
-        NSLog(@"%d",result);
+        [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
     }
 }
 
