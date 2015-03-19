@@ -10,6 +10,7 @@
 #import "OrangeBaseViewController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "SearchBlueToothViewController.h"
+#import "BlueToothDataViewController.h"
 
 @interface MyDeviceViewController : OrangeBaseViewController<CBCentralManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 

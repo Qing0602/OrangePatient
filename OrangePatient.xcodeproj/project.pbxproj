@@ -18,6 +18,7 @@
 		197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62ED1ABA188D0054E72D /* AddDevice@3x.png */; };
 		197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62F01ABA2AEF0054E72D /* NavSearchDevice@2x.png */; };
 		197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62F11ABA2AEF0054E72D /* NavSearchDevice@3x.png */; };
+		198655EB1ABA5B3B002A7C22 /* BlueToothDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198655EA1ABA5B3B002A7C22 /* BlueToothDataViewController.m */; };
 		198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE11AB6EF990017A90B /* default-568h@2x.png */; };
 		198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE21AB6EF990017A90B /* default-667h@2x.png */; };
 		198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE31AB6EF990017A90B /* Default-736h@3x.png */; };
@@ -152,6 +153,8 @@
 		197F62ED1ABA188D0054E72D /* AddDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddDevice@3x.png"; sourceTree = "<group>"; };
 		197F62F01ABA2AEF0054E72D /* NavSearchDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavSearchDevice@2x.png"; sourceTree = "<group>"; };
 		197F62F11ABA2AEF0054E72D /* NavSearchDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavSearchDevice@3x.png"; sourceTree = "<group>"; };
+		198655E91ABA5B3B002A7C22 /* BlueToothDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDataViewController.h; sourceTree = "<group>"; };
+		198655EA1ABA5B3B002A7C22 /* BlueToothDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDataViewController.m; sourceTree = "<group>"; };
 		198F3FE11AB6EF990017A90B /* default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-568h@2x.png"; sourceTree = "<group>"; };
 		198F3FE21AB6EF990017A90B /* default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-667h@2x.png"; sourceTree = "<group>"; };
 		198F3FE31AB6EF990017A90B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
@@ -658,14 +661,16 @@
 			children = (
 				19A67A161AAB47B8006328DA /* SearchBlueToothViewController.h */,
 				19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */,
+				19AF65B71AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.h */,
+				19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */,
+				198655E91ABA5B3B002A7C22 /* BlueToothDataViewController.h */,
+				198655EA1ABA5B3B002A7C22 /* BlueToothDataViewController.m */,
 				19F0B7EB1AB09B720079CBD9 /* BlueToothDateData.h */,
 				19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */,
 				19AC432C1AB150B1004948DF /* BlueToothTimeData.h */,
 				19AC432D1AB150B1004948DF /* BlueToothTimeData.m */,
 				19AC432F1AB1550E004948DF /* BlueToothData.h */,
 				19AC43301AB1550E004948DF /* BlueToothData.m */,
-				19AF65B71AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.h */,
-				19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */,
 			);
 			name = BlueTooth;
 			path = ../../../UI/BlueTooth;
@@ -1510,7 +1515,6 @@
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
-				197F62EB1AB90F0A0054E72D /* SearchDeviceCellBg@3x.png in Resources */,
 				74E1DE591AB9D45700FA86AD /* IconCheck.png in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
@@ -1546,6 +1550,7 @@
 				19A67A121AAB46F7006328DA /* JSONKit.m in Sources */,
 				19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */,
 				19A67A001AAB46F7006328DA /* ASIFormDataRequest.m in Sources */,
+				198655EB1ABA5B3B002A7C22 /* BlueToothDataViewController.m in Sources */,
 				19A679BF1AAB46B4006328DA /* HTTPRequest.m in Sources */,
 				19A679BE1AAB46B4006328DA /* FormDataRequest.m in Sources */,
 				74CE093E1AA4A52000DD9458 /* RegexKitLite.m in Sources */,

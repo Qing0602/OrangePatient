@@ -115,8 +115,15 @@
     if (cell == nil) {
         cell = [[ConnectionedDeviceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:connectionedCell];
     }
+    cell.userInteractionEnabled =YES;
     [cell setModel:[self.peripheralArray objectAtIndex:indexPath.row]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    CBPeripheral *per = [self.peripheralArray objectAtIndex:indexPath.row];
+    BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:per];
+    [self.navigationController pushViewController:blueToothData animated:YES];
 }
 
 -(void) searchDevice{

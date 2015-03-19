@@ -13,7 +13,6 @@
 -(id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self != nil) {
-        self.translatesAutoresizingMaskIntoConstraints = NO;
         
         self.deviceImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DeviceImage"]];
         self.deviceImage.translatesAutoresizingMaskIntoConstraints = NO;
