@@ -8,6 +8,10 @@
 
 #import "DiscoveryDeviceTableViewCell.h"
 
+@interface DiscoveryDeviceTableViewCell ()
+-(void) clickAddDevice;
+@end
+
 @implementation DiscoveryDeviceTableViewCell
 
 -(id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -26,7 +30,7 @@
         self.deviceName = [[UILabel alloc] init];
         self.deviceName.translatesAutoresizingMaskIntoConstraints = NO;
         self.deviceName.backgroundColor = [UIColor clearColor];
-        self.deviceName.font = [UIFont systemFontOfSize:13.0f];
+        self.deviceName.font = [UIFont boldSystemFontOfSize:15.0f];
         self.deviceName.numberOfLines = 1;
         [self addSubview:self.deviceName];
         
@@ -42,6 +46,7 @@
         self.addDevice.translatesAutoresizingMaskIntoConstraints = NO;
         [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateNormal];
         [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateHighlighted];
+        [self.addDevice addTarget:self action:@selector(clickAddDevice) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.addDevice];
         
         self.lineOne = [[UILabel alloc] init];
@@ -80,6 +85,14 @@
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_lineThree]-0-|" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_lineThree(2)]-0-|" options:0 metrics:nil views:views]];
+}
+
+-(void) clickAddDevice{
+    if (self.delegate != nil) {
+        if ([self.delegate respondsToSelector:@selector(clickAddDevice:)]) {
+            [self.delegate clickAddDevice:self.peripheral];
+        }
+    }
 }
 
 -(void) setModel : (CBPeripheral *) peripheral{

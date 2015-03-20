@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIModelCoding.h"
 
-@interface BlueToothDateData : NSObject
+@interface BlueToothDateData : UIModelCoding
 @property (nonatomic) NSInteger years;
 @property (nonatomic) NSInteger month;
 @property (nonatomic) NSInteger days;

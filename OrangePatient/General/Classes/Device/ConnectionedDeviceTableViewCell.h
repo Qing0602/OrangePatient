@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "BlueToothDataViewController.h"
 
 @interface ConnectionedDeviceTableViewCell : UITableViewCell
 @property (nonatomic,strong) UIImageView *deviceImage;

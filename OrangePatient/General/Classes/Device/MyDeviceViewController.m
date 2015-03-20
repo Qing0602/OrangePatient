@@ -122,7 +122,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     CBPeripheral *per = [self.peripheralArray objectAtIndex:indexPath.row];
-    BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:per];
+    BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:per.identifier];
     [self.navigationController pushViewController:blueToothData animated:YES];
 }
 

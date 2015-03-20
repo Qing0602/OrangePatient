@@ -54,6 +54,7 @@
     self.deviceCount.backgroundColor = [UIColor colorWithHexString:@"#eb6100"];
     self.deviceCount.textColor = [UIColor whiteColor];
     self.deviceCount.textAlignment = UITextAlignmentCenter;
+    self.deviceCount.text = @"索搜到0个新设备";
     self.deviceCount.font = [UIFont boldSystemFontOfSize:15.0f];
     [self.view addSubview:self.deviceCount];
     
@@ -88,7 +89,14 @@
         cell = [[DiscoveryDeviceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:discoveryDeviceCell];
     }
     [cell setModel:[self.peripheralArray objectAtIndex:indexPath.row]];
+    cell.delegate = self;
     return cell;
+}
+
+-(void) clickAddDevice : (CBPeripheral *) peripheral{
+    [self.central stopScan];
+    BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:peripheral.identifier];
+    [self.navigationController pushViewController:blueToothData animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -132,9 +140,13 @@
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
     if (peripheral) {
         
-        self.action = kGetData;
-//        self.action = kRemoveData;
-        if (![self.peripheralArray containsObject:peripheral]) {
+        BOOL result = NO;
+        for (CBPeripheral *per in self.peripheralArray) {
+            if ([per.identifier.UUIDString isEqual:peripheral.identifier.UUIDString]) {
+                result = YES;
+            }
+        }
+        if (!result) {
             [self.peripheralArray addObject:peripheral];
             [self.deviceTableView reloadData];
         }
