@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIModelCoding.h"
 
-@interface BlueToothTimeData : NSObject
+@interface BlueToothTimeData : UIModelCoding
 @property (nonatomic) NSInteger hours;
 @property (nonatomic) NSInteger mins;
 @property (nonatomic) NSInteger sec;

@@ -16,4 +16,18 @@
     }
     return self;
 }
+
+-(void)encodeWithCoder:(NSCoder *)aCoder{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.data forKey:@"data"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if (nil != self) {
+        self.data=[aDecoder decodeObjectForKey:@"data"];
+    }
+    return self;
+}
+
 @end

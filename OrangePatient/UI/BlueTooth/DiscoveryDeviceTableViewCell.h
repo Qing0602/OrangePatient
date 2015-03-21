@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
+@protocol DiscoveryCellDelegate <NSObject>
+
+-(void) clickAddDevice : (CBPeripheral *) peripheral;
+
+@end
+
 @interface DiscoveryDeviceTableViewCell : UITableViewCell
 @property (nonatomic,strong) UILabel *topLable;
 @property (nonatomic,strong) UIImageView *deviceImage;
@@ -20,5 +26,8 @@
 @property (nonatomic,strong) UILabel *lineThree;
 
 @property (nonatomic,strong) CBPeripheral *peripheral;
+
+@property (nonatomic) id<DiscoveryCellDelegate> delegate;
+
 -(void) setModel : (CBPeripheral *) peripheral;
 @end

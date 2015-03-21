@@ -13,6 +13,7 @@
 #import "BlueToothData.h"
 #import "DiscoveryDeviceTableViewCell.h"
 #import "OrangeBaseViewController.h"
+#import "BlueToothDataViewController.h"
 
 typedef enum {
     kGetData,
@@ -20,7 +21,7 @@ typedef enum {
     kNone,
 } Action;
 
-@interface SearchBlueToothViewController : OrangeBaseViewController<CBCentralManagerDelegate,CBPeripheralDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface SearchBlueToothViewController : OrangeBaseViewController<CBCentralManagerDelegate,CBPeripheralDelegate,UITableViewDataSource,UITableViewDelegate,DiscoveryCellDelegate>
 @property (nonatomic,strong) CBCentralManager *central;
 @property (nonatomic,strong) CBPeripheral *peripheral;
 

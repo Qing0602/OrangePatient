@@ -13,9 +13,9 @@
 #import "BlueToothTimeData.h"
 #import "BlueToothData.h"
 
-@interface BlueToothDataViewController : OrangeBaseViewController<CBPeripheralDelegate>
+@interface BlueToothDataViewController : OrangeBaseViewController<CBCentralManagerDelegate,CBPeripheralDelegate>
 
-@property (nonatomic,strong) CBPeripheral *peripheral;
+@property (nonatomic,strong) CBCentralManager *central;
 //√
 @property (nonatomic,strong) UIView *bgViewOne;
 @property (nonatomic,strong) UIImageView *deviceImage;
@@ -35,6 +35,6 @@
 @property (nonatomic,strong) UILabel *caloriesNumber;
 @property (nonatomic,strong) UILabel *caloriesName;
 
-
--(id) initBlueToothDataVC : (CBPeripheral *) peripheral;
+@property (nonatomic,strong) NSMutableArray *analyesData;
+-(id) initBlueToothDataVC : (NSUUID *) uuid;
 @end
