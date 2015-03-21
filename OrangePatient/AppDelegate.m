@@ -45,6 +45,8 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{[UIColor orangeColor]:NSForegroundColorAttributeName}];
     
     [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 
