@@ -19,6 +19,9 @@
 
 #define KeyBoardHeight 216.f
 
+//ADBanner
+#define Banner_AutoScroll_Timeiterval 3.f
+
 //Login
 #define Login_TextField_Widht 240.f
 #define Login_TextField_Height 30.f

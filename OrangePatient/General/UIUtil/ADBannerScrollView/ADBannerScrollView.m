@@ -8,6 +8,10 @@
 
 #import "ADBannerScrollView.h"
 @interface ADBannerScrollView()<UIScrollViewDelegate,CustomPageControlDelegate>
+{
+    NSTimer *timer;
+    NSInteger page;
+}
 
 @end
 
@@ -49,25 +53,43 @@
         [self.pageControl setNumberOfPages:models.count];
         [self addSubview:self.pageControl];
         
-
+        timer = [NSTimer scheduledTimerWithTimeInterval:Banner_AutoScroll_Timeiterval target:self selector:@selector(autoScroll) userInfo:nil repeats:YES];
+        
     }
     
     return self;
 }
 
-#pragma mark UIScrollViewDelegate
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+- (void)autoScroll
 {
-    NSInteger page = scrollView.contentOffset.x/_viewWidth;
+    if (page == 5) {
+        page = 0;
+    }else page++;
+    [self adScrolledByPage];
+}
+
+- (void)adScrolledByPage
+{
     [self.pageControl setCurrentPage:page];
     [self.adScrollView setContentOffset:CGPointMake(_viewWidth*page, 0.f)];
 }
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+#pragma mark UIScrollViewDelegate
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    
+    page = scrollView.contentOffset.x/_viewWidth;
+    [self adScrolledByPage];
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [timer setFireDate:[NSDate dateWithTimeIntervalSince1970:99999999999]];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [timer setFireDate:[NSDate date]];
+}
 #pragma mark - ADBannerImageViewDelegate
 - (void)imageViewTapped:(ADBannerModel *)model
 {
