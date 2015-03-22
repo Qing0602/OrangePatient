@@ -172,8 +172,6 @@
 	CGSize imgSize = self.size;
     if (NULL != UIGraphicsBeginImageContextWithOptions)
         UIGraphicsBeginImageContextWithOptions(imgSize, NO, 0);
-    else
-        UIGraphicsBeginImageContext(imgSize);
 
     [self drawInRect:CGRectMake(0, 0, imgSize.width, imgSize.height)];
     [mask drawInRect:rect];
@@ -201,8 +199,7 @@
 
     if (NULL != UIGraphicsBeginImageContextWithOptions)
         UIGraphicsBeginImageContextWithOptions(imgSize, NO, 0);
-    else
-        UIGraphicsBeginImageContext(imgSize);
+
     
     [self drawInRect:CGRectMake(0, 0, self.size.width, self.size.height)];
     
