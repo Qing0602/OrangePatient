@@ -1,0 +1,7 @@
+platform :ios, '7.0'
+pod 'ASIHTTPRequest', '~> 1.8.2'
+pod 'RegexKitLite', '~> 4.0'
+pod 'EGOImageLoading', '~> 0.0.1'
+pod 'FMDB', '~> 2.5'
+pod 'JSONKit', '~> 1.4'
+pod 'EaseMobSDK', '~> 2.1.4.1'
