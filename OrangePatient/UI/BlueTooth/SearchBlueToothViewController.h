@@ -8,18 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h> 
-#import "BlueToothDateData.h"
-#import "BlueToothTimeData.h"
-#import "BlueToothData.h"
 #import "DiscoveryDeviceTableViewCell.h"
 #import "OrangeBaseViewController.h"
 #import "BlueToothDataViewController.h"
-
-typedef enum {
-    kGetData,
-    kRemoveData,
-    kNone,
-} Action;
 
 @interface SearchBlueToothViewController : OrangeBaseViewController<CBCentralManagerDelegate,CBPeripheralDelegate,UITableViewDataSource,UITableViewDelegate,DiscoveryCellDelegate>
 @property (nonatomic,strong) CBCentralManager *central;

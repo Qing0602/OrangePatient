@@ -23,8 +23,12 @@
 @property (nonatomic,strong) NSUUID *deviceUUID;
 @property (nonatomic,strong) NSMutableData *mutableData;
 @property (nonatomic,strong) CBPeripheral *peripheral;
-
+@property (nonatomic,strong) CBCharacteristic *rx;
+@property (nonatomic,strong) CBCharacteristic *tx;
+@property (nonatomic) NSInteger flag;
 -(void) setData : (NSArray *)data;
+-(void) getBlueToothData;
+-(void) removeBlueToothData;
 @end
 
 @implementation BlueToothDataViewController
@@ -39,6 +43,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.flag = -1;
     
     self.bgViewOne = [[UIView alloc] init];
     self.bgViewOne.translatesAutoresizingMaskIntoConstraints = NO;
@@ -281,14 +287,13 @@
 }
 
 -(void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error{
-    CBCharacteristic *rx;
-    CBCharacteristic *tx;
+    
     for(CBCharacteristic *c in service.characteristics){
         if ([c.UUID isEqual:[CBUUID UUIDWithString:UUIDSTR_ISSC_TRANS_RX]]) {
-            rx = c;
+            self.rx = c;
         }
         if ([c.UUID isEqual:[CBUUID UUIDWithString:UUIDSTR_ISSC_TRANS_TX]]) {
-            tx = c;
+            self.tx = c;
         }
     }
     
@@ -297,28 +302,31 @@
 //    }else if (self.action == kRemoveData){
 //        [self removeBlueToothData:rx withTx:tx];
 //    }
-    [self getBlueToothData:rx withTx:tx];
+    [self getBlueToothData];
 }
 
 // 获取完整数据
--(void) getBlueToothData : (CBCharacteristic *) rx withTx : (CBCharacteristic*) tx{
-    if (rx != nil && tx != nil) {
+-(void) getBlueToothData{
+    if (self.rx != nil && self.tx != nil) {
+        self.flag = 1;
         Byte command[] = { 0x7D, 0x81, 0xA6, 0xFF, 0xFF };
         self.mutableData = [[NSMutableData alloc] init];
         self.analyesData = [[NSMutableArray alloc] init];
         NSData *data = [[NSData alloc] initWithBytes:command length:5];
-        [self.peripheral setNotifyValue:YES forCharacteristic:rx];
-        [self.peripheral writeValue: data forCharacteristic:tx type:CBCharacteristicWriteWithResponse];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
     }
 }
 
 // 删除蓝牙数据
--(void) removeBlueToothData : (CBCharacteristic*) rx withTx : (CBCharacteristic*) tx{
-    if (tx != nil) {
+-(void) removeBlueToothData{
+    if (self.tx != nil) {
+        self.flag = 2;
         Byte command[] = { 0x7D, 0x81, 0xAE, 0xFF, 0xFF };
+        self.mutableData = [[NSMutableData alloc] init];
         NSData *data = [[NSData alloc] initWithBytes:command length:5];
-        [self.peripheral setNotifyValue:YES forCharacteristic:rx];
-        [self.peripheral writeValue: data forCharacteristic:tx type:CBCharacteristicWriteWithResponse];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
     }
 }
 
@@ -328,19 +336,21 @@
     [self.mutableData appendData:data];
     Byte *byteData = (Byte *)[self.mutableData bytes];
     
-//    if (self.action == kRemoveData) {
-//        // 删除完成
-//    }else{
+    if (self.flag == 1) {
         if (data.length == 4 && byteData[0] == 0x18) {
             // 无数据
         }else{
             for(int i=0;i<[self.mutableData length];i++){
                 if ( byteData[i] == 0x18 ) {
                     [self analyes:self.mutableData];
+                    [self removeBlueToothData];
+                    break;
                 }
             }
         }
-//    }
+    }else if (self.flag == 2){
+        NSLog(@"删除数据 0b81");
+    }
 }
 
 // 分析数据
@@ -367,8 +377,7 @@
         }
     }
     [self setData:self.analyesData];
-    BOOL result = [UIModelCoding serializeModel:self.analyesData withFileName:[NSString stringWithFormat:@"%@.cac",self.peripheral.identifier.UUIDString]];
-    NSLog(@"1");
+    [UIModelCoding serializeModel:self.analyesData withFileName:[NSString stringWithFormat:@"%@.cac",self.peripheral.identifier.UUIDString]];
 }
 
 // 获取日期
