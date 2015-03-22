@@ -1,0 +1,46 @@
+PODS:
+  - ASIHTTPRequest (1.8.2):
+    - ASIHTTPRequest/ASIWebPageRequest (= 1.8.2)
+    - ASIHTTPRequest/CloudFiles (= 1.8.2)
+    - ASIHTTPRequest/Core (= 1.8.2)
+    - ASIHTTPRequest/S3 (= 1.8.2)
+  - ASIHTTPRequest/ASIWebPageRequest (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/CloudFiles (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/Core (1.8.2):
+    - Reachability
+  - ASIHTTPRequest/S3 (1.8.2):
+    - ASIHTTPRequest/Core
+  - EaseMobSDK (2.1.4.1)
+  - EGOCache (2.1)
+  - EGOImageLoading (0.0.1):
+    - EGOCache
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
+  - JSONKit (1.4)
+  - Reachability (3.2)
+  - RegexKitLite (4.0)
+
+DEPENDENCIES:
+  - ASIHTTPRequest (~> 1.8.2)
+  - EaseMobSDK (~> 2.1.4.1)
+  - EGOImageLoading (~> 0.0.1)
+  - FMDB (~> 2.5)
+  - JSONKit (~> 1.4)
+  - RegexKitLite (~> 4.0)
+
+SPEC CHECKSUMS:
+  ASIHTTPRequest: 2c8335b49410c0e2ad42829c438e74d454b77590
+  EaseMobSDK: 258b552cf9ccade12742277f443cc01fd3a3db1a
+  EGOCache: bf414333c425fe47f5182351d1dd47ebf72d8352
+  EGOImageLoading: 8d33c6c4b5bc5651236bbcbc46e8a31a6715cd61
+  FMDB: 0efa188cf0dd1ce82c27a478cd5f5fa245308677
+  JSONKit: 2111ac2b11f7ea0d07bb1d9d09e650918336a134
+  Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
+  RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
+
+COCOAPODS: 0.36.0
