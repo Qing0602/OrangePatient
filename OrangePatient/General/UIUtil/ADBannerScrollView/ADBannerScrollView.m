@@ -62,7 +62,7 @@
 
 - (void)autoScroll
 {
-    if (page == 5) {
+    if (page == 4) {
         page = 0;
     }else page++;
     [self adScrolledByPage];
@@ -79,16 +79,12 @@
 {
     page = scrollView.contentOffset.x/_viewWidth;
     [self adScrolledByPage];
+    [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:Banner_AutoScroll_Timeiterval]];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [timer setFireDate:[NSDate dateWithTimeIntervalSince1970:99999999999]];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    [timer setFireDate:[NSDate date]];
 }
 #pragma mark - ADBannerImageViewDelegate
 - (void)imageViewTapped:(ADBannerModel *)model
