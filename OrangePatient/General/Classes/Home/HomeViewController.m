@@ -24,29 +24,31 @@
     
     CGFloat unUseHeight = SCREEN_HEIGHT-104-CGRectGetHeight(_adScrollView.frame);
     CGFloat lineHeight = SCREEN_WIDTH-8>unUseHeight?unUseHeight:SCREEN_WIDTH-8;
-    UIImageView *line1 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, CGRectGetMaxY(_adScrollView.frame), 1.f,lineHeight)];
+    UIImageView *line1 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, CGRectGetMaxY(_adScrollView.frame), 2.f,lineHeight)];
     [line1 setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview:line1];
     
     
     
-    UIImageView *line2 = [[UIImageView alloc] initWithFrame:CGRectMake(4.f, CGRectGetMaxY(_adScrollView.frame)+lineHeight/2.f, SCREEN_WIDTH-8.f,1.f)];
+    UIImageView *line2 = [[UIImageView alloc] initWithFrame:CGRectMake(4.f, CGRectGetMaxY(_adScrollView.frame)+lineHeight/2.f, SCREEN_WIDTH-8.f,2.f)];
     [line2 setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview:line2];
     
     for (int i = 0; i<4; i++) {
         CGRect btnFrame;
-        CGFloat leftPadding = lineHeight == unUseHeight?(SCREEN_WIDTH-lineHeight)/2:0;
+        CGFloat leftPadding = (SCREEN_WIDTH-lineHeight)/2;
         if (i<2) {
-            btnFrame = CGRectMake(leftPadding+lineHeight/2*i, CGRectGetMaxY(_adScrollView.frame)+1,lineHeight/2-1, lineHeight/2-2);
+            btnFrame = CGRectMake(leftPadding+(lineHeight/2+2)*i, CGRectGetMaxY(_adScrollView.frame)+1,lineHeight/2-2, lineHeight/2-2);
         }else
         {
-            btnFrame = CGRectMake(leftPadding+lineHeight/2*(i-2), CGRectGetMaxY(_adScrollView.frame)+1+lineHeight/2,lineHeight/2-1, lineHeight/2-2);
+            btnFrame = CGRectMake(leftPadding+(lineHeight/2+2)*(i-2), CGRectGetMaxY(_adScrollView.frame)+2+lineHeight/2,lineHeight/2-2, lineHeight/2-2);
         }
     
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:btnFrame];
-        //[btn setImageEdgeInsets:UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)]
+        btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [btn setImageEdgeInsets:UIEdgeInsetsMake(0.f, CGRectGetMidX(btnFrame)-CGRectGetWidth(btnFrame)/4, CGRectGetHeight(btnFrame)/3, CGRectGetMidX(btnFrame)-CGRectGetWidth(btnFrame)/4)];
+        [btn setTitleEdgeInsets:UIEdgeInsetsMake(CGRectGetMidX(btnFrame), CGRectGetMidX(btnFrame)-CGRectGetWidth(btnFrame)/4, 0.f, CGRectGetMidX(btnFrame)-CGRectGetWidth(btnFrame)/4)];
         btn.backgroundColor = [UIColor colorWithRed:arc4random() % 256 / 256.f green:arc4random() % 256 / 256.f blue:arc4random() % 256 / 256.f alpha:1.f];
         [self.view addSubview:btn];
         
