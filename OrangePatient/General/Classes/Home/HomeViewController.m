@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "HealthInformationViewController.h"
 @interface HomeViewController()
 
 @property (nonatomic, strong)ADBannerScrollView *adScrollView;
@@ -47,9 +48,12 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:btnFrame];
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [btn setImageEdgeInsets:UIEdgeInsetsMake(0.f, CGRectGetMidX(btnFrame)-CGRectGetWidth(btnFrame)/4, CGRectGetHeight(btnFrame)/3, CGRectGetMidX(btnFrame)-CGRectGetWidth(btnFrame)/4)];
-        [btn setTitleEdgeInsets:UIEdgeInsetsMake(CGRectGetMidX(btnFrame), CGRectGetMidX(btnFrame)-CGRectGetWidth(btnFrame)/4, 0.f, CGRectGetMidX(btnFrame)-CGRectGetWidth(btnFrame)/4)];
-        btn.backgroundColor = [UIColor colorWithRed:arc4random() % 256 / 256.f green:arc4random() % 256 / 256.f blue:arc4random() % 256 / 256.f alpha:1.f];
+        btn.titleLabel.backgroundColor = [UIColor redColor];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        CGFloat imageWidth = 60.f;
+        [btn setImageEdgeInsets:UIEdgeInsetsMake(30.f, lineHeight/4-imageWidth/2, lineHeight/2-imageWidth-30, lineHeight/4-imageWidth/2)];
+        [btn setTitleEdgeInsets:UIEdgeInsetsMake(lineHeight/2-imageWidth-40.f, -90.f, 0.f, 0.f)];
+        //btn.backgroundColor = [UIColor colorWithRed:arc4random() % 256 / 256.f green:arc4random() % 256 / 256.f blue:arc4random() % 256 / 256.f alpha:1.f];
         [self.view addSubview:btn];
         
         switch (i) {
