@@ -23,6 +23,13 @@ PODS:
     - FMDB/common
   - JSONKit (1.4)
   - Reachability (3.2)
+  - ReactiveCocoa (2.4.7):
+    - ReactiveCocoa/UI (= 2.4.7)
+  - ReactiveCocoa/Core (2.4.7):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.4.7)
+  - ReactiveCocoa/UI (2.4.7):
+    - ReactiveCocoa/Core
   - RegexKitLite (4.0)
 
 DEPENDENCIES:
@@ -31,6 +38,7 @@ DEPENDENCIES:
   - EGOImageLoading (~> 0.0.1)
   - FMDB (~> 2.5)
   - JSONKit (~> 1.4)
+  - ReactiveCocoa (~> 2.4.7)
   - RegexKitLite (~> 4.0)
 
 SPEC CHECKSUMS:
@@ -41,6 +49,7 @@ SPEC CHECKSUMS:
   FMDB: 0efa188cf0dd1ce82c27a478cd5f5fa245308677
   JSONKit: 2111ac2b11f7ea0d07bb1d9d09e650918336a134
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
+  ReactiveCocoa: 313fc53cc9aeb2bbbc3f5f13c7eac16478d9af8f
   RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
 
 COCOAPODS: 0.36.0
