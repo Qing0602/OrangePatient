@@ -11,6 +11,10 @@
 		193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537A1AB754990079C424 /* SearchDevice@2x.png */; };
 		193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537B1AB754990079C424 /* SearchDevice@3x.png */; };
 		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
+		195C547D1ABF9A2C0063E768 /* UnlockDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C54791ABF9A2C0063E768 /* UnlockDevice@2x.png */; };
+		195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547A1ABF9A2C0063E768 /* UnlockDevice@3x.png */; };
+		195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */; };
+		195C54801ABF9A2C0063E768 /* UnlockDeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */; };
 		197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197766071AB314D500B21037 /* MyDeviceViewController.m */; };
 		197F62EE1ABA188D0054E72D /* AddDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62EC1ABA188D0054E72D /* AddDevice@2x.png */; };
 		197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62ED1ABA188D0054E72D /* AddDevice@3x.png */; };
@@ -107,6 +111,10 @@
 		195017481AAC2D8B00A7E7A1 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		195C54791ABF9A2C0063E768 /* UnlockDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDevice@2x.png"; sourceTree = "<group>"; };
+		195C547A1ABF9A2C0063E768 /* UnlockDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDevice@3x.png"; sourceTree = "<group>"; };
+		195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDeviceImage@2x.png"; sourceTree = "<group>"; };
+		195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDeviceImage@3x.png"; sourceTree = "<group>"; };
 		197766061AB314D500B21037 /* MyDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDeviceViewController.h; sourceTree = "<group>"; };
 		197766071AB314D500B21037 /* MyDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDeviceViewController.m; sourceTree = "<group>"; };
 		197F62EC1ABA188D0054E72D /* AddDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddDevice@2x.png"; sourceTree = "<group>"; };
@@ -294,6 +302,10 @@
 		198F3FE91AB6F43A0017A90B /* Device */ = {
 			isa = PBXGroup;
 			children = (
+				195C54791ABF9A2C0063E768 /* UnlockDevice@2x.png */,
+				195C547A1ABF9A2C0063E768 /* UnlockDevice@3x.png */,
+				195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */,
+				195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */,
 				197F62F01ABA2AEF0054E72D /* NavSearchDevice@2x.png */,
 				197F62F11ABA2AEF0054E72D /* NavSearchDevice@3x.png */,
 				197F62EC1ABA188D0054E72D /* AddDevice@2x.png */,
@@ -836,6 +848,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */,
 				74CCFFEE1AB55C7A00DDD42E /* Login_userName_icon@2x.png in Resources */,
 				74CE09191AA4A52000DD9458 /* MBProgressHUD.bundle in Resources */,
 				19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */,
@@ -844,6 +857,8 @@
 				197F62EE1ABA188D0054E72D /* AddDevice@2x.png in Resources */,
 				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
 				197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */,
+				195C54801ABF9A2C0063E768 /* UnlockDeviceImage@3x.png in Resources */,
+				195C547D1ABF9A2C0063E768 /* UnlockDevice@2x.png in Resources */,
 				193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */,
 				198F3FE81AB6EF990017A90B /* default@2x.png in Resources */,
 				19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */,
@@ -852,6 +867,7 @@
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
 				74E1DE591AB9D45700FA86AD /* IconCheck@2x.png in Resources */,
+				195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				74E1DE5B1AB9D45700FA86AD /* IconMessage@2x.png in Resources */,
