@@ -7,7 +7,12 @@
 //
 
 #import "HomeViewController.h"
+
 #import "HealthInformationViewController.h"
+#import "ConsultViewController.h"
+#import "MyDoctorViewController.h"
+#import "MedicalScreeningViewController.h"
+
 @interface HomeViewController()
 
 @property (nonatomic, strong)ADBannerScrollView *adScrollView;
@@ -51,8 +56,37 @@
         btn.titleLabel.backgroundColor = [UIColor redColor];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         CGFloat imageWidth = 60.f;
+        btn.tag = i+1;
         [btn setImageEdgeInsets:UIEdgeInsetsMake(30.f, lineHeight/4-imageWidth/2, lineHeight/2-imageWidth-30, lineHeight/4-imageWidth/2)];
         [btn setTitleEdgeInsets:UIEdgeInsetsMake(lineHeight/2-imageWidth-40.f, -90.f, 0.f, 0.f)];
+        [btn handleControlEvents:UIControlEventTouchUpInside actionBlock:^(UIButton *sender){
+            switch (sender.tag) {
+                case 1:
+                {
+                    HealthInformationViewController *healthInformation = [[HealthInformationViewController alloc] init];
+                    healthInformation.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:healthInformation animated:YES];
+                }
+                    break;
+                case 2:
+                {
+                    
+                }
+                    break;
+                case 3:
+                {
+                    
+                }
+                    break;
+                case 4:
+                {
+                    
+                }
+                    break;
+                default:
+                    break;
+            }
+        }];
         //btn.backgroundColor = [UIColor colorWithRed:arc4random() % 256 / 256.f green:arc4random() % 256 / 256.f blue:arc4random() % 256 / 256.f alpha:1.f];
         [self.view addSubview:btn];
         
@@ -87,6 +121,8 @@
         }
     }
 }
+
+
 
 #pragma mark - ADBannerScrollViewDelegate
 - (void)itemTapped:(ADBannerModel *)model
