@@ -8,6 +8,10 @@
 
 #import "ConnectionedDeviceTableViewCell.h"
 
+@interface ConnectionedDeviceTableViewCell ()
+-(void) unlockDevice;
+@end
+
 @implementation ConnectionedDeviceTableViewCell
 
 -(id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -35,6 +39,7 @@
         self.deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.deleteButton setImage:[UIImage imageNamed:@"UnlockDevice"] forState:UIControlStateNormal];
         [self.deleteButton setImage:[UIImage imageNamed:@"UnlockDevice"] forState:UIControlStateHighlighted];
+        [self.deleteButton addTarget:self action:@selector(unlockDevice) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.deleteButton];
     }
     return self;
@@ -56,6 +61,14 @@
         self.deviceName.text = @"动态血氧仪";
         self.deviceDescription.text = model.name;
         self.peripheral = model;
+    }
+}
+
+-(void) unlockDevice{
+    if (self.delegate != nil) {
+        if ([self.delegate respondsToSelector:@selector(clickUnlockDevice:)]) {
+            [self.delegate clickUnlockDevice:self.peripheral];
+        }
     }
 }
 
