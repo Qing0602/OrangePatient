@@ -10,11 +10,12 @@
 #import "ConnectionedDeviceTableViewCell.h"
 #import "UIModelCoding.h"
 
-@interface MyDeviceViewController ()
+@interface MyDeviceViewController ()<ConnectionedCellDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong) NSMutableArray *uuidArray;
 @property (nonatomic,strong) NSArray *peripheralArray;
 @property (nonatomic,strong) UITableView *deviceTable;
 @property (nonatomic,strong) CBCentralManager *central;
+@property (nonatomic,strong) NSString *uuid;
 -(void) searchDevice;
 @end
 
@@ -106,7 +107,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80.0f;
+    return 83.5f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -116,6 +117,7 @@
         cell = [[ConnectionedDeviceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:connectionedCell];
     }
     cell.userInteractionEnabled =YES;
+    cell.delegate = self;
     [cell setModel:[self.peripheralArray objectAtIndex:indexPath.row]];
     return cell;
 }
@@ -129,6 +131,25 @@
 -(void) searchDevice{
     SearchBlueToothViewController *search = [[SearchBlueToothViewController alloc] init];
     [self.navigationController pushViewController:search animated:YES];
+}
+
+-(void) clickUnlockDevice : (CBPeripheral *) peripheral{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"确定解绑设备" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex != 0) {
+        for (NSUUID * uuid in self.uuidArray) {
+            if ([uuid.UUIDString isEqualToString:self.uuid]) {
+                [self.uuidArray removeObject:uuid];
+                break;
+            }
+        }
+        
+        [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
+        [self.deviceTable reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
