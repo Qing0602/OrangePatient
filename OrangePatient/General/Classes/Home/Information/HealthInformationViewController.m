@@ -8,6 +8,8 @@
 
 #import "HealthInformationViewController.h"
 
+#import "HealthInformationTableViewCell.h"
+#import "HealthInfomationModel.h"
 #import "ADBannerScrollView.h"
 @interface HealthInformationViewController ()<ADBannerImageViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
@@ -58,7 +60,7 @@
 #pragma mark - Tableview
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40.f;
+    return 72.f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -69,11 +71,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *infomationCellIden = @"InformationCellIden";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:infomationCellIden];
+    HealthInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:infomationCellIden];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infomationCellIden];
+        cell = [[HealthInformationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infomationCellIden];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    HealthInfomationModel *testModel = [[HealthInfomationModel alloc] init];
+    testModel.infoContent = @"testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest";
+    testModel.infoTitle = @"testtesttesttest";
+    [cell setContentByInfoModel:testModel];
     return cell;
 }
 #pragma mark - ADBannerScrollViewDelegate

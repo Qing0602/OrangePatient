@@ -9,5 +9,12 @@
 #import "BaseNSObject.h"
 
 @interface HealthInfomationModel : BaseNSObject
-
+//图片
+@property (nonatomic, strong)NSURL *imageUrl;
+//title
+@property (nonatomic, strong)NSString *infoTitle;
+//content
+@property (nonatomic, strong)NSString *infoContent;
+//link
+@property (nonatomic, strong)NSURL *infoLink;
 @end
