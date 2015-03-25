@@ -41,7 +41,6 @@
 		19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */; };
 		19AF65B91AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */; };
 		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
-		7432C73C1AC06C5C00073379 /* HealthInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C73B1AC06C5C00073379 /* HealthInformationViewController.m */; };
 		7432C73F1AC06CA300073379 /* MyDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C73E1AC06CA300073379 /* MyDoctorViewController.m */; };
 		7432C7421AC06D0D00073379 /* MedicalScreeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C7411AC06D0D00073379 /* MedicalScreeningViewController.m */; };
 		7432C7451AC06D2C00073379 /* ConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C7441AC06D2C00073379 /* ConsultViewController.m */; };
@@ -49,8 +48,19 @@
 		7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449C53E1AB67336009AF4DD /* ChooseSexControl.m */; };
 		7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5411AB674A9009AF4DD /* btn_selected@2x.png */; };
 		7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */; };
-		744E01AE1AC2D7E10063C4A7 /* HealthInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01AD1AC2D7E10063C4A7 /* HealthInfomationModel.m */; };
-		744E01B11AC2D8070063C4A7 /* HealthInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01B01AC2D8070063C4A7 /* HealthInformationTableViewCell.m */; };
+		744E01B81AC2F77D0063C4A7 /* HealthInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01B31AC2F77D0063C4A7 /* HealthInfomationModel.m */; };
+		744E01B91AC2F77D0063C4A7 /* HealthInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01B51AC2F77D0063C4A7 /* HealthInformationTableViewCell.m */; };
+		744E01BA1AC2F77D0063C4A7 /* HealthInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01B71AC2F77D0063C4A7 /* HealthInformationViewController.m */; };
+		744E01C01AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01BC1AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png */; };
+		744E01C11AC2FB7C0063C4A7 /* Information_Detail_   praise.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01BD1AC2FB7C0063C4A7 /* Information_Detail_   praise.png */; };
+		744E01C21AC2FB7C0063C4A7 /* Information_Detail_   unpraise.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01BE1AC2FB7C0063C4A7 /* Information_Detail_   unpraise.png */; };
+		744E01C31AC2FB7C0063C4A7 /* Information_Detail_transmit.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01BF1AC2FB7C0063C4A7 /* Information_Detail_transmit.png */; };
+		744E01CB1AC2FCD90063C4A7 /* MyDoctor_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01C51AC2FCD90063C4A7 /* MyDoctor_arrow@2x.png */; };
+		744E01CC1AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01C61AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png */; };
+		744E01CD1AC2FCD90063C4A7 /* MyDoctor_HeadImg_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01C71AC2FCD90063C4A7 /* MyDoctor_HeadImg_default@2x.png */; };
+		744E01CE1AC2FCD90063C4A7 /* MyDoctor_Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01C81AC2FCD90063C4A7 /* MyDoctor_Logo@2x.png */; };
+		744E01CF1AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01C91AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png */; };
+		744E01D01AC2FCD90063C4A7 /* MyDoctor_unSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01CA1AC2FCD90063C4A7 /* MyDoctor_unSelected.png */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
 		749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AB1AB86A6B0003F58B /* HomeViewController.m */; };
 		749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AF1AB86F580003F58B /* CustomPageControl.m */; };
@@ -164,8 +174,6 @@
 		19F0B7EB1AB09B720079CBD9 /* BlueToothDateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDateData.h; sourceTree = "<group>"; };
 		19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDateData.m; sourceTree = "<group>"; };
 		47AF80FD8C381FA442E27ECC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		7432C73A1AC06C5C00073379 /* HealthInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInformationViewController.h; sourceTree = "<group>"; };
-		7432C73B1AC06C5C00073379 /* HealthInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInformationViewController.m; sourceTree = "<group>"; };
 		7432C73D1AC06CA300073379 /* MyDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorViewController.h; sourceTree = "<group>"; };
 		7432C73E1AC06CA300073379 /* MyDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoctorViewController.m; sourceTree = "<group>"; };
 		7432C7401AC06D0D00073379 /* MedicalScreeningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalScreeningViewController.h; sourceTree = "<group>"; };
@@ -178,10 +186,22 @@
 		7449C53E1AB67336009AF4DD /* ChooseSexControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSexControl.m; sourceTree = "<group>"; };
 		7449C5411AB674A9009AF4DD /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
 		7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_unselected@2x.png"; sourceTree = "<group>"; };
-		744E01AC1AC2D7E10063C4A7 /* HealthInfomationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInfomationModel.h; sourceTree = "<group>"; };
-		744E01AD1AC2D7E10063C4A7 /* HealthInfomationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInfomationModel.m; sourceTree = "<group>"; };
-		744E01AF1AC2D8070063C4A7 /* HealthInformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInformationTableViewCell.h; sourceTree = "<group>"; };
-		744E01B01AC2D8070063C4A7 /* HealthInformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInformationTableViewCell.m; sourceTree = "<group>"; };
+		744E01B21AC2F77D0063C4A7 /* HealthInfomationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInfomationModel.h; sourceTree = "<group>"; };
+		744E01B31AC2F77D0063C4A7 /* HealthInfomationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInfomationModel.m; sourceTree = "<group>"; };
+		744E01B41AC2F77D0063C4A7 /* HealthInformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInformationTableViewCell.h; sourceTree = "<group>"; };
+		744E01B51AC2F77D0063C4A7 /* HealthInformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInformationTableViewCell.m; sourceTree = "<group>"; };
+		744E01B61AC2F77D0063C4A7 /* HealthInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInformationViewController.h; sourceTree = "<group>"; };
+		744E01B71AC2F77D0063C4A7 /* HealthInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInformationViewController.m; sourceTree = "<group>"; };
+		744E01BC1AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Information_Cell_DefaultImage@2x.png"; sourceTree = "<group>"; };
+		744E01BD1AC2FB7C0063C4A7 /* Information_Detail_   praise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Information_Detail_   praise.png"; sourceTree = "<group>"; };
+		744E01BE1AC2FB7C0063C4A7 /* Information_Detail_   unpraise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Information_Detail_   unpraise.png"; sourceTree = "<group>"; };
+		744E01BF1AC2FB7C0063C4A7 /* Information_Detail_transmit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Information_Detail_transmit.png; sourceTree = "<group>"; };
+		744E01C51AC2FCD90063C4A7 /* MyDoctor_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyDoctor_arrow@2x.png"; sourceTree = "<group>"; };
+		744E01C61AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyDoctor_btn_search@2x.png"; sourceTree = "<group>"; };
+		744E01C71AC2FCD90063C4A7 /* MyDoctor_HeadImg_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyDoctor_HeadImg_default@2x.png"; sourceTree = "<group>"; };
+		744E01C81AC2FCD90063C4A7 /* MyDoctor_Logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyDoctor_Logo@2x.png"; sourceTree = "<group>"; };
+		744E01C91AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyDoctor_Selected@2x.png"; sourceTree = "<group>"; };
+		744E01CA1AC2FCD90063C4A7 /* MyDoctor_unSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyDoctor_unSelected.png; sourceTree = "<group>"; };
 		74837E8F1AB086F200B030D0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		749A11AA1AB86A6B0003F58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -430,12 +450,12 @@
 		7432C7381AC06C0600073379 /* Information */ = {
 			isa = PBXGroup;
 			children = (
-				7432C73A1AC06C5C00073379 /* HealthInformationViewController.h */,
-				7432C73B1AC06C5C00073379 /* HealthInformationViewController.m */,
-				744E01AF1AC2D8070063C4A7 /* HealthInformationTableViewCell.h */,
-				744E01B01AC2D8070063C4A7 /* HealthInformationTableViewCell.m */,
-				744E01AC1AC2D7E10063C4A7 /* HealthInfomationModel.h */,
-				744E01AD1AC2D7E10063C4A7 /* HealthInfomationModel.m */,
+				744E01B21AC2F77D0063C4A7 /* HealthInfomationModel.h */,
+				744E01B31AC2F77D0063C4A7 /* HealthInfomationModel.m */,
+				744E01B41AC2F77D0063C4A7 /* HealthInformationTableViewCell.h */,
+				744E01B51AC2F77D0063C4A7 /* HealthInformationTableViewCell.m */,
+				744E01B61AC2F77D0063C4A7 /* HealthInformationViewController.h */,
+				744E01B71AC2F77D0063C4A7 /* HealthInformationViewController.m */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -456,6 +476,30 @@
 				7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		744E01BB1AC2FB7C0063C4A7 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				744E01BC1AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png */,
+				744E01BD1AC2FB7C0063C4A7 /* Information_Detail_   praise.png */,
+				744E01BE1AC2FB7C0063C4A7 /* Information_Detail_   unpraise.png */,
+				744E01BF1AC2FB7C0063C4A7 /* Information_Detail_transmit.png */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		744E01C41AC2FCD90063C4A7 /* MyDoctor */ = {
+			isa = PBXGroup;
+			children = (
+				744E01C51AC2FCD90063C4A7 /* MyDoctor_arrow@2x.png */,
+				744E01C61AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png */,
+				744E01C71AC2FCD90063C4A7 /* MyDoctor_HeadImg_default@2x.png */,
+				744E01C81AC2FCD90063C4A7 /* MyDoctor_Logo@2x.png */,
+				744E01C91AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png */,
+				744E01CA1AC2FCD90063C4A7 /* MyDoctor_unSelected.png */,
+			);
+			path = MyDoctor;
 			sourceTree = "<group>";
 		};
 		749A11AD1AB86EC00003F58B /* ADBannerScrollView */ = {
@@ -803,6 +847,8 @@
 		74E1DE531AB9D45700FA86AD /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				744E01C41AC2FCD90063C4A7 /* MyDoctor */,
+				744E01BB1AC2FB7C0063C4A7 /* Information */,
 				74E1DE541AB9D45700FA86AD /* IconAsk@2x.png */,
 				74E1DE551AB9D45700FA86AD /* IconCheck@2x.png */,
 				74E1DE561AB9D45700FA86AD /* IconDoctor@2x.png */,
@@ -927,19 +973,29 @@
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
+				744E01C31AC2FB7C0063C4A7 /* Information_Detail_transmit.png in Resources */,
 				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
 				74E1DE591AB9D45700FA86AD /* IconCheck@2x.png in Resources */,
+				744E01CE1AC2FCD90063C4A7 /* MyDoctor_Logo@2x.png in Resources */,
+				744E01CC1AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png in Resources */,
 				195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
+				744E01CD1AC2FCD90063C4A7 /* MyDoctor_HeadImg_default@2x.png in Resources */,
 				74E1DE5B1AB9D45700FA86AD /* IconMessage@2x.png in Resources */,
 				74CCFFED1AB55C7A00DDD42E /* Login_password_icon@2x.png in Resources */,
+				744E01CF1AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png in Resources */,
 				198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */,
 				198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */,
+				744E01C21AC2FB7C0063C4A7 /* Information_Detail_   unpraise.png in Resources */,
+				744E01C01AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png in Resources */,
 				197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */,
+				744E01C11AC2FB7C0063C4A7 /* Information_Detail_   praise.png in Resources */,
 				74E1DE5A1AB9D45700FA86AD /* IconDoctor@2x.png in Resources */,
 				74E1DE581AB9D45700FA86AD /* IconAsk@2x.png in Resources */,
 				198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */,
+				744E01D01AC2FCD90063C4A7 /* MyDoctor_unSelected.png in Resources */,
+				744E01CB1AC2FCD90063C4A7 /* MyDoctor_arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,7 +1052,6 @@
 				19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */,
 				198655EB1ABA5B3B002A7C22 /* BlueToothDataViewController.m in Sources */,
 				19A679BF1AAB46B4006328DA /* HTTPRequest.m in Sources */,
-				7432C73C1AC06C5C00073379 /* HealthInformationViewController.m in Sources */,
 				19A679BE1AAB46B4006328DA /* FormDataRequest.m in Sources */,
 				74CE09081AA4A52000DD9458 /* BaseUIView.m in Sources */,
 				19A679C01AAB46B4006328DA /* Operation.m in Sources */,
@@ -1022,14 +1077,13 @@
 				74CE09051AA4A52000DD9458 /* BaseUIButton.m in Sources */,
 				197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */,
 				74CE09011AA4A52000DD9458 /* UILabel+Base.m in Sources */,
-				744E01B11AC2D8070063C4A7 /* HealthInformationTableViewCell.m in Sources */,
-				744E01AE1AC2D7E10063C4A7 /* HealthInfomationModel.m in Sources */,
 				74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */,
 				7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */,
 				74CE09181AA4A52000DD9458 /* MBProgressHUD+Add.m in Sources */,
 				19A679BA1AAB46B4006328DA /* HttpEngine.m in Sources */,
 				74CE08FD1AA4A52000DD9458 /* UIControl+Base.m in Sources */,
 				19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */,
+				744E01BA1AC2F77D0063C4A7 /* HealthInformationViewController.m in Sources */,
 				749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */,
 				19AF65B91AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m in Sources */,
 				19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */,
@@ -1037,6 +1091,7 @@
 				7432C7421AC06D0D00073379 /* MedicalScreeningViewController.m in Sources */,
 				19A67A1A1AAB47B8006328DA /* SearchBlueToothViewController.m in Sources */,
 				74CE08F81AA4A52000DD9458 /* UIActionSheet+Base.m in Sources */,
+				744E01B91AC2F77D0063C4A7 /* HealthInformationTableViewCell.m in Sources */,
 				74CE08F31AA4A52000DD9458 /* NSDate+Base.m in Sources */,
 				7432C73F1AC06CA300073379 /* MyDoctorViewController.m in Sources */,
 				74CE08FF1AA4A52000DD9458 /* UIImage+Base.m in Sources */,
@@ -1046,6 +1101,7 @@
 				74CE08FA1AA4A52000DD9458 /* UIApplication+Base.m in Sources */,
 				19AF65B21AB83B89002D03E9 /* ConnectionedDeviceTableViewCell.m in Sources */,
 				749A11B61AB86F7F0003F58B /* ADBannerScrollView.m in Sources */,
+				744E01B81AC2F77D0063C4A7 /* HealthInfomationModel.m in Sources */,
 				74CE09061AA4A52000DD9458 /* BaseUILabel.m in Sources */,
 				74CE08FC1AA4A52000DD9458 /* UIColor+Base.m in Sources */,
 			);

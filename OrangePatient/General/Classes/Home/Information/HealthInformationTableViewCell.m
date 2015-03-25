@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Orange. All rights reserved.
 //
 
-#define ImageWidth 60.f
-#define CellPadding 4.f
+#define ImageWidth 75.f
+#define CellPadding 5.f
 #import "HealthInformationTableViewCell.h"
 
 @implementation HealthInformationTableViewCell
@@ -16,7 +16,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _cellImageview = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@""]];
+        _cellImageview = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"Information_Cell_DefaultImage"]];
         _cellImageview.translatesAutoresizingMaskIntoConstraints = NO;
         _cellImageview.backgroundColor = [UIColor redColor];
         [self.contentView addSubview:_cellImageview];
