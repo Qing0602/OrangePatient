@@ -49,6 +49,8 @@
 		7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449C53E1AB67336009AF4DD /* ChooseSexControl.m */; };
 		7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5411AB674A9009AF4DD /* btn_selected@2x.png */; };
 		7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */; };
+		744E01AE1AC2D7E10063C4A7 /* HealthInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01AD1AC2D7E10063C4A7 /* HealthInfomationModel.m */; };
+		744E01B11AC2D8070063C4A7 /* HealthInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01B01AC2D8070063C4A7 /* HealthInformationTableViewCell.m */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
 		749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AB1AB86A6B0003F58B /* HomeViewController.m */; };
 		749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AF1AB86F580003F58B /* CustomPageControl.m */; };
@@ -176,6 +178,10 @@
 		7449C53E1AB67336009AF4DD /* ChooseSexControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSexControl.m; sourceTree = "<group>"; };
 		7449C5411AB674A9009AF4DD /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
 		7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_unselected@2x.png"; sourceTree = "<group>"; };
+		744E01AC1AC2D7E10063C4A7 /* HealthInfomationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInfomationModel.h; sourceTree = "<group>"; };
+		744E01AD1AC2D7E10063C4A7 /* HealthInfomationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInfomationModel.m; sourceTree = "<group>"; };
+		744E01AF1AC2D8070063C4A7 /* HealthInformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInformationTableViewCell.h; sourceTree = "<group>"; };
+		744E01B01AC2D8070063C4A7 /* HealthInformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInformationTableViewCell.m; sourceTree = "<group>"; };
 		74837E8F1AB086F200B030D0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		749A11AA1AB86A6B0003F58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -426,6 +432,10 @@
 			children = (
 				7432C73A1AC06C5C00073379 /* HealthInformationViewController.h */,
 				7432C73B1AC06C5C00073379 /* HealthInformationViewController.m */,
+				744E01AF1AC2D8070063C4A7 /* HealthInformationTableViewCell.h */,
+				744E01B01AC2D8070063C4A7 /* HealthInformationTableViewCell.m */,
+				744E01AC1AC2D7E10063C4A7 /* HealthInfomationModel.h */,
+				744E01AD1AC2D7E10063C4A7 /* HealthInfomationModel.m */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -1012,6 +1022,8 @@
 				74CE09051AA4A52000DD9458 /* BaseUIButton.m in Sources */,
 				197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */,
 				74CE09011AA4A52000DD9458 /* UILabel+Base.m in Sources */,
+				744E01B11AC2D8070063C4A7 /* HealthInformationTableViewCell.m in Sources */,
+				744E01AE1AC2D7E10063C4A7 /* HealthInfomationModel.m in Sources */,
 				74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */,
 				7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */,
 				74CE09181AA4A52000DD9458 /* MBProgressHUD+Add.m in Sources */,

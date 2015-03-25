@@ -9,8 +9,8 @@
 
 #import "OrangeBaseViewController.h"
 
-#import "ADBannerScrollView.h"
-@interface HomeViewController : OrangeBaseViewController<ADBannerScrollViewDelegate>
+
+@interface HomeViewController : OrangeBaseViewController
 
 
 @end

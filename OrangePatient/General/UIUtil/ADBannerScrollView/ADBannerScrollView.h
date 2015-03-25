@@ -14,6 +14,7 @@
 
 @protocol ADBannerImageViewDelegate <NSObject>
 
+@optional
 - (void)imageViewTapped:(ADBannerModel *)model;
 
 @end

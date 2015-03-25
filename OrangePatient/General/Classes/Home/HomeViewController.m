@@ -13,7 +13,8 @@
 #import "MyDoctorViewController.h"
 #import "MedicalScreeningViewController.h"
 
-@interface HomeViewController()
+#import "ADBannerScrollView.h"
+@interface HomeViewController()<ADBannerScrollViewDelegate>
 
 @property (nonatomic, strong)ADBannerScrollView *adScrollView;
 @end
