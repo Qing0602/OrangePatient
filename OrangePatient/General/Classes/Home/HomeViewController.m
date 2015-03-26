@@ -71,7 +71,9 @@
                     break;
                 case 2:
                 {
-                    
+                    MyDoctorViewController *myDoctor = [[MyDoctorViewController alloc] init];
+                    myDoctor.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:myDoctor animated:YES];
                 }
                     break;
                 case 3:

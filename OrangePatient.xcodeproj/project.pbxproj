@@ -108,6 +108,7 @@
 		74E1DE591AB9D45700FA86AD /* IconCheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE551AB9D45700FA86AD /* IconCheck@2x.png */; };
 		74E1DE5A1AB9D45700FA86AD /* IconDoctor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE561AB9D45700FA86AD /* IconDoctor@2x.png */; };
 		74E1DE5B1AB9D45700FA86AD /* IconMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */; };
+		74E462F11AC4555B009E02A6 /* AddDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E462F01AC4555B009E02A6 /* AddDoctorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -300,6 +301,8 @@
 		74E1DE551AB9D45700FA86AD /* IconCheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconCheck@2x.png"; sourceTree = "<group>"; };
 		74E1DE561AB9D45700FA86AD /* IconDoctor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconDoctor@2x.png"; sourceTree = "<group>"; };
 		74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconMessage@2x.png"; sourceTree = "<group>"; };
+		74E462EF1AC4555B009E02A6 /* AddDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDoctorViewController.h; sourceTree = "<group>"; };
+		74E462F01AC4555B009E02A6 /* AddDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDoctorViewController.m; sourceTree = "<group>"; };
 		8C3600E16131BBAA0FC32E8A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		93EA1C7F5AB80581D41E6A58 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -465,6 +468,8 @@
 			children = (
 				7432C73D1AC06CA300073379 /* MyDoctorViewController.h */,
 				7432C73E1AC06CA300073379 /* MyDoctorViewController.m */,
+				74E462EF1AC4555B009E02A6 /* AddDoctorViewController.h */,
+				74E462F01AC4555B009E02A6 /* AddDoctorViewController.m */,
 			);
 			path = MyDoctor;
 			sourceTree = "<group>";
@@ -1053,6 +1058,7 @@
 				198655EB1ABA5B3B002A7C22 /* BlueToothDataViewController.m in Sources */,
 				19A679BF1AAB46B4006328DA /* HTTPRequest.m in Sources */,
 				19A679BE1AAB46B4006328DA /* FormDataRequest.m in Sources */,
+				74E462F11AC4555B009E02A6 /* AddDoctorViewController.m in Sources */,
 				74CE09081AA4A52000DD9458 /* BaseUIView.m in Sources */,
 				19A679C01AAB46B4006328DA /* Operation.m in Sources */,
 				74CCFFF11AB5646A00DDD42E /* TextFieldWithLeftIcon.m in Sources */,
