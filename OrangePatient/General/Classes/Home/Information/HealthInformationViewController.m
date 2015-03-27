@@ -8,6 +8,8 @@
 
 #import "HealthInformationViewController.h"
 
+#import "HealthInformationTableViewCell.h"
+#import "HealthInfomationModel.h"
 #import "ADBannerScrollView.h"
 @interface HealthInformationViewController ()<ADBannerImageViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
@@ -19,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"健康资讯";
     
     _adScrollView = [[ADBannerScrollView alloc] initWithFrame:CGRectMake(0.f, 0.f, SCREEN_WIDTH, SCREEN_WIDTH/2) placeholdImage:[UIImage imageNamed:@""] models:@[@"a",@"a",@"a",@"a",@"a"]];
     [self.view addSubview:_adScrollView];
@@ -58,7 +62,7 @@
 #pragma mark - Tableview
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40.f;
+    return 85.f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -69,16 +73,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *infomationCellIden = @"InformationCellIden";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:infomationCellIden];
+    HealthInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:infomationCellIden];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infomationCellIden];
+        cell = [[HealthInformationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infomationCellIden];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    HealthInfomationModel *testModel = [[HealthInfomationModel alloc] init];
+    testModel.infoContent = @"testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest";
+    testModel.infoTitle = @"testtesttesttest";
+    [cell setContentByInfoModel:testModel];
     return cell;
 }
 #pragma mark - ADBannerScrollViewDelegate
 - (void)itemTapped:(ADBannerModel *)model
 {
-    
+
 }
 @end
