@@ -74,6 +74,7 @@
 }
 
 -(void) clickAddDevice : (CBPeripheral *) peripheral{
+    [self addBlueToothCache:peripheral.identifier];
     [self.central stopScan];
     BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:peripheral.identifier];
     [self.navigationController pushViewController:blueToothData animated:YES];
@@ -132,8 +133,6 @@
         }
         
         self.deviceCount.text = [NSString stringWithFormat:@"索搜到%lu个新设备",(unsigned long)[self.peripheralArray count]];
-        
-        [self addBlueToothCache:peripheral.identifier];
     }
 }
 

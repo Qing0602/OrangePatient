@@ -25,8 +25,7 @@
 @interface Operation : NSOperation
 @property(nonatomic,strong) id delegate;
 @property(nonatomic) SEL action;
-@property (nonatomic,strong) NSString *signKey;
-@property (nonatomic,strong) NSString *signFormatString;
+
 //Request
 @property (nonatomic,strong) HTTPRequest *request;
 @property (nonatomic,strong) FormDataRequest *dataRequest;
