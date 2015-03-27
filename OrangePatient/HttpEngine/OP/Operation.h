@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "HTTPRequest.h"
 #import "FormDataRequest.h"
+#import "UIManagement.h"
 
 //连接服务器超时时间
 #define TimeOutSeconds 30

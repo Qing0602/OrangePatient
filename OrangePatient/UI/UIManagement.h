@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserOperation.h"
+#import "NetWorkService.h"
 
 @interface UIManagement : NSObject
++(UIManagement *) sharedInstance;
 
+// 登陆
+@property (nonatomic,strong) NSDictionary *loginResult;
+
+// 登陆
+-(void) login : (NSString *) userName withPassword : (NSString *) password;
 @end

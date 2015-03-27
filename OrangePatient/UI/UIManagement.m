@@ -10,5 +10,19 @@
 
 @implementation UIManagement
 
+static UIManagement *sharedInstance = nil;
 
++(UIManagement *) sharedInstance{
+    @synchronized(sharedInstance){
+        if (nil == sharedInstance){
+            sharedInstance = [[UIManagement alloc] init];
+        }
+    }
+    return sharedInstance;
+}
+
+-(void) login : (NSString *) userName withPassword : (NSString *) password{
+    UserOperation *operation = [[UserOperation alloc] initLogin:userName withPassword:password];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 @end

@@ -40,6 +40,7 @@
 		19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AF65B31AB845D7002D03E9 /* DeviceImage@2x.png */; };
 		19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */; };
 		19AF65B91AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */; };
+		19D8A9271AC5D9790092688E /* UserOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8A9261AC5D9790092688E /* UserOperation.m */; };
 		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
 		7432C73F1AC06CA300073379 /* MyDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C73E1AC06CA300073379 /* MyDoctorViewController.m */; };
 		7432C7421AC06D0D00073379 /* MedicalScreeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C7411AC06D0D00073379 /* MedicalScreeningViewController.m */; };
@@ -172,6 +173,8 @@
 		19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeviceImage@3x.png"; sourceTree = "<group>"; };
 		19AF65B71AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryDeviceTableViewCell.h; sourceTree = "<group>"; };
 		19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryDeviceTableViewCell.m; sourceTree = "<group>"; };
+		19D8A9251AC5D9790092688E /* UserOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOperation.h; sourceTree = "<group>"; };
+		19D8A9261AC5D9790092688E /* UserOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserOperation.m; sourceTree = "<group>"; };
 		19F0B7EB1AB09B720079CBD9 /* BlueToothDateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDateData.h; sourceTree = "<group>"; };
 		19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDateData.m; sourceTree = "<group>"; };
 		47AF80FD8C381FA442E27ECC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 				19A679B71AAB46B4006328DA /* HTTPRequest.m */,
 				19A679B81AAB46B4006328DA /* Operation.h */,
 				19A679B91AAB46B4006328DA /* Operation.m */,
+				19D8A9251AC5D9790092688E /* UserOperation.h */,
+				19D8A9261AC5D9790092688E /* UserOperation.m */,
 			);
 			path = OP;
 			sourceTree = "<group>";
@@ -1097,6 +1102,7 @@
 				7432C7421AC06D0D00073379 /* MedicalScreeningViewController.m in Sources */,
 				19A67A1A1AAB47B8006328DA /* SearchBlueToothViewController.m in Sources */,
 				74CE08F81AA4A52000DD9458 /* UIActionSheet+Base.m in Sources */,
+				19D8A9271AC5D9790092688E /* UserOperation.m in Sources */,
 				744E01B91AC2F77D0063C4A7 /* HealthInformationTableViewCell.m in Sources */,
 				74CE08F31AA4A52000DD9458 /* NSDate+Base.m in Sources */,
 				7432C73F1AC06CA300073379 /* MyDoctorViewController.m in Sources */,
