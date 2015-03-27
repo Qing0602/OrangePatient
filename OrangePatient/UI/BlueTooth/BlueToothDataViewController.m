@@ -297,11 +297,6 @@
         }
     }
     
-//    if (self.action == kGetData) {
-//        [self getBlueToothData:rx withTx:tx];
-//    }else if (self.action == kRemoveData){
-//        [self removeBlueToothData:rx withTx:tx];
-//    }
     [self getBlueToothData];
 }
 
