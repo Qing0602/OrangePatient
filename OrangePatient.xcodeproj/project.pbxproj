@@ -11,6 +11,7 @@
 		193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537A1AB754990079C424 /* SearchDevice@2x.png */; };
 		193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537B1AB754990079C424 /* SearchDevice@3x.png */; };
 		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
+		1955E2651AC75C2F00F4CAF1 /* CustomOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1955E2641AC75C2F00F4CAF1 /* CustomOperation.m */; };
 		195C547D1ABF9A2C0063E768 /* UnlockDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C54791ABF9A2C0063E768 /* UnlockDevice@2x.png */; };
 		195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547A1ABF9A2C0063E768 /* UnlockDevice@3x.png */; };
 		195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */; };
@@ -31,7 +32,6 @@
 		19A679BD1AAB46B4006328DA /* NetWorkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B21AAB46B4006328DA /* NetWorkService.m */; };
 		19A679BE1AAB46B4006328DA /* FormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B51AAB46B4006328DA /* FormDataRequest.m */; };
 		19A679BF1AAB46B4006328DA /* HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B71AAB46B4006328DA /* HTTPRequest.m */; };
-		19A679C01AAB46B4006328DA /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B91AAB46B4006328DA /* Operation.m */; };
 		19A67A1A1AAB47B8006328DA /* SearchBlueToothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */; };
 		19A67A1B1AAB47B8006328DA /* UIManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A67A191AAB47B8006328DA /* UIManagement.m */; };
 		19AC432E1AB150B1004948DF /* BlueToothTimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AC432D1AB150B1004948DF /* BlueToothTimeData.m */; };
@@ -129,6 +129,8 @@
 		195017481AAC2D8B00A7E7A1 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		1950174C1AAC2DAE00A7E7A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1955E2631AC75C2F00F4CAF1 /* CustomOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOperation.h; sourceTree = "<group>"; };
+		1955E2641AC75C2F00F4CAF1 /* CustomOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOperation.m; sourceTree = "<group>"; };
 		195C54791ABF9A2C0063E768 /* UnlockDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDevice@2x.png"; sourceTree = "<group>"; };
 		195C547A1ABF9A2C0063E768 /* UnlockDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDevice@3x.png"; sourceTree = "<group>"; };
 		195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDeviceImage@2x.png"; sourceTree = "<group>"; };
@@ -157,8 +159,6 @@
 		19A679B51AAB46B4006328DA /* FormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormDataRequest.m; sourceTree = "<group>"; };
 		19A679B61AAB46B4006328DA /* HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequest.h; sourceTree = "<group>"; };
 		19A679B71AAB46B4006328DA /* HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequest.m; sourceTree = "<group>"; };
-		19A679B81AAB46B4006328DA /* Operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
-		19A679B91AAB46B4006328DA /* Operation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Operation.m; sourceTree = "<group>"; };
 		19A67A161AAB47B8006328DA /* SearchBlueToothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBlueToothViewController.h; sourceTree = "<group>"; };
 		19A67A171AAB47B8006328DA /* SearchBlueToothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBlueToothViewController.m; sourceTree = "<group>"; };
 		19A67A181AAB47B8006328DA /* UIManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIManagement.h; path = ../../UI/UIManagement.h; sourceTree = "<group>"; };
@@ -389,12 +389,12 @@
 		19A679B31AAB46B4006328DA /* OP */ = {
 			isa = PBXGroup;
 			children = (
+				1955E2631AC75C2F00F4CAF1 /* CustomOperation.h */,
+				1955E2641AC75C2F00F4CAF1 /* CustomOperation.m */,
 				19A679B41AAB46B4006328DA /* FormDataRequest.h */,
 				19A679B51AAB46B4006328DA /* FormDataRequest.m */,
 				19A679B61AAB46B4006328DA /* HTTPRequest.h */,
 				19A679B71AAB46B4006328DA /* HTTPRequest.m */,
-				19A679B81AAB46B4006328DA /* Operation.h */,
-				19A679B91AAB46B4006328DA /* Operation.m */,
 				19D8A9251AC5D9790092688E /* UserOperation.h */,
 				19D8A9261AC5D9790092688E /* UserOperation.m */,
 			);
@@ -1065,7 +1065,6 @@
 				19A679BE1AAB46B4006328DA /* FormDataRequest.m in Sources */,
 				74E462F11AC4555B009E02A6 /* AddDoctorViewController.m in Sources */,
 				74CE09081AA4A52000DD9458 /* BaseUIView.m in Sources */,
-				19A679C01AAB46B4006328DA /* Operation.m in Sources */,
 				74CCFFF11AB5646A00DDD42E /* TextFieldWithLeftIcon.m in Sources */,
 				74BE67AD1A9F4AF7008F7C44 /* ViewController.m in Sources */,
 				74CE08F21AA4A52000DD9458 /* NSArray+Base.m in Sources */,
@@ -1101,6 +1100,7 @@
 				74CE090A1AA4A52000DD9458 /* OrangeBaseViewController.m in Sources */,
 				7432C7421AC06D0D00073379 /* MedicalScreeningViewController.m in Sources */,
 				19A67A1A1AAB47B8006328DA /* SearchBlueToothViewController.m in Sources */,
+				1955E2651AC75C2F00F4CAF1 /* CustomOperation.m in Sources */,
 				74CE08F81AA4A52000DD9458 /* UIActionSheet+Base.m in Sources */,
 				19D8A9271AC5D9790092688E /* UserOperation.m in Sources */,
 				744E01B91AC2F77D0063C4A7 /* HealthInformationTableViewCell.m in Sources */,

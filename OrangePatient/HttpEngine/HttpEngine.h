@@ -10,7 +10,7 @@
 #import "JSONKit.h"
 #import "HTTPRequest.h"
 #import "FormDataRequest.h"
-#import "Operation.h"
+#import "CustomOperation.h"
 
 @interface HttpEngine : NSObject
 // private

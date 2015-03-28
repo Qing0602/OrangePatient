@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 ws. All rights reserved.
 //
 
-#import "Operation.h"
+#import "CustomOperation.h"
 #import "NetWorkService.h"
 #import <CommonCrypto/CommonHMAC.h>
 #import "NetWorkService.h"
@@ -18,20 +18,16 @@ typedef enum{
     Http_Post
 } HttpType;
 
-@interface Operation ()
+@interface CustomOperation ()
 @property (nonatomic) HttpType httpType;
 @property (nonatomic) NSString *currentTime;
 -(void) configRequest;
--(NSString *) configGetRequest : (NSString *) query;
--(NSDictionary *) configParams : (NSDictionary *) params;
--(NSString *) getMD5 : (NSDictionary *)params withAllKeys : (NSArray *) array;
--(NSString *) createMD5 : (NSString *) str;
 -(NSString *) getTime;
 @end
 
-@implementation Operation
+@implementation CustomOperation
 
--(Operation *) initOperation{
+-(CustomOperation *) initCustomOperation{
     self = [super init];
     if (nil != self) {
         self.httpType = Http_None;
@@ -40,8 +36,8 @@ typedef enum{
     return self;
 }
 
--(Operation *) initOperation:(id)delegate withActon : (SEL) action{
-    self = [self initOperation];
+-(CustomOperation *) initCustomOperation:(id)delegate withActon : (SEL) action{
+    self = [self initCustomOperation];
     if (self) {
         self.delegate = delegate;
         self.action = action;
@@ -92,10 +88,9 @@ typedef enum{
     NSURL *url = [NSURL URLWithString:urlStr];
     self.httpType = Http_Post;
     self.dataRequest = [FormDataRequest requestWithURL:url];
-    NSDictionary *p = [self configParams:params];
     
-    for (NSString *key in [p allKeys]) {
-        [self.dataRequest setPostValue:[p objectForKey:key] forKey:key];
+    for (NSString *key in [params allKeys]) {
+        [self.dataRequest setPostValue:[params objectForKey:key] forKey:key];
     }
     for (NSString *key in [files allKeys]) {
         [self.dataRequest setFile:[files objectForKey:key] forKey:key];
@@ -113,9 +108,8 @@ typedef enum{
     [self.dataRequest addRequestHeader:@"Content-Type" value:@"multipart/form-data"];
     [self.dataRequest setRequestMethod:@"POST"];
     [self.dataRequest setShouldAttemptPersistentConnection:NO];
-    NSDictionary *p = [self configParams:params];
-    for (NSString *key in [p allKeys]) {
-        [self.dataRequest setPostValue:[p objectForKey:key] forKey:key];
+    for (NSString *key in [params allKeys]) {
+        [self.dataRequest setPostValue:[params objectForKey:key] forKey:key];
     }
     for (NSString *key in [filesDict allKeys]) {
         [self.dataRequest setData:[filesDict objectForKey:key] forKey:key];
@@ -131,13 +125,13 @@ typedef enum{
 -(void) configRequest{
     if(self.httpType == Http_Get){
         [self.request setTimeOutSeconds:TimeOutSeconds];
-        [self.request setUserAgentString:[self GetUserAgent]];
+//        [self.request setUserAgentString:[self GetUserAgent]];
         [self.request setProxyPort:8881];
         [self.request.requestHeaders setObject:@"" forKey:@"api_key"];
         self.request.clazz = self.delegate;
         self.request.clazzAction = self.action;
     }else if (self.httpType == Http_Post){
-        [self.dataRequest setUserAgentString:[self GetUserAgent]];
+//        [self.dataRequest setUserAgentString:[self GetUserAgent]];
         [self.dataRequest setTimeOutSeconds:TimeOutSeconds];
         [self.dataRequest.requestHeaders setObject:@"" forKey:@"api_key"];
         [self.dataRequest setProxyPort:8881];

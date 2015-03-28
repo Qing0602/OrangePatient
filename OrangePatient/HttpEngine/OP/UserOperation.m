@@ -16,9 +16,9 @@
 @implementation UserOperation
 
 -(UserOperation *) initLogin : (NSString *) userName withPassword : (NSString *) password{
-    self = [self initOperation];
+    self = [self initCustomOperation];
     if (nil != self) {
-        self.type = NaNaLogin;
+        self.type = kLogin;
         NSString *urlStr = [NSString stringWithFormat:@"%@api/users/login?username=%@&password=%@",K_HOST_OF_SERVER,userName,password];
         [self setHttpRequestGetWithUrl:urlStr];
     }
@@ -38,7 +38,7 @@
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
-            case NaNaLogin:
+            case kLogin:
                 [self login];
                 break;
             default:

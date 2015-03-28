@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 Orange. All rights reserved.
 //
 
-#import "Operation.h"
+#import "CustomOperation.h"
 
 typedef enum{
     kLogin,
 }UserType;
 
-@interface UserOperation : Operation
+@interface UserOperation : CustomOperation
 -(UserOperation *) initLogin : (NSString *) userName withPassword : (NSString *) password;
 
 @end

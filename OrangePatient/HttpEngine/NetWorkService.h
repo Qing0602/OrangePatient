@@ -10,7 +10,7 @@
 #import "HttpEngine.h"
 #import <Foundation/Foundation.h>
 #import "ASINetworkQueue.h"
-#import "Operation.h"
+#import "CustomOperation.h"
 
 @interface NetWorkService : HttpEngine
 @property(nonatomic,strong) ASINetworkQueue *uiBusinessQueue;
@@ -18,7 +18,7 @@
 +(NetWorkService *) sharedInstance;
 
 // 封装网络请求的Operation
--(void) networkEngine : (Operation *)operation;
+-(void) networkEngine : (CustomOperation *)operation;
 // 开始网络请求的Operation
 -(void) startAsynchronous : (NSOperation *) request;
 -(void) canelHttpRequestFrom : (id) clazz;

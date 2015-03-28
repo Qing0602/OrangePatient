@@ -22,7 +22,7 @@
 #define ASI_REQUEST_DATA @"data"
 #define ASI_REQUEST_CONTEXT @"context"
 
-@interface Operation : NSOperation
+@interface CustomOperation : NSOperation
 @property(nonatomic,strong) id delegate;
 @property(nonatomic) SEL action;
 
@@ -30,9 +30,9 @@
 @property (nonatomic,strong) HTTPRequest *request;
 @property (nonatomic,strong) FormDataRequest *dataRequest;
 
--(Operation *) initOperation;
--(Operation *) initOperation : (id) delegate withActon : (SEL) action;
--(NSString*)GetUserAgent;
+-(CustomOperation *) initCustomOperation;
+-(CustomOperation *) initCustomOperation : (id) delegate withActon : (SEL) action;
+//-(NSString*)GetUserAgent;
 
 //Get方法
 -(void) setHttpRequestGetWithUrl:(NSString *)urlStr;

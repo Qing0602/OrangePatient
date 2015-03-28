@@ -41,7 +41,7 @@ static NetWorkService *engine;
     self.requestArray = [[NSMutableArray alloc] initWithCapacity:10];
 }
 
--(void) networkEngine:(Operation *)operation{
+-(void) networkEngine:(CustomOperation *)operation{
     [self.serviceQueue addOperation:operation];
 }
 
