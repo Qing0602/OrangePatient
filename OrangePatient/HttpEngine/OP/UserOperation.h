@@ -12,7 +12,7 @@ typedef enum{
     kLogin,
 }UserType;
 
-@interface UserOperation : CustomOperation
+@interface UserOperation : NSOperation
 -(UserOperation *) initLogin : (NSString *) userName withPassword : (NSString *) password;
 
 @end

@@ -11,6 +11,8 @@
 #import "HTTPRequest.h"
 #import "FormDataRequest.h"
 #import "CustomOperation.h"
+#import <objc/message.h>
+#import "Reachability.h"
 
 @interface HttpEngine : NSObject
 // private

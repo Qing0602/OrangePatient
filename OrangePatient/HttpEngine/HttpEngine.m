@@ -8,9 +8,7 @@
 //
 
 #import "HttpEngine.h"
-#import <objc/message.h>
-#import "Reachability.h"
-#import "UIManagement.h"
+
 
 @interface HttpEngine ()
 //转换数据

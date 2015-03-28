@@ -9,8 +9,6 @@
 #import "CustomOperation.h"
 #import "NetWorkService.h"
 #import <CommonCrypto/CommonHMAC.h>
-#import "NetWorkService.h"
-#import "UIManagement.h"
 
 typedef enum{
     Http_None,
