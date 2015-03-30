@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"我的医生";
+    
+    
     // Do any additional setup after loading the view.
 }
 
