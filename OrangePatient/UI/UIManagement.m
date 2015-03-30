@@ -7,7 +7,7 @@
 //
 
 #import "UIManagement.h"
-
+#import "NetWorkService.h"
 @implementation UIManagement
 
 static UIManagement *sharedInstance = nil;
