@@ -5,8 +5,8 @@
 //  Created by ZhangQing on 15/3/30.
 //  Copyright (c) 2015年 Orange. All rights reserved.
 //
-#define ImageWidth 75.f
-#define CellPadding 5.f
+#define ImageWidth 65.f
+#define CellPadding 10.f
 
 #import "DoctorBaseTableViewCell.h"
 
@@ -43,11 +43,12 @@
         
         NSDictionary *views = NSDictionaryOfVariableBindings(_cellImageview,_cellTitle,_cellContent,_cellSubTitle);
         NSDictionary *metrics = @{@"ImageWidth":@ImageWidth,@"CellPadding":@CellPadding};
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-CellPadding-[_cellImageview(ImageWidth)]-==10-[_cellTitle(>=100)]->=CellPadding-|" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-CellPadding-[_cellImageview(ImageWidth)]-==10-[_cellContent(>=100)]->=CellPadding-|" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-CellPadding-[_cellImageview(ImageWidth)]-==10-[_cellSubTitle(>=100)]->=CellPadding-|" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-CellPadding-[_cellImageview(ImageWidth)]-CellPadding-|" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-CellPadding-[_cellTitle(16)]->=6-[_cellContent(_cellTitle)]->=6-[_cellSubTitle(_cellTitle)]-CellPadding-|" options:0 metrics:metrics views:views]];
+        
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-CellPadding-[_cellImageview(ImageWidth)]-==10-[_cellTitle(>=100)]->=CellPadding-|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-CellPadding-[_cellImageview(ImageWidth)]-==10-[_cellContent(>=100)]->=CellPadding-|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-CellPadding-[_cellImageview(ImageWidth)]-==10-[_cellSubTitle(>=100)]->=CellPadding-|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-CellPadding-[_cellImageview(ImageWidth)]-CellPadding-|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-CellPadding-[_cellTitle(16)]->=6-[_cellContent(_cellTitle)]->=6-[_cellSubTitle(_cellTitle)]-CellPadding-|" options:0 metrics:metrics views:views]];
         
     }
     return self;

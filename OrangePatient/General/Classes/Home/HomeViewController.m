@@ -11,6 +11,7 @@
 #import "HealthInformationViewController.h"
 #import "ConsultViewController.h"
 #import "MyDoctorViewController.h"
+#import "MyDoctorListViewController.h"
 #import "MedicalScreeningViewController.h"
 
 #import "ADBannerScrollView.h"
@@ -71,7 +72,8 @@
                     break;
                 case 2:
                 {
-                    MyDoctorViewController *myDoctor = [[MyDoctorViewController alloc] init];
+                    MyDoctorListViewController *myDoctor = [[MyDoctorListViewController alloc] init];
+                    //MyDoctorViewController *myDoctor = [[MyDoctorViewController alloc] init];
                     myDoctor.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:myDoctor animated:YES];
                 }

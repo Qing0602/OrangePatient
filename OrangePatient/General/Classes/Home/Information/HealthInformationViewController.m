@@ -64,7 +64,7 @@
 #pragma mark - Setter&Getter
 - (NSArray *)infomations
 {
-    if (_infomations) {
+    if (!_infomations) {
         NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:10];
         for (int i = 0; i < 10; i++) {
             HealthInfomationModel *testModel = [[HealthInfomationModel alloc] init];
