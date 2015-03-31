@@ -42,21 +42,21 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@%@",documentsDirectory,[NSString stringWithFormat:CachePath]]]) {
-        NSString *myDirectory = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:CachePath]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,1]]]) {
+        NSString *myDirectory = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:CachePath,1]];
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:myDirectory withIntermediateDirectories:NO attributes:nil error:&error];
     }
     
     NSData *cacheData = [NSKeyedArchiver archivedDataWithRootObject:data];
-    NSString *filePath = [NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath],fileName];
+    NSString *filePath = [NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,1],fileName];
     return [cacheData writeToFile:filePath atomically:YES];
 }
 
 +(id) deserializeModel : (NSString *)fileName{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSData *cacheData = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath],fileName]];
+    NSData *cacheData = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,1],fileName]];
 	id data = [NSKeyedUnarchiver unarchiveObjectWithData:cacheData];
     return data;
 }
