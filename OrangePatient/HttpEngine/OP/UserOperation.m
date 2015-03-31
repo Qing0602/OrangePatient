@@ -22,8 +22,8 @@
     self = [self initCustomOperation];
     if (nil != self) {
         self.type = kLogin;
-        NSString *urlStr = [NSString stringWithFormat:@"%@/users/login?username=%@&password=%@",K_HOST_OF_SERVER,userName,password];
-        [self setHttpRequestGetWithUrl:urlStr];
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/users/login",K_HOST_OF_SERVER];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"username":userName,@"password":password}];
     }
     return self;
 }
@@ -32,8 +32,8 @@
     self = [self initCustomOperation];
     if (nil != self) {
         self.type = kGetVerifyCode;
-        NSString *urlStr = [NSString stringWithFormat:@"%@/users/verifycode",K_HOST_OF_SERVER];
-        [self setHttpRequestPostWithUrl:urlStr params:@{@"mobile":phoneNumber,@"type":[NSNumber numberWithInt:typeCode]}];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/verifycode",K_HOST_OF_SERVER];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"mobile":phoneNumber,@"type":[NSNumber numberWithLong:typeCode]}];
     }
     return self;
 }
@@ -42,14 +42,14 @@
     self = [self initCustomOperation];
     if (nil != self) {
         self.type = kRegister;
-        NSString *urlStr = [NSString stringWithFormat:@"%@/users/register",K_HOST_OF_SERVER];
-        [self setHttpRequestPostWithUrl:urlStr params:@{@"username" : userName,@"password":password,@"name":name,@"sex":[NSNumber numberWithInt:sex],@"birthday":birthday,@"verifycode":verifyCode}];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/register",K_HOST_OF_SERVER];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"username" : userName,@"password":password,@"name":name,@"sex":[NSNumber numberWithLong:sex],@"birthday":birthday,@"verifycode":verifyCode}];
     }
     return self;
 }
 
 -(void) login{
-    [self.request setRequestCompleted:^(NSDictionary *data){
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
             [UIManagement sharedInstance].loginResult = data;
         };
@@ -59,7 +59,7 @@
 }
 
 -(void) verifyCode{
-    [self.request setRequestCompleted:^(NSDictionary *data){
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
             [UIManagement sharedInstance].verifyCodeResult = data;
         };
@@ -69,7 +69,7 @@
 }
 
 -(void) userRegister{
-    [self.request setRequestCompleted:^(NSDictionary *data){
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
             [UIManagement sharedInstance].regsiterResult = data;
         };

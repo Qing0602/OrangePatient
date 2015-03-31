@@ -22,7 +22,7 @@
 
 #ifdef INNER_TEST
 
-#define K_HOST_OF_SERVER           @"http://121.42.142.14/"
+#define K_HOST_OF_SERVER           @"http://121.42.142.14:8881/"
 #else
 #define K_HOST_OF_SERVER           @"http://115.29.178.164/"
 
