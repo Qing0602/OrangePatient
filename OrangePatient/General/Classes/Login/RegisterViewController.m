@@ -14,12 +14,19 @@
 #import "UIManagement.h"
 #import <QuartzCore/QuartzCore.h>
 @interface RegisterViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong)UIView *pickerSuperView;
 //选择性别
 @property (nonatomic, strong)ChooseSexControl *sexControl;
+//出生日期显示
+@property (nonatomic, strong)UILabel *birthdayDate;
+//日期选择picker
+@property (nonatomic, strong)UIDatePicker *birthdayDatePicker;
 //选择生日
 @property (nonatomic, strong)UIButton *chooseBirthdayDate;
 //手机号码输入框
 @property (nonatomic, strong)UITextField *phoneNumInput;
+//姓名输入框
+@property (nonatomic, strong)UITextField *usernameInput;
 //获取验证码
 @property (nonatomic, strong)UIButton *getVeriCode;
 //验证码输入框
@@ -59,6 +66,22 @@
     [registerBtn addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:registerBtn];
     
+    self.pickerSuperView = [[UIView alloc] initWithFrame:CGRectMake(0.f, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.pickerSuperView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    [self.view addSubview:self.pickerSuperView];
+    
+    UITapGestureRecognizer *tapPickerSuperView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerSuperViewTapped)];
+    [self.pickerSuperView addGestureRecognizer:tapPickerSuperView];
+    
+    self.birthdayDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.f, SCREEN_HEIGHT/2, SCREEN_WIDTH, SCREEN_HEIGHT/2)];
+    [self.birthdayDatePicker setMinimumDate:[NSDate dateWithString:BIRTHDAY_MINIMUM_DATE]];
+    [self.birthdayDatePicker setMaximumDate:[NSDate date]];
+    self.birthdayDatePicker.datePickerMode = UIDatePickerModeDate;
+    RACSignal *pickerChoosen = [self.birthdayDatePicker rac_signalForControlEvents:UIControlEventValueChanged];
+    [pickerChoosen subscribeNext:^(UIDatePicker *picker){
+        self.birthdayDate.text = [NSString stringFromDate:picker.date];
+    }];
+    [self.pickerSuperView addSubview:self.birthdayDatePicker];
     // Do any additional setup after loading the view.
 }
 
@@ -78,9 +101,35 @@
     
 }
 
-- (void)getVerificationCode
+
+
+- (void)pickerSuperViewTapped
 {
-    [[UIManagement sharedInstance] getVerifyCode:self.phoneNumInput.text withType:0];
+    [self hidePicker];
+}
+
+- (void)viewPicker
+{
+    if (self.pickerSuperView.frame.origin.y == SCREEN_HEIGHT) {
+        [UIView animateWithDuration:0.5 animations:^{
+            CGRect pickerFrame = self.pickerSuperView.frame;
+            pickerFrame.origin.y = 0;
+            self.pickerSuperView.frame = pickerFrame;
+        }];
+    }
+    
+}
+
+- (void)hidePicker
+{
+    if (self.pickerSuperView.frame.origin.y != SCREEN_HEIGHT) {
+        [UIView animateWithDuration:0.5 animations:^{
+            CGRect pickerFrame = self.pickerSuperView.frame;
+            pickerFrame.origin.y = SCREEN_HEIGHT;
+            self.pickerSuperView.frame = pickerFrame;
+        }];
+    }
+    
 }
 #pragma mark - Tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -105,8 +154,11 @@
             case 0:
             {
                 cell.textLabel.text = @"姓名:";
+                self.usernameInput = [[UITextField alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-200.f, 30.f)];
+                self.usernameInput.textColor = [UIColor lightGrayColor];
+                [cell.contentView addSubview:self.usernameInput];
                 
-                self.sexControl = [[ChooseSexControl alloc] initWithOrigin:CGPointMake(SCREEN_WIDTH-Control_Width-SCREEN_WIDTH/10, (Register_TableviewCell_Height-Control_Height)/2)];
+                self.sexControl = [[ChooseSexControl alloc] initWithOrigin:CGPointMake(SCREEN_WIDTH-Control_Width-SCREEN_WIDTH/30, (Register_TableviewCell_Height-Control_Height)/2)];
                 [cell.contentView addSubview:self.sexControl];
             }
                 break;
@@ -114,10 +166,19 @@
             {
                 cell.textLabel.text = @"出生日期:";
                 
+                self.birthdayDate = [[UILabel alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-196.f, 30.f)];
+                self.birthdayDate.textColor = [UIColor lightGrayColor];
+                [cell.contentView addSubview:self.birthdayDate];
+                
+                
                 self.chooseBirthdayDate = [UIButton buttonWithType:UIButtonTypeCustom];
                 [self.chooseBirthdayDate setTitle:@"选择时间 >" forState:UIControlStateNormal];
-                [self.chooseBirthdayDate setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-                [self.chooseBirthdayDate setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/10-100.f, (Register_TableviewCell_Height-30.f)/2, 100.f, 30.f)];
+                [self.chooseBirthdayDate setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+                [self.chooseBirthdayDate setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-100.f, (Register_TableviewCell_Height-24.f)/2, 100.f, 24.f)];
+                RACSignal *chooseBirthdaySingnal = [self.chooseBirthdayDate rac_signalForControlEvents:UIControlEventTouchUpInside];
+                [chooseBirthdaySingnal subscribeNext:^(UIButton *sender){
+                    [self viewPicker];
+                }];
                 [cell.contentView addSubview:self.chooseBirthdayDate];
             }
                 break;
@@ -125,22 +186,28 @@
             {
                 cell.textLabel.text = @"手机号码:";
                 
-                self.phoneNumInput = [[UITextField alloc] initWithFrame:CGRectMake(100.f, (Register_TableviewCell_Height-30.f)/2, 100.f, 30.f)];
-                self.phoneNumInput.backgroundColor = [UIColor redColor];
+                self.phoneNumInput = [[UITextField alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-196.f, 30.f)];
+                self.phoneNumInput.textColor = [UIColor lightGrayColor];
                 [cell.contentView addSubview:self.phoneNumInput];
                 
                 self.getVeriCode = [UIButton buttonWithType:UIButtonTypeCustom];
                 [self.getVeriCode setTitle:@"获取验证码" forState:UIControlStateNormal];
                 self.getVeriCode.titleLabel.font = [UIFont systemFontOfSize:14.f];
                 self.getVeriCode.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
-                [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-100.f, (Register_TableviewCell_Height-30.f)/2, 100.f, 30.f)];
-                [self.getVeriCode addTarget:self action:@selector(getVerificationCode) forControlEvents:UIControlEventTouchUpInside];
+                [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-100.f, (Register_TableviewCell_Height-24.f)/2, 100.f, 24.f)];
+                RACSignal *getVeriCodeSingnal = [self.getVeriCode rac_signalForControlEvents:UIControlEventTouchUpInside];
+                [getVeriCodeSingnal subscribeNext:^(UIButton *sender){
+                    [[UIManagement sharedInstance] getVerifyCode:self.phoneNumInput.text withType:0];
+                }];
                 [cell.contentView addSubview:self.getVeriCode];
             }
                 break;
             case 3:
             {
                 cell.textLabel.text = @"验证码:";
+                
+                self.phoneNumInput = [[UITextField alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-90, 30.f)];
+                [cell.contentView addSubview:self.phoneNumInput];
             }
                 break;
             default:
