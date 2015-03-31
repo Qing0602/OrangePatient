@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "UserOperation.h"
-#import "NetWorkService.h"
+
 
 @interface UIManagement : NSObject
 +(UIManagement *) sharedInstance;

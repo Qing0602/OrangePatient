@@ -26,7 +26,6 @@
 		198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE21AB6EF990017A90B /* default-667h@2x.png */; };
 		198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE31AB6EF990017A90B /* Default-736h@3x.png */; };
 		198F3FE81AB6EF990017A90B /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE41AB6EF990017A90B /* default@2x.png */; };
-		19A679BA1AAB46B4006328DA /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AB1AAB46B4006328DA /* HttpEngine.m */; };
 		19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */; };
 		19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B01AAB46B4006328DA /* UIModelCoding.m */; };
 		19A679BD1AAB46B4006328DA /* NetWorkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B21AAB46B4006328DA /* NetWorkService.m */; };
@@ -110,6 +109,11 @@
 		74E1DE5A1AB9D45700FA86AD /* IconDoctor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE561AB9D45700FA86AD /* IconDoctor@2x.png */; };
 		74E1DE5B1AB9D45700FA86AD /* IconMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */; };
 		74E462F11AC4555B009E02A6 /* AddDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E462F01AC4555B009E02A6 /* AddDoctorViewController.m */; };
+		74F64E781AC90B01004F44D6 /* MyDoctorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F64E771AC90B01004F44D6 /* MyDoctorListViewController.m */; };
+		74F64E7B1AC90BA8004F44D6 /* ChooseHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F64E7A1AC90BA8004F44D6 /* ChooseHospitalViewController.m */; };
+		74F64E7E1AC90CBA004F44D6 /* MyDoctorsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F64E7D1AC90CBA004F44D6 /* MyDoctorsModel.m */; };
+		74F64E811AC90CD9004F44D6 /* DoctorBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F64E801AC90CD9004F44D6 /* DoctorBaseTableViewCell.m */; };
+		74F64E841AC9123C004F44D6 /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F64E831AC9123C004F44D6 /* HttpEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,8 +151,6 @@
 		198F3FE21AB6EF990017A90B /* default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-667h@2x.png"; sourceTree = "<group>"; };
 		198F3FE31AB6EF990017A90B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		198F3FE41AB6EF990017A90B /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
-		19A679AA1AAB46B4006328DA /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
-		19A679AB1AAB46B4006328DA /* HttpEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpEngine.m; sourceTree = "<group>"; };
 		19A679AD1AAB46B4006328DA /* AsiGetRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsiGetRequestModel.h; sourceTree = "<group>"; };
 		19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsiGetRequestModel.m; sourceTree = "<group>"; };
 		19A679AF1AAB46B4006328DA /* UIModelCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModelCoding.h; sourceTree = "<group>"; };
@@ -306,6 +308,16 @@
 		74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconMessage@2x.png"; sourceTree = "<group>"; };
 		74E462EF1AC4555B009E02A6 /* AddDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDoctorViewController.h; sourceTree = "<group>"; };
 		74E462F01AC4555B009E02A6 /* AddDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDoctorViewController.m; sourceTree = "<group>"; };
+		74F64E761AC90B01004F44D6 /* MyDoctorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorListViewController.h; sourceTree = "<group>"; };
+		74F64E771AC90B01004F44D6 /* MyDoctorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoctorListViewController.m; sourceTree = "<group>"; };
+		74F64E791AC90BA8004F44D6 /* ChooseHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseHospitalViewController.h; sourceTree = "<group>"; };
+		74F64E7A1AC90BA8004F44D6 /* ChooseHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseHospitalViewController.m; sourceTree = "<group>"; };
+		74F64E7C1AC90CBA004F44D6 /* MyDoctorsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorsModel.h; sourceTree = "<group>"; };
+		74F64E7D1AC90CBA004F44D6 /* MyDoctorsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoctorsModel.m; sourceTree = "<group>"; };
+		74F64E7F1AC90CD9004F44D6 /* DoctorBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorBaseTableViewCell.h; sourceTree = "<group>"; };
+		74F64E801AC90CD9004F44D6 /* DoctorBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorBaseTableViewCell.m; sourceTree = "<group>"; };
+		74F64E821AC9123C004F44D6 /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
+		74F64E831AC9123C004F44D6 /* HttpEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpEngine.m; sourceTree = "<group>"; };
 		8C3600E16131BBAA0FC32E8A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		93EA1C7F5AB80581D41E6A58 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -365,8 +377,8 @@
 		19A679A91AAB46B4006328DA /* HttpEngine */ = {
 			isa = PBXGroup;
 			children = (
-				19A679AA1AAB46B4006328DA /* HttpEngine.h */,
-				19A679AB1AAB46B4006328DA /* HttpEngine.m */,
+				74F64E821AC9123C004F44D6 /* HttpEngine.h */,
+				74F64E831AC9123C004F44D6 /* HttpEngine.m */,
 				19A679AC1AAB46B4006328DA /* Model */,
 				19A679B11AAB46B4006328DA /* NetWorkService.h */,
 				19A679B21AAB46B4006328DA /* NetWorkService.m */,
@@ -473,6 +485,14 @@
 			children = (
 				7432C73D1AC06CA300073379 /* MyDoctorViewController.h */,
 				7432C73E1AC06CA300073379 /* MyDoctorViewController.m */,
+				74F64E761AC90B01004F44D6 /* MyDoctorListViewController.h */,
+				74F64E771AC90B01004F44D6 /* MyDoctorListViewController.m */,
+				74F64E7F1AC90CD9004F44D6 /* DoctorBaseTableViewCell.h */,
+				74F64E801AC90CD9004F44D6 /* DoctorBaseTableViewCell.m */,
+				74F64E7C1AC90CBA004F44D6 /* MyDoctorsModel.h */,
+				74F64E7D1AC90CBA004F44D6 /* MyDoctorsModel.m */,
+				74F64E791AC90BA8004F44D6 /* ChooseHospitalViewController.h */,
+				74F64E7A1AC90BA8004F44D6 /* ChooseHospitalViewController.m */,
 				74E462EF1AC4555B009E02A6 /* AddDoctorViewController.h */,
 				74E462F01AC4555B009E02A6 /* AddDoctorViewController.m */,
 			);
@@ -1070,11 +1090,13 @@
 				74CE08F21AA4A52000DD9458 /* NSArray+Base.m in Sources */,
 				74CE08F91AA4A52000DD9458 /* UIAlertView+Base.m in Sources */,
 				74CE09041AA4A52000DD9458 /* BaseNSObject.m in Sources */,
+				74F64E7E1AC90CBA004F44D6 /* MyDoctorsModel.m in Sources */,
 				74CE08FE1AA4A52000DD9458 /* UIFont+Base.m in Sources */,
 				74CE09021AA4A52000DD9458 /* UIView+Base.m in Sources */,
 				74CE08F51AA4A52000DD9458 /* NSObject+Base.m in Sources */,
 				749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */,
 				19AC43311AB1550E004948DF /* BlueToothData.m in Sources */,
+				74F64E7B1AC90BA8004F44D6 /* ChooseHospitalViewController.m in Sources */,
 				19AC432E1AB150B1004948DF /* BlueToothTimeData.m in Sources */,
 				74CE09001AA4A52000DD9458 /* UIImageView+Base.m in Sources */,
 				74CE08F61AA4A52000DD9458 /* NSString+Base.m in Sources */,
@@ -1083,6 +1105,8 @@
 				74BE67A71A9F4AF7008F7C44 /* main.m in Sources */,
 				743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */,
 				74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */,
+				74F64E841AC9123C004F44D6 /* HttpEngine.m in Sources */,
+				74F64E811AC90CD9004F44D6 /* DoctorBaseTableViewCell.m in Sources */,
 				74CE08FB1AA4A52000DD9458 /* UIButton+Base.m in Sources */,
 				74CE09051AA4A52000DD9458 /* BaseUIButton.m in Sources */,
 				197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */,
@@ -1090,8 +1114,8 @@
 				74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */,
 				7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */,
 				74CE09181AA4A52000DD9458 /* MBProgressHUD+Add.m in Sources */,
-				19A679BA1AAB46B4006328DA /* HttpEngine.m in Sources */,
 				74CE08FD1AA4A52000DD9458 /* UIControl+Base.m in Sources */,
+				74F64E781AC90B01004F44D6 /* MyDoctorListViewController.m in Sources */,
 				19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */,
 				744E01BA1AC2F77D0063C4A7 /* HealthInformationViewController.m in Sources */,
 				749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */,

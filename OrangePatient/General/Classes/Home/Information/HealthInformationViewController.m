@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong)ADBannerScrollView *adScrollView;
 @property (nonatomic, strong)UITableView *healthInfoTable;
+
+@property (nonatomic, strong)NSArray *infomations;
 @end
 
 @implementation HealthInformationViewController
@@ -59,6 +61,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - Setter&Getter
+- (NSArray *)infomations
+{
+    if (_infomations) {
+        NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:10];
+        for (int i = 0; i < 10; i++) {
+            HealthInfomationModel *testModel = [[HealthInfomationModel alloc] init];
+            testModel.infoContent = @"testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest";
+            testModel.infoTitle = @"testtesttesttest";
+            [testArray addObject:testModel];
+        }
+        _infomations = [[NSArray alloc] initWithArray:testArray];
+    }
+    return _infomations;
+}
 #pragma mark - Tableview
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -67,7 +84,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.infomations.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,10 +94,8 @@
     if (!cell) {
         cell = [[HealthInformationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infomationCellIden];
     }
-    HealthInfomationModel *testModel = [[HealthInfomationModel alloc] init];
-    testModel.infoContent = @"testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest";
-    testModel.infoTitle = @"testtesttesttest";
-    [cell setContentByInfoModel:testModel];
+
+    [cell setContentByInfoModel:self.infomations[indexPath.row]];
     return cell;
 }
 #pragma mark - ADBannerScrollViewDelegate
