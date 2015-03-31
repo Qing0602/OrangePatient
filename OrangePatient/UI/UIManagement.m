@@ -25,4 +25,9 @@ static UIManagement *sharedInstance = nil;
     UserOperation *operation = [[UserOperation alloc] initLogin:userName withPassword:password];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
+
+-(void) getVerifyCode:(NSString *)phoneNumber withType:(NSInteger)typeCode{
+    UserOperation *operation = [[UserOperation alloc] initGetVerifyCode:phoneNumber withType:typeCode];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 @end
