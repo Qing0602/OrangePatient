@@ -10,9 +10,12 @@
 
 typedef enum{
     kLogin,
+    kGetVerifyCode,
+    kRegister,
 }UserType;
 
-@interface UserOperation : NSOperation
+@interface UserOperation : CustomOperation
 -(UserOperation *) initLogin : (NSString *) userName withPassword : (NSString *) password;
-
+-(UserOperation *) initGetVerifyCode : (NSString *) phoneNumber withType : (NSInteger) typeCode;
+-(UserOperation *) initRegsiter : (NSString *) userName withPassword : (NSString *) password withName : (NSString *) name withSex : (NSInteger) sex withBirthday : (NSString *) birthday withVerifyCode : (NSString *) verifyCode;
 @end

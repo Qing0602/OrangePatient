@@ -70,7 +70,6 @@
     self.deviceDescription.textAlignment = NSTextAlignmentLeft;
     self.deviceDescription.textColor = [UIColor colorWithHexString:@"#f38441"];
     self.deviceDescription.font = [UIFont boldSystemFontOfSize:12.0f];
-    self.deviceDescription.text = @"002200";
     [self.bgViewOne addSubview:self.deviceDescription];
     
     self.state = [[UILabel alloc] init];
@@ -258,10 +257,12 @@
         if ([peripheral.identifier isEqual:self.deviceUUID]) {
             self.peripheral = peripheral;
             self.peripheral.delegate = self;
+            self.deviceDescription.text = self.peripheral.name;
         }
         
         // 连接设备
         [self.central connectPeripheral:peripheral options:@{CBConnectPeripheralOptionNotifyOnConnectionKey : @YES}];
+        [self.central stopScan];
     }
 }
 

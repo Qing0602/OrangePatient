@@ -146,7 +146,8 @@
     
     if (!isHave) {
         [self.uuidArray addObject:identifier];
-        [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
+        BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
+        NSLog(@"%d",result);
     }
 }
 
