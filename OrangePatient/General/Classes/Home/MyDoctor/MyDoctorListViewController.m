@@ -36,7 +36,7 @@
 #pragma mark - Setter&Getter
 - (NSArray *)myDoctorList
 {
-    if (_myDoctorList) {
+    if (!_myDoctorList) {
         NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:10];
         for (int i = 0; i < 10; i++) {
             MyDoctorsModel *model = [[MyDoctorsModel alloc] init];
