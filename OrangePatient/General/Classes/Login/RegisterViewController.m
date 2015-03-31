@@ -11,13 +11,15 @@
 #import "RegisterViewController.h"
 #import "ChooseSexControl.h"
 
-
+#import "UIManagement.h"
 #import <QuartzCore/QuartzCore.h>
 @interface RegisterViewController ()<UITableViewDataSource,UITableViewDelegate>
 //选择性别
 @property (nonatomic, strong)ChooseSexControl *sexControl;
 //选择生日
 @property (nonatomic, strong)UIButton *chooseBirthdayDate;
+//手机号码输入框
+@property (nonatomic, strong)UITextField *phoneNumInput;
 //获取验证码
 @property (nonatomic, strong)UIButton *getVeriCode;
 //验证码输入框
@@ -75,6 +77,11 @@
 {
     
 }
+
+- (void)getVerificationCode
+{
+    [[UIManagement sharedInstance] getVerifyCode:self.phoneNumInput.text withType:0];
+}
 #pragma mark - Tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -118,11 +125,15 @@
             {
                 cell.textLabel.text = @"手机号码:";
                 
+                self.phoneNumInput = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.textLabel.frame), (Register_TableviewCell_Height-30.f)/2, 200.f, 30.f)];
+                [cell.contentView addSubview:self.phoneNumInput];
+                
                 self.getVeriCode = [UIButton buttonWithType:UIButtonTypeCustom];
                 [self.getVeriCode setTitle:@"获取验证码" forState:UIControlStateNormal];
                 self.getVeriCode.titleLabel.font = [UIFont systemFontOfSize:14.f];
                 self.getVeriCode.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
                 [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/10-100.f, (Register_TableviewCell_Height-30.f)/2, 100.f, 30.f)];
+                [self.getVeriCode addTarget:self action:@selector(getVerificationCode) forControlEvents:UIControlEventTouchUpInside];
                 [cell.contentView addSubview:self.getVeriCode];
             }
                 break;

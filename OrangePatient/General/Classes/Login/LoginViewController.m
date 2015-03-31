@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "TextFieldWithLeftIcon.h"
+
+#import "UIManagement.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong)TextFieldWithLeftIcon *username;
@@ -129,6 +131,7 @@
 #pragma mark - NetWork
 - (void)login
 {
+    [[UIManagement sharedInstance] login:_username.text withPassword:_pwd.text];
     
 }
 /*
