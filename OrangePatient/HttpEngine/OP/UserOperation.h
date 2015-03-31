@@ -18,4 +18,5 @@ typedef enum{
 -(UserOperation *) initLogin : (NSString *) userName withPassword : (NSString *) password;
 -(UserOperation *) initGetVerifyCode : (NSString *) phoneNumber withType : (NSInteger) typeCode;
 -(UserOperation *) initRegsiter : (NSString *) userName withPassword : (NSString *) password withName : (NSString *) name withSex : (NSInteger) sex withBirthday : (NSString *) birthday withVerifyCode : (NSString *) verifyCode;
+-(void) initLogout;
 @end
