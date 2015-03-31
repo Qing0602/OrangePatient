@@ -16,6 +16,7 @@
 		195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547A1ABF9A2C0063E768 /* UnlockDevice@3x.png */; };
 		195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */; };
 		195C54801ABF9A2C0063E768 /* UnlockDeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */; };
+		19611FAD1ACAD60D00AFA921 /* UserAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */; };
 		197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197766071AB314D500B21037 /* MyDeviceViewController.m */; };
 		197F62EE1ABA188D0054E72D /* AddDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62EC1ABA188D0054E72D /* AddDevice@2x.png */; };
 		197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62ED1ABA188D0054E72D /* AddDevice@3x.png */; };
@@ -139,6 +140,8 @@
 		195C547A1ABF9A2C0063E768 /* UnlockDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDevice@3x.png"; sourceTree = "<group>"; };
 		195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDeviceImage@2x.png"; sourceTree = "<group>"; };
 		195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDeviceImage@3x.png"; sourceTree = "<group>"; };
+		19611FAB1ACAD60D00AFA921 /* UserAccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccountModel.h; sourceTree = "<group>"; };
+		19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccountModel.m; sourceTree = "<group>"; };
 		197766061AB314D500B21037 /* MyDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDeviceViewController.h; sourceTree = "<group>"; };
 		197766071AB314D500B21037 /* MyDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDeviceViewController.m; sourceTree = "<group>"; };
 		197F62EC1ABA188D0054E72D /* AddDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddDevice@2x.png"; sourceTree = "<group>"; };
@@ -394,6 +397,8 @@
 				19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */,
 				19A679AF1AAB46B4006328DA /* UIModelCoding.h */,
 				19A679B01AAB46B4006328DA /* UIModelCoding.m */,
+				19611FAB1ACAD60D00AFA921 /* UserAccountModel.h */,
+				19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1116,6 +1121,7 @@
 				74CE09181AA4A52000DD9458 /* MBProgressHUD+Add.m in Sources */,
 				74CE08FD1AA4A52000DD9458 /* UIControl+Base.m in Sources */,
 				74F64E781AC90B01004F44D6 /* MyDoctorListViewController.m in Sources */,
+				19611FAD1ACAD60D00AFA921 /* UserAccountModel.m in Sources */,
 				19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */,
 				744E01BA1AC2F77D0063C4A7 /* HealthInformationViewController.m in Sources */,
 				749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "UIManagement.h"
 #import "NetWorkService.h"
+
 @implementation UIManagement
 
 static UIManagement *sharedInstance = nil;
@@ -16,6 +17,7 @@ static UIManagement *sharedInstance = nil;
     @synchronized(sharedInstance){
         if (nil == sharedInstance){
             sharedInstance = [[UIManagement alloc] init];
+            sharedInstance.userAccount = [UIModelCoding deserializeModel:@"UserAccount"];
         }
     }
     return sharedInstance;

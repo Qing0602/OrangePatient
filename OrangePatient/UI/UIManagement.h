@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "UserOperation.h"
-
+#import "UserAccountModel.h"
 
 @interface UIManagement : NSObject
 +(UIManagement *) sharedInstance;
+
+// 用户登陆model
+@property(nonatomic,strong) UserAccountModel *userAccount;
 
 // 登陆
 @property (nonatomic,strong) NSDictionary *loginResult;

@@ -71,20 +71,21 @@
     // 获取网络访问Header信息并判断
     NSDictionary *headers = dic[@"header"];
     
-    int status = [headers[@"status"] intValue];
+    int status = [headers[@"code"] intValue];
     
-    if (!status) {
+    if (status != 200) {
         self.hasError = YES;
         self.errorMessage = headers[@"message"];
     }else{
-        self.errorMessage = headers[@"message"];
+        self.errorMessage = @"";
     }
+    
     if (!self.hasError) {
         [self sendMsgToAutoCloseProgress:request.clazz];
     }
     
     // 调用委托
-    NSDictionary *result = [self configRequestResult:self.hasError withErrorMsg:self.errorMessage withData:dic[@"body"] withContext:request.context];
+    NSDictionary *result = [self configRequestResult:self.hasError withErrorMsg:self.errorMessage withData:dic[@"data"] withContext:request.context];
     
     // 用于KVO回调
     if (request.requestCompleted != nil) {
