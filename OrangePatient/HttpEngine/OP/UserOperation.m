@@ -7,6 +7,7 @@
 //
 
 #import "UserOperation.h"
+#import "UIManagement.h"
 
 @interface UserOperation ()
 @property(nonatomic) UserType type;
