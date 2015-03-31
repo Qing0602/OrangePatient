@@ -125,14 +125,15 @@
             {
                 cell.textLabel.text = @"手机号码:";
                 
-                self.phoneNumInput = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.textLabel.frame), (Register_TableviewCell_Height-30.f)/2, 200.f, 30.f)];
+                self.phoneNumInput = [[UITextField alloc] initWithFrame:CGRectMake(100.f, (Register_TableviewCell_Height-30.f)/2, 100.f, 30.f)];
+                self.phoneNumInput.backgroundColor = [UIColor redColor];
                 [cell.contentView addSubview:self.phoneNumInput];
                 
                 self.getVeriCode = [UIButton buttonWithType:UIButtonTypeCustom];
                 [self.getVeriCode setTitle:@"获取验证码" forState:UIControlStateNormal];
                 self.getVeriCode.titleLabel.font = [UIFont systemFontOfSize:14.f];
                 self.getVeriCode.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
-                [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/10-100.f, (Register_TableviewCell_Height-30.f)/2, 100.f, 30.f)];
+                [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-100.f, (Register_TableviewCell_Height-30.f)/2, 100.f, 30.f)];
                 [self.getVeriCode addTarget:self action:@selector(getVerificationCode) forControlEvents:UIControlEventTouchUpInside];
                 [cell.contentView addSubview:self.getVeriCode];
             }
