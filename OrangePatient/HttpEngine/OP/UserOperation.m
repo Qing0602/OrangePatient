@@ -12,6 +12,7 @@
 @property(nonatomic) UserType type;
 -(void) login;
 -(void) verifyCode;
+-(void) userRegister;
 @end
 
 @implementation UserOperation
@@ -36,6 +37,16 @@
     return self;
 }
 
+-(UserOperation *) initRegsiter : (NSString *) userName withPassword : (NSString *) password withName : (NSString *) name withSex : (NSInteger) sex withBirthday : (NSString *) birthday withVerifyCode : (NSString *) verifyCode{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kRegister;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/users/register",K_HOST_OF_SERVER];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"username" : userName,@"password":password,@"name":name,@"sex":[NSNumber numberWithInt:sex],@"birthday":birthday,@"verifycode":verifyCode}];
+    }
+    return self;
+}
+
 -(void) login{
     [self.request setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -56,6 +67,16 @@
     [self startAsynchronous];
 }
 
+-(void) userRegister{
+    [self.request setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].regsiterResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
@@ -64,6 +85,9 @@
                 break;
             case kGetVerifyCode:
                 [self verifyCode];
+                break;
+            case kRegister:
+                [self userRegister];
                 break;
             default:
                 break;
