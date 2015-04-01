@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LoginViewController.h"
 #import "HomeViewController.h"
+#import "MyDoctorListViewController.h"
 @interface ViewController ()
 
 @end
@@ -26,10 +27,16 @@
     [self.view addSubview:login];
     
     UIButton *blueTooth = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [blueTooth setFrame:CGRectMake(110.f, 200.f, 100.f, 40.f)];
+    [blueTooth setFrame:CGRectMake(110.f, 160.f, 100.f, 40.f)];
     [blueTooth setTitle:@"首页" forState:UIControlStateNormal];
     [blueTooth addTarget:self action:@selector(blueTooth) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:blueTooth];
+    
+    UIButton *myDoctorList = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [myDoctorList setFrame:CGRectMake(110.f, 240.f, 100.f, 40.f)];
+    [myDoctorList setTitle:@"我的医生列表" forState:UIControlStateNormal];
+    [myDoctorList addTarget:self action:@selector(myDoctorListPage) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:myDoctorList];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -44,6 +51,13 @@
 {
     HomeViewController *blueTooth = [[HomeViewController alloc] init];
     [self.navigationController pushViewController:blueTooth animated:YES];
+}
+
+- (void)myDoctorListPage
+{
+    MyDoctorListViewController *myDoctorList = [[MyDoctorListViewController alloc] init];
+    myDoctorList.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:myDoctorList animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

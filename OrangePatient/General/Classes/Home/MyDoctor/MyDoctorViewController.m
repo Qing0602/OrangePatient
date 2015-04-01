@@ -9,7 +9,7 @@
 #define LOGO_WIDTH 180.f
 
 #import "MyDoctorViewController.h"
-
+#import "AddDoctorViewController.h"
 @interface MyDoctorViewController ()
 
 @end
@@ -46,7 +46,8 @@
     [addMyDoctorBtn setTitle:@"添加我的医生" forState:UIControlStateNormal];
     RACSignal *btnTap = [addMyDoctorBtn rac_signalForControlEvents:UIControlEventTouchUpInside];
     [btnTap subscribeNext:^(UIButton *sender){
-    
+        AddDoctorViewController *addDoctor = [[AddDoctorViewController alloc] init];
+        [self.navigationController pushViewController:addDoctor animated:YES];
     }];
     [self.view addSubview:addMyDoctorBtn];
     
