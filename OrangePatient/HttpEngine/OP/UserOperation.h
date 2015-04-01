@@ -15,6 +15,9 @@ typedef enum{
     kUserLogout,
     kResetPassword,
     kFeedBack,
+    kGetUserFriend,
+    kAddFriend,
+    kDeleteFriend,
 }UserType;
 
 @interface UserOperation : CustomOperation
@@ -23,6 +26,9 @@ typedef enum{
 -(UserOperation *) initRegsiter : (NSString *) userName withPassword : (NSString *) password withName : (NSString *) name withSex : (NSInteger) sex withBirthday : (NSString *) birthday withVerifyCode : (NSString *) verifyCode;
 -(UserOperation *) initLogout;
 -(UserOperation *) initUserResetPassword : (NSString *) userName withPassword : (NSString *) password withVerifyCode : (NSString *) verifyCode;
-
 -(UserOperation *) initFeedBack : (NSString *) content;
+
+-(UserOperation *) initGetUserFriends : (NSString *) uid withStart : (NSInteger) start withLimit : (NSInteger) limit;
+-(UserOperation *) initAddFriend : (NSString *) uid;
+-(UserOperation *) initDeleteFriend : (NSString *) uid;
 @end

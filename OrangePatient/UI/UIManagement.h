@@ -28,6 +28,13 @@
 @property (nonatomic,strong) NSDictionary *resetPasswordResult;
 // 意见反馈
 @property (nonatomic,strong) NSDictionary *feedBackResult;
+// 获得用户好友列表
+@property (nonatomic,strong) NSDictionary *userFriendResult;
+// 添加好友
+@property (nonatomic,strong) NSDictionary *addFriendResult;
+// 删除好友
+@property (nonatomic,strong) NSDictionary *deleteFriendResult;
+
 
 // 登陆
 -(void) login : (NSString *) userName withPassword : (NSString *) password;

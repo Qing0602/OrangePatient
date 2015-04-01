@@ -17,6 +17,9 @@
 -(void) logout;
 -(void) resetPassword;
 -(void) feedBack;
+-(void) getUserFriend;
+-(void) addFriend;
+-(void) deleteFriend;
 @end
 
 @implementation UserOperation
@@ -84,6 +87,43 @@
     return self;
 }
 
+-(UserOperation *) initGetUserFriends : (NSString *) uid withStart : (NSInteger) start withLimit : (NSInteger) limit{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kGetUserFriend;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/friend/%@?oauth_token=%@&oauth_token_secret=%@&start=%ld&limit=%ld",
+                            K_HOST_OF_SERVER,
+                            uid,
+                            [UIManagement sharedInstance].userAccount.userOauthToken,
+                            [UIManagement sharedInstance].userAccount.userOauthTokenSecret,start,limit];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
+
+-(UserOperation *) initAddFriend : (NSString *) uid{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kResetPassword;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/friend/%@",K_HOST_OF_SERVER,uid];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
+                                                        @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret}];
+    }
+    return self;
+}
+
+-(UserOperation *) initDeleteFriend : (NSString *) uid{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kDeleteFriend;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/friend/%@",K_HOST_OF_SERVER,uid];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
+                                                        @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret}];
+        [self.dataRequest setRequestMethod:@"DELETE"];
+    }
+    return self;
+}
+
 -(void) login{
     [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -144,6 +184,36 @@
     [self startAsynchronous];
 }
 
+-(void) getUserFriend{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].userFriendResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
+-(void) addFriend{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].addFriendResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
+-(void) deleteFriend{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].deleteFriendResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
@@ -164,6 +234,15 @@
                 break;
             case kFeedBack:
                 [self feedBack];
+                break;
+            case kGetUserFriend:
+                [self getUserFriend];
+                break;
+            case kAddFriend:
+                [self addFriend];
+                break;
+            case kDeleteFriend:
+                [self deleteFriend];
                 break;
             default:
                 break;
