@@ -37,4 +37,22 @@ static UIManagement *sharedInstance = nil;
     UserOperation *operation = [[UserOperation alloc] initRegsiter:userName withPassword:password withName:name withSex:sex withBirthday:birthday withVerifyCode:verifyCode];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
+
+// 退出登录
+-(void) logout{
+    UserOperation *operation = [[UserOperation alloc] initLogout];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 重置密码
+-(void) userResetPassword : (NSString *) userName withPassword : (NSString *) password withVerifyCode : (NSString *) verifyCode{
+    UserOperation *operation = [[UserOperation alloc] initUserResetPassword:userName withPassword:password withVerifyCode:verifyCode];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 意见反馈
+-(void) feedBack : (NSString *) content{
+    UserOperation *operation = [[UserOperation alloc] initFeedBack:content];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 @end

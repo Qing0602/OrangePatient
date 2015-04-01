@@ -14,6 +14,9 @@
 -(void) login;
 -(void) verifyCode;
 -(void) userRegister;
+-(void) logout;
+-(void) resetPassword;
+-(void) feedBack;
 @end
 
 @implementation UserOperation
@@ -48,6 +51,39 @@
     return self;
 }
 
+-(UserOperation *) initLogout{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kUserLogout;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/logout",K_HOST_OF_SERVER];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
+                                                        @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret}];
+    }
+    return self;
+}
+
+-(UserOperation *) initUserResetPassword : (NSString *) userName withPassword : (NSString *) password withVerifyCode : (NSString *) verifyCode{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kResetPassword;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/resetpasswd",K_HOST_OF_SERVER];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"username":userName,@"password":password,@"verifycode":verifyCode}];
+    }
+    return self;
+}
+
+-(UserOperation *) initFeedBack : (NSString *) content{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kFeedBack;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/feedback",K_HOST_OF_SERVER];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
+                                                        @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
+                                                        @"content":content}];
+    }
+    return self;
+}
+
 -(void) login{
     [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -78,6 +114,36 @@
     [self startAsynchronous];
 }
 
+-(void) logout{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].logoutResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
+-(void) resetPassword{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].resetPasswordResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
+-(void) feedBack{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].feedBackResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
@@ -89,6 +155,15 @@
                 break;
             case kRegister:
                 [self userRegister];
+                break;
+            case kUserLogout:
+                [self logout];
+                break;
+            case kResetPassword:
+                [self resetPassword];
+                break;
+            case kFeedBack:
+                [self feedBack];
                 break;
             default:
                 break;
