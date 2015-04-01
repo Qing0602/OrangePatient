@@ -9,5 +9,8 @@
 #import "BaseNSObject.h"
 
 @interface MyDoctorCitysModel : BaseNSObject
-
+//城市
+@property (nonatomic, strong)NSString *cityName;
+//医院
+@property (nonatomic, strong)NSArray *hospitals;
 @end

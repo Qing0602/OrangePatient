@@ -45,6 +45,8 @@
 		742DEAD91ACB9F2000882138 /* TwoTablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */; };
 		742DEADC1ACBA03600882138 /* MyDoctorCitysModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEADB1ACBA03600882138 /* MyDoctorCitysModel.m */; };
 		742DEADF1ACBA05600882138 /* MyDoctorHospitalsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEADE1ACBA05600882138 /* MyDoctorHospitalsModel.m */; };
+		742DEAE21ACBA2A400882138 /* TwoTablesCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEAE11ACBA2A400882138 /* TwoTablesCityCell.m */; };
+		742DEAE51ACBA2BB00882138 /* TwoTablesHospitalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEAE41ACBA2BB00882138 /* TwoTablesHospitalCell.m */; };
 		7432C73F1AC06CA300073379 /* MyDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C73E1AC06CA300073379 /* MyDoctorViewController.m */; };
 		7432C7421AC06D0D00073379 /* MedicalScreeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C7411AC06D0D00073379 /* MedicalScreeningViewController.m */; };
 		7432C7451AC06D2C00073379 /* ConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C7441AC06D2C00073379 /* ConsultViewController.m */; };
@@ -192,6 +194,10 @@
 		742DEADB1ACBA03600882138 /* MyDoctorCitysModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoctorCitysModel.m; sourceTree = "<group>"; };
 		742DEADD1ACBA05600882138 /* MyDoctorHospitalsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorHospitalsModel.h; sourceTree = "<group>"; };
 		742DEADE1ACBA05600882138 /* MyDoctorHospitalsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoctorHospitalsModel.m; sourceTree = "<group>"; };
+		742DEAE01ACBA2A400882138 /* TwoTablesCityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoTablesCityCell.h; sourceTree = "<group>"; };
+		742DEAE11ACBA2A400882138 /* TwoTablesCityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoTablesCityCell.m; sourceTree = "<group>"; };
+		742DEAE31ACBA2BB00882138 /* TwoTablesHospitalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoTablesHospitalCell.h; sourceTree = "<group>"; };
+		742DEAE41ACBA2BB00882138 /* TwoTablesHospitalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoTablesHospitalCell.m; sourceTree = "<group>"; };
 		7432C73D1AC06CA300073379 /* MyDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorViewController.h; sourceTree = "<group>"; };
 		7432C73E1AC06CA300073379 /* MyDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoctorViewController.m; sourceTree = "<group>"; };
 		7432C7401AC06D0D00073379 /* MedicalScreeningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalScreeningViewController.h; sourceTree = "<group>"; };
@@ -509,6 +515,10 @@
 				74F64E7A1AC90BA8004F44D6 /* ChooseHospitalViewController.m */,
 				742DEAD71ACB9F2000882138 /* TwoTablesViewController.h */,
 				742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */,
+				742DEAE01ACBA2A400882138 /* TwoTablesCityCell.h */,
+				742DEAE11ACBA2A400882138 /* TwoTablesCityCell.m */,
+				742DEAE31ACBA2BB00882138 /* TwoTablesHospitalCell.h */,
+				742DEAE41ACBA2BB00882138 /* TwoTablesHospitalCell.m */,
 				742DEADA1ACBA03600882138 /* MyDoctorCitysModel.h */,
 				742DEADB1ACBA03600882138 /* MyDoctorCitysModel.m */,
 				742DEADD1ACBA05600882138 /* MyDoctorHospitalsModel.h */,
@@ -1125,6 +1135,7 @@
 				19A679BD1AAB46B4006328DA /* NetWorkService.m in Sources */,
 				74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */,
 				74BE67A71A9F4AF7008F7C44 /* main.m in Sources */,
+				742DEAE21ACBA2A400882138 /* TwoTablesCityCell.m in Sources */,
 				743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */,
 				74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */,
 				74F64E841AC9123C004F44D6 /* HttpEngine.m in Sources */,
@@ -1164,6 +1175,7 @@
 				744E01B81AC2F77D0063C4A7 /* HealthInfomationModel.m in Sources */,
 				74CE09061AA4A52000DD9458 /* BaseUILabel.m in Sources */,
 				74CE08FC1AA4A52000DD9458 /* UIColor+Base.m in Sources */,
+				742DEAE51ACBA2BB00882138 /* TwoTablesHospitalCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

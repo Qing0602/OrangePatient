@@ -9,5 +9,8 @@
 #import "BaseNSObject.h"
 
 @interface MyDoctorHospitalsModel : BaseNSObject
-
+//医院名称
+@property (nonatomic, strong)NSString *hospitalName;
+//所属筛查中心
+@property (nonatomic, strong)NSString *screeningCenterName;
 @end
