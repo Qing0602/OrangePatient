@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyDoctorCitysModel.h"
 
 @interface TwoTablesCityCell : UITableViewCell
+
+@property (nonatomic, strong)UILabel *cellTitle;
+
+- (void)setContentByInfoModel:(MyDoctorCitysModel  *)model;
 
 @end

@@ -24,6 +24,7 @@
     _doctorListTable.delegate = self;
     _doctorListTable.dataSource = self;
     _doctorListTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    _doctorListTable.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
     [self.view addSubview:_doctorListTable];
     // Do any additional setup after loading the view.
 }

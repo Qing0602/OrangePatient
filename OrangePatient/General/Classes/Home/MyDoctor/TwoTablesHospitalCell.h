@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MyDoctorHospitalsModel.h"
 @interface TwoTablesHospitalCell : UITableViewCell
+
+@property (nonatomic, strong)UILabel *cellTitle;
+@property (nonatomic, strong)UILabel *cellContent;
+
+- (void)setContentByInfoModel:(MyDoctorHospitalsModel *)model;
 
 @end
