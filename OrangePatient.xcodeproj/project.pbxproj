@@ -42,6 +42,7 @@
 		19AF65B91AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */; };
 		19D8A9271AC5D9790092688E /* UserOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8A9261AC5D9790092688E /* UserOperation.m */; };
 		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
+		742DEAD91ACB9F2000882138 /* TwoTablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */; };
 		7432C73F1AC06CA300073379 /* MyDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C73E1AC06CA300073379 /* MyDoctorViewController.m */; };
 		7432C7421AC06D0D00073379 /* MedicalScreeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C7411AC06D0D00073379 /* MedicalScreeningViewController.m */; };
 		7432C7451AC06D2C00073379 /* ConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C7441AC06D2C00073379 /* ConsultViewController.m */; };
@@ -183,6 +184,8 @@
 		19F0B7EB1AB09B720079CBD9 /* BlueToothDateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDateData.h; sourceTree = "<group>"; };
 		19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDateData.m; sourceTree = "<group>"; };
 		47AF80FD8C381FA442E27ECC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		742DEAD71ACB9F2000882138 /* TwoTablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoTablesViewController.h; sourceTree = "<group>"; };
+		742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoTablesViewController.m; sourceTree = "<group>"; };
 		7432C73D1AC06CA300073379 /* MyDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorViewController.h; sourceTree = "<group>"; };
 		7432C73E1AC06CA300073379 /* MyDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoctorViewController.m; sourceTree = "<group>"; };
 		7432C7401AC06D0D00073379 /* MedicalScreeningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalScreeningViewController.h; sourceTree = "<group>"; };
@@ -498,6 +501,8 @@
 				74F64E7D1AC90CBA004F44D6 /* MyDoctorsModel.m */,
 				74F64E791AC90BA8004F44D6 /* ChooseHospitalViewController.h */,
 				74F64E7A1AC90BA8004F44D6 /* ChooseHospitalViewController.m */,
+				742DEAD71ACB9F2000882138 /* TwoTablesViewController.h */,
+				742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */,
 				74E462EF1AC4555B009E02A6 /* AddDoctorViewController.h */,
 				74E462F01AC4555B009E02A6 /* AddDoctorViewController.m */,
 			);
@@ -1095,6 +1100,7 @@
 				74CE08F21AA4A52000DD9458 /* NSArray+Base.m in Sources */,
 				74CE08F91AA4A52000DD9458 /* UIAlertView+Base.m in Sources */,
 				74CE09041AA4A52000DD9458 /* BaseNSObject.m in Sources */,
+				742DEAD91ACB9F2000882138 /* TwoTablesViewController.m in Sources */,
 				74F64E7E1AC90CBA004F44D6 /* MyDoctorsModel.m in Sources */,
 				74CE08FE1AA4A52000DD9458 /* UIFont+Base.m in Sources */,
 				74CE09021AA4A52000DD9458 /* UIView+Base.m in Sources */,
