@@ -145,4 +145,24 @@
     return [scan scanInt:&val] && [scan isAtEnd];
     
 }
+
+@end
+
+@implementation NSString (date)
+
+
++ (NSString *)stringFromDate:(NSDate *)date{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    
+    
+    return destDateString;
+    
+}
+
 @end

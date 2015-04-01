@@ -1,10 +1,13 @@
 //
 
 //
-
+#define DATESTRING_TYPE_YMD(y,m,d) [NSString stringWithFormat:@"%d-%d-%d",y,m,d];
+#define BIRTHDAY_MINIMUM_DATE @"1900-01-01 00:00:00"
 #import <Foundation/Foundation.h>
 
 @interface NSDate (Base)
+#pragma mark - Normal
++ (NSDate *)dateWithString:(NSString *)dateStr;
 #pragma mark - Relative dates from the current date
 + (NSDate *)dateTomorrow;
 

@@ -8,6 +8,7 @@
 #define HOURS_IN_DAY 24
 #define SECONDS_IN_DAY (HOURS_IN_DAY * SECONDS_IN_HOUR)
 
+#define DATE_FORMAT_YMD @"yyyy-MM-dd HH:mm:ss"
 
 @implementation NSDate (iCatering)
 #pragma mark - private
@@ -17,9 +18,19 @@
     if (currentCalendar == nil) {
         currentCalendar = [NSCalendar currentCalendar];
         [dictionary setObject:currentCalendar forKey:@"AZ_currentCalendar"];
+        
     }
     return currentCalendar;
 }
+
+#pragma mark - Normal
++ (NSDate *)dateWithString:(NSString *)dateStr
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter  alloc] init];
+    [dateFormat setDateFormat:DATE_FORMAT_YMD];
+    return  [dateFormat dateFromString:dateStr];
+}
+
 #pragma mark - Relative dates from the current date
 + (NSDate *)dateTomorrow {
     NSTimeInterval timeInterval = [NSDate timeIntervalSinceReferenceDate] + (SECONDS_IN_DAY * 1);

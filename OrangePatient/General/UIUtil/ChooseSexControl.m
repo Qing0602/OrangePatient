@@ -18,14 +18,14 @@
     self = [super initWithFrame:viewFrame];
     if (self) {
         
-        CGFloat textAndImageIntervel = 10.f;
+        CGFloat textAndImageIntervel = 6.f;
         
         _male = [UIButton buttonWithType:UIButtonTypeCustom];
         [_male setFrame:CGRectMake(0.f, 0.f, viewFrame.size.width/2, viewFrame.size.height)];
         _male.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_male setTitle:@"男" forState:UIControlStateNormal];
         [_male setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_male setTitleEdgeInsets:UIEdgeInsetsMake(0.f, 0.f, 0.f, _male.frame.size.width/2-2.f)];
+        [_male setTitleEdgeInsets:UIEdgeInsetsMake(0.f, -10.f, 0.f, _male.frame.size.width/2)];
         [_male setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
         [_male setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
         [_male setImageEdgeInsets:UIEdgeInsetsMake((viewFrame.size.height-23)/4,  _male.frame.size.width/2+textAndImageIntervel, (viewFrame.size.height-23)/4, 0.f)];
@@ -37,7 +37,7 @@
         [_female setFrame:CGRectMake(viewFrame.size.width/2, 0.f, viewFrame.size.width/2, viewFrame.size.height)];
         [_female setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_female setTitle:@"女" forState:UIControlStateNormal];
-        [_female setTitleEdgeInsets:UIEdgeInsetsMake(0.f, 0.f, 0.f,  _female.frame.size.width/2-2.f)];
+        [_female setTitleEdgeInsets:UIEdgeInsetsMake(0.f,-10.f, 0.f,  _female.frame.size.width/2)];
         [_female setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
         [_female setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
         [_female setImageEdgeInsets:UIEdgeInsetsMake((viewFrame.size.height-23)/4, _female.frame.size.width/2+textAndImageIntervel, (viewFrame.size.height-23)/4, 0)];
