@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"就医筛查";
     // Do any additional setup after loading the view.
 }
 
