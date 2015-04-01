@@ -8,6 +8,6 @@
 
 #import "OrangeBaseViewController.h"
 
-@interface TwoTablesViewController : OrangeBaseViewController
+@interface TwoTablesViewController : OrangeBaseViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end
