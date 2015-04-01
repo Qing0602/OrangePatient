@@ -34,7 +34,8 @@
 @property (nonatomic,strong) NSDictionary *addFriendResult;
 // 删除好友
 @property (nonatomic,strong) NSDictionary *deleteFriendResult;
-
+// 更新头像
+@property (nonatomic,strong) NSDictionary *changeAvatarResult;
 
 // 登陆
 -(void) login : (NSString *) userName withPassword : (NSString *) password;

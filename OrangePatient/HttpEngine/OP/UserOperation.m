@@ -20,6 +20,7 @@
 -(void) getUserFriend;
 -(void) addFriend;
 -(void) deleteFriend;
+-(void) changeAvatar;
 @end
 
 @implementation UserOperation
@@ -124,6 +125,19 @@
     return self;
 }
 
+-(UserOperation *) initChangeAvatar : (NSString *) uid withImage : (NSData *) image{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kChangeAvatar;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/avatar/%@",K_HOST_OF_SERVER,uid];
+        [self setHttpRequestPostWithUrl:urlStr
+                                 params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
+                                          @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret}
+                            imgDataDict:@{@"avatar":image}];
+    }
+    return self;
+}
+
 -(void) login{
     [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -214,6 +228,16 @@
     [self startAsynchronous];
 }
 
+-(void) changeAvatar{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].changeAvatarResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
@@ -243,6 +267,9 @@
                 break;
             case kDeleteFriend:
                 [self deleteFriend];
+                break;
+            case kChangeAvatar:
+                [self changeAvatar];
                 break;
             default:
                 break;
