@@ -30,6 +30,9 @@
 		198F14F01ACCF1CB008C208F /* MySetting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14EC1ACCF1CB008C208F /* MySetting@3x.png */; };
 		198F14F31ACD0B7D008C208F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14F21ACD0B7D008C208F /* SettingViewController.m */; };
 		198F14F61ACD4D72008C208F /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14F51ACD4D72008C208F /* ChangePasswordViewController.m */; };
+		198F14F91ACD75D0008C208F /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14F81ACD75D0008C208F /* UserProfileViewController.m */; };
+		198F14FC1ACD91C4008C208F /* EditorNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14FB1ACD91C4008C208F /* EditorNickNameViewController.m */; };
+		198F14FF1ACD99C5008C208F /* EditorTelPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14FE1ACD99C5008C208F /* EditorTelPhoneViewController.m */; };
 		198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE11AB6EF990017A90B /* default-568h@2x.png */; };
 		198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE21AB6EF990017A90B /* default-667h@2x.png */; };
 		198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE31AB6EF990017A90B /* Default-736h@3x.png */; };
@@ -175,6 +178,12 @@
 		198F14F21ACD0B7D008C208F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		198F14F41ACD4D72008C208F /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
 		198F14F51ACD4D72008C208F /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		198F14F71ACD75D0008C208F /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		198F14F81ACD75D0008C208F /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		198F14FA1ACD91C4008C208F /* EditorNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorNickNameViewController.h; sourceTree = "<group>"; };
+		198F14FB1ACD91C4008C208F /* EditorNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorNickNameViewController.m; sourceTree = "<group>"; };
+		198F14FD1ACD99C5008C208F /* EditorTelPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorTelPhoneViewController.h; sourceTree = "<group>"; };
+		198F14FE1ACD99C5008C208F /* EditorTelPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorTelPhoneViewController.m; sourceTree = "<group>"; };
 		198F3FE11AB6EF990017A90B /* default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-568h@2x.png"; sourceTree = "<group>"; };
 		198F3FE21AB6EF990017A90B /* default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-667h@2x.png"; sourceTree = "<group>"; };
 		198F3FE31AB6EF990017A90B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
@@ -663,6 +672,12 @@
 				198F14F21ACD0B7D008C208F /* SettingViewController.m */,
 				198F14F41ACD4D72008C208F /* ChangePasswordViewController.h */,
 				198F14F51ACD4D72008C208F /* ChangePasswordViewController.m */,
+				198F14F71ACD75D0008C208F /* UserProfileViewController.h */,
+				198F14F81ACD75D0008C208F /* UserProfileViewController.m */,
+				198F14FA1ACD91C4008C208F /* EditorNickNameViewController.h */,
+				198F14FB1ACD91C4008C208F /* EditorNickNameViewController.m */,
+				198F14FD1ACD99C5008C208F /* EditorTelPhoneViewController.h */,
+				198F14FE1ACD99C5008C208F /* EditorTelPhoneViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1166,6 +1181,7 @@
 				74CE09071AA4A52000DD9458 /* BaseUITabBarController.m in Sources */,
 				74CE08F71AA4A52000DD9458 /* pinyin.c in Sources */,
 				742DEADC1ACBA03600882138 /* MyDoctorCitysModel.m in Sources */,
+				198F14FF1ACD99C5008C208F /* EditorTelPhoneViewController.m in Sources */,
 				19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */,
 				198655EB1ABA5B3B002A7C22 /* BlueToothDataViewController.m in Sources */,
 				19A679BF1AAB46B4006328DA /* HTTPRequest.m in Sources */,
@@ -1188,6 +1204,7 @@
 				198F14F31ACD0B7D008C208F /* SettingViewController.m in Sources */,
 				74F64E7B1AC90BA8004F44D6 /* ChooseHospitalViewController.m in Sources */,
 				19AC432E1AB150B1004948DF /* BlueToothTimeData.m in Sources */,
+				198F14FC1ACD91C4008C208F /* EditorNickNameViewController.m in Sources */,
 				74CE09001AA4A52000DD9458 /* UIImageView+Base.m in Sources */,
 				74CE08F61AA4A52000DD9458 /* NSString+Base.m in Sources */,
 				7401E9BB1ACD12E9006868B2 /* SendProblemToDoctorViewController.m in Sources */,
@@ -1223,6 +1240,7 @@
 				1955E2651AC75C2F00F4CAF1 /* CustomOperation.m in Sources */,
 				74CE08F81AA4A52000DD9458 /* UIActionSheet+Base.m in Sources */,
 				19D8A9271AC5D9790092688E /* UserOperation.m in Sources */,
+				198F14F91ACD75D0008C208F /* UserProfileViewController.m in Sources */,
 				744E01B91AC2F77D0063C4A7 /* HealthInformationTableViewCell.m in Sources */,
 				74CE08F31AA4A52000DD9458 /* NSDate+Base.m in Sources */,
 				7432C73F1AC06CA300073379 /* MyDoctorViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import "MyViewController.h"
 #import "EGOImageView.h"
 #import "SettingViewController.h"
+#import "UserProfileViewController.h"
 
 @interface MyViewController ()
 @property (nonatomic,strong) UIView *myView;
@@ -18,6 +19,8 @@
 @property (nonatomic,strong) UILabel *regTime;
 
 @property (nonatomic,strong) UITableView *settingTabelView;
+
+-(void) goToUserProfile : (UIGestureRecognizer *) gesture;
 @end
 
 @implementation MyViewController
@@ -27,6 +30,8 @@
     self.myView = [[UIView alloc] init];
     self.myView.translatesAutoresizingMaskIntoConstraints = NO;
     self.myView.backgroundColor = [UIColor whiteColor];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToUserProfile:)];
+    [self.myView addGestureRecognizer:tap];
     [self.view addSubview:self.myView];
     
     self.avatar = [[EGOImageView alloc] init];
@@ -72,6 +77,11 @@
     [self.myView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_nickName]-10-[_uid]-10-[_regTime]" options:NSLayoutFormatAlignAllLeft metrics:nil views:views]];
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_settingTabelView]-0-|" options:0 metrics:nil views:views]];
+}
+
+-(void) goToUserProfile : (UIGestureRecognizer *) gesture{
+    UserProfileViewController *userProfile = [[UserProfileViewController alloc] init];
+    [self.navigationController pushViewController:userProfile animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
