@@ -21,6 +21,8 @@
 -(void) addFriend;
 -(void) deleteFriend;
 -(void) changeAvatar;
+-(void) updateUserDetail;
+-(void) updateUserProfile;
 @end
 
 @implementation UserOperation
@@ -138,6 +140,40 @@
     return self;
 }
 
+-(UserOperation *) initUpdateUserDetail : (NSString *) uid withBody : (NSDictionary *) body{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kUpdateUserDetail;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:body
+                                                           options:NSJSONWritingPrettyPrinted
+                                                             error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/detail/%@",K_HOST_OF_SERVER,uid];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
+                                                        @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
+                                                        @"body":jsonString}];
+        [self.dataRequest setRequestMethod:@"PUT"];
+    }
+    return self;
+}
+
+-(UserOperation *) initUpdateUserProfile : (NSString *) uid withBody : (NSDictionary *) body{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kUpdateUserProfile;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:body
+                                                           options:NSJSONWritingPrettyPrinted
+                                                             error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/profile/%@",K_HOST_OF_SERVER,uid];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
+                                                        @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
+                                                        @"body":jsonString}];
+        [self.dataRequest setRequestMethod:@"PUT"];
+    }
+    return self;
+}
+
 -(void) login{
     [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -238,6 +274,27 @@
     [self startAsynchronous];
 }
 
+-(void) updateUserDetail{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].updateUserDetailResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
+-(void) updateUserProfile{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].updateUserProfileResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
+
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
@@ -270,6 +327,12 @@
                 break;
             case kChangeAvatar:
                 [self changeAvatar];
+                break;
+            case kUpdateUserDetail:
+                [self updateUserDetail];
+                break;
+            case kUpdateUserProfile:
+                [self updateUserProfile];
                 break;
             default:
                 break;

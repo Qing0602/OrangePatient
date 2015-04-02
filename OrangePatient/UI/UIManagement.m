@@ -55,4 +55,39 @@ static UIManagement *sharedInstance = nil;
     UserOperation *operation = [[UserOperation alloc] initFeedBack:content];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
+
+// 获取好友
+-(void) getUserFriends : (NSString *) uid withStart : (NSInteger) start withLimit : (NSInteger) limit{
+    UserOperation *operation = [[UserOperation alloc] initGetUserFriends:uid withStart:start withLimit:limit];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+// 添加好友
+-(void) addFriend : (NSString *) uid{
+    UserOperation *operation = [[UserOperation alloc] initAddFriend:uid];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 删除好友
+-(void) deleteFriend : (NSString *) uid{
+    UserOperation *operation = [[UserOperation alloc] initDeleteFriend:uid];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 更新头像
+-(void) changeAvatar : (NSString *) uid withImage : (NSData *) image{
+    UserOperation *operation = [[UserOperation alloc] initChangeAvatar:uid withImage:image];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 更新密码
+-(void) updateUserDetail : (NSString *) uid withBody : (NSDictionary *) body{
+    UserOperation *operation = [[UserOperation alloc] initUpdateUserDetail:uid withBody:body];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 更新profile
+-(void) updateUserProfile : (NSString *) uid withBody : (NSDictionary *) body{
+    UserOperation *operation = [[UserOperation alloc] initUpdateUserProfile:uid withBody:body];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 @end

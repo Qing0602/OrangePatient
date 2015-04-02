@@ -1,5 +1,5 @@
 //
-//  MyViewController.h
+//  SettingViewController.h
 //  OrangePatient
 //
 //  Created by singlew on 15/4/2.
@@ -8,6 +8,6 @@
 
 #import "OrangeBaseViewController.h"
 
-@interface MyViewController : OrangeBaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface SettingViewController : OrangeBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end
