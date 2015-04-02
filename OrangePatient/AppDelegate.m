@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "MyDeviceViewController.h"
+#import "MyViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -35,7 +37,13 @@
     deviceVC.tabBarItem.image = [UIImage imageNamed:@"icon"];
     [deviceVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     
-    tb.viewControllers = @[nav,nav1];
+    MyViewController *myVC = [[MyViewController alloc] init];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:myVC];
+    myVC.title = @"我";
+    myVC.tabBarItem.image = [UIImage imageNamed:@"icon"];
+    [myVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    
+    tb.viewControllers = @[nav,nav1,nav2];
     
     self.window.rootViewController = tb;
     
