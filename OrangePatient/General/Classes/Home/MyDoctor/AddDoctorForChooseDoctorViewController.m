@@ -8,14 +8,22 @@
 
 #import "AddDoctorForChooseDoctorViewController.h"
 
-@interface AddDoctorForChooseDoctorViewController ()
-
+@interface AddDoctorForChooseDoctorViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong)UITableView *chooseDoctorTableview;
+@property (nonatomic, strong)NSArray *couldSelectedDoctorsList;
 @end
 
 @implementation AddDoctorForChooseDoctorViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _chooseDoctorTableview = [[UITableView alloc] init];
+    _chooseDoctorTableview.dataSource = self;
+    _chooseDoctorTableview.delegate = self;
+    _chooseDoctorTableview.tableFooterView = [[UIView alloc] init];
+    _chooseDoctorTableview.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:_chooseDoctorTableview];
     // Do any additional setup after loading the view.
 }
 
@@ -33,5 +41,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - Getter&Setter
+- (NSArray *)couldSelectedDoctorsList
+{
+    if (!_couldSelectedDoctorsList) {
+        
+    }
+    return _couldSelectedDoctorsList;
+}
+#pragma mark - UITableview
+- (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
 
 @end
