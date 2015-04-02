@@ -69,7 +69,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"1");
+    switch (indexPath.row) {
+        case 0:{
+            ChangePasswordViewController *setting = [[ChangePasswordViewController alloc] init];
+            [self.navigationController pushViewController:setting animated:YES];
+        }
+            break;
+        case 1:
+            
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

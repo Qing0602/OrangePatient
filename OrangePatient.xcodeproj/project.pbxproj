@@ -29,6 +29,7 @@
 		198F14EF1ACCF1CB008C208F /* MySetting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14EB1ACCF1CB008C208F /* MySetting@2x.png */; };
 		198F14F01ACCF1CB008C208F /* MySetting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14EC1ACCF1CB008C208F /* MySetting@3x.png */; };
 		198F14F31ACD0B7D008C208F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14F21ACD0B7D008C208F /* SettingViewController.m */; };
+		198F14F61ACD4D72008C208F /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14F51ACD4D72008C208F /* ChangePasswordViewController.m */; };
 		198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE11AB6EF990017A90B /* default-568h@2x.png */; };
 		198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE21AB6EF990017A90B /* default-667h@2x.png */; };
 		198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE31AB6EF990017A90B /* Default-736h@3x.png */; };
@@ -172,6 +173,8 @@
 		198F14EC1ACCF1CB008C208F /* MySetting@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MySetting@3x.png"; sourceTree = "<group>"; };
 		198F14F11ACD0B7D008C208F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		198F14F21ACD0B7D008C208F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		198F14F41ACD4D72008C208F /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		198F14F51ACD4D72008C208F /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 		198F3FE11AB6EF990017A90B /* default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-568h@2x.png"; sourceTree = "<group>"; };
 		198F3FE21AB6EF990017A90B /* default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-667h@2x.png"; sourceTree = "<group>"; };
 		198F3FE31AB6EF990017A90B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
@@ -658,6 +661,8 @@
 				198F14E61ACCD749008C208F /* MyViewController.m */,
 				198F14F11ACD0B7D008C208F /* SettingViewController.h */,
 				198F14F21ACD0B7D008C208F /* SettingViewController.m */,
+				198F14F41ACD4D72008C208F /* ChangePasswordViewController.h */,
+				198F14F51ACD4D72008C208F /* ChangePasswordViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1030,6 +1035,7 @@
 				TargetAttributes = {
 					74BE67A01A9F4AF7008F7C44 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 9KR8DFZA8J;
 					};
 					74BE67B91A9F4AF7008F7C44 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -1196,6 +1202,7 @@
 				74F64E811AC90CD9004F44D6 /* DoctorBaseTableViewCell.m in Sources */,
 				74CE08FB1AA4A52000DD9458 /* UIButton+Base.m in Sources */,
 				74CE09051AA4A52000DD9458 /* BaseUIButton.m in Sources */,
+				198F14F61ACD4D72008C208F /* ChangePasswordViewController.m in Sources */,
 				197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */,
 				74CE09011AA4A52000DD9458 /* UILabel+Base.m in Sources */,
 				74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */,
@@ -1345,6 +1352,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: zhan dan (492FU4E7WC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zhan dan (492FU4E7WC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OrangePatient/Common-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1360,6 +1369,7 @@
 					"$(PROJECT_DIR)/OrangePatient/UI/BlueTooth",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1369,6 +1379,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: zhan dan (492FU4E7WC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zhan dan (492FU4E7WC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OrangePatient/Common-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1384,6 +1396,7 @@
 					"$(PROJECT_DIR)/OrangePatient/UI/BlueTooth",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

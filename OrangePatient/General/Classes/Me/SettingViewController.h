@@ -7,6 +7,7 @@
 //
 
 #import "OrangeBaseViewController.h"
+#import "ChangePasswordViewController.h"
 
 @interface SettingViewController : OrangeBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
