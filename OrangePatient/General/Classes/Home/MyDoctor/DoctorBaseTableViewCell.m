@@ -54,6 +54,11 @@
     return self;
 }
 
+- (void)addSubviewsConstraint
+{
+    
+}
+
 - (void)setContentByInfoModel:(MyDoctorsModel *)model
 {
     [self.cellImageview setImageURL:model.doctorAvatar];

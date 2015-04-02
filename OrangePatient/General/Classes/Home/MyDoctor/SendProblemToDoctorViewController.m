@@ -1,22 +1,21 @@
 //
-//  AddDoctorViewController.m
+//  SendProblemToDoctorViewController.m
 //  OrangePatient
 //
-//  Created by ZhangQing on 15/3/26.
+//  Created by ZhangQing on 15/4/2.
 //  Copyright (c) 2015年 Orange. All rights reserved.
 //
 
-#import "AddDoctorViewController.h"
+#import "SendProblemToDoctorViewController.h"
 
-@interface AddDoctorViewController ()
+@interface SendProblemToDoctorViewController ()
 
 @end
 
-@implementation AddDoctorViewController
+@implementation SendProblemToDoctorViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"选择医院";
     // Do any additional setup after loading the view.
 }
 
@@ -34,10 +33,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-}
 
 @end
