@@ -24,6 +24,11 @@
 		197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62F11ABA2AEF0054E72D /* NavSearchDevice@3x.png */; };
 		198655EB1ABA5B3B002A7C22 /* BlueToothDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198655EA1ABA5B3B002A7C22 /* BlueToothDataViewController.m */; };
 		198F14E71ACCD749008C208F /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14E61ACCD749008C208F /* MyViewController.m */; };
+		198F14ED1ACCF1CB008C208F /* MyRecommend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14E91ACCF1CB008C208F /* MyRecommend@2x.png */; };
+		198F14EE1ACCF1CB008C208F /* MyRecommend@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14EA1ACCF1CB008C208F /* MyRecommend@3x.png */; };
+		198F14EF1ACCF1CB008C208F /* MySetting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14EB1ACCF1CB008C208F /* MySetting@2x.png */; };
+		198F14F01ACCF1CB008C208F /* MySetting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14EC1ACCF1CB008C208F /* MySetting@3x.png */; };
+		198F14F31ACD0B7D008C208F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14F21ACD0B7D008C208F /* SettingViewController.m */; };
 		198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE11AB6EF990017A90B /* default-568h@2x.png */; };
 		198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE21AB6EF990017A90B /* default-667h@2x.png */; };
 		198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE31AB6EF990017A90B /* Default-736h@3x.png */; };
@@ -161,6 +166,12 @@
 		198655EA1ABA5B3B002A7C22 /* BlueToothDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDataViewController.m; sourceTree = "<group>"; };
 		198F14E51ACCD749008C208F /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		198F14E61ACCD749008C208F /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		198F14E91ACCF1CB008C208F /* MyRecommend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyRecommend@2x.png"; sourceTree = "<group>"; };
+		198F14EA1ACCF1CB008C208F /* MyRecommend@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyRecommend@3x.png"; sourceTree = "<group>"; };
+		198F14EB1ACCF1CB008C208F /* MySetting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MySetting@2x.png"; sourceTree = "<group>"; };
+		198F14EC1ACCF1CB008C208F /* MySetting@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MySetting@3x.png"; sourceTree = "<group>"; };
+		198F14F11ACD0B7D008C208F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		198F14F21ACD0B7D008C208F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		198F3FE11AB6EF990017A90B /* default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-568h@2x.png"; sourceTree = "<group>"; };
 		198F3FE21AB6EF990017A90B /* default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-667h@2x.png"; sourceTree = "<group>"; };
 		198F3FE31AB6EF990017A90B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
@@ -374,6 +385,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		198F14E81ACCF1CB008C208F /* My */ = {
+			isa = PBXGroup;
+			children = (
+				198F14E91ACCF1CB008C208F /* MyRecommend@2x.png */,
+				198F14EA1ACCF1CB008C208F /* MyRecommend@3x.png */,
+				198F14EB1ACCF1CB008C208F /* MySetting@2x.png */,
+				198F14EC1ACCF1CB008C208F /* MySetting@3x.png */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
 		198F3FE01AB6EDC10017A90B /* LaunchImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +656,8 @@
 			children = (
 				198F14E51ACCD749008C208F /* MyViewController.h */,
 				198F14E61ACCD749008C208F /* MyViewController.m */,
+				198F14F11ACD0B7D008C208F /* SettingViewController.h */,
+				198F14F21ACD0B7D008C208F /* SettingViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -908,6 +932,7 @@
 		74CE089B1AA4A52000DD9458 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				198F14E81ACCF1CB008C208F /* My */,
 				74E1DE531AB9D45700FA86AD /* HomePage */,
 				198F3FE91AB6F43A0017A90B /* Device */,
 				198F3FE01AB6EDC10017A90B /* LaunchImage */,
@@ -1038,6 +1063,7 @@
 			files = (
 				195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */,
 				74CCFFEE1AB55C7A00DDD42E /* Login_userName_icon@2x.png in Resources */,
+				198F14ED1ACCF1CB008C208F /* MyRecommend@2x.png in Resources */,
 				74CE09191AA4A52000DD9458 /* MBProgressHUD.bundle in Resources */,
 				19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
@@ -1057,6 +1083,7 @@
 				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
 				74E1DE591AB9D45700FA86AD /* IconCheck@2x.png in Resources */,
 				744E01CE1AC2FCD90063C4A7 /* MyDoctor_Logo@2x.png in Resources */,
+				198F14EE1ACCF1CB008C208F /* MyRecommend@3x.png in Resources */,
 				744E01CC1AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png in Resources */,
 				195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
@@ -1067,6 +1094,8 @@
 				744E01CF1AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png in Resources */,
 				198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */,
 				198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */,
+				198F14EF1ACCF1CB008C208F /* MySetting@2x.png in Resources */,
+				198F14F01ACCF1CB008C208F /* MySetting@3x.png in Resources */,
 				744E01C21AC2FB7C0063C4A7 /* Information_Detail_   unpraise.png in Resources */,
 				744E01C01AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png in Resources */,
 				197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */,
@@ -1150,6 +1179,7 @@
 				74CE08F51AA4A52000DD9458 /* NSObject+Base.m in Sources */,
 				749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */,
 				19AC43311AB1550E004948DF /* BlueToothData.m in Sources */,
+				198F14F31ACD0B7D008C208F /* SettingViewController.m in Sources */,
 				74F64E7B1AC90BA8004F44D6 /* ChooseHospitalViewController.m in Sources */,
 				19AC432E1AB150B1004948DF /* BlueToothTimeData.m in Sources */,
 				74CE09001AA4A52000DD9458 /* UIImageView+Base.m in Sources */,
