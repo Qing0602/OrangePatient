@@ -22,6 +22,7 @@ PODS:
   - FMDB/standard (2.5):
     - FMDB/common
   - JSONKit (1.4)
+  - Masonry (0.6.1)
   - Reachability (3.2)
   - ReactiveCocoa (2.4.7):
     - ReactiveCocoa/UI (= 2.4.7)
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - EGOImageLoading (~> 0.0.1)
   - FMDB (~> 2.5)
   - JSONKit (~> 1.4)
+  - Masonry (~> 0.6.1)
   - ReactiveCocoa (~> 2.4.7)
   - RegexKitLite (~> 4.0)
 
@@ -48,6 +50,7 @@ SPEC CHECKSUMS:
   EGOImageLoading: 8d33c6c4b5bc5651236bbcbc46e8a31a6715cd61
   FMDB: 0efa188cf0dd1ce82c27a478cd5f5fa245308677
   JSONKit: 2111ac2b11f7ea0d07bb1d9d09e650918336a134
+  Masonry: 2cb49fd14d203d2db5ca6bb017135b235dde9980
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
   ReactiveCocoa: 313fc53cc9aeb2bbbc3f5f13c7eac16478d9af8f
   RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661

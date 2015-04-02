@@ -79,6 +79,12 @@
 #define COCOAPODS_VERSION_MINOR_JSONKit 4
 #define COCOAPODS_VERSION_PATCH_JSONKit 0
 
+// Masonry
+#define COCOAPODS_POD_AVAILABLE_Masonry
+#define COCOAPODS_VERSION_MAJOR_Masonry 0
+#define COCOAPODS_VERSION_MINOR_Masonry 6
+#define COCOAPODS_VERSION_PATCH_Masonry 1
+
 // Reachability
 #define COCOAPODS_POD_AVAILABLE_Reachability
 #define COCOAPODS_VERSION_MAJOR_Reachability 3

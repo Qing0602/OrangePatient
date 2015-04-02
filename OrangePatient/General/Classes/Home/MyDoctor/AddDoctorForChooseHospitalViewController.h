@@ -8,6 +8,6 @@
 
 #import "TwoTablesViewController.h"
 
-@interface AddDoctorViewController : TwoTablesViewController    
+@interface AddDoctorForChooseHospitalViewController : TwoTablesViewController    
 
 @end
