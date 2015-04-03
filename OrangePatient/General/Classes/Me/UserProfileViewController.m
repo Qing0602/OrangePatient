@@ -10,7 +10,7 @@
 #import "EGOImageView.h"
 #import "EditorTelPhoneViewController.h"
 
-@interface UserProfileViewController ()
+@interface UserProfileViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UITableView *userProfileTableView;
 
 @property (nonatomic,strong) EGOImageView *avatar;
@@ -19,6 +19,7 @@
 @property (nonatomic,strong) UILabel *telPhoneLabel;
 @property (nonatomic,strong) UILabel *areaLabel;
 @property (nonatomic,strong) UIView *pickerView;
+@property (nonatomic,strong) UIDatePicker *datePicker;
 
 -(void) changeNickName : (NSNotification *) notification;
 -(void) changeTelPhone : (NSNotification *) notification;
@@ -155,45 +156,63 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:{
-            
+            [self.datePicker removeFromSuperview];
+            [self.pickerView removeFromSuperview];
+            self.datePicker = nil;
+            self.pickerView = nil;
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从图片库选择", nil];
+            [actionSheet showInView:self.view];
         }
             break;
         case 1:{
-            self.pickerView.hidden = YES;
+            [self.datePicker removeFromSuperview];
+            [self.pickerView removeFromSuperview];
+            self.datePicker = nil;
+            self.pickerView = nil;
             EditorNickNameViewController *nickName = [[EditorNickNameViewController alloc] init];
             [self.navigationController pushViewController:nickName animated:YES];
         }
-        case 3:{
-            if (self.pickerView != nil) {
-                self.pickerView.hidden = NO;
-            }else{
-                self.pickerView = [[UIView alloc] init];
-                self.pickerView.translatesAutoresizingMaskIntoConstraints = NO;
-                self.pickerView.backgroundColor = [UIColor whiteColor];
-                [self.view addSubview:self.pickerView];
-                
-                UIDatePicker *datePicker = [[UIDatePicker alloc] init];
-                datePicker.datePickerMode = UIDatePickerModeDate;
-                NSString *date = self.birthdayLabel.text;
-                if (date != nil && ![date isEqualToString:@""]) {
-                    NSDate* currentDate = [NSDate dateWithString:date];
-                    [datePicker setDate:currentDate];
-                }else{
-                    [datePicker setDate:[NSDate date]];
-                }
-                [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-                [self.pickerView addSubview:datePicker];
-                
-                NSDictionary *views = NSDictionaryOfVariableBindings(_pickerView,datePicker);
-                [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_pickerView]-0-|" options:0 metrics:nil views:views]];
-                [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_pickerView(216)]-0-|" options:0 metrics:nil views:views]];
-                [self.pickerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[datePicker]-0-|" options:0 metrics:nil views:views]];
-                [self.pickerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[datePicker(216)]-0-|" options:0 metrics:nil views:views]];
-            }
+        case 2:{
+            [self.datePicker removeFromSuperview];
+            [self.pickerView removeFromSuperview];
+            self.datePicker = nil;
+            self.pickerView = nil;
         }
             break;
+        case 3:{
+            if (self.pickerView != nil) {
+                return;
+            }
+            self.pickerView = [[UIView alloc] init];
+            self.pickerView.translatesAutoresizingMaskIntoConstraints = NO;
+            self.pickerView.backgroundColor = [UIColor whiteColor];
+            [self.view addSubview:self.pickerView];
+            
+            self.datePicker = [[UIDatePicker alloc] init];
+            self.datePicker.datePickerMode = UIDatePickerModeDate;
+            NSString *date = self.birthdayLabel.text;
+            if (date != nil && ![date isEqualToString:@""]) {
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+                [formatter setDateFormat:@"yyyy-MM-dd"];
+                NSDate *currentDate=[formatter dateFromString:date];
+                [self.datePicker setDate:currentDate];
+            }else{
+                [self.datePicker setDate:[NSDate date]];
+            }
+            [self.datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+            [self.pickerView addSubview:self.datePicker];
+            
+            NSDictionary *views = NSDictionaryOfVariableBindings(_pickerView,_datePicker);
+            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_pickerView]-0-|" options:0 metrics:nil views:views]];
+            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_pickerView(216)]-0-|" options:0 metrics:nil views:views]];
+            [self.pickerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_datePicker]-0-|" options:0 metrics:nil views:views]];
+            [self.pickerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_datePicker(216)]-0-|" options:0 metrics:nil views:views]];        }
+            break;
         case 4:{
-            self.pickerView.hidden = YES;
+            [self.datePicker removeFromSuperview];
+            [self.pickerView removeFromSuperview];
+            self.datePicker = nil;
+            self.pickerView = nil;
             EditorTelPhoneViewController *telPhoneName = [[EditorTelPhoneViewController alloc] init];
             [self.navigationController pushViewController:telPhoneName animated:YES];
         }
@@ -217,6 +236,31 @@
     UIDatePicker *control = (UIDatePicker*)sender;
     NSString *dateString = [NSString stringFromDate:control.date];
     self.birthdayLabel.text = dateString;
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        ipc.delegate = self;
+        [self presentViewController:ipc animated:YES completion:^{
+            
+        }];
+    }else if (buttonIndex == 1) {
+        UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+        ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        ipc.delegate = self;
+        [self presentViewController:ipc animated:YES completion:^{
+            
+        }];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    NSData *data = UIImageJPEGRepresentation(image, 0.5f);
+    // 上传头像代码
+
 }
 
 - (void)didReceiveMemoryWarning {
