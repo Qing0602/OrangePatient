@@ -9,6 +9,7 @@
 #import "UserProfileViewController.h"
 #import "EGOImageView.h"
 #import "EditorTelPhoneViewController.h"
+#import "AreaViewController.h"
 
 @interface UserProfileViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UITableView *userProfileTableView;
@@ -217,6 +218,14 @@
             [self.navigationController pushViewController:telPhoneName animated:YES];
         }
             break;
+        case 5:{
+            [self.datePicker removeFromSuperview];
+            [self.pickerView removeFromSuperview];
+            self.datePicker = nil;
+            self.pickerView = nil;
+            AreaViewController *area = [[AreaViewController alloc] init];
+            [self.navigationController pushViewController:area animated:YES];
+        }
         default:
             break;
     }

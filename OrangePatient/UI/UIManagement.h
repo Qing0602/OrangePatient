@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UserOperation.h"
 #import "UserAccountModel.h"
+#import "SettingOperation.h"
 
 @interface UIManagement : NSObject
 +(UIManagement *) sharedInstance;
@@ -40,6 +41,11 @@
 @property (nonatomic,strong) NSDictionary *updateUserProfileResult;
 
 
+// 获取城市
+@property (nonatomic,strong) NSDictionary *getAreaResult;
+// 获取地区
+@property (nonatomic,strong) NSDictionary *getCityResult;
+
 // 登陆
 -(void) login : (NSString *) userName withPassword : (NSString *) password;
 // 提供手机号码获取注册、重置等验证码。typeCode:0 - 注册, 1 - 重置密码
@@ -67,4 +73,8 @@
 -(void) updateUserDetail : (NSString *) uid withBody : (NSDictionary *) body;
 // 更新profile
 -(void) updateUserProfile : (NSString *) uid withBody : (NSDictionary *) body;
+
+
+// 获取城市
+-(void) getArea;
 @end

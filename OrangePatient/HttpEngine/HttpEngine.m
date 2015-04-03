@@ -68,14 +68,11 @@
     NSString *responseString = [request responseString];
     NSDictionary *dic = [self getJSONObject:responseString];
     
-    // 获取网络访问Header信息并判断
-    NSDictionary *headers = dic[@"header"];
-    
-    int status = [headers[@"code"] intValue];
+    int status = [dic[@"code"] intValue];
     
     if (status != 200) {
         self.hasError = YES;
-        self.errorMessage = headers[@"message"];
+        self.errorMessage = dic[@"message"];
     }else{
         self.errorMessage = @"";
     }

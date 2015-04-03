@@ -90,4 +90,10 @@ static UIManagement *sharedInstance = nil;
     UserOperation *operation = [[UserOperation alloc] initUpdateUserProfile:uid withBody:body];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
+
+// 获取城市
+-(void) getArea{
+    SettingOperation *operation = [[SettingOperation alloc] initGetArea];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 @end

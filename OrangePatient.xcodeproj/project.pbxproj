@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		18B69F64E05C1CB80152934B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EA1C7F5AB80581D41E6A58 /* libPods.a */; };
+		192BCD9A1ACE9E0700137BE0 /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192BCD991ACE9E0700137BE0 /* AreaViewController.m */; };
+		192BCD9C1ACE9E6B00137BE0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 192BCD9B1ACE9E6B00137BE0 /* CoreLocation.framework */; };
+		192BCD9F1ACEC34300137BE0 /* SettingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 192BCD9E1ACEC34300137BE0 /* SettingOperation.m */; };
 		193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537A1AB754990079C424 /* SearchDevice@2x.png */; };
 		193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537B1AB754990079C424 /* SearchDevice@3x.png */; };
 		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
@@ -146,6 +149,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		192BCD981ACE9E0700137BE0 /* AreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaViewController.h; sourceTree = "<group>"; };
+		192BCD991ACE9E0700137BE0 /* AreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaViewController.m; sourceTree = "<group>"; };
+		192BCD9B1ACE9E6B00137BE0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		192BCD9D1ACEC34300137BE0 /* SettingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingOperation.h; sourceTree = "<group>"; };
+		192BCD9E1ACEC34300137BE0 /* SettingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingOperation.m; sourceTree = "<group>"; };
 		193C537A1AB754990079C424 /* SearchDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDevice@2x.png"; sourceTree = "<group>"; };
 		193C537B1AB754990079C424 /* SearchDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDevice@3x.png"; sourceTree = "<group>"; };
 		195017461AAC2D7900A7E7A1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -380,6 +388,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192BCD9C1ACE9E6B00137BE0 /* CoreLocation.framework in Frameworks */,
 				1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */,
 				74CE09491AA4B27700DD9458 /* Foundation.framework in Frameworks */,
 				74CE09471AA4B27100DD9458 /* UIKit.framework in Frameworks */,
@@ -475,6 +484,8 @@
 				19A679B71AAB46B4006328DA /* HTTPRequest.m */,
 				19D8A9251AC5D9790092688E /* UserOperation.h */,
 				19D8A9261AC5D9790092688E /* UserOperation.m */,
+				192BCD9D1ACEC34300137BE0 /* SettingOperation.h */,
+				192BCD9E1ACEC34300137BE0 /* SettingOperation.m */,
 			);
 			path = OP;
 			sourceTree = "<group>";
@@ -678,6 +689,8 @@
 				198F14FB1ACD91C4008C208F /* EditorNickNameViewController.m */,
 				198F14FD1ACD99C5008C208F /* EditorTelPhoneViewController.h */,
 				198F14FE1ACD99C5008C208F /* EditorTelPhoneViewController.m */,
+				192BCD981ACE9E0700137BE0 /* AreaViewController.h */,
+				192BCD991ACE9E0700137BE0 /* AreaViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -994,6 +1007,7 @@
 		DDA3B20BE08FF332A782BE1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				192BCD9B1ACE9E6B00137BE0 /* CoreLocation.framework */,
 				93EA1C7F5AB80581D41E6A58 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1197,6 +1211,7 @@
 				742DEAD91ACB9F2000882138 /* TwoTablesViewController.m in Sources */,
 				74F64E7E1AC90CBA004F44D6 /* MyDoctorsModel.m in Sources */,
 				74CE08FE1AA4A52000DD9458 /* UIFont+Base.m in Sources */,
+				192BCD9F1ACEC34300137BE0 /* SettingOperation.m in Sources */,
 				74CE09021AA4A52000DD9458 /* UIView+Base.m in Sources */,
 				74CE08F51AA4A52000DD9458 /* NSObject+Base.m in Sources */,
 				749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */,
@@ -1231,6 +1246,7 @@
 				19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */,
 				744E01BA1AC2F77D0063C4A7 /* HealthInformationViewController.m in Sources */,
 				749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */,
+				192BCD9A1ACE9E0700137BE0 /* AreaViewController.m in Sources */,
 				19AF65B91AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m in Sources */,
 				19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */,
 				742DEADF1ACBA05600882138 /* MyDoctorHospitalsModel.m in Sources */,
