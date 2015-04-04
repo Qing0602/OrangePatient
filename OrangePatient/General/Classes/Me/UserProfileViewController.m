@@ -10,6 +10,8 @@
 #import "EGOImageView.h"
 #import "EditorTelPhoneViewController.h"
 #import "AreaViewController.h"
+#import "ChooseSexControl.h"
+#import "UIManagement.h"
 
 @interface UserProfileViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UITableView *userProfileTableView;
@@ -21,7 +23,11 @@
 @property (nonatomic,strong) UILabel *areaLabel;
 @property (nonatomic,strong) UIView *pickerView;
 @property (nonatomic,strong) UIDatePicker *datePicker;
+@property (nonatomic,strong) NSArray *areaResult;
+//选择性别
+@property (nonatomic, strong)ChooseSexControl *sexControl;
 
+-(void) saveProfile;
 -(void) changeNickName : (NSNotification *) notification;
 -(void) changeTelPhone : (NSNotification *) notification;
 @end
@@ -39,12 +45,53 @@
     self.userProfileTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.userProfileTableView];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(saveProfile)];
+    
     NSDictionary *views = NSDictionaryOfVariableBindings(_userProfileTableView);
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_userProfileTableView]-0-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_userProfileTableView(308)]" options:0 metrics:nil views:views]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNickName:) name:@"changeNickName" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTelPhone:) name:@"changeTelPhone" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeArea:) name:@"changeArea" object:nil];
+    
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"updateUserProfileResult" options:0 context:nil];
+}
+
+-(void) saveProfile{
+    NSMutableDictionary *json = [[NSMutableDictionary alloc] init];
+    if (self.userNameLabel.text == nil || [self.userNameLabel.text isEqualToString:@""]) {
+        [self showProgressWithText:@"用户名不能为空" withDelayTime:2.0f];
+    }else{
+        [json setObject:self.userNameLabel.text forKey:@"nickname"];
+    }
+    
+    NSInteger sex = [self.sexControl getCurrentChooseSex];
+    [json setObject:[NSNumber numberWithInteger:sex] forKey:@"sex"];
+    
+    if (self.birthdayLabel.text == nil || [self.birthdayLabel.text isEqualToString:@""]) {
+        [self showProgressWithText:@"出生日期不能为空" withDelayTime:2.0f];
+    }else{
+        [json setObject:self.birthdayLabel.text forKey:@"birthday"];
+    }
+    
+    if (self.telPhoneLabel.text == nil || [self.telPhoneLabel.text isEqualToString:@""]) {
+        [self showProgressWithText:@"电话不能为空" withDelayTime:2.0f];
+    }else{
+        [json setObject:self.telPhoneLabel.text forKey:@"telephone"];
+    }
+    
+    if (self.areaResult != nil || [self.areaResult count] != 0) {
+        [json setObject:[NSString stringWithFormat:@"%ld,%ld",[self.areaResult[0][@"code"] integerValue],[self.areaResult[1][@"name"] integerValue]] forKey:@"district_city"];
+    }
+    [[UIManagement sharedInstance] updateUserProfile:[UIManagement sharedInstance].userAccount.userUid withBody:json];
+    
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"updateUserProfileResult"]) {
+        
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -109,6 +156,8 @@
                 break;
             case 2:{
                 title.text = @"性别";
+                self.sexControl = [[ChooseSexControl alloc] initWithOrigin:CGPointMake(SCREEN_WIDTH-Control_Width-SCREEN_WIDTH/30, (Register_TableviewCell_Height-Control_Height)/2)];
+                [cell.contentView addSubview:self.sexControl];
             }
                 break;
             case 3:{
@@ -241,6 +290,11 @@
     self.telPhoneLabel.text = telPhone;
 }
 
+-(void) changeArea : (NSNotification *) notification{
+    self.areaResult = notification.object;
+    self.areaLabel.text = [NSString stringWithFormat:@"%@ %@",self.areaResult[0][@"name"],self.areaResult[1][@"name"]];
+}
+
 -(void)datePickerValueChanged:(id)sender{
     UIDatePicker *control = (UIDatePicker*)sender;
     NSString *dateString = [NSString stringFromDate:control.date];
@@ -277,6 +331,7 @@
 }
 
 -(void) dealloc{
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"updateUserProfileResult"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

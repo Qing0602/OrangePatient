@@ -9,6 +9,7 @@
 #import "AreaViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "UIManagement.h"
+#import "CityViewController.h"
 
 @interface AreaViewController ()<CLLocationManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) CLLocationManager* locationManager;
@@ -106,7 +107,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    CityViewController *city = [[CityViewController alloc] initCityViewController:self.areaArray[indexPath.row]];
+    [self.navigationController pushViewController:city animated:YES];
 }
 
 -(void)dealloc{

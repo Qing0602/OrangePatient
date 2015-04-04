@@ -96,4 +96,10 @@ static UIManagement *sharedInstance = nil;
     SettingOperation *operation = [[SettingOperation alloc] initGetArea];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
+
+// 获取地区
+-(void) getCity : (NSInteger) areaID{
+    SettingOperation *operation = [[SettingOperation alloc] initGetCity:areaID];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 @end

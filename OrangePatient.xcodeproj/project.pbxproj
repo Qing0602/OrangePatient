@@ -11,6 +11,7 @@
 		192BCD9A1ACE9E0700137BE0 /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192BCD991ACE9E0700137BE0 /* AreaViewController.m */; };
 		192BCD9C1ACE9E6B00137BE0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 192BCD9B1ACE9E6B00137BE0 /* CoreLocation.framework */; };
 		192BCD9F1ACEC34300137BE0 /* SettingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 192BCD9E1ACEC34300137BE0 /* SettingOperation.m */; };
+		192BCDA21ACED23C00137BE0 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192BCDA11ACED23C00137BE0 /* CityViewController.m */; };
 		193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537A1AB754990079C424 /* SearchDevice@2x.png */; };
 		193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537B1AB754990079C424 /* SearchDevice@3x.png */; };
 		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
@@ -154,6 +155,8 @@
 		192BCD9B1ACE9E6B00137BE0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		192BCD9D1ACEC34300137BE0 /* SettingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingOperation.h; sourceTree = "<group>"; };
 		192BCD9E1ACEC34300137BE0 /* SettingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingOperation.m; sourceTree = "<group>"; };
+		192BCDA01ACED23C00137BE0 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		192BCDA11ACED23C00137BE0 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
 		193C537A1AB754990079C424 /* SearchDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDevice@2x.png"; sourceTree = "<group>"; };
 		193C537B1AB754990079C424 /* SearchDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDevice@3x.png"; sourceTree = "<group>"; };
 		195017461AAC2D7900A7E7A1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -691,6 +694,8 @@
 				198F14FE1ACD99C5008C208F /* EditorTelPhoneViewController.m */,
 				192BCD981ACE9E0700137BE0 /* AreaViewController.h */,
 				192BCD991ACE9E0700137BE0 /* AreaViewController.m */,
+				192BCDA01ACED23C00137BE0 /* CityViewController.h */,
+				192BCDA11ACED23C00137BE0 /* CityViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1261,6 +1266,7 @@
 				74CE08F31AA4A52000DD9458 /* NSDate+Base.m in Sources */,
 				7432C73F1AC06CA300073379 /* MyDoctorViewController.m in Sources */,
 				74CE08FF1AA4A52000DD9458 /* UIImage+Base.m in Sources */,
+				192BCDA21ACED23C00137BE0 /* CityViewController.m in Sources */,
 				74CE091A1AA4A52000DD9458 /* MBProgressHUD.m in Sources */,
 				7432C7451AC06D2C00073379 /* ConsultViewController.m in Sources */,
 				19A67A1B1AAB47B8006328DA /* UIManagement.m in Sources */,

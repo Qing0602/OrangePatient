@@ -77,4 +77,6 @@
 
 // 获取城市
 -(void) getArea;
+// 获取地区
+-(void) getCity : (NSInteger) areaID;
 @end
