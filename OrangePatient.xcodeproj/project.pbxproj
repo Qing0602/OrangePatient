@@ -26,6 +26,8 @@
 		197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62ED1ABA188D0054E72D /* AddDevice@3x.png */; };
 		197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62F01ABA2AEF0054E72D /* NavSearchDevice@2x.png */; };
 		197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62F11ABA2AEF0054E72D /* NavSearchDevice@3x.png */; };
+		1982A3CC1AD0AFB500233D4C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982A3CB1AD0AFB500233D4C /* AboutViewController.m */; };
+		1982A3CF1AD0AFFC00233D4C /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982A3CE1AD0AFFC00233D4C /* FeedBackViewController.m */; };
 		198655EB1ABA5B3B002A7C22 /* BlueToothDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198655EA1ABA5B3B002A7C22 /* BlueToothDataViewController.m */; };
 		198F14E71ACCD749008C208F /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14E61ACCD749008C208F /* MyViewController.m */; };
 		198F14ED1ACCF1CB008C208F /* MyRecommend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14E91ACCF1CB008C208F /* MyRecommend@2x.png */; };
@@ -177,6 +179,10 @@
 		197F62ED1ABA188D0054E72D /* AddDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddDevice@3x.png"; sourceTree = "<group>"; };
 		197F62F01ABA2AEF0054E72D /* NavSearchDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavSearchDevice@2x.png"; sourceTree = "<group>"; };
 		197F62F11ABA2AEF0054E72D /* NavSearchDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavSearchDevice@3x.png"; sourceTree = "<group>"; };
+		1982A3CA1AD0AFB500233D4C /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		1982A3CB1AD0AFB500233D4C /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		1982A3CD1AD0AFFC00233D4C /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
+		1982A3CE1AD0AFFC00233D4C /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
 		198655E91ABA5B3B002A7C22 /* BlueToothDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDataViewController.h; sourceTree = "<group>"; };
 		198655EA1ABA5B3B002A7C22 /* BlueToothDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDataViewController.m; sourceTree = "<group>"; };
 		198F14E51ACCD749008C208F /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
@@ -696,6 +702,10 @@
 				192BCD991ACE9E0700137BE0 /* AreaViewController.m */,
 				192BCDA01ACED23C00137BE0 /* CityViewController.h */,
 				192BCDA11ACED23C00137BE0 /* CityViewController.m */,
+				1982A3CA1AD0AFB500233D4C /* AboutViewController.h */,
+				1982A3CB1AD0AFB500233D4C /* AboutViewController.m */,
+				1982A3CD1AD0AFFC00233D4C /* FeedBackViewController.h */,
+				1982A3CE1AD0AFFC00233D4C /* FeedBackViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1234,6 +1244,7 @@
 				742DEAE21ACBA2A400882138 /* TwoTablesCityCell.m in Sources */,
 				743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */,
 				74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */,
+				1982A3CC1AD0AFB500233D4C /* AboutViewController.m in Sources */,
 				7401E9B51ACD1256006868B2 /* AddDoctorForChooseDoctorViewController.m in Sources */,
 				74F64E841AC9123C004F44D6 /* HttpEngine.m in Sources */,
 				74F64E811AC90CD9004F44D6 /* DoctorBaseTableViewCell.m in Sources */,
@@ -1257,6 +1268,7 @@
 				742DEADF1ACBA05600882138 /* MyDoctorHospitalsModel.m in Sources */,
 				74CE090A1AA4A52000DD9458 /* OrangeBaseViewController.m in Sources */,
 				7432C7421AC06D0D00073379 /* MedicalScreeningViewController.m in Sources */,
+				1982A3CF1AD0AFFC00233D4C /* FeedBackViewController.m in Sources */,
 				19A67A1A1AAB47B8006328DA /* SearchBlueToothViewController.m in Sources */,
 				1955E2651AC75C2F00F4CAF1 /* CustomOperation.m in Sources */,
 				74CE08F81AA4A52000DD9458 /* UIActionSheet+Base.m in Sources */,
