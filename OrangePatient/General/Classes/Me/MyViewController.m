@@ -10,6 +10,8 @@
 #import "EGOImageView.h"
 #import "SettingViewController.h"
 #import "UserProfileViewController.h"
+#import "AboutViewController.h"
+#import "FeedBackViewController.h"
 
 @interface MyViewController ()
 @property (nonatomic,strong) UIView *myView;
@@ -68,7 +70,7 @@
     
     NSDictionary *views = NSDictionaryOfVariableBindings(_myView,_avatar,_nickName,_uid,_regTime,_settingTabelView);
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_myView]-0-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_myView(113)]-10-[_settingTabelView(220)]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_myView(113)]-10-[_settingTabelView(264)]" options:0 metrics:nil views:views]];
     [self.myView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[_avatar(71)]" options:0 metrics:nil views:views]];
     [self.myView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_avatar(71)]" options:0 metrics:nil views:views]];
     [self.myView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_avatar]-10-[_nickName]-0-|" options:0 metrics:nil views:views]];
@@ -85,7 +87,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -125,6 +127,11 @@
             case 4:{
                 cell.textLabel.text = @"意见反馈";
             }
+                break;
+            case 5:{
+                cell.textLabel.text = @"关于橙意";
+            }
+                break;
             default:
                 break;
         }
@@ -141,6 +148,20 @@
             break;
         case 1:
             
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:{
+            FeedBackViewController *feedBack = [[FeedBackViewController alloc] init];
+            [self.navigationController pushViewController:feedBack animated:YES];
+        }
+            break;
+        case 5:{
+            AboutViewController *about = [[AboutViewController alloc] init];
+            [self.navigationController pushViewController:about animated:YES];
+        }
             break;
         default:
             break;
