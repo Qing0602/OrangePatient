@@ -12,6 +12,7 @@
 #import "UserProfileViewController.h"
 #import "AboutViewController.h"
 #import "FeedBackViewController.h"
+#import "FeedBackViewController.h"
 
 @interface MyViewController ()
 @property (nonatomic,strong) UIView *myView;

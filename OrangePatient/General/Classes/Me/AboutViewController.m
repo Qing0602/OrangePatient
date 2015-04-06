@@ -18,11 +18,15 @@
     [super viewDidLoad];
     UILabel *title = [[UILabel alloc] init];
     title.translatesAutoresizingMaskIntoConstraints = NO;
+    title.font = [UIFont systemFontOfSize:14.0f];
     title.text = @"关于橙意人家:";
     [self.view addSubview:title];
     
-    UILabel *content = [[UILabel alloc] init];
+    UITextView *content = [[UITextView alloc] init];
+    content.font = [UIFont systemFontOfSize:14.0f];
     content.translatesAutoresizingMaskIntoConstraints = NO;
+    content.backgroundColor = [UIColor clearColor];
+    content.editable = NO;
     content.text = @"内容";
     [self.view addSubview:content];
     
