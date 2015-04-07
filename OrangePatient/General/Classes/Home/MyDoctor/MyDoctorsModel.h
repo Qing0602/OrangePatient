@@ -7,6 +7,11 @@
 //
 
 #import "BaseNSObject.h"
+typedef NS_ENUM(NSInteger, Doctor_Status){
+    Doctor_Status_ShouldAdd = 0,
+    Doctor_Status_Waiting,
+    Doctor_Status_Added
+};
 
 @interface MyDoctorsModel : BaseNSObject
 //头像
@@ -17,4 +22,8 @@
 @property (nonatomic, strong)NSString *doctorHostpital;
 //头衔
 @property (nonatomic, strong)NSString *doctorTitle;
+//简介
+@property (nonatomic, strong)NSString *doctorAbstract;
+//添加状态
+@property (nonatomic)NSInteger doctorStatus;
 @end

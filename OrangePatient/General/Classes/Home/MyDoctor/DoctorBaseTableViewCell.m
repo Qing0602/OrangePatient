@@ -5,8 +5,7 @@
 //  Created by ZhangQing on 15/3/30.
 //  Copyright (c) 2015年 Orange. All rights reserved.
 //
-#define ImageWidth 65.f
-#define CellPadding 10.f
+
 
 #import "DoctorBaseTableViewCell.h"
 
@@ -24,7 +23,7 @@
         _cellTitle = [[UILabel alloc] init];
         _cellTitle.font = [UIFont systemFontOfSize:14.f];
         _cellTitle.translatesAutoresizingMaskIntoConstraints = NO;
-        _cellTitle.backgroundColor = [UIColor yellowColor];
+        _cellTitle.backgroundColor = [UIColor greenColor];
         [self.contentView addSubview:_cellTitle];
         
         _cellContent = [[UILabel alloc] init];
@@ -41,6 +40,31 @@
         _cellSubTitle.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_cellSubTitle];
         
+        
+        [_cellImageview mas_makeConstraints:^(MASConstraintMaker *make){
+            make.centerY.equalTo(self.contentView.mas_centerY);
+            make.left.mas_equalTo(DoctorBaseCellPadding);
+            make.size.mas_equalTo(CGSizeMake(DoctorBaseImageWidth, DoctorBaseImageWidth));
+        }];
+        
+        [_cellTitle mas_makeConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(_cellImageview.mas_right).and.offset(10);
+            make.top.mas_equalTo(DoctorBaseCellPadding);
+            make.size.mas_equalTo(CGSizeMake(100.f, 16.f));
+        }];
+        
+        [_cellContent mas_makeConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(self.cellTitle.mas_left);
+            make.top.equalTo(self.cellTitle.mas_bottom).with.offset(6);
+            make.size.mas_equalTo(CGSizeMake(100.f, 16.f));
+        }];
+        
+        [_cellSubTitle mas_makeConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(self.cellTitle.mas_left);
+            make.top.equalTo(self.cellContent.mas_bottom).with.offset(6);
+            make.size.mas_equalTo(CGSizeMake(100.f, 16.f));
+        }];
+        /*
         NSDictionary *views = NSDictionaryOfVariableBindings(_cellImageview,_cellTitle,_cellContent,_cellSubTitle);
         NSDictionary *metrics = @{@"ImageWidth":@ImageWidth,@"CellPadding":@CellPadding};
         
@@ -48,8 +72,8 @@
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-CellPadding-[_cellImageview(ImageWidth)]-==10-[_cellContent(>=100)]->=CellPadding-|" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-CellPadding-[_cellImageview(ImageWidth)]-==10-[_cellSubTitle(>=100)]->=CellPadding-|" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-CellPadding-[_cellImageview(ImageWidth)]-CellPadding-|" options:0 metrics:metrics views:views]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-CellPadding-[_cellTitle(16)]->=6-[_cellContent(_cellTitle)]->=6-[_cellSubTitle(_cellTitle)]-CellPadding-|" options:0 metrics:metrics views:views]];
-        
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-CellPadding-[_cellTitle(16)]-==6-[_cellContent(_cellTitle)]-==6-[_cellSubTitle(_cellTitle)]->=CellPadding-|" options:0 metrics:metrics views:views]];
+        */
     }
     return self;
 }

@@ -70,6 +70,9 @@
 		7432C7421AC06D0D00073379 /* MedicalScreeningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C7411AC06D0D00073379 /* MedicalScreeningViewController.m */; };
 		7432C7451AC06D2C00073379 /* ConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7432C7441AC06D2C00073379 /* ConsultViewController.m */; };
 		743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743D3C8B1AAF2C550060AA90 /* LoginViewController.m */; };
+		743ECC151AD4257400715EB4 /* ScreeningDatingDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ECC141AD4257400715EB4 /* ScreeningDatingDoctorViewController.m */; };
+		743ECC181AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ECC171AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m */; };
+		743ECC1B1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ECC1A1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m */; };
 		7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449C53E1AB67336009AF4DD /* ChooseSexControl.m */; };
 		7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5411AB674A9009AF4DD /* btn_selected@2x.png */; };
 		7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */; };
@@ -258,6 +261,12 @@
 		7432C7441AC06D2C00073379 /* ConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultViewController.m; sourceTree = "<group>"; };
 		743D3C8A1AAF2C550060AA90 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		743D3C8B1AAF2C550060AA90 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		743ECC131AD4257400715EB4 /* ScreeningDatingDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningDatingDoctorViewController.h; sourceTree = "<group>"; };
+		743ECC141AD4257400715EB4 /* ScreeningDatingDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningDatingDoctorViewController.m; sourceTree = "<group>"; };
+		743ECC161AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeingDatingDoctorTableViewCell.h; sourceTree = "<group>"; };
+		743ECC171AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeingDatingDoctorTableViewCell.m; sourceTree = "<group>"; };
+		743ECC191AD425CA00715EB4 /* ScreeingDatingDoctorsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeingDatingDoctorsModel.h; sourceTree = "<group>"; };
+		743ECC1A1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeingDatingDoctorsModel.m; sourceTree = "<group>"; };
 		7449C53D1AB67336009AF4DD /* ChooseSexControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSexControl.h; sourceTree = "<group>"; };
 		7449C53E1AB67336009AF4DD /* ChooseSexControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSexControl.m; sourceTree = "<group>"; };
 		7449C5411AB674A9009AF4DD /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
@@ -540,6 +549,12 @@
 			children = (
 				7432C7401AC06D0D00073379 /* MedicalScreeningViewController.h */,
 				7432C7411AC06D0D00073379 /* MedicalScreeningViewController.m */,
+				743ECC131AD4257400715EB4 /* ScreeningDatingDoctorViewController.h */,
+				743ECC141AD4257400715EB4 /* ScreeningDatingDoctorViewController.m */,
+				743ECC161AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.h */,
+				743ECC171AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m */,
+				743ECC191AD425CA00715EB4 /* ScreeingDatingDoctorsModel.h */,
+				743ECC1A1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m */,
 			);
 			path = Check;
 			sourceTree = "<group>";
@@ -1210,6 +1225,7 @@
 				74CE09071AA4A52000DD9458 /* BaseUITabBarController.m in Sources */,
 				74CE08F71AA4A52000DD9458 /* pinyin.c in Sources */,
 				742DEADC1ACBA03600882138 /* MyDoctorCitysModel.m in Sources */,
+				743ECC1B1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m in Sources */,
 				198F14FF1ACD99C5008C208F /* EditorTelPhoneViewController.m in Sources */,
 				19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */,
 				198655EB1ABA5B3B002A7C22 /* BlueToothDataViewController.m in Sources */,
@@ -1220,6 +1236,7 @@
 				74CCFFF11AB5646A00DDD42E /* TextFieldWithLeftIcon.m in Sources */,
 				74BE67AD1A9F4AF7008F7C44 /* ViewController.m in Sources */,
 				7401E9B81ACD129E006868B2 /* AddDoctorForChooseDoctorCell.m in Sources */,
+				743ECC181AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m in Sources */,
 				74CE08F21AA4A52000DD9458 /* NSArray+Base.m in Sources */,
 				74CE08F91AA4A52000DD9458 /* UIAlertView+Base.m in Sources */,
 				74CE09041AA4A52000DD9458 /* BaseNSObject.m in Sources */,
@@ -1260,6 +1277,7 @@
 				74F64E781AC90B01004F44D6 /* MyDoctorListViewController.m in Sources */,
 				19611FAD1ACAD60D00AFA921 /* UserAccountModel.m in Sources */,
 				19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */,
+				743ECC151AD4257400715EB4 /* ScreeningDatingDoctorViewController.m in Sources */,
 				744E01BA1AC2F77D0063C4A7 /* HealthInformationViewController.m in Sources */,
 				749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */,
 				192BCD9A1ACE9E0700137BE0 /* AreaViewController.m in Sources */,

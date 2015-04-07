@@ -6,6 +6,9 @@
 //  Copyright (c) 2015年 Orange. All rights reserved.
 //
 
+#define DoctorBaseImageWidth 65.f
+#define DoctorBaseCellPadding 10.f
+
 #import <UIKit/UIKit.h>
 #import "EGOImageView.h"
 #import "MyDoctorsModel.h"

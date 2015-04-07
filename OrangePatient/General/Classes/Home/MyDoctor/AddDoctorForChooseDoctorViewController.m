@@ -23,8 +23,11 @@
     _chooseDoctorTableview.dataSource = self;
     _chooseDoctorTableview.delegate = self;
     _chooseDoctorTableview.tableFooterView = [[UIView alloc] init];
-    _chooseDoctorTableview.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_chooseDoctorTableview];
+    
+    [_chooseDoctorTableview mas_makeConstraints:^(MASConstraintMaker *make){
+        make.edges.equalTo(self.view);
+    }];
     // Do any additional setup after loading the view.
 }
 
@@ -46,14 +49,29 @@
 - (NSArray *)couldSelectedDoctorsList
 {
     if (!_couldSelectedDoctorsList) {
-        
+        NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:10];
+        for (int i = 0; i < 10; i++) {
+            MyDoctorsModel *model = [[MyDoctorsModel alloc] init];
+            model.doctorHostpital = [NSString stringWithFormat:@"中心医院%d",i];
+            model.doctorTitle = [NSString stringWithFormat:@"主治医生%d",i];
+            model.doctorUserName = [NSString stringWithFormat:@"用户名%d",i];
+            model.doctorAbstract = @"dadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsada";
+            model.doctorStatus = Doctor_Status_ShouldAdd;
+            [testArray addObject:model];
+        }
+        _couldSelectedDoctorsList = [[NSArray alloc] initWithArray:testArray];
     }
     return _couldSelectedDoctorsList;
 }
 #pragma mark - UITableview
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.couldSelectedDoctorsList.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120.f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,7 +81,7 @@
     if (!cell) {
         cell = [[AddDoctorForChooseDoctorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chooseDoctorCellIden];
     }
-    
+    [cell setContentByInfoModel:self.couldSelectedDoctorsList[indexPath.row]];
     return cell;
 }
 @end

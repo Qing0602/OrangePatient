@@ -15,4 +15,6 @@
 //状态按钮
 @property (nonatomic, strong)UIButton *doctorStatusBtn;
 
+- (void)setContentByInfoModel:(MyDoctorsModel *)model;
+
 @end
