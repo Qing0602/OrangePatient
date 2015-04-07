@@ -59,6 +59,18 @@
     [loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginBtn];
     
+    [RACObserve([UIManagement sharedInstance], loginResult) subscribeNext:^(NSDictionary *loginResult){
+        if (loginResult) {
+            [self closeProgress];
+            if (loginResult[@"hasError"]) {
+                NSDictionary *data = loginResult[@"data"];
+                
+            }else{
+                [self showProgressWithText:loginResult[@"errorMessage"] withDelayTime:2.f];
+            }
+        }
+    }];
+    
     // Do any additional setup after loading the view.
 }
 

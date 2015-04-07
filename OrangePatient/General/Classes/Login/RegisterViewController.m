@@ -82,6 +82,18 @@
         self.birthdayDate.text = [NSString stringFromDate:picker.date];
     }];
     [self.pickerSuperView addSubview:self.birthdayDatePicker];
+    
+    [RACObserve([UIManagement sharedInstance], regsiterResult) subscribeNext:^(NSDictionary *registerResult){
+        if (registerResult) {
+            [self closeProgress];
+            if (registerResult[@"hasError"]) {
+                NSDictionary *data = registerResult[@"data"];
+                
+            }else{
+                [self showProgressWithText:registerResult[@"errorMessage"] withDelayTime:2.f];
+            }
+        }
+    }];
     // Do any additional setup after loading the view.
 }
 
@@ -98,10 +110,9 @@
 
 - (void)registerAction
 {
-    
+    [self showProgressWithText:@"正在注册..."];
+    [[UIManagement sharedInstance] regsiter:self.usernameInput.text withPassword:[self.phoneNumInput.text substringFromIndex:[self.phoneNumInput.text length]-6] withName:self.usernameInput.text withSex:[self.sexControl getCurrentChooseSex] withBirthday:self.birthdayDate.text withVerifyCode:self.veriCodeInput.text];
 }
-
-
 
 - (void)pickerSuperViewTapped
 {

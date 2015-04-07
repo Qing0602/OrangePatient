@@ -10,4 +10,9 @@
 
 @interface AddDoctorForChooseDoctorCell : DoctorBaseTableViewCell
 
+//简介
+@property (nonatomic, strong)UILabel *doctorAbstract;
+//状态按钮
+@property (nonatomic, strong)UIButton *doctorStatusBtn;
+
 @end

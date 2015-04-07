@@ -8,6 +8,7 @@
 
 #import "AddDoctorForChooseDoctorViewController.h"
 
+#import "AddDoctorForChooseDoctorCell.h"
 @interface AddDoctorForChooseDoctorViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong)UITableView *chooseDoctorTableview;
 @property (nonatomic, strong)NSArray *couldSelectedDoctorsList;
@@ -55,5 +56,14 @@
     return 0;
 }
 
-
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *chooseDoctorCellIden = @"ChooseDoctorCellIden";
+    AddDoctorForChooseDoctorCell *cell = [tableView dequeueReusableCellWithIdentifier:chooseDoctorCellIden];
+    if (!cell) {
+        cell = [[AddDoctorForChooseDoctorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chooseDoctorCellIden];
+    }
+    
+    return cell;
+}
 @end
