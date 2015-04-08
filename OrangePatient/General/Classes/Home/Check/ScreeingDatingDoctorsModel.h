@@ -10,4 +10,7 @@
 
 @interface ScreeingDatingDoctorsModel : MyDoctorsModel
 
+@property (nonatomic, strong)NSString *doctorDetail;
+@property (nonatomic, strong)NSString *doctorDatingStatus;
+
 @end

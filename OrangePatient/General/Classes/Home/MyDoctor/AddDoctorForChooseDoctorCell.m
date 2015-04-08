@@ -45,7 +45,7 @@
     return self;
 }
 
-- (void)setContentByInfoModel:(MyDoctorsModel *)model
+- (void)setContentByInfoModel:(ChooseDoctorModel *)model
 {
     [super setContentByInfoModel:model];
     [self.doctorAbstract setText:model.doctorAbstract];

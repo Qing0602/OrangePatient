@@ -51,7 +51,7 @@
     if (!_couldSelectedDoctorsList) {
         NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:10];
         for (int i = 0; i < 10; i++) {
-            MyDoctorsModel *model = [[MyDoctorsModel alloc] init];
+            ChooseDoctorModel *model = [[ChooseDoctorModel alloc] init];
             model.doctorHostpital = [NSString stringWithFormat:@"中心医院%d",i];
             model.doctorTitle = [NSString stringWithFormat:@"主治医生%d",i];
             model.doctorUserName = [NSString stringWithFormat:@"用户名%d",i];

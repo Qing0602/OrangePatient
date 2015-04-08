@@ -7,6 +7,7 @@
 //
 
 #import "DoctorBaseTableViewCell.h"
+#import "ChooseDoctorModel.h"
 
 @interface AddDoctorForChooseDoctorCell : DoctorBaseTableViewCell
 
@@ -15,6 +16,6 @@
 //状态按钮
 @property (nonatomic, strong)UIButton *doctorStatusBtn;
 
-- (void)setContentByInfoModel:(MyDoctorsModel *)model;
+- (void)setContentByInfoModel:(ChooseDoctorModel *)model;
 
 @end
