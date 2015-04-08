@@ -85,7 +85,9 @@
                     break;
                 case 4:
                 {
-                    
+                    MedicalScreeningViewController *screening = [[MedicalScreeningViewController alloc] init];
+                    screening.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:screening animated:YES];
                 }
                     break;
                 default:

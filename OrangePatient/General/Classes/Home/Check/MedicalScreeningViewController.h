@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Orange. All rights reserved.
 //
 
-#import "OrangeBaseViewController.h"
+#import "TwoTablesViewController.h"
 
-@interface MedicalScreeningViewController : OrangeBaseViewController
+@interface MedicalScreeningViewController : TwoTablesViewController
 
 @end

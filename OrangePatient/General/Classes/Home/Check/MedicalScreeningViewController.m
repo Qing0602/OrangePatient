@@ -7,7 +7,7 @@
 //
 
 #import "MedicalScreeningViewController.h"
-
+#import "ScreeningDatingDoctorViewController.h"
 @interface MedicalScreeningViewController ()
 
 @end
@@ -23,6 +23,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    ScreeningDatingDoctorViewController *addDoctor = [[ScreeningDatingDoctorViewController alloc] init];
+    [self.navigationController pushViewController:addDoctor animated:YES];
 }
 
 /*

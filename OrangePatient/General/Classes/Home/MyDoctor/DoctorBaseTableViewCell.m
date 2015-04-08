@@ -50,19 +50,19 @@
         [_cellTitle mas_makeConstraints:^(MASConstraintMaker *make){
             make.left.equalTo(_cellImageview.mas_right).and.offset(10);
             make.top.mas_equalTo(DoctorBaseCellPadding);
-            make.size.mas_equalTo(CGSizeMake(100.f, 16.f));
+            make.size.mas_equalTo(CGSizeMake(140.f, 16.f));
         }];
         
         [_cellContent mas_makeConstraints:^(MASConstraintMaker *make){
             make.left.equalTo(self.cellTitle.mas_left);
             make.top.equalTo(self.cellTitle.mas_bottom).with.offset(6);
-            make.size.mas_equalTo(CGSizeMake(100.f, 16.f));
+            make.size.mas_equalTo(CGSizeMake(140.f, 16.f));
         }];
         
         [_cellSubTitle mas_makeConstraints:^(MASConstraintMaker *make){
             make.left.equalTo(self.cellTitle.mas_left);
             make.top.equalTo(self.cellContent.mas_bottom).with.offset(6);
-            make.size.mas_equalTo(CGSizeMake(100.f, 16.f));
+            make.size.mas_equalTo(CGSizeMake(140.f, 16.f));
         }];
         /*
         NSDictionary *views = NSDictionaryOfVariableBindings(_cellImageview,_cellTitle,_cellContent,_cellSubTitle);

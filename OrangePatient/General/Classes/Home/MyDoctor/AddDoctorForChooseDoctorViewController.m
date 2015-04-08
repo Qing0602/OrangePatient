@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _chooseDoctorTableview = [[UITableView alloc] init];
     _chooseDoctorTableview.dataSource = self;
     _chooseDoctorTableview.delegate = self;
@@ -56,7 +57,7 @@
             model.doctorTitle = [NSString stringWithFormat:@"主治医生%d",i];
             model.doctorUserName = [NSString stringWithFormat:@"用户名%d",i];
             model.doctorAbstract = @"dadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsada";
-            model.doctorStatus = Doctor_Status_ShouldAdd;
+            model.doctorStatus = i%3;
             [testArray addObject:model];
         }
         _couldSelectedDoctorsList = [[NSArray alloc] initWithArray:testArray];

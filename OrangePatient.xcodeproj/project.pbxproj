@@ -90,6 +90,7 @@
 		744E01CF1AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01C91AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png */; };
 		744E01D01AC2FCD90063C4A7 /* MyDoctor_unSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01CA1AC2FCD90063C4A7 /* MyDoctor_unSelected.png */; };
 		74738B9A1AD5498800DE7ACA /* ChooseDoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */; };
+		74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
 		749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AB1AB86A6B0003F58B /* HomeViewController.m */; };
 		749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AF1AB86F580003F58B /* CustomPageControl.m */; };
@@ -290,6 +291,8 @@
 		744E01CA1AC2FCD90063C4A7 /* MyDoctor_unSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyDoctor_unSelected.png; sourceTree = "<group>"; };
 		74738B981AD5498800DE7ACA /* ChooseDoctorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDoctorModel.h; sourceTree = "<group>"; };
 		74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDoctorModel.m; sourceTree = "<group>"; };
+		74738B9B1AD5568600DE7ACA /* SubmitDatingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitDatingInfoViewController.h; sourceTree = "<group>"; };
+		74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitDatingInfoViewController.m; sourceTree = "<group>"; };
 		74837E8F1AB086F200B030D0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		749A11AA1AB86A6B0003F58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -558,6 +561,8 @@
 				743ECC171AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m */,
 				743ECC191AD425CA00715EB4 /* ScreeingDatingDoctorsModel.h */,
 				743ECC1A1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m */,
+				74738B9B1AD5568600DE7ACA /* SubmitDatingInfoViewController.h */,
+				74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */,
 			);
 			path = Check;
 			sourceTree = "<group>";
@@ -1297,6 +1302,7 @@
 				1955E2651AC75C2F00F4CAF1 /* CustomOperation.m in Sources */,
 				74CE08F81AA4A52000DD9458 /* UIActionSheet+Base.m in Sources */,
 				19D8A9271AC5D9790092688E /* UserOperation.m in Sources */,
+				74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */,
 				198F14F91ACD75D0008C208F /* UserProfileViewController.m in Sources */,
 				744E01B91AC2F77D0063C4A7 /* HealthInformationTableViewCell.m in Sources */,
 				74CE08F31AA4A52000DD9458 /* NSDate+Base.m in Sources */,

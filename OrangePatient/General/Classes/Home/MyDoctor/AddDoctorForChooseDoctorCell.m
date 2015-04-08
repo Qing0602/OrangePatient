@@ -14,6 +14,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         _doctorAbstract = [[UILabel alloc] init];
         _doctorAbstract.textColor = [UIColor lightGrayColor];
         _doctorAbstract.font = [UIFont systemFontOfSize:12.f];
@@ -24,8 +25,17 @@
         
         _doctorStatusBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _doctorStatusBtn.translatesAutoresizingMaskIntoConstraints = NO;
-        _doctorStatusBtn.backgroundColor = [UIColor orangeColor];
+        _doctorStatusBtn.titleLabel.font = [UIFont systemFontOfSize:12.f];
         [self.contentView addSubview:_doctorStatusBtn];
+        
+        [[self.doctorStatusBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
+            if ([sender.titleLabel.text isEqualToString:@"添加"]) {
+                if ([self.delegate respondsToSelector:@selector(willAddDoctor:)]) {
+                    [self.delegate willAddDoctor:self.dtModel];
+                }
+            }
+            
+        }];
         
         [_doctorAbstract mas_makeConstraints:^(MASConstraintMaker *make){
             make.top.equalTo(self.cellSubTitle.mas_bottom).with.offset(6);
@@ -47,8 +57,34 @@
 
 - (void)setContentByInfoModel:(ChooseDoctorModel *)model
 {
+    self.dtModel = model;
     [super setContentByInfoModel:model];
     [self.doctorAbstract setText:model.doctorAbstract];
+    switch (model.doctorStatus) {
+        case Doctor_Status_ShouldAdd:
+        {
+            self.doctorStatusBtn.backgroundColor = [UIColor orangeColor];
+            [self.doctorStatusBtn setTitle:@"添加" forState:UIControlStateNormal];
+            [self.doctorStatusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        }
+            break;
+        case Doctor_Status_Waiting:
+        {
+            self.doctorStatusBtn.backgroundColor = [UIColor grayColor];
+            [self.doctorStatusBtn setTitle:@"等待验证" forState:UIControlStateNormal];
+            [self.doctorStatusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        }
+            break;
+        case Doctor_Status_Added:
+        {
+            self.doctorStatusBtn.backgroundColor = [UIColor clearColor];
+            [self.doctorStatusBtn setTitle:@"已添加" forState:UIControlStateNormal];
+            [self.doctorStatusBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 /*
