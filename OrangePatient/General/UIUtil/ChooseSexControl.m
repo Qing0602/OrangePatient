@@ -21,20 +21,22 @@
         CGFloat textAndImageIntervel = 6.f;
         
         _male = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_male setFrame:CGRectMake(0.f, 0.f, viewFrame.size.width/2, viewFrame.size.height)];
+        //[_male setFrame:CGRectMake(0.f, 0.f, viewFrame.size.width/2, viewFrame.size.height)];
         _male.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_male setTitle:@"男" forState:UIControlStateNormal];
+        _male.backgroundColor = [UIColor yellowColor];
         [_male setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_male setTitleEdgeInsets:UIEdgeInsetsMake(0.f, -10.f, 0.f, _male.frame.size.width/2)];
         [_male setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
         [_male setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
         [_male setImageEdgeInsets:UIEdgeInsetsMake((viewFrame.size.height-23)/4,  _male.frame.size.width/2+textAndImageIntervel, (viewFrame.size.height-23)/4, 0.f)];
         [_male addTarget:self action:@selector(chooseSex:) forControlEvents:UIControlEventTouchUpInside];
+        _male.translatesAutoresizingMaskIntoConstraints = NO;
         _male.selected = YES;
         [self addSubview:_male];
         
         _female = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_female setFrame:CGRectMake(viewFrame.size.width/2, 0.f, viewFrame.size.width/2, viewFrame.size.height)];
+        //[_female setFrame:CGRectMake(viewFrame.size.width/2, 0.f, viewFrame.size.width/2, viewFrame.size.height)];
         [_female setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_female setTitle:@"女" forState:UIControlStateNormal];
         [_female setTitleEdgeInsets:UIEdgeInsetsMake(0.f,-10.f, 0.f,  _female.frame.size.width/2)];
@@ -42,7 +44,22 @@
         [_female setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
         [_female setImageEdgeInsets:UIEdgeInsetsMake((viewFrame.size.height-23)/4, _female.frame.size.width/2+textAndImageIntervel, (viewFrame.size.height-23)/4, 0)];
         [_female addTarget:self action:@selector(chooseSex:) forControlEvents:UIControlEventTouchUpInside];
+        _female.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:_female];
+        
+        [_male mas_makeConstraints:^(MASConstraintMaker *make){
+            make.left.mas_equalTo(0);
+            make.top.mas_equalTo(0);
+            make.bottom.mas_equalTo(0);
+            make.right.mas_equalTo(Control_Width/2);
+        }];
+        
+        [_female mas_makeConstraints:^(MASConstraintMaker *make){
+            make.left.equalTo(_male.mas_left);
+            make.top.equalTo(_male.mas_top);
+            make.bottom.equalTo(_male.mas_bottom);
+            make.right.mas_equalTo(0);
+        }];
     }
     
     return self;

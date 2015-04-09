@@ -13,7 +13,7 @@
 
 #import "UIManagement.h"
 #import <QuartzCore/QuartzCore.h>
-@interface RegisterViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface RegisterViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (nonatomic, strong)UIButton *registerBtn;
 @property (nonatomic, strong)UIView *pickerSuperView;
 //选择性别
@@ -141,11 +141,13 @@
 - (void)viewPicker
 {
     if (self.pickerSuperView.frame.origin.y == SCREEN_HEIGHT) {
+        [self closeKeyboard];
         [UIView animateWithDuration:0.5 animations:^{
             CGRect pickerFrame = self.pickerSuperView.frame;
             pickerFrame.origin.y = 0;
             self.pickerSuperView.frame = pickerFrame;
         }];
+        
     }
     
 }
@@ -185,12 +187,32 @@
             case 0:
             {
                 cell.textLabel.text = @"姓名:";
-                self.usernameInput = [[UITextField alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-200.f, 30.f)];
+                //self.usernameInput = [[UITextField alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-200.f, 30.f)];
+                self.usernameInput = [[UITextField alloc] init];
                 self.usernameInput.textColor = [UIColor lightGrayColor];
+                self.usernameInput.delegate = self;
                 [cell.contentView addSubview:self.usernameInput];
                 
-                self.sexControl = [[ChooseSexControl alloc] initWithOrigin:CGPointMake(SCREEN_WIDTH-Control_Width-SCREEN_WIDTH/30, (Register_TableviewCell_Height-Control_Height)/2)];
+                //self.sexControl = [[ChooseSexControl alloc] initWithOrigin:CGPointMake(SCREEN_WIDTH-Control_Width-SCREEN_WIDTH/30, (Register_TableviewCell_Height-Control_Height)/2)];
+                self.sexControl = [[ChooseSexControl alloc] init];
+                self.sexControl.backgroundColor = [UIColor redColor];
                 [cell.contentView addSubview:self.sexControl];
+                
+                
+                [self.sexControl mas_makeConstraints:^(MASConstraintMaker *make){
+                    make.width.mas_equalTo(Control_Width);
+                    make.height.mas_equalTo(Control_Height);
+                    make.top.mas_equalTo((Register_TableviewCell_Height-Control_Height)/2);
+                    //make.left.equalTo(self.usernameInput.mas_right).with.mas_offset(10);
+                    make.right.mas_equalTo(-10);
+                }];
+                
+                [self.usernameInput mas_makeConstraints:^(MASConstraintMaker *make){
+                    make.left.mas_equalTo(90);
+                    make.top.mas_equalTo((Register_TableviewCell_Height-30)/2);
+                    make.height.mas_equalTo(30);
+                    make.right.equalTo(self.sexControl.mas_left).with.mas_offset(-10);
+                }];
             }
                 break;
             case 1:
@@ -218,6 +240,7 @@
                 
                 self.phoneNumInput = [[UITextField alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-196.f, 30.f)];
                 self.phoneNumInput.textColor = [UIColor lightGrayColor];
+                self.phoneNumInput.delegate = self;
                 [cell.contentView addSubview:self.phoneNumInput];
                 
                 self.getVeriCode = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -227,6 +250,7 @@
                 [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-100.f, (Register_TableviewCell_Height-24.f)/2, 100.f, 24.f)];
                 [[self.getVeriCode rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
                     @strongify(self);
+                    [self closeKeyboard];
                     [[UIManagement sharedInstance] getVerifyCode:self.phoneNumInput.text withType:0];
                 }];
                 [cell.contentView addSubview:self.getVeriCode];
@@ -245,6 +269,7 @@
                 
                 self.veriCodeInput = [[UITextField alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-90, 30.f)];
                 self.veriCodeInput.textColor = [UIColor lightGrayColor];
+                self.veriCodeInput.delegate = self;
                 [cell.contentView addSubview:self.veriCodeInput];
             }
                 break;
@@ -255,6 +280,73 @@
     
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self closeKeyboard];
+}
+
+#pragma mark - controlKeybord
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self closeKeyboard];
+}
+
+- (CGFloat)getCurrentOffSet{
+    CGRect textfieldFrame;
+    if ([_phoneNumInput isFirstResponder]) {
+        textfieldFrame = [_phoneNumInput.superview convertRect:_phoneNumInput.frame toView:self.view];
+        NSLog(@"%@,%@",self.view,_phoneNumInput.superview);
+    }else if ([_veriCodeInput isFirstResponder]){
+        textfieldFrame = [_veriCodeInput.superview convertRect:_veriCodeInput.frame toView:self.view];
+    }
+    CGFloat offset = CGRectGetMaxY(textfieldFrame)+40 - (SCREEN_HEIGHT-KeyBoardHeight-64);
+    return offset;
+}
+
+- (void)openKeyboard{
+    [UIView animateWithDuration:0.5 animations:^{
+        CGFloat offset = [self getCurrentOffSet];
+        if (offset > 0) {
+            CGRect viewFrame = self.view.frame;
+            viewFrame.origin.y =  -offset;
+            self.view.frame = viewFrame;
+        }
+    }];
+}
+
+- (void)closeKeyboard{
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect viewFrame = self.view.frame;
+        viewFrame.origin.y = 64;
+        self.view.frame = viewFrame;
+        if ([_usernameInput isFirstResponder]) {
+            [_usernameInput resignFirstResponder];
+        }else if([_veriCodeInput isFirstResponder])
+        {
+            [_veriCodeInput resignFirstResponder];
+        }else if ([_phoneNumInput isFirstResponder]){
+            [_phoneNumInput resignFirstResponder];
+        }
+    }];
+}
+#pragma mark - UITextFiled
+/*
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+
+    return YES;
+}
+*/
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    if ([_phoneNumInput isFirstResponder] && self.view.frame.origin.y != -[self getCurrentOffSet]) {
+        [self openKeyboard];
+    }else if ([_veriCodeInput isFirstResponder] && self.view.frame.origin.y != -[self getCurrentOffSet]){
+        [self openKeyboard];
+    }
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self closeKeyboard];
+    return YES;
 }
 
 /*

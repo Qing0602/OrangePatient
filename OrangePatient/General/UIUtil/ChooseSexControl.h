@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Orange. All rights reserved.
 //
 #define Control_Height 30.f
-#define Control_Width 120.f
+#define Control_Width 100.f
 
 #import "BaseUIView.h"
 

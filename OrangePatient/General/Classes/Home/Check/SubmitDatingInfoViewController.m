@@ -70,7 +70,6 @@
 #pragma mark - LifeCycle
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
 }
 
 @end

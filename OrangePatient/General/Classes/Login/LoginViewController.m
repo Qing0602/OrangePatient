@@ -129,7 +129,6 @@
             [_pwd resignFirstResponder];
         }
     }];
-    
 }
 #pragma mark - UITextFiled
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
