@@ -155,6 +155,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    @weakify (self);
     static NSString *cellIden = @"registerTableViewCellIden";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     if (!cell) {
@@ -206,7 +207,8 @@
                 self.getVeriCode.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
                 [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-100.f, (Register_TableviewCell_Height-24.f)/2, 100.f, 24.f)];
                 [[self.getVeriCode rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
-                    [[UIManagement sharedInstance] getVerifyCode:self.phoneNumInput.text withType:0];
+                    @strongify(self);
+                    [[UIManagement sharedInstance] getVerifyCode:@"13609119226" withType:0];
                 }];
                 [cell.contentView addSubview:self.getVeriCode];
             }

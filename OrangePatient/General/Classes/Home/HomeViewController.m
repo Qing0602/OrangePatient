@@ -32,15 +32,21 @@
     
     CGFloat unUseHeight = SCREEN_HEIGHT-104-CGRectGetHeight(_adScrollView.frame);
     CGFloat lineHeight = SCREEN_WIDTH-8>unUseHeight?unUseHeight:SCREEN_WIDTH-8;
-    UIImageView *line1 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, CGRectGetMaxY(_adScrollView.frame), 2.f,lineHeight)];
+    
+    
+   // UIImageView *line1 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, CGRectGetMaxY(_adScrollView.frame), 2.f,lineHeight)];
+    UIImageView *line1 = [[UIImageView alloc] init];
+    line1.translatesAutoresizingMaskIntoConstraints = NO;
     [line1 setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview:line1];
     
-    
-    
-    UIImageView *line2 = [[UIImageView alloc] initWithFrame:CGRectMake(4.f, CGRectGetMaxY(_adScrollView.frame)+lineHeight/2.f, SCREEN_WIDTH-8.f,2.f)];
+    UIImageView *line2 = [[UIImageView alloc] init];
+    line2.translatesAutoresizingMaskIntoConstraints = NO;
+    //UIImageView *line2 = [[UIImageView alloc] initWithFrame:CGRectMake(4.f, CGRectGetMaxY(_adScrollView.frame)+lineHeight/2.f, SCREEN_WIDTH-8.f,2.f)];
     [line2 setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview:line2];
+    
+    
     
     for (int i = 0; i<4; i++) {
         CGRect btnFrame;
