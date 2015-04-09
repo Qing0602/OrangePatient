@@ -86,11 +86,11 @@
     [RACObserve([UIManagement sharedInstance], regsiterResult) subscribeNext:^(NSDictionary *registerResult){
         if (registerResult) {
             [self closeProgress];
-            if (registerResult[@"hasError"]) {
+            if (!registerResult[@"hasError"]) {
                 NSDictionary *data = registerResult[@"data"];
                 
             }else{
-                [self showProgressWithText:registerResult[@"errorMessage"] withDelayTime:2.f];
+                [self showProgressWithText:registerResult[@"errorMessage"] withDelayTime:3.f];
             }
         }
     }];
@@ -208,7 +208,7 @@
                 [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-100.f, (Register_TableviewCell_Height-24.f)/2, 100.f, 24.f)];
                 [[self.getVeriCode rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
                     @strongify(self);
-                    [[UIManagement sharedInstance] getVerifyCode:@"13609119226" withType:0];
+                    [[UIManagement sharedInstance] getVerifyCode:self.phoneNumInput.text withType:0];
                 }];
                 [cell.contentView addSubview:self.getVeriCode];
             }
@@ -217,8 +217,9 @@
             {
                 cell.textLabel.text = @"验证码:";
                 
-                self.phoneNumInput = [[UITextField alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-90, 30.f)];
-                [cell.contentView addSubview:self.phoneNumInput];
+                self.veriCodeInput = [[UITextField alloc] initWithFrame:CGRectMake(90.f, (Register_TableviewCell_Height-30.f)/2, SCREEN_WIDTH-SCREEN_WIDTH/30-90, 30.f)];
+                self.veriCodeInput.textColor = [UIColor lightGrayColor];
+                [cell.contentView addSubview:self.veriCodeInput];
             }
                 break;
             default:
