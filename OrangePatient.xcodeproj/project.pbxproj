@@ -21,6 +21,11 @@
 		195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */; };
 		195C54801ABF9A2C0063E768 /* UnlockDeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */; };
 		19611FAD1ACAD60D00AFA921 /* UserAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */; };
+		1974F2681AD6BB3600A8EE0D /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 1974F2651AD6BB3600A8EE0D /* 58x58.png */; };
+		1974F2691AD6BB3600A8EE0D /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 1974F2661AD6BB3600A8EE0D /* 80x80.png */; };
+		1974F26A1AD6BB3600A8EE0D /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 1974F2671AD6BB3600A8EE0D /* 120x120.png */; };
+		1974F26D1AD6BBBB00A8EE0D /* 58x58@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1974F26B1AD6BBBB00A8EE0D /* 58x58@3x.png */; };
+		1974F26E1AD6BBBB00A8EE0D /* 120x120@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1974F26C1AD6BBBB00A8EE0D /* 120x120@3x.png */; };
 		197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197766071AB314D500B21037 /* MyDeviceViewController.m */; };
 		197F62EE1ABA188D0054E72D /* AddDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62EC1ABA188D0054E72D /* AddDevice@2x.png */; };
 		197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197F62ED1ABA188D0054E72D /* AddDevice@3x.png */; };
@@ -179,6 +184,11 @@
 		195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDeviceImage@3x.png"; sourceTree = "<group>"; };
 		19611FAB1ACAD60D00AFA921 /* UserAccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccountModel.h; sourceTree = "<group>"; };
 		19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccountModel.m; sourceTree = "<group>"; };
+		1974F2651AD6BB3600A8EE0D /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
+		1974F2661AD6BB3600A8EE0D /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
+		1974F2671AD6BB3600A8EE0D /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
+		1974F26B1AD6BBBB00A8EE0D /* 58x58@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "58x58@3x.png"; sourceTree = "<group>"; };
+		1974F26C1AD6BBBB00A8EE0D /* 120x120@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120x120@3x.png"; sourceTree = "<group>"; };
 		197766061AB314D500B21037 /* MyDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDeviceViewController.h; sourceTree = "<group>"; };
 		197766071AB314D500B21037 /* MyDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDeviceViewController.m; sourceTree = "<group>"; };
 		197F62EC1ABA188D0054E72D /* AddDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddDevice@2x.png"; sourceTree = "<group>"; };
@@ -433,6 +443,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1974F25A1AD6BA4500A8EE0D /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				1974F26B1AD6BBBB00A8EE0D /* 58x58@3x.png */,
+				1974F26C1AD6BBBB00A8EE0D /* 120x120@3x.png */,
+				1974F2651AD6BB3600A8EE0D /* 58x58.png */,
+				1974F2661AD6BB3600A8EE0D /* 80x80.png */,
+				1974F2671AD6BB3600A8EE0D /* 120x120.png */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
 		198F14E81ACCF1CB008C208F /* My */ = {
 			isa = PBXGroup;
 			children = (
@@ -1010,6 +1032,7 @@
 		74CE089B1AA4A52000DD9458 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1974F25A1AD6BA4500A8EE0D /* Icon */,
 				198F14E81ACCF1CB008C208F /* My */,
 				74E1DE531AB9D45700FA86AD /* HomePage */,
 				198F3FE91AB6F43A0017A90B /* Device */,
@@ -1141,6 +1164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1974F26A1AD6BB3600A8EE0D /* 120x120.png in Resources */,
 				195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */,
 				74CCFFEE1AB55C7A00DDD42E /* Login_userName_icon@2x.png in Resources */,
 				198F14ED1ACCF1CB008C208F /* MyRecommend@2x.png in Resources */,
@@ -1148,6 +1172,7 @@
 				19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */,
+				1974F26D1AD6BBBB00A8EE0D /* 58x58@3x.png in Resources */,
 				197F62EE1ABA188D0054E72D /* AddDevice@2x.png in Resources */,
 				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
 				197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */,
@@ -1158,6 +1183,7 @@
 				19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
+				1974F2691AD6BB3600A8EE0D /* 80x80.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				744E01C31AC2FB7C0063C4A7 /* Information_Detail_transmit.png in Resources */,
 				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
@@ -1176,9 +1202,11 @@
 				198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */,
 				198F14EF1ACCF1CB008C208F /* MySetting@2x.png in Resources */,
 				198F14F01ACCF1CB008C208F /* MySetting@3x.png in Resources */,
+				1974F26E1AD6BBBB00A8EE0D /* 120x120@3x.png in Resources */,
 				744E01C21AC2FB7C0063C4A7 /* Information_Detail_   unpraise.png in Resources */,
 				744E01C01AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png in Resources */,
 				197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */,
+				1974F2681AD6BB3600A8EE0D /* 58x58.png in Resources */,
 				744E01C11AC2FB7C0063C4A7 /* Information_Detail_   praise.png in Resources */,
 				74E1DE5A1AB9D45700FA86AD /* IconDoctor@2x.png in Resources */,
 				74E1DE581AB9D45700FA86AD /* IconAsk@2x.png in Resources */,
