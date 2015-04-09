@@ -54,10 +54,23 @@
     
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginBtn setFrame:CGRectMake(CGRectGetMinX(_pwd.frame), CGRectGetMaxY(_pwd.frame)+26.f, CGRectGetWidth(_pwd.frame), 30.f)];
-    loginBtn.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
+    //loginBtn.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
     [loginBtn setTitle:LOGIN_PAGE_LOGIN_BTN_TITLE forState:UIControlStateNormal];
     [loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginBtn];
+    
+    RAC(loginBtn,backgroundColor) = [RACSignal combineLatest:@[
+                                                               self.username.rac_textSignal,
+                                                               self.pwd.rac_textSignal] reduce:^(NSString *username,NSString *pwd){
+                                                                   return (username.length > 5 && pwd.length > 5)?
+                                                                   [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f]:
+                                                                   [UIColor grayColor];
+                                                               }];
+    RAC(loginBtn,enabled) = [RACSignal combineLatest:@[
+                                                               self.username.rac_textSignal,
+                                                               self.pwd.rac_textSignal] reduce:^(NSString *username,NSString *pwd){
+                                                                   return @(username.length > 5 && pwd.length > 5);
+                                                               }];
     
     [RACObserve([UIManagement sharedInstance], loginResult) subscribeNext:^(NSDictionary *loginResult){
         if (loginResult) {

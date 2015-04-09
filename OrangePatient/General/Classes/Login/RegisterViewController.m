@@ -14,6 +14,7 @@
 #import "UIManagement.h"
 #import <QuartzCore/QuartzCore.h>
 @interface RegisterViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong)UIButton *registerBtn;
 @property (nonatomic, strong)UIView *pickerSuperView;
 //选择性别
 @property (nonatomic, strong)ChooseSexControl *sexControl;
@@ -57,14 +58,16 @@
     registerTip.text = REGISTER_PAGE_TIP;
     [self.view addSubview:registerTip];
     
-    UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [registerBtn setFrame:CGRectMake((SCREEN_WIDTH-RegisterBtn_Width)/2, CGRectGetMaxY(registerTip.frame)+14.f, RegisterBtn_Width, 30.f)];
-    registerBtn.layer.masksToBounds = YES;
-    registerBtn.layer.cornerRadius = 5.f;
-    registerBtn.backgroundColor = [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f];
-    [registerBtn setTitle:REGISTER_PAGE_REGISTER_BTN_TITLE forState:UIControlStateNormal];
-    [registerBtn addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:registerBtn];
+    _registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_registerBtn setFrame:CGRectMake((SCREEN_WIDTH-RegisterBtn_Width)/2, CGRectGetMaxY(registerTip.frame)+14.f, RegisterBtn_Width, 30.f)];
+    _registerBtn.layer.masksToBounds = YES;
+    _registerBtn.layer.cornerRadius = 5.f;
+    //_registerBtn.backgroundColor = [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f];
+    [_registerBtn setTitle:REGISTER_PAGE_REGISTER_BTN_TITLE forState:UIControlStateNormal];
+    [_registerBtn addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_registerBtn];
+    
+
     
     self.pickerSuperView = [[UIView alloc] initWithFrame:CGRectMake(0.f, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.pickerSuperView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
@@ -95,6 +98,22 @@
         }
     }];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    RAC(self.registerBtn,backgroundColor) = [RACSignal combineLatest:@[
+                                                          self.usernameInput.rac_textSignal,
+                                                          self.veriCodeInput.rac_textSignal,
+                                                          RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
+                                                              return (username.length>5&&veriCode.length==6&&date.length >0)?
+                                                              [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f]:[UIColor grayColor];
+                                                          }];
+    RAC(self.registerBtn,enabled) = [RACSignal combineLatest:@[
+                                                                       self.usernameInput.rac_textSignal,
+                                                                       self.veriCodeInput.rac_textSignal,
+                                                                       RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
+                                                                           return @(username.length>5&&veriCode.length==6&&date.length >0);
+                                                                       }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -204,13 +223,20 @@
                 self.getVeriCode = [UIButton buttonWithType:UIButtonTypeCustom];
                 [self.getVeriCode setTitle:@"获取验证码" forState:UIControlStateNormal];
                 self.getVeriCode.titleLabel.font = [UIFont systemFontOfSize:14.f];
-                self.getVeriCode.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
+                //self.getVeriCode.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
                 [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-100.f, (Register_TableviewCell_Height-24.f)/2, 100.f, 24.f)];
                 [[self.getVeriCode rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
                     @strongify(self);
                     [[UIManagement sharedInstance] getVerifyCode:self.phoneNumInput.text withType:0];
                 }];
                 [cell.contentView addSubview:self.getVeriCode];
+                
+                RAC(self.getVeriCode,backgroundColor) = [RACSignal combineLatest:@[
+                                                                           self.phoneNumInput.rac_textSignal] reduce:^(NSString *phoneNum){
+                                                                               return [NSString isTelNumber:phoneNum] ?
+                                                                               [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f]:
+                                                                               [UIColor grayColor];
+                                                                           }];
             }
                 break;
             case 3:
