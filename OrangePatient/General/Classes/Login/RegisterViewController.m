@@ -186,8 +186,7 @@
                 [self.chooseBirthdayDate setTitle:@"选择时间 >" forState:UIControlStateNormal];
                 [self.chooseBirthdayDate setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
                 [self.chooseBirthdayDate setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-100.f, (Register_TableviewCell_Height-24.f)/2, 100.f, 24.f)];
-                RACSignal *chooseBirthdaySingnal = [self.chooseBirthdayDate rac_signalForControlEvents:UIControlEventTouchUpInside];
-                [chooseBirthdaySingnal subscribeNext:^(UIButton *sender){
+                [[self.chooseBirthdayDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
                     [self viewPicker];
                 }];
                 [cell.contentView addSubview:self.chooseBirthdayDate];
@@ -206,8 +205,7 @@
                 self.getVeriCode.titleLabel.font = [UIFont systemFontOfSize:14.f];
                 self.getVeriCode.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
                 [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-100.f, (Register_TableviewCell_Height-24.f)/2, 100.f, 24.f)];
-                RACSignal *getVeriCodeSingnal = [self.getVeriCode rac_signalForControlEvents:UIControlEventTouchUpInside];
-                [getVeriCodeSingnal subscribeNext:^(UIButton *sender){
+                [[self.getVeriCode rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
                     [[UIManagement sharedInstance] getVerifyCode:self.phoneNumInput.text withType:0];
                 }];
                 [cell.contentView addSubview:self.getVeriCode];
