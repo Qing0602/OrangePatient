@@ -74,9 +74,9 @@
     
     [RACObserve([UIManagement sharedInstance], loginResult) subscribeNext:^(NSDictionary *loginResult){
         if (loginResult) {
-            if (!loginResult[@"hasError"]) {
+            if (![loginResult[ASI_REQUEST_HAS_ERROR] boolValue]) {
                 [self closeProgress];
-                NSDictionary *data = loginResult[@"data"];
+                NSDictionary *data = loginResult[ASI_REQUEST_DATA];
                 UserAccountModel *userAccount = [[UserAccountModel alloc] init];
                 userAccount.userUid = data[@"uid"];
                 userAccount.userOid = data[@"oid"];
@@ -93,7 +93,7 @@
                 userAccount.userStatus = [data[@"status"] integerValue];
                 [UIModelCoding serializeModel:userAccount withFileName:SerializeUserAccountModelName];
             }else{
-                [self showProgressWithText:loginResult[@"errorMessage"] withDelayTime:2.f];
+                [self showProgressWithText:loginResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
             }
         }
     }];
