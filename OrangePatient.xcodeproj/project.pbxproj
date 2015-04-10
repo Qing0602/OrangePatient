@@ -66,6 +66,14 @@
 		7401E9B51ACD1256006868B2 /* AddDoctorForChooseDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7401E9B41ACD1256006868B2 /* AddDoctorForChooseDoctorViewController.m */; };
 		7401E9B81ACD129E006868B2 /* AddDoctorForChooseDoctorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7401E9B71ACD129E006868B2 /* AddDoctorForChooseDoctorCell.m */; };
 		7401E9BB1ACD12E9006868B2 /* SendProblemToDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7401E9BA1ACD12E9006868B2 /* SendProblemToDoctorViewController.m */; };
+		740E3E1B1AD7B68B00E8BA75 /* tabbar_device@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E171AD7B68B00E8BA75 /* tabbar_device@2x.png */; };
+		740E3E1C1AD7B68B00E8BA75 /* tabbar_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E181AD7B68B00E8BA75 /* tabbar_home@2x.png */; };
+		740E3E1D1AD7B68B00E8BA75 /* tabbar_mine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E191AD7B68B00E8BA75 /* tabbar_mine@2x.png */; };
+		740E3E1E1AD7B68B00E8BA75 /* tabbar_report@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E1A1AD7B68B00E8BA75 /* tabbar_report@2x.png */; };
+		740E3E231AD7B6BD00E8BA75 /* home_icon_check@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E1F1AD7B6BD00E8BA75 /* home_icon_check@2x.jpg */; };
+		740E3E241AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E201AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg */; };
+		740E3E251AD7B6BD00E8BA75 /* home_icon_information@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E211AD7B6BD00E8BA75 /* home_icon_information@2x.jpg */; };
+		740E3E261AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E221AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg */; };
 		742DEAD91ACB9F2000882138 /* TwoTablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */; };
 		742DEADC1ACBA03600882138 /* MyDoctorCitysModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEADB1ACBA03600882138 /* MyDoctorCitysModel.m */; };
 		742DEADF1ACBA05600882138 /* MyDoctorHospitalsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEADE1ACBA05600882138 /* MyDoctorHospitalsModel.m */; };
@@ -140,10 +148,6 @@
 		74CE091A1AA4A52000DD9458 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08911AA4A52000DD9458 /* MBProgressHUD.m */; };
 		74CE09471AA4B27100DD9458 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE09461AA4B27100DD9458 /* UIKit.framework */; };
 		74CE09491AA4B27700DD9458 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE09481AA4B27700DD9458 /* Foundation.framework */; };
-		74E1DE581AB9D45700FA86AD /* IconAsk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE541AB9D45700FA86AD /* IconAsk@2x.png */; };
-		74E1DE591AB9D45700FA86AD /* IconCheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE551AB9D45700FA86AD /* IconCheck@2x.png */; };
-		74E1DE5A1AB9D45700FA86AD /* IconDoctor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE561AB9D45700FA86AD /* IconDoctor@2x.png */; };
-		74E1DE5B1AB9D45700FA86AD /* IconMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */; };
 		74E462F11AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E462F01AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.m */; };
 		74F64E781AC90B01004F44D6 /* MyDoctorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F64E771AC90B01004F44D6 /* MyDoctorListViewController.m */; };
 		74F64E7B1AC90BA8004F44D6 /* ChooseHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F64E7A1AC90BA8004F44D6 /* ChooseHospitalViewController.m */; };
@@ -256,6 +260,14 @@
 		7401E9B71ACD129E006868B2 /* AddDoctorForChooseDoctorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDoctorForChooseDoctorCell.m; sourceTree = "<group>"; };
 		7401E9B91ACD12E9006868B2 /* SendProblemToDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendProblemToDoctorViewController.h; sourceTree = "<group>"; };
 		7401E9BA1ACD12E9006868B2 /* SendProblemToDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendProblemToDoctorViewController.m; sourceTree = "<group>"; };
+		740E3E171AD7B68B00E8BA75 /* tabbar_device@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_device@2x.png"; sourceTree = "<group>"; };
+		740E3E181AD7B68B00E8BA75 /* tabbar_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_home@2x.png"; sourceTree = "<group>"; };
+		740E3E191AD7B68B00E8BA75 /* tabbar_mine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mine@2x.png"; sourceTree = "<group>"; };
+		740E3E1A1AD7B68B00E8BA75 /* tabbar_report@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_report@2x.png"; sourceTree = "<group>"; };
+		740E3E1F1AD7B6BD00E8BA75 /* home_icon_check@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_icon_check@2x.jpg"; sourceTree = "<group>"; };
+		740E3E201AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_icon_consult@2x.jpg"; sourceTree = "<group>"; };
+		740E3E211AD7B6BD00E8BA75 /* home_icon_information@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_icon_information@2x.jpg"; sourceTree = "<group>"; };
+		740E3E221AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_icon_myDoctor@2x.jpg"; sourceTree = "<group>"; };
 		742DEAD71ACB9F2000882138 /* TwoTablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoTablesViewController.h; sourceTree = "<group>"; };
 		742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoTablesViewController.m; sourceTree = "<group>"; };
 		742DEADA1ACBA03600882138 /* MyDoctorCitysModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorCitysModel.h; sourceTree = "<group>"; };
@@ -400,10 +412,6 @@
 		74CE09441AA4B25E00DD9458 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		74CE09461AA4B27100DD9458 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74CE09481AA4B27700DD9458 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		74E1DE541AB9D45700FA86AD /* IconAsk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconAsk@2x.png"; sourceTree = "<group>"; };
-		74E1DE551AB9D45700FA86AD /* IconCheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconCheck@2x.png"; sourceTree = "<group>"; };
-		74E1DE561AB9D45700FA86AD /* IconDoctor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconDoctor@2x.png"; sourceTree = "<group>"; };
-		74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconMessage@2x.png"; sourceTree = "<group>"; };
 		74E462EF1AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDoctorForChooseHospitalViewController.h; sourceTree = "<group>"; };
 		74E462F01AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDoctorForChooseHospitalViewController.m; sourceTree = "<group>"; };
 		74F64E761AC90B01004F44D6 /* MyDoctorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorListViewController.h; sourceTree = "<group>"; };
@@ -573,6 +581,17 @@
 				74CE09401AA4B25200DD9458 /* libicucore.dylib */,
 			);
 			path = FrameWork;
+			sourceTree = "<group>";
+		};
+		740E3E161AD7B68B00E8BA75 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				740E3E171AD7B68B00E8BA75 /* tabbar_device@2x.png */,
+				740E3E181AD7B68B00E8BA75 /* tabbar_home@2x.png */,
+				740E3E191AD7B68B00E8BA75 /* tabbar_mine@2x.png */,
+				740E3E1A1AD7B68B00E8BA75 /* tabbar_report@2x.png */,
+			);
+			path = tabbar;
 			sourceTree = "<group>";
 		};
 		7432C7361AC06C0600073379 /* Check */ = {
@@ -1032,6 +1051,7 @@
 		74CE089B1AA4A52000DD9458 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				740E3E161AD7B68B00E8BA75 /* tabbar */,
 				1974F25A1AD6BA4500A8EE0D /* Icon */,
 				198F14E81ACCF1CB008C208F /* My */,
 				74E1DE531AB9D45700FA86AD /* HomePage */,
@@ -1053,12 +1073,12 @@
 		74E1DE531AB9D45700FA86AD /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				740E3E1F1AD7B6BD00E8BA75 /* home_icon_check@2x.jpg */,
+				740E3E201AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg */,
+				740E3E211AD7B6BD00E8BA75 /* home_icon_information@2x.jpg */,
+				740E3E221AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg */,
 				744E01C41AC2FCD90063C4A7 /* MyDoctor */,
 				744E01BB1AC2FB7C0063C4A7 /* Information */,
-				74E1DE541AB9D45700FA86AD /* IconAsk@2x.png */,
-				74E1DE551AB9D45700FA86AD /* IconCheck@2x.png */,
-				74E1DE561AB9D45700FA86AD /* IconDoctor@2x.png */,
-				74E1DE571AB9D45700FA86AD /* IconMessage@2x.png */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1167,9 +1187,12 @@
 				1974F26A1AD6BB3600A8EE0D /* 120x120.png in Resources */,
 				195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */,
 				74CCFFEE1AB55C7A00DDD42E /* Login_userName_icon@2x.png in Resources */,
+				740E3E1E1AD7B68B00E8BA75 /* tabbar_report@2x.png in Resources */,
 				198F14ED1ACCF1CB008C208F /* MyRecommend@2x.png in Resources */,
+				740E3E1B1AD7B68B00E8BA75 /* tabbar_device@2x.png in Resources */,
 				74CE09191AA4A52000DD9458 /* MBProgressHUD.bundle in Resources */,
 				19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */,
+				740E3E261AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */,
 				1974F26D1AD6BBBB00A8EE0D /* 58x58@3x.png in Resources */,
@@ -1187,29 +1210,30 @@
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				744E01C31AC2FB7C0063C4A7 /* Information_Detail_transmit.png in Resources */,
 				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
-				74E1DE591AB9D45700FA86AD /* IconCheck@2x.png in Resources */,
+				740E3E1C1AD7B68B00E8BA75 /* tabbar_home@2x.png in Resources */,
 				744E01CE1AC2FCD90063C4A7 /* MyDoctor_Logo@2x.png in Resources */,
 				198F14EE1ACCF1CB008C208F /* MyRecommend@3x.png in Resources */,
 				744E01CC1AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png in Resources */,
+				740E3E241AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg in Resources */,
 				195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				744E01CD1AC2FCD90063C4A7 /* MyDoctor_HeadImg_default@2x.png in Resources */,
-				74E1DE5B1AB9D45700FA86AD /* IconMessage@2x.png in Resources */,
 				74CCFFED1AB55C7A00DDD42E /* Login_password_icon@2x.png in Resources */,
 				744E01CF1AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png in Resources */,
 				198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */,
 				198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */,
+				740E3E231AD7B6BD00E8BA75 /* home_icon_check@2x.jpg in Resources */,
 				198F14EF1ACCF1CB008C208F /* MySetting@2x.png in Resources */,
 				198F14F01ACCF1CB008C208F /* MySetting@3x.png in Resources */,
 				1974F26E1AD6BBBB00A8EE0D /* 120x120@3x.png in Resources */,
 				744E01C21AC2FB7C0063C4A7 /* Information_Detail_   unpraise.png in Resources */,
 				744E01C01AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png in Resources */,
+				740E3E1D1AD7B68B00E8BA75 /* tabbar_mine@2x.png in Resources */,
 				197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */,
 				1974F2681AD6BB3600A8EE0D /* 58x58.png in Resources */,
+				740E3E251AD7B6BD00E8BA75 /* home_icon_information@2x.jpg in Resources */,
 				744E01C11AC2FB7C0063C4A7 /* Information_Detail_   praise.png in Resources */,
-				74E1DE5A1AB9D45700FA86AD /* IconDoctor@2x.png in Resources */,
-				74E1DE581AB9D45700FA86AD /* IconAsk@2x.png in Resources */,
 				198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */,
 				744E01D01AC2FCD90063C4A7 /* MyDoctor_unSelected.png in Resources */,
 				744E01CB1AC2FCD90063C4A7 /* MyDoctor_arrow@2x.png in Resources */,
