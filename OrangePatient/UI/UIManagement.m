@@ -17,7 +17,7 @@ static UIManagement *sharedInstance = nil;
     @synchronized(sharedInstance){
         if (nil == sharedInstance){
             sharedInstance = [[UIManagement alloc] init];
-            sharedInstance.userAccount = [UIModelCoding deserializeModel:@"UserAccount"];
+            sharedInstance.userAccount = [UIModelCoding deserializeModel:SerializeUserAccountModelName];
         }
     }
     return sharedInstance;
