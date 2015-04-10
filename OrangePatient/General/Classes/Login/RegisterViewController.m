@@ -88,8 +88,8 @@
     
     [RACObserve([UIManagement sharedInstance], regsiterResult) subscribeNext:^(NSDictionary *registerResult){
         if (registerResult) {
-            [self closeProgress];
             if (!registerResult[@"hasError"]) {
+                [self closeProgress];
                 NSDictionary *data = registerResult[@"data"];
                 
             }else{
@@ -101,19 +101,19 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    RAC(self.registerBtn,backgroundColor) = [RACSignal combineLatest:@[
-                                                          self.usernameInput.rac_textSignal,
-                                                          self.veriCodeInput.rac_textSignal,
-                                                          RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
-                                                              return (username.length>5&&veriCode.length==6&&date.length >0)?
-                                                              [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f]:[UIColor grayColor];
-                                                          }];
-    RAC(self.registerBtn,enabled) = [RACSignal combineLatest:@[
-                                                                       self.usernameInput.rac_textSignal,
-                                                                       self.veriCodeInput.rac_textSignal,
-                                                                       RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
-                                                                           return @(username.length>5&&veriCode.length==6&&date.length >0);
-                                                                       }];
+//    RAC(self.registerBtn,backgroundColor) = [RACSignal combineLatest:@[
+//                                                          self.usernameInput.rac_textSignal,
+//                                                          self.veriCodeInput.rac_textSignal,
+//                                                          RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
+//                                                              return (username.length>5&&veriCode.length==6&&date.length >0)?
+//                                                              [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f]:[UIColor grayColor];
+//                                                          }];
+//    RAC(self.registerBtn,enabled) = [RACSignal combineLatest:@[
+//                                                                       self.usernameInput.rac_textSignal,
+//                                                                       self.veriCodeInput.rac_textSignal,
+//                                                                       RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
+//                                                                           return @(username.length>5&&veriCode.length==6&&date.length >0);
+//                                                                       }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,7 +130,7 @@
 - (void)registerAction
 {
     [self showProgressWithText:@"正在注册..."];
-    [[UIManagement sharedInstance] regsiter:self.usernameInput.text withPassword:[self.phoneNumInput.text substringFromIndex:[self.phoneNumInput.text length]-6] withName:self.usernameInput.text withSex:[self.sexControl getCurrentChooseSex] withBirthday:self.birthdayDate.text withVerifyCode:self.veriCodeInput.text];
+    [[UIManagement sharedInstance] regsiter:self.phoneNumInput.text withPassword:[self.phoneNumInput.text substringFromIndex:[self.phoneNumInput.text length]-6] withName:self.usernameInput.text withSex:[self.sexControl getCurrentChooseSex] withBirthday:self.birthdayDate.text withVerifyCode:self.veriCodeInput.text];
 }
 
 - (void)pickerSuperViewTapped
