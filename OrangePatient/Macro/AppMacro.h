@@ -19,6 +19,9 @@
 
 #define KeyBoardHeight 216.f
 
+//UIManagement
+#define SerializeUserAccountModelName @"SerializeUserAccountModel"
+
 //ADBanner
 #define Banner_AutoScroll_Timeiterval 3.f
 

@@ -74,10 +74,24 @@
     
     [RACObserve([UIManagement sharedInstance], loginResult) subscribeNext:^(NSDictionary *loginResult){
         if (loginResult) {
-            [self closeProgress];
-            if (loginResult[@"hasError"]) {
+            if (!loginResult[@"hasError"]) {
+                [self closeProgress];
                 NSDictionary *data = loginResult[@"data"];
-                
+                UserAccountModel *userAccount = [[UserAccountModel alloc] init];
+                userAccount.userUid = data[@"uid"];
+                userAccount.userOid = data[@"oid"];
+                userAccount.userOauthToken = data[@"oauth_token"];
+                userAccount.userOauthTokenSecret = data[@"oauth_token_secret"];
+                userAccount.uservalidTime = [data[@"validtime"] integerValue];
+                userAccount.userNickName = data[@"nickname"];
+                userAccount.userEmail = data[@"email"];
+                userAccount.userAvatar = data[@"avatar"];
+                userAccount.userMobile = data[@"mobile"];
+                userAccount.userImUserName = data[@"im_username"];
+                userAccount.userImPassword = data[@"im_password"];
+                userAccount.userImNickName = data[@"im_nickname"];
+                userAccount.userStatus = [data[@"status"] integerValue];
+                [UIModelCoding serializeModel:userAccount withFileName:SerializeUserAccountModelName];
             }else{
                 [self showProgressWithText:loginResult[@"errorMessage"] withDelayTime:2.f];
             }
@@ -155,6 +169,7 @@
 #pragma mark - NetWork
 - (void)login
 {
+    [self showProgressWithText:@"正在注册"];
     [[UIManagement sharedInstance] login:_username.text withPassword:_pwd.text];
     
 }
