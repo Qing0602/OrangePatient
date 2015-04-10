@@ -15,6 +15,8 @@
 + (UIImage *)changeImage:(UIImage*) img Width:(float)width Height:(float)height;
 
 - (UIImage*)imageByScalingAndCroppingForSizeEx:(CGSize)targetSize;
+
++ (UIImage *)imageWithColor:(UIColor *)color;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
