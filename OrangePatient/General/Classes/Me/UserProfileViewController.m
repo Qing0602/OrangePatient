@@ -56,6 +56,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeArea:) name:@"changeArea" object:nil];
     
     [[UIManagement sharedInstance] addObserver:self forKeyPath:@"updateUserProfileResult" options:0 context:nil];
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"changeAvatarResult" options:0 context:nil];
+    
 }
 
 -(void) saveProfile{
@@ -91,6 +93,13 @@
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"updateUserProfileResult"]) {
         
+    }else if ([keyPath isEqualToString:@"changeAvatarResult"]){
+        if ([[UIManagement sharedInstance].changeAvatarResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].changeAvatarResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            [self closeProgress];
+            NSLog(@"1");
+        }
     }
 }
 
@@ -156,8 +165,12 @@
                 break;
             case 2:{
                 title.text = @"性别";
-                self.sexControl = [[ChooseSexControl alloc] initWithOrigin:CGPointMake(SCREEN_WIDTH-Control_Width-SCREEN_WIDTH/30, (Register_TableviewCell_Height-Control_Height)/2)];
+                self.sexControl = [[ChooseSexControl alloc] init];
+                self.sexControl.translatesAutoresizingMaskIntoConstraints = NO;
                 [cell.contentView addSubview:self.sexControl];
+                views = NSDictionaryOfVariableBindings(_sexControl);
+                [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_sexControl(100)]-10-|" options:0 metrics:nil views:views]];
+                [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-7-[_sexControl(30)]" options:0 metrics:nil views:views]];
             }
                 break;
             case 3:{
@@ -305,12 +318,14 @@
     if (buttonIndex == 0) {
         UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
         ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        ipc.allowsEditing = YES;
         ipc.delegate = self;
         [self presentViewController:ipc animated:YES completion:^{
             
         }];
     }else if (buttonIndex == 1) {
         UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+        ipc.allowsEditing = YES;
         ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         ipc.delegate = self;
         [self presentViewController:ipc animated:YES completion:^{
@@ -320,10 +335,13 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    NSData *data = UIImageJPEGRepresentation(image, 0.5f);
-    // 上传头像代码
-
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self showProgressWithText:@"正在上传头像"];
+        UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        NSData *data = UIImageJPEGRepresentation(image, 0.5f);
+        // 上传头像代码
+        [[UIManagement sharedInstance] changeAvatar:[UIManagement sharedInstance].userAccount.userUid withImage:data];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -332,6 +350,7 @@
 
 -(void) dealloc{
     [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"updateUserProfileResult"];
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"changeAvatarResult"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
