@@ -38,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    @weakify(self);
     self.title = REGISTER_PAGE_TITLE;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:REGISTER_PAGE_TEXT_LOGIN style:UIBarButtonItemStyleDone target:self action:@selector(backToLogin)];
@@ -88,6 +88,7 @@
     
     [RACObserve([UIManagement sharedInstance], regsiterResult) subscribeNext:^(NSDictionary *registerResult){
         if (registerResult) {
+            @strongify(self);
             [self closeProgress];
             if (!registerResult[@"hasError"]) {
                 NSDictionary *data = registerResult[@"data"];
@@ -104,15 +105,15 @@
     RAC(self.registerBtn,backgroundColor) = [RACSignal combineLatest:@[
                                                           self.usernameInput.rac_textSignal,
                                                           self.veriCodeInput.rac_textSignal,
-                                                          RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
-                                                              return (username.length>5&&veriCode.length==6&&date.length >0)?
+                                                          RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,UILabel *date){
+                                                              return (username.length>0&&veriCode.length==6&&date.text.length >0)?
                                                               [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f]:[UIColor grayColor];
                                                           }];
     RAC(self.registerBtn,enabled) = [RACSignal combineLatest:@[
                                                                        self.usernameInput.rac_textSignal,
                                                                        self.veriCodeInput.rac_textSignal,
-                                                                       RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
-                                                                           return @(username.length>5&&veriCode.length==6&&date.length >0);
+                                                                       RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,UILabel *date){
+                                                                           return @(username.length>0&&veriCode.length==6&&date.text.length >0);
                                                                        }];
 }
 
