@@ -13,7 +13,7 @@
 
 //连接服务器超时时间
 #define TimeOutSeconds 30
-#define CachePath @"/%d/"
+//#define CachePath @"/%d/"
 #define UserDefaults_UserToken @"UserToken"
 
 // 定义返回Dictionary Key
