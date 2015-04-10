@@ -22,6 +22,17 @@
     return theImage;
 }
 
++ (UIImage *)imageWithColor:(UIColor *)color andImageSize:(CGSize)size{
+    CGRect rect=CGRectMake(0.0f, 0.0f, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+}
+
 +(UIImage *) scaleImage: (UIImage *)image scaleFactor:(float)scaleFloat
 {
     CGSize size = CGSizeMake(image.size.width * scaleFloat, image.size.height * scaleFloat);

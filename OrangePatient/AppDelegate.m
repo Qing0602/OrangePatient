@@ -25,7 +25,7 @@
     
     UITabBarController *tb = [[UITabBarController alloc]init];
     [[tb tabBar] setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:45/255.f green:45/255.f blue:45/255.f alpha:1.f]]];
-    [[tb tabBar] setSelectionIndicatorImage:[UIImage imageWithColor:[UIColor orangeColor]]];
+    [[tb tabBar] setSelectionIndicatorImage:[UIImage imageWithColor:[UIColor orangeColor]andImageSize:CGSizeMake(SCREEN_WIDTH/4, [tb tabBar].frame.size.height)]];
     [[tb tabBar] setSelectedImageTintColor:[UIColor whiteColor]];
     
     ViewController *viewcontroller = [[ViewController alloc] init];

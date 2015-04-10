@@ -17,6 +17,7 @@
 - (UIImage*)imageByScalingAndCroppingForSizeEx:(CGSize)targetSize;
 
 + (UIImage *)imageWithColor:(UIColor *)color;
++ (UIImage *)imageWithColor:(UIColor *)color andImageSize:(CGSize)size;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
