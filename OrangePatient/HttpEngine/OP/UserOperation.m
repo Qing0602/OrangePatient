@@ -23,6 +23,7 @@
 -(void) changeAvatar;
 -(void) updateUserDetail;
 -(void) updateUserProfile;
+-(void) getUserProfile;
 @end
 
 @implementation UserOperation
@@ -174,6 +175,20 @@
     return self;
 }
 
+-(UserOperation *) initGetUserProfile : (NSString *) uid{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kGetUserProfile;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/profile/%@?oauth_token=%@&oauth_token_secret=%@",
+                            K_HOST_OF_SERVER,
+                            uid,
+                            [UIManagement sharedInstance].userAccount.userOauthToken,
+                            [UIManagement sharedInstance].userAccount.userOauthTokenSecret];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
+
 -(void) login{
     [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -294,6 +309,16 @@
     [self startAsynchronous];
 }
 
+-(void) getUserProfile{
+    [self.request setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].userProfileResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
 
 -(void) main{
     @autoreleasepool {
@@ -333,6 +358,9 @@
                 break;
             case kUpdateUserProfile:
                 [self updateUserProfile];
+                break;
+            case kGetUserProfile:
+                [self getUserProfile];
                 break;
             default:
                 break;

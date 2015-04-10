@@ -102,4 +102,9 @@ static UIManagement *sharedInstance = nil;
     SettingOperation *operation = [[SettingOperation alloc] initGetCity:areaID];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
+
+-(void) getUserProfile : (NSString *) uid{
+    UserOperation *operation = [[UserOperation alloc] initGetUserProfile:uid];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 @end

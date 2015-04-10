@@ -55,9 +55,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTelPhone:) name:@"changeTelPhone" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeArea:) name:@"changeArea" object:nil];
     
+    [self showProgressWithText:@"正在加载"];
+    [[UIManagement sharedInstance] getUserProfile:[UIManagement sharedInstance].userAccount.userUid];
+    
     [[UIManagement sharedInstance] addObserver:self forKeyPath:@"updateUserProfileResult" options:0 context:nil];
     [[UIManagement sharedInstance] addObserver:self forKeyPath:@"changeAvatarResult" options:0 context:nil];
-    
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"userProfileResult" options:0 context:nil];
 }
 
 -(void) saveProfile{
@@ -98,7 +101,19 @@
             [self showProgressWithText:[UIManagement sharedInstance].changeAvatarResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
         }else{
             [self closeProgress];
-            NSLog(@"1");
+        }
+    }else if ([keyPath isEqualToString:@"userProfileResult"]){
+        if ([[UIManagement sharedInstance].userProfileResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].userProfileResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            [self closeProgress];
+            NSDictionary *data = [UIManagement sharedInstance].userProfileResult[ASI_REQUEST_DATA];
+            NSString *urlStr = data[@"avatar"];
+            [self.avatar setImageURL:[NSURL URLWithString:urlStr]];
+            self.userNameLabel.text = data[@"nickname"];
+            self.birthdayLabel.text = data[@"birthday"];
+            self.birthdayLabel.text = data[@"telephone"];
+            self.areaLabel.text = data[@"district_city"];
         }
     }
 }
@@ -155,7 +170,7 @@
                 title.text = @"用户名";
                 self.userNameLabel = [[UILabel alloc] init];
                 self.userNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
-                self.userNameLabel.text = @"11111";
+                self.userNameLabel.text = @"";
                 [cell.contentView addSubview:self.userNameLabel];
                 
                 views = NSDictionaryOfVariableBindings(_userNameLabel);
@@ -351,6 +366,7 @@
 -(void) dealloc{
     [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"updateUserProfileResult"];
     [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"changeAvatarResult"];
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"userProfileResult"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

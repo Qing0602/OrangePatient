@@ -164,7 +164,7 @@
 
 - (void)setData:(NSData *)data forKey:(NSString *)key
 {
-	[self setData:data withFileName:@"file" andContentType:nil forKey:key];
+	[self setData:data withFileName:@"file.png" andContentType:nil forKey:key];
 }
 
 - (void)setData:(id)data withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key

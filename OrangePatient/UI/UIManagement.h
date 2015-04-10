@@ -40,7 +40,8 @@
 @property (nonatomic,strong) NSDictionary *updateUserDetailResult;
 @property (nonatomic,strong) NSDictionary *updateUserProfileResult;
 
-
+// 获取用户profile
+@property (nonatomic,strong) NSDictionary *userProfileResult;
 // 获取城市
 @property (nonatomic,strong) NSDictionary *getAreaResult;
 // 获取地区
@@ -73,7 +74,8 @@
 -(void) updateUserDetail : (NSString *) uid withBody : (NSDictionary *) body;
 // 更新profile
 -(void) updateUserProfile : (NSString *) uid withBody : (NSDictionary *) body;
-
+// 获取用户profile
+-(void) getUserProfile : (NSString *) uid;
 
 // 获取城市
 -(void) getArea;

@@ -56,7 +56,8 @@
 +(id) deserializeModel : (NSString *)fileName{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSData *cacheData = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,[UIManagement sharedInstance].userAccount.userUid],fileName]];
+    NSString *userUid = [[NSUserDefaults standardUserDefaults] objectForKey:@"userUid"];
+    NSData *cacheData = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,userUid],fileName]];
 	id data = [NSKeyedUnarchiver unarchiveObjectWithData:cacheData];
     return data;
 }

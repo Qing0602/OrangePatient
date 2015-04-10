@@ -21,6 +21,7 @@ typedef enum{
     kChangeAvatar,
     kUpdateUserDetail,
     kUpdateUserProfile,
+    kGetUserProfile,
 }UserType;
 
 @interface UserOperation : CustomOperation
@@ -38,5 +39,6 @@ typedef enum{
 -(UserOperation *) initChangeAvatar : (NSString *) uid withImage : (NSData *) image;
 
 -(UserOperation *) initUpdateUserDetail : (NSString *) uid withBody : (NSDictionary *) body;
+-(UserOperation *) initGetUserProfile : (NSString *) uid;
 -(UserOperation *) initUpdateUserProfile : (NSString *) uid withBody : (NSDictionary *) body;
 @end

@@ -105,6 +105,8 @@
                 userAccount.userImNickName = data[@"im_nickname"];
                 userAccount.userStatus = [data[@"status"] integerValue];
                 [UIManagement sharedInstance].userAccount = userAccount;
+                [[NSUserDefaults standardUserDefaults] setObject:userAccount.userUid forKey:@"userUid"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 [UIModelCoding serializeModel:userAccount withFileName:SerializeUserAccountModelName];
             }else{
                 [self showProgressWithText:registerResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.f];
