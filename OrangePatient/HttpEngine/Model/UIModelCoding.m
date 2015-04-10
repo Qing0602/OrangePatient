@@ -42,21 +42,21 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,1]]]) {
-        NSString *myDirectory = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:CachePath,1]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,[UIManagement sharedInstance].userAccount.userUid]]]) {
+        NSString *myDirectory = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:CachePath,[UIManagement sharedInstance].userAccount.userUid]];
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:myDirectory withIntermediateDirectories:NO attributes:nil error:&error];
     }
     
     NSData *cacheData = [NSKeyedArchiver archivedDataWithRootObject:data];
-    NSString *filePath = [NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,1],fileName];
+    NSString *filePath = [NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,[UIManagement sharedInstance].userAccount.userUid],fileName];
     return [cacheData writeToFile:filePath atomically:YES];
 }
 
 +(id) deserializeModel : (NSString *)fileName{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSData *cacheData = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,1],fileName]];
+    NSData *cacheData = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,[UIManagement sharedInstance].userAccount.userUid],fileName]];
 	id data = [NSKeyedUnarchiver unarchiveObjectWithData:cacheData];
     return data;
 }
