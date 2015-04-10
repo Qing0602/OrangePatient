@@ -209,7 +209,6 @@
                 
                 //self.sexControl = [[ChooseSexControl alloc] initWithOrigin:CGPointMake(SCREEN_WIDTH-Control_Width-SCREEN_WIDTH/30, (Register_TableviewCell_Height-Control_Height)/2)];
                 self.sexControl = [[ChooseSexControl alloc] init];
-                self.sexControl.backgroundColor = [UIColor redColor];
                 [cell.contentView addSubview:self.sexControl];
                 
                 
