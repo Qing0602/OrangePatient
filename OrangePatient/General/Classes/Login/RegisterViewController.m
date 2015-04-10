@@ -88,7 +88,6 @@
     
     [RACObserve([UIManagement sharedInstance], regsiterResult) subscribeNext:^(NSDictionary *registerResult){
         if (registerResult) {
-
             @strongify(self);
             if (!registerResult[@"hasError"]) {
                 [self closeProgress];
