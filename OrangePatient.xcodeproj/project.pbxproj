@@ -74,6 +74,7 @@
 		740E3E2C1AD7BE9D00E8BA75 /* home_icon_consult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E281AD7BE9D00E8BA75 /* home_icon_consult@2x.png */; };
 		740E3E2D1AD7BE9D00E8BA75 /* home_icon_information@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E291AD7BE9D00E8BA75 /* home_icon_information@2x.png */; };
 		740E3E2E1AD7BE9D00E8BA75 /* home_icon_myDoctor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E2A1AD7BE9D00E8BA75 /* home_icon_myDoctor@2x.png */; };
+		740E3E311AD7BF5E00E8BA75 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 740E3E301AD7BF5E00E8BA75 /* ReportViewController.m */; };
 		742DEAD91ACB9F2000882138 /* TwoTablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */; };
 		742DEADC1ACBA03600882138 /* MyDoctorCitysModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEADB1ACBA03600882138 /* MyDoctorCitysModel.m */; };
 		742DEADF1ACBA05600882138 /* MyDoctorHospitalsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEADE1ACBA05600882138 /* MyDoctorHospitalsModel.m */; };
@@ -268,6 +269,8 @@
 		740E3E281AD7BE9D00E8BA75 /* home_icon_consult@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon_consult@2x.png"; sourceTree = "<group>"; };
 		740E3E291AD7BE9D00E8BA75 /* home_icon_information@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon_information@2x.png"; sourceTree = "<group>"; };
 		740E3E2A1AD7BE9D00E8BA75 /* home_icon_myDoctor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon_myDoctor@2x.png"; sourceTree = "<group>"; };
+		740E3E2F1AD7BF5E00E8BA75 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		740E3E301AD7BF5E00E8BA75 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		742DEAD71ACB9F2000882138 /* TwoTablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoTablesViewController.h; sourceTree = "<group>"; };
 		742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoTablesViewController.m; sourceTree = "<group>"; };
 		742DEADA1ACBA03600882138 /* MyDoctorCitysModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorCitysModel.h; sourceTree = "<group>"; };
@@ -784,6 +787,8 @@
 		749C82601AAD87020077388E /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				740E3E2F1AD7BF5E00E8BA75 /* ReportViewController.h */,
+				740E3E301AD7BF5E00E8BA75 /* ReportViewController.m */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -1360,6 +1365,7 @@
 				1955E2651AC75C2F00F4CAF1 /* CustomOperation.m in Sources */,
 				74CE08F81AA4A52000DD9458 /* UIActionSheet+Base.m in Sources */,
 				19D8A9271AC5D9790092688E /* UserOperation.m in Sources */,
+				740E3E311AD7BF5E00E8BA75 /* ReportViewController.m in Sources */,
 				74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */,
 				198F14F91ACD75D0008C208F /* UserProfileViewController.m in Sources */,
 				744E01B91AC2F77D0063C4A7 /* HealthInformationTableViewCell.m in Sources */,

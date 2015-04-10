@@ -56,7 +56,6 @@
     }];
     
     [line2 mas_makeConstraints:^(MASConstraintMaker *make){
-        //make.centerX.equalTo(self.view);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         make.centerY.equalTo(line1.mas_centerY);
@@ -66,26 +65,9 @@
     
     
     for (int i = 0; i<4; i++) {
-//        CGRect btnFrame;
-//        CGFloat leftPadding = (SCREEN_WIDTH-lineHeight)/2;
-//        if (i<2) {
-//            btnFrame = CGRectMake(leftPadding+(lineHeight/2+2)*i, CGRectGetMaxY(_adScrollView.frame)+1,lineHeight/2-2, lineHeight/2-2);
-//        }else
-//        {
-//            btnFrame = CGRectMake(leftPadding+(lineHeight/2+2)*(i-2), CGRectGetMaxY(_adScrollView.frame)+2+lineHeight/2,lineHeight/2-2, lineHeight/2-2);
-//        }
     
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = [UIColor redColor];
-        //[btn setFrame:btnFrame];
-        //btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        //btn.titleLabel.backgroundColor = [UIColor redColor];
-        //[btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        //CGFloat imageWidth = 60.f;
         btn.tag = i+1;
-    
-        //[btn setImageEdgeInsets:UIEdgeInsetsMake(30.f, lineHeight/4-imageWidth/2, lineHeight/2-imageWidth-30, lineHeight/4-imageWidth/2)];
-        //[btn setTitleEdgeInsets:UIEdgeInsetsMake(lineHeight/2-imageWidth-40.f, -90.f, 0.f, 0.f)];
         [btn handleControlEvents:UIControlEventTouchUpInside actionBlock:^(UIButton *sender){
             switch (sender.tag) {
                 case 1:
@@ -97,7 +79,6 @@
                     break;
                 case 2:
                 {
-                    //MyDoctorListViewController *myDoctor = [[MyDoctorListViewController alloc] init];
                     MyDoctorViewController *myDoctor = [[MyDoctorViewController alloc] init];
                     myDoctor.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:myDoctor animated:YES];
