@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "MyDeviceViewController.h"
 #import "MyViewController.h"
+#import "ReportViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,10 +24,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     UITabBarController *tb = [[UITabBarController alloc]init];
-    //self.window.rootViewController=tb;
+    [[tb tabBar] setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:45/255.f green:45/255.f blue:45/255.f alpha:1.f]]];
+    [[tb tabBar] setSelectionIndicatorImage:[UIImage imageWithColor:[UIColor orangeColor]andImageSize:CGSizeMake(SCREEN_WIDTH/4, [tb tabBar].frame.size.height)]];
+    [[tb tabBar] setSelectedImageTintColor:[UIColor whiteColor]];
     
     ViewController *viewcontroller = [[ViewController alloc] init];
     viewcontroller.title = @"登录";
+    viewcontroller.tabBarItem.image = [UIImage imageNamed:@"tabbar_home"];
+    [viewcontroller.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:93/255.f green:93/255.f blue:93/255.f alpha:1.f],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [viewcontroller.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewcontroller];
     
     
@@ -34,16 +40,25 @@
     MyDeviceViewController *deviceVC = [[MyDeviceViewController alloc] init];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:deviceVC];
     deviceVC.title = @"监测";
-    deviceVC.tabBarItem.image = [UIImage imageNamed:@"icon"];
-    [deviceVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    deviceVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_device"];
+    [deviceVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:93/255.f green:93/255.f blue:93/255.f alpha:1.f],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [deviceVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
+    
+    ReportViewController *reportVC = [[ReportViewController alloc] init];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:reportVC];
+    reportVC.title = @"报告";
+    reportVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_report"];
+    [reportVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:93/255.f green:93/255.f blue:93/255.f alpha:1.f],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [reportVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
     
     MyViewController *myVC = [[MyViewController alloc] init];
-    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:myVC];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:myVC];
     myVC.title = @"我";
-    myVC.tabBarItem.image = [UIImage imageNamed:@"icon"];
-    [myVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    myVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_mine"];
+    [myVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:93/255.f green:93/255.f blue:93/255.f alpha:1.f],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [myVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
     
-    tb.viewControllers = @[nav,nav1,nav2];
+    tb.viewControllers = @[nav,nav1,nav2,nav3];
     
     self.window.rootViewController = tb;
     

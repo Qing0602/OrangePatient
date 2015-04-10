@@ -30,8 +30,8 @@
     _adScrollView = [[ADBannerScrollView alloc] initWithFrame:CGRectMake(0.f, 0.f, SCREEN_WIDTH, SCREEN_WIDTH/2) placeholdImage:[UIImage imageNamed:@""] models:@[@"a",@"a",@"a",@"a",@"a"]];
     [self.view addSubview:_adScrollView];
     
-    CGFloat unUseHeight = SCREEN_HEIGHT-104-CGRectGetHeight(_adScrollView.frame);
-    CGFloat lineHeight = SCREEN_WIDTH-8>unUseHeight?unUseHeight:SCREEN_WIDTH-8;
+//    CGFloat unUseHeight = SCREEN_HEIGHT-104-CGRectGetHeight(_adScrollView.frame);
+//    CGFloat lineHeight = SCREEN_WIDTH-8>unUseHeight?unUseHeight:SCREEN_WIDTH-8;
     
     
    // UIImageView *line1 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, CGRectGetMaxY(_adScrollView.frame), 2.f,lineHeight)];
@@ -46,27 +46,28 @@
     [line2 setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview:line2];
     
+    UIView *bottomLayoutGuide = (id)self.bottomLayoutGuide;
+    
+    [line1 mas_makeConstraints:^(MASConstraintMaker *make){
+        make.centerX.equalTo(self.view);
+        make.width.mas_equalTo(1);
+        make.top.mas_equalTo(CGRectGetMaxY(self.adScrollView.frame));
+        make.bottom.equalTo(bottomLayoutGuide.mas_top);
+    }];
+    
+    [line2 mas_makeConstraints:^(MASConstraintMaker *make){
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.centerY.equalTo(line1.mas_centerY);
+        make.height.mas_equalTo(1);
+    }];
+    
     
     
     for (int i = 0; i<4; i++) {
-        CGRect btnFrame;
-        CGFloat leftPadding = (SCREEN_WIDTH-lineHeight)/2;
-        if (i<2) {
-            btnFrame = CGRectMake(leftPadding+(lineHeight/2+2)*i, CGRectGetMaxY(_adScrollView.frame)+1,lineHeight/2-2, lineHeight/2-2);
-        }else
-        {
-            btnFrame = CGRectMake(leftPadding+(lineHeight/2+2)*(i-2), CGRectGetMaxY(_adScrollView.frame)+2+lineHeight/2,lineHeight/2-2, lineHeight/2-2);
-        }
     
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setFrame:btnFrame];
-        btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        btn.titleLabel.backgroundColor = [UIColor redColor];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        CGFloat imageWidth = 60.f;
         btn.tag = i+1;
-        [btn setImageEdgeInsets:UIEdgeInsetsMake(30.f, lineHeight/4-imageWidth/2, lineHeight/2-imageWidth-30, lineHeight/4-imageWidth/2)];
-        [btn setTitleEdgeInsets:UIEdgeInsetsMake(lineHeight/2-imageWidth-40.f, -90.f, 0.f, 0.f)];
         [btn handleControlEvents:UIControlEventTouchUpInside actionBlock:^(UIButton *sender){
             switch (sender.tag) {
                 case 1:
@@ -78,7 +79,6 @@
                     break;
                 case 2:
                 {
-                    //MyDoctorListViewController *myDoctor = [[MyDoctorListViewController alloc] init];
                     MyDoctorViewController *myDoctor = [[MyDoctorViewController alloc] init];
                     myDoctor.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:myDoctor animated:YES];
@@ -106,26 +106,46 @@
         switch (i) {
             case 0:
             {
-                [btn setImage:[UIImage imageNamed:@"IconMessage"] forState:UIControlStateNormal];
-                [btn setTitle:@"资讯" forState:UIControlStateNormal];
+                [btn mas_makeConstraints:^(MASConstraintMaker *make){
+                    make.left.mas_equalTo(0);
+                    make.top.mas_equalTo(CGRectGetMaxY(self.adScrollView.frame));
+                    make.bottom.equalTo(line2.mas_top);
+                    make.right.equalTo(line1.mas_left).with.offset(-1);
+                }];
+                [btn setBackgroundImage:[UIImage imageNamed:@"home_icon_information"] forState:UIControlStateNormal];
             }
                 break;
             case 1:
             {
-                [btn setImage:[UIImage imageNamed:@"IconDoctor"] forState:UIControlStateNormal];
-                [btn setTitle:@"我的医生" forState:UIControlStateNormal];
+                [btn mas_makeConstraints:^(MASConstraintMaker *make){
+                    make.left.equalTo(line1.mas_right).with.offset(1);
+                    make.top.mas_equalTo(CGRectGetMaxY(self.adScrollView.frame));
+                    make.bottom.equalTo(line2.mas_top);
+                    make.right.mas_equalTo(0);
+                }];
+                [btn setBackgroundImage:[UIImage imageNamed:@"home_icon_myDoctor"] forState:UIControlStateNormal];
             }
                 break;
             case 2:
             {
-                [btn setImage:[UIImage imageNamed:@"IconAsk"] forState:UIControlStateNormal];
-                [btn setTitle:@"咨询" forState:UIControlStateNormal];
+                [btn mas_makeConstraints:^(MASConstraintMaker *make){
+                    make.left.mas_equalTo(0);
+                    make.top.equalTo(line2).with.offset(1);
+                    make.bottom.equalTo(bottomLayoutGuide.mas_top);
+                    make.right.equalTo(line1.mas_left).with.offset(-1);
+                }];
+                [btn setBackgroundImage:[UIImage imageNamed:@"home_icon_consult"] forState:UIControlStateNormal];
             }
                 break;
             case 3:
             {
-                [btn setImage:[UIImage imageNamed:@"IconCheck"] forState:UIControlStateNormal];
-                [btn setTitle:@"就医筛查" forState:UIControlStateNormal];
+                [btn mas_makeConstraints:^(MASConstraintMaker *make){
+                    make.left.equalTo(line1.mas_right).with.offset(1);
+                    make.top.equalTo(line2).with.offset(1);
+                    make.bottom.equalTo(bottomLayoutGuide.mas_top);
+                    make.right.mas_equalTo(0);
+                }];
+                [btn setBackgroundImage:[UIImage imageNamed:@"home_icon_check"] forState:UIControlStateNormal];
             }
                 break;
                 

@@ -70,10 +70,11 @@
 		740E3E1C1AD7B68B00E8BA75 /* tabbar_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E181AD7B68B00E8BA75 /* tabbar_home@2x.png */; };
 		740E3E1D1AD7B68B00E8BA75 /* tabbar_mine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E191AD7B68B00E8BA75 /* tabbar_mine@2x.png */; };
 		740E3E1E1AD7B68B00E8BA75 /* tabbar_report@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E1A1AD7B68B00E8BA75 /* tabbar_report@2x.png */; };
-		740E3E231AD7B6BD00E8BA75 /* home_icon_check@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E1F1AD7B6BD00E8BA75 /* home_icon_check@2x.jpg */; };
-		740E3E241AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E201AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg */; };
-		740E3E251AD7B6BD00E8BA75 /* home_icon_information@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E211AD7B6BD00E8BA75 /* home_icon_information@2x.jpg */; };
-		740E3E261AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E221AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg */; };
+		740E3E2B1AD7BE9D00E8BA75 /* home_icon_check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E271AD7BE9D00E8BA75 /* home_icon_check@2x.png */; };
+		740E3E2C1AD7BE9D00E8BA75 /* home_icon_consult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E281AD7BE9D00E8BA75 /* home_icon_consult@2x.png */; };
+		740E3E2D1AD7BE9D00E8BA75 /* home_icon_information@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E291AD7BE9D00E8BA75 /* home_icon_information@2x.png */; };
+		740E3E2E1AD7BE9D00E8BA75 /* home_icon_myDoctor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740E3E2A1AD7BE9D00E8BA75 /* home_icon_myDoctor@2x.png */; };
+		740E3E311AD7BF5E00E8BA75 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 740E3E301AD7BF5E00E8BA75 /* ReportViewController.m */; };
 		742DEAD91ACB9F2000882138 /* TwoTablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */; };
 		742DEADC1ACBA03600882138 /* MyDoctorCitysModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEADB1ACBA03600882138 /* MyDoctorCitysModel.m */; };
 		742DEADF1ACBA05600882138 /* MyDoctorHospitalsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742DEADE1ACBA05600882138 /* MyDoctorHospitalsModel.m */; };
@@ -264,10 +265,12 @@
 		740E3E181AD7B68B00E8BA75 /* tabbar_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_home@2x.png"; sourceTree = "<group>"; };
 		740E3E191AD7B68B00E8BA75 /* tabbar_mine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mine@2x.png"; sourceTree = "<group>"; };
 		740E3E1A1AD7B68B00E8BA75 /* tabbar_report@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_report@2x.png"; sourceTree = "<group>"; };
-		740E3E1F1AD7B6BD00E8BA75 /* home_icon_check@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_icon_check@2x.jpg"; sourceTree = "<group>"; };
-		740E3E201AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_icon_consult@2x.jpg"; sourceTree = "<group>"; };
-		740E3E211AD7B6BD00E8BA75 /* home_icon_information@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_icon_information@2x.jpg"; sourceTree = "<group>"; };
-		740E3E221AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_icon_myDoctor@2x.jpg"; sourceTree = "<group>"; };
+		740E3E271AD7BE9D00E8BA75 /* home_icon_check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon_check@2x.png"; sourceTree = "<group>"; };
+		740E3E281AD7BE9D00E8BA75 /* home_icon_consult@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon_consult@2x.png"; sourceTree = "<group>"; };
+		740E3E291AD7BE9D00E8BA75 /* home_icon_information@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon_information@2x.png"; sourceTree = "<group>"; };
+		740E3E2A1AD7BE9D00E8BA75 /* home_icon_myDoctor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon_myDoctor@2x.png"; sourceTree = "<group>"; };
+		740E3E2F1AD7BF5E00E8BA75 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		740E3E301AD7BF5E00E8BA75 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		742DEAD71ACB9F2000882138 /* TwoTablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoTablesViewController.h; sourceTree = "<group>"; };
 		742DEAD81ACB9F2000882138 /* TwoTablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoTablesViewController.m; sourceTree = "<group>"; };
 		742DEADA1ACBA03600882138 /* MyDoctorCitysModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorCitysModel.h; sourceTree = "<group>"; };
@@ -784,6 +787,8 @@
 		749C82601AAD87020077388E /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				740E3E2F1AD7BF5E00E8BA75 /* ReportViewController.h */,
+				740E3E301AD7BF5E00E8BA75 /* ReportViewController.m */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -1073,10 +1078,10 @@
 		74E1DE531AB9D45700FA86AD /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				740E3E1F1AD7B6BD00E8BA75 /* home_icon_check@2x.jpg */,
-				740E3E201AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg */,
-				740E3E211AD7B6BD00E8BA75 /* home_icon_information@2x.jpg */,
-				740E3E221AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg */,
+				740E3E271AD7BE9D00E8BA75 /* home_icon_check@2x.png */,
+				740E3E281AD7BE9D00E8BA75 /* home_icon_consult@2x.png */,
+				740E3E291AD7BE9D00E8BA75 /* home_icon_information@2x.png */,
+				740E3E2A1AD7BE9D00E8BA75 /* home_icon_myDoctor@2x.png */,
 				744E01C41AC2FCD90063C4A7 /* MyDoctor */,
 				744E01BB1AC2FB7C0063C4A7 /* Information */,
 			);
@@ -1192,7 +1197,6 @@
 				740E3E1B1AD7B68B00E8BA75 /* tabbar_device@2x.png in Resources */,
 				74CE09191AA4A52000DD9458 /* MBProgressHUD.bundle in Resources */,
 				19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */,
-				740E3E261AD7B6BD00E8BA75 /* home_icon_myDoctor@2x.jpg in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */,
 				1974F26D1AD6BBBB00A8EE0D /* 58x58@3x.png in Resources */,
@@ -1203,6 +1207,7 @@
 				195C547D1ABF9A2C0063E768 /* UnlockDevice@2x.png in Resources */,
 				193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */,
 				198F3FE81AB6EF990017A90B /* default@2x.png in Resources */,
+				740E3E2C1AD7BE9D00E8BA75 /* home_icon_consult@2x.png in Resources */,
 				19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
@@ -1211,10 +1216,10 @@
 				744E01C31AC2FB7C0063C4A7 /* Information_Detail_transmit.png in Resources */,
 				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
 				740E3E1C1AD7B68B00E8BA75 /* tabbar_home@2x.png in Resources */,
+				740E3E2D1AD7BE9D00E8BA75 /* home_icon_information@2x.png in Resources */,
 				744E01CE1AC2FCD90063C4A7 /* MyDoctor_Logo@2x.png in Resources */,
 				198F14EE1ACCF1CB008C208F /* MyRecommend@3x.png in Resources */,
 				744E01CC1AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png in Resources */,
-				740E3E241AD7B6BD00E8BA75 /* home_icon_consult@2x.jpg in Resources */,
 				195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
@@ -1223,7 +1228,7 @@
 				744E01CF1AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png in Resources */,
 				198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */,
 				198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */,
-				740E3E231AD7B6BD00E8BA75 /* home_icon_check@2x.jpg in Resources */,
+				740E3E2B1AD7BE9D00E8BA75 /* home_icon_check@2x.png in Resources */,
 				198F14EF1ACCF1CB008C208F /* MySetting@2x.png in Resources */,
 				198F14F01ACCF1CB008C208F /* MySetting@3x.png in Resources */,
 				1974F26E1AD6BBBB00A8EE0D /* 120x120@3x.png in Resources */,
@@ -1232,8 +1237,8 @@
 				740E3E1D1AD7B68B00E8BA75 /* tabbar_mine@2x.png in Resources */,
 				197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */,
 				1974F2681AD6BB3600A8EE0D /* 58x58.png in Resources */,
-				740E3E251AD7B6BD00E8BA75 /* home_icon_information@2x.jpg in Resources */,
 				744E01C11AC2FB7C0063C4A7 /* Information_Detail_   praise.png in Resources */,
+				740E3E2E1AD7BE9D00E8BA75 /* home_icon_myDoctor@2x.png in Resources */,
 				198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */,
 				744E01D01AC2FCD90063C4A7 /* MyDoctor_unSelected.png in Resources */,
 				744E01CB1AC2FCD90063C4A7 /* MyDoctor_arrow@2x.png in Resources */,
@@ -1360,6 +1365,7 @@
 				1955E2651AC75C2F00F4CAF1 /* CustomOperation.m in Sources */,
 				74CE08F81AA4A52000DD9458 /* UIActionSheet+Base.m in Sources */,
 				19D8A9271AC5D9790092688E /* UserOperation.m in Sources */,
+				740E3E311AD7BF5E00E8BA75 /* ReportViewController.m in Sources */,
 				74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */,
 				198F14F91ACD75D0008C208F /* UserProfileViewController.m in Sources */,
 				744E01B91AC2F77D0063C4A7 /* HealthInformationTableViewCell.m in Sources */,
