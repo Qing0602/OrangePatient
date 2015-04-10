@@ -38,7 +38,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    @weakify(self);
     self.title = REGISTER_PAGE_TITLE;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:REGISTER_PAGE_TEXT_LOGIN style:UIBarButtonItemStyleDone target:self action:@selector(backToLogin)];
@@ -88,13 +87,27 @@
     
     [RACObserve([UIManagement sharedInstance], regsiterResult) subscribeNext:^(NSDictionary *registerResult){
         if (registerResult) {
-            @strongify(self);
-            if (!registerResult[@"hasError"]) {
+            if (!registerResult[ASI_REQUEST_HAS_ERROR]) {
                 [self closeProgress];
-                NSDictionary *data = registerResult[@"data"];
+                NSDictionary *data = registerResult[ASI_REQUEST_DATA];
+                UserAccountModel *userAccount = [[UserAccountModel alloc] init];
+                userAccount.userUid = data[@"uid"];
+                userAccount.userOid = data[@"oid"];
+                userAccount.userOauthToken = data[@"oauth_token"];
+                userAccount.userOauthTokenSecret = data[@"oauth_token_secret"];
+                userAccount.uservalidTime = [data[@"validtime"] integerValue];
+                userAccount.userNickName = data[@"nickname"];
+                userAccount.userEmail = data[@"email"];
+                userAccount.userAvatar = data[@"avatar"];
+                userAccount.userMobile = data[@"mobile"];
+                userAccount.userImUserName = data[@"im_username"];
+                userAccount.userImPassword = data[@"im_password"];
+                userAccount.userImNickName = data[@"im_nickname"];
+                userAccount.userStatus = [data[@"status"] integerValue];
+                [UIModelCoding serializeModel:userAccount withFileName:SerializeUserAccountModelName];
                 
             }else{
-                [self showProgressWithText:registerResult[@"errorMessage"] withDelayTime:3.f];
+                [self showProgressWithText:registerResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.f];
             }
         }
     }];

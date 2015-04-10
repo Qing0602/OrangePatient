@@ -169,7 +169,7 @@
 #pragma mark - NetWork
 - (void)login
 {
-    [self showProgressWithText:@"正在注册"];
+    [self showProgressWithText:@"正在登录"];
     [[UIManagement sharedInstance] login:_username.text withPassword:_pwd.text];
     
 }
