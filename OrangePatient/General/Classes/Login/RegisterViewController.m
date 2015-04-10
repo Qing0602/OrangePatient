@@ -90,7 +90,6 @@
         if (registerResult) {
 
             @strongify(self);
-            [self closeProgress];
             if (!registerResult[@"hasError"]) {
                 [self closeProgress];
                 NSDictionary *data = registerResult[@"data"];
@@ -117,19 +116,6 @@
                                                                        RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,UILabel *date){
                                                                            return @(username.length>0&&veriCode.length==6&&date.text.length >0);
                                                                        }];
-//    RAC(self.registerBtn,backgroundColor) = [RACSignal combineLatest:@[
-//                                                          self.usernameInput.rac_textSignal,
-//                                                          self.veriCodeInput.rac_textSignal,
-//                                                          RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
-//                                                              return (username.length>5&&veriCode.length==6&&date.length >0)?
-//                                                              [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f]:[UIColor grayColor];
-//                                                          }];
-//    RAC(self.registerBtn,enabled) = [RACSignal combineLatest:@[
-//                                                                       self.usernameInput.rac_textSignal,
-//                                                                       self.veriCodeInput.rac_textSignal,
-//                                                                       RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,NSString *date){
-//                                                                           return @(username.length>5&&veriCode.length==6&&date.length >0);
-//                                                                       }];
 }
 
 - (void)didReceiveMemoryWarning {
