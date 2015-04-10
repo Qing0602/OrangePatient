@@ -87,7 +87,7 @@
     
     [RACObserve([UIManagement sharedInstance], regsiterResult) subscribeNext:^(NSDictionary *registerResult){
         if (registerResult) {
-            if (!registerResult[ASI_REQUEST_HAS_ERROR]) {
+            if (![registerResult[ASI_REQUEST_HAS_ERROR] boolValue]) {
                 [self closeProgress];
                 NSDictionary *data = registerResult[ASI_REQUEST_DATA];
                 UserAccountModel *userAccount = [[UserAccountModel alloc] init];
