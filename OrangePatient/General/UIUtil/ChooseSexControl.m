@@ -25,11 +25,11 @@
         _male.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_male setTitle:@"男" forState:UIControlStateNormal];
         _male.backgroundColor = [UIColor yellowColor];
-//        [_male setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//        [_male setTitleEdgeInsets:UIEdgeInsetsMake(0.f, -10.f, 0.f, _male.frame.size.width/2)];
-//        [_male setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
-//        [_male setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
-//        [_male setImageEdgeInsets:UIEdgeInsetsMake((viewFrame.size.height-23)/4,  _male.frame.size.width/2+textAndImageIntervel, (viewFrame.size.height-23)/4, 0.f)];
+        [_male setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_male setTitleEdgeInsets:UIEdgeInsetsMake(0.f, -10.f, 0.f, _male.frame.size.width/2)];
+        [_male setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
+        [_male setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
+        [_male setImageEdgeInsets:UIEdgeInsetsMake((viewFrame.size.height-23)/4,  _male.frame.size.width/2+textAndImageIntervel, (viewFrame.size.height-23)/4, 0.f)];
         [_male addTarget:self action:@selector(chooseSex:) forControlEvents:UIControlEventTouchUpInside];
         _male.selected = YES;
         [self addSubview:_male];
@@ -39,10 +39,10 @@
         [_female setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_female setTitle:@"女" forState:UIControlStateNormal];
         _female.backgroundColor = [UIColor yellowColor];
-//        [_female setTitleEdgeInsets:UIEdgeInsetsMake(0.f,-10.f, 0.f,  _female.frame.size.width/2)];
-//        [_female setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
-//        [_female setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
-//        [_female setImageEdgeInsets:UIEdgeInsetsMake((viewFrame.size.height-23)/4, _female.frame.size.width/2+textAndImageIntervel, (viewFrame.size.height-23)/4, 0)];
+        [_female setTitleEdgeInsets:UIEdgeInsetsMake(0.f,-10.f, 0.f,  _female.frame.size.width/2)];
+        [_female setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
+        [_female setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
+        [_female setImageEdgeInsets:UIEdgeInsetsMake((viewFrame.size.height-23)/4, _female.frame.size.width/2+textAndImageIntervel, (viewFrame.size.height-23)/4, 0)];
         [_female addTarget:self action:@selector(chooseSex:) forControlEvents:UIControlEventTouchUpInside];
 
         [self addSubview:_female];
@@ -105,7 +105,7 @@
         }];
         
         [_female mas_makeConstraints:^(MASConstraintMaker *make){
-            make.left.equalTo(_male.mas_left);
+            make.left.equalTo(_male.mas_right);
             make.top.equalTo(_male.mas_top);
             make.bottom.equalTo(_male.mas_bottom);
             make.right.mas_equalTo(0);
