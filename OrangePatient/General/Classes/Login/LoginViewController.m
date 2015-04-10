@@ -92,6 +92,7 @@
                 userAccount.userImNickName = data[@"im_nickname"];
                 userAccount.userStatus = [data[@"status"] integerValue];
                 [UIModelCoding serializeModel:userAccount withFileName:SerializeUserAccountModelName];
+                [UIManagement sharedInstance].userAccount = userAccount;
             }else{
                 [self showProgressWithText:loginResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
             }
