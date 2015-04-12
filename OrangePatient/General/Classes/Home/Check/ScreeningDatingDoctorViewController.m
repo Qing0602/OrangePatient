@@ -8,6 +8,7 @@
 
 #import "ScreeningDatingDoctorViewController.h"
 #import "SubmitDatingInfoViewController.h"
+#import "ScreeningCenterInfoVIewController.h"
 
 #import "ScreeingDatingDoctorTableViewCell.h"
 
@@ -71,6 +72,11 @@
     }
     [cell setContentByInfoModel:self.couldDatingDoctorList[indexPath.row]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ScreeningCenterInfoVIewController *centerInfo = [[ScreeningCenterInfoVIewController alloc] initWithModel:nil];
+    [self.navigationController pushViewController:centerInfo animated:YES];
 }
 
 #pragma mark - Delegate

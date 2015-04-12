@@ -16,5 +16,5 @@
 @interface UILabel (ContentSize)
 
 - (CGSize)contentSize;
-
+- (CGSize)boundingRectWithSize:(CGSize)size;
 @end
