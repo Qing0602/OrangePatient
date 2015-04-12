@@ -107,6 +107,7 @@
 		74738B9A1AD5498800DE7ACA /* ChooseDoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */; };
 		74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
+		7493BD561ADA645A008DF6FA /* ScreeningCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */; };
 		749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AB1AB86A6B0003F58B /* HomeViewController.m */; };
 		749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AF1AB86F580003F58B /* CustomPageControl.m */; };
 		749A11B31AB86F6E0003F58B /* ADBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11B21AB86F6E0003F58B /* ADBannerModel.m */; };
@@ -323,6 +324,8 @@
 		74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitDatingInfoViewController.m; sourceTree = "<group>"; };
 		74837E8F1AB086F200B030D0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		7493BD541ADA645A008DF6FA /* ScreeningCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningCenterModel.h; sourceTree = "<group>"; };
+		7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningCenterModel.m; sourceTree = "<group>"; };
 		749A11AA1AB86A6B0003F58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		749A11AB1AB86A6B0003F58B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		749A11AE1AB86F580003F58B /* CustomPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPageControl.h; sourceTree = "<group>"; };
@@ -612,6 +615,8 @@
 				74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */,
 				7451A13C1AD6694D0080112E /* ScreeningCenterInfoVIewController.h */,
 				7451A13D1AD6694D0080112E /* ScreeningCenterInfoVIewController.m */,
+				7493BD541ADA645A008DF6FA /* ScreeningCenterModel.h */,
+				7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */,
 			);
 			path = Check;
 			sourceTree = "<group>";
@@ -1325,6 +1330,7 @@
 				74F64E7B1AC90BA8004F44D6 /* ChooseHospitalViewController.m in Sources */,
 				19AC432E1AB150B1004948DF /* BlueToothTimeData.m in Sources */,
 				7451A13E1AD6694D0080112E /* ScreeningCenterInfoVIewController.m in Sources */,
+				7493BD561ADA645A008DF6FA /* ScreeningCenterModel.m in Sources */,
 				198F14FC1ACD91C4008C208F /* EditorNickNameViewController.m in Sources */,
 				74CE09001AA4A52000DD9458 /* UIImageView+Base.m in Sources */,
 				74CE08F61AA4A52000DD9458 /* NSString+Base.m in Sources */,

@@ -10,4 +10,12 @@
 
 @implementation ScreeningCenterInfoVIewController
 
+- (instancetype)initWithModel:(ScreeningCenterModel *)tempModel{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 @end
