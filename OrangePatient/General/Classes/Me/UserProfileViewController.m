@@ -12,6 +12,7 @@
 #import "AreaViewController.h"
 #import "ChooseSexControl.h"
 #import "UIManagement.h"
+#import "EGOCache.h"
 
 @interface UserProfileViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UITableView *userProfileTableView;
@@ -87,7 +88,7 @@
     }
     
     if (self.areaResult != nil || [self.areaResult count] != 0) {
-        [json setObject:[NSString stringWithFormat:@"%ld,%ld",[self.areaResult[0][@"code"] integerValue],[self.areaResult[1][@"name"] integerValue]] forKey:@"district_city"];
+        [json setObject:[NSString stringWithFormat:@"%ld,%ld",(long)[self.areaResult[0][@"code"] integerValue],(long)[self.areaResult[1][@"name"] integerValue]] forKey:@"district_city"];
     }
     [[UIManagement sharedInstance] updateUserProfile:[UIManagement sharedInstance].userAccount.userUid withBody:json];
     
@@ -95,12 +96,20 @@
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"updateUserProfileResult"]) {
-        
+        if ([[UIManagement sharedInstance].changeAvatarResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].changeAvatarResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            [self showProgressWithText:@"保存成功" withDelayTime:2.0f];
+        }
     }else if ([keyPath isEqualToString:@"changeAvatarResult"]){
         if ([[UIManagement sharedInstance].changeAvatarResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
             [self showProgressWithText:[UIManagement sharedInstance].changeAvatarResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
         }else{
             [self closeProgress];
+            NSDictionary *data = [UIManagement sharedInstance].userProfileResult[ASI_REQUEST_DATA];
+            [[EGOCache globalCache] clearCache];
+            NSString *urlStr = data[@"avatar"];
+            [self.avatar setImageURL:[NSURL URLWithString:urlStr]];
         }
     }else if ([keyPath isEqualToString:@"userProfileResult"]){
         if ([[UIManagement sharedInstance].userProfileResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
