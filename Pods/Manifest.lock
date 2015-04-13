@@ -12,6 +12,7 @@ PODS:
     - Reachability
   - ASIHTTPRequest/S3 (1.8.2):
     - ASIHTTPRequest/Core
+  - DACircularProgress (2.2.0)
   - EaseMobSDK (2.1.4.1)
   - EGOCache (2.1)
   - EGOImageLoading (0.0.1):
@@ -23,6 +24,13 @@ PODS:
     - FMDB/common
   - JSONKit (1.4)
   - Masonry (0.6.1)
+  - MBProgressHUD (0.9.1)
+  - MWPhotoBrowser (1.4.1):
+    - DACircularProgress
+    - MBProgressHUD (~> 0.8)
+    - PSTCollectionView (~> 1.2)
+    - SDWebImage (~> 3.7)
+  - PSTCollectionView (1.2.3)
   - Reachability (3.2)
   - ReactiveCocoa (2.4.7):
     - ReactiveCocoa/UI (= 2.4.7)
@@ -32,6 +40,12 @@ PODS:
   - ReactiveCocoa/UI (2.4.7):
     - ReactiveCocoa/Core
   - RegexKitLite (4.0)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
+  - SlimeRefresh (0.0.1)
+  - THProgressView (1.0)
+  - WCAlertView (1.0.1)
 
 DEPENDENCIES:
   - ASIHTTPRequest (~> 1.8.2)
@@ -40,19 +54,31 @@ DEPENDENCIES:
   - FMDB (~> 2.5)
   - JSONKit (~> 1.4)
   - Masonry (~> 0.6.1)
+  - MWPhotoBrowser (~> 1.4.1)
   - ReactiveCocoa (~> 2.4.7)
   - RegexKitLite (~> 4.0)
+  - SlimeRefresh (~> 0.0.1)
+  - THProgressView (~> 1.0)
+  - WCAlertView (~> 1.0.1)
 
 SPEC CHECKSUMS:
   ASIHTTPRequest: 2c8335b49410c0e2ad42829c438e74d454b77590
+  DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
   EaseMobSDK: 258b552cf9ccade12742277f443cc01fd3a3db1a
   EGOCache: bf414333c425fe47f5182351d1dd47ebf72d8352
   EGOImageLoading: 8d33c6c4b5bc5651236bbcbc46e8a31a6715cd61
   FMDB: 0efa188cf0dd1ce82c27a478cd5f5fa245308677
   JSONKit: 2111ac2b11f7ea0d07bb1d9d09e650918336a134
   Masonry: 2cb49fd14d203d2db5ca6bb017135b235dde9980
+  MBProgressHUD: f3747dcbd45a9e855a6b0674550651e0b7ed250c
+  MWPhotoBrowser: be05b3b7521e961382a4ba5579685bf5a00b93d8
+  PSTCollectionView: d9f466e4554cc83260ca9bde7beb27f308e8fd76
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
   ReactiveCocoa: 313fc53cc9aeb2bbbc3f5f13c7eac16478d9af8f
   RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SlimeRefresh: efc9103a415f438c2aca8f72c0d4b007407714b6
+  THProgressView: 083589a96d15ee94329a27cab1d1a79111722efa
+  WCAlertView: 91e70d413b87d4e97f7c42574ef6a6b46881baf9
 
 COCOAPODS: 0.36.0

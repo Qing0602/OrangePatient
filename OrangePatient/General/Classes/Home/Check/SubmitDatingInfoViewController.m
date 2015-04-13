@@ -153,7 +153,7 @@
     [self.view addSubview:self.sexControl];
     [self.view addSubview:self.ageInput];
     [self.view addSubview:self.identityIDInput];
-    [self.view addSubview:self.medicalIDInput];
+    //[self.view addSubview:self.medicalIDInput];
     [self.view addSubview:self.phoneNumberInput];
     
     
@@ -168,8 +168,8 @@
     [self setConstantsWithLabel:sexLabel targetLabel:userNameLabel];
     [self setConstantsWithLabel:ageLabel targetLabel:sexLabel];
     [self setConstantsWithLabel:identityIDLabel targetLabel:ageLabel];
-    [self setConstantsWithLabel:medicalIDLabel targetLabel:identityIDLabel];
-    [self setConstantsWithLabel:phoneNumLabel targetLabel:medicalIDLabel];
+    //[self setConstantsWithLabel:medicalIDLabel targetLabel:identityIDLabel];
+    [self setConstantsWithLabel:phoneNumLabel targetLabel:identityIDLabel];
     
     [self setConstantsWithTextfield:self.nameInput targetLabel:userNameLabel];
     [self.sexControl mas_makeConstraints:^(MASConstraintMaker *make){
@@ -180,7 +180,7 @@
     }];
     [self setConstantsWithTextfield:self.ageInput targetLabel:ageLabel];
     [self setConstantsWithTextfield:self.identityIDInput targetLabel:identityIDLabel];
-    [self setConstantsWithTextfield:self.medicalIDInput targetLabel:medicalIDLabel];
+    //[self setConstantsWithTextfield:self.medicalIDInput targetLabel:medicalIDLabel];
     [self setConstantsWithTextfield:self.phoneNumberInput targetLabel:phoneNumLabel];
     
     [datingBtn mas_makeConstraints:^(MASConstraintMaker *make){
