@@ -7,6 +7,7 @@
 //
 
 #import "MyDoctorListViewController.h"
+#import "ChatViewController.h"
 
 #import "DoctorBaseTableViewCell.h"
 #import "MyDoctorsModel.h"
@@ -72,6 +73,12 @@
     [cell setContentByInfoModel:self.myDoctorList[indexPath.row]];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ChatViewController *chatController = [[ChatViewController alloc] initWithChatter:@"test" isGroup:NO];
+    [self.navigationController pushViewController:chatController animated:YES];
+}
+
 /*
 #pragma mark - Navigation
 
