@@ -7,7 +7,10 @@
 //
 
 #import "BaseUIView.h"
+#import "MMCircularProgressView.h"
 
 @interface CircularProgressView : BaseUIView
+@property (nonatomic, strong)MMCircularProgressView *theProgressView;
 
+- (void)setProgressValue:(NSInteger)value;
 @end

@@ -8,20 +8,28 @@
 
 #import "ReportViewController.h"
 
+#import "CircularProgressView.h"
 @interface ReportViewController ()
-
+@property (nonatomic, strong)CircularProgressView *progressView;
 @end
 
 @implementation ReportViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 30, 200.f, 200.f)];
+    [self.view addSubview:_progressView];
+    
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self.progressView setProgressValue:30];
 }
 
 /*

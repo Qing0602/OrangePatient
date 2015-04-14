@@ -87,6 +87,8 @@
 		743ECC151AD4257400715EB4 /* ScreeningDatingDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ECC141AD4257400715EB4 /* ScreeningDatingDoctorViewController.m */; };
 		743ECC181AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ECC171AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m */; };
 		743ECC1B1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ECC1A1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m */; };
+		744337371ADCEE4C000F32E2 /* Report_needle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744337351ADCEE4C000F32E2 /* Report_needle@2x.png */; };
+		744337381ADCEE4C000F32E2 /* Report_Rect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744337361ADCEE4C000F32E2 /* Report_Rect@2x.png */; };
 		744522D11ADBA278002B20F0 /* ChatSendHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7445229C1ADBA278002B20F0 /* ChatSendHelper.m */; };
 		744522D21ADBA278002B20F0 /* ChatViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7445229E1ADBA278002B20F0 /* ChatViewController+Category.m */; };
 		744522D31ADBA278002B20F0 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744522A01ADBA278002B20F0 /* ChatViewController.m */; };
@@ -325,6 +327,8 @@
 		743ECC171AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeingDatingDoctorTableViewCell.m; sourceTree = "<group>"; };
 		743ECC191AD425CA00715EB4 /* ScreeingDatingDoctorsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeingDatingDoctorsModel.h; sourceTree = "<group>"; };
 		743ECC1A1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeingDatingDoctorsModel.m; sourceTree = "<group>"; };
+		744337351ADCEE4C000F32E2 /* Report_needle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Report_needle@2x.png"; sourceTree = "<group>"; };
+		744337361ADCEE4C000F32E2 /* Report_Rect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Report_Rect@2x.png"; sourceTree = "<group>"; };
 		7445229B1ADBA278002B20F0 /* ChatSendHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSendHelper.h; sourceTree = "<group>"; };
 		7445229C1ADBA278002B20F0 /* ChatSendHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSendHelper.m; sourceTree = "<group>"; };
 		7445229D1ADBA278002B20F0 /* ChatViewController+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatViewController+Category.h"; sourceTree = "<group>"; };
@@ -766,6 +770,15 @@
 				7401E9BA1ACD12E9006868B2 /* SendProblemToDoctorViewController.m */,
 			);
 			path = MyDoctor;
+			sourceTree = "<group>";
+		};
+		744337341ADCEE4C000F32E2 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				744337351ADCEE4C000F32E2 /* Report_needle@2x.png */,
+				744337361ADCEE4C000F32E2 /* Report_Rect@2x.png */,
+			);
+			path = Report;
 			sourceTree = "<group>";
 		};
 		744522941ADBA278002B20F0 /* Chat */ = {
@@ -1287,6 +1300,7 @@
 		74CE089B1AA4A52000DD9458 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				744337341ADCEE4C000F32E2 /* Report */,
 				740E3E161AD7B68B00E8BA75 /* tabbar */,
 				1974F25A1AD6BA4500A8EE0D /* Icon */,
 				198F14E81ACCF1CB008C208F /* My */,
@@ -1431,6 +1445,7 @@
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */,
 				1974F26D1AD6BBBB00A8EE0D /* 58x58@3x.png in Resources */,
+				744337371ADCEE4C000F32E2 /* Report_needle@2x.png in Resources */,
 				197F62EE1ABA188D0054E72D /* AddDevice@2x.png in Resources */,
 				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
 				197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */,
@@ -1452,6 +1467,7 @@
 				198F14EE1ACCF1CB008C208F /* MyRecommend@3x.png in Resources */,
 				744E01CC1AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png in Resources */,
 				195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */,
+				744337381ADCEE4C000F32E2 /* Report_Rect@2x.png in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				744E01CD1AC2FCD90063C4A7 /* MyDoctor_HeadImg_default@2x.png in Resources */,
