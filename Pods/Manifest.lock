@@ -25,6 +25,7 @@ PODS:
   - JSONKit (1.4)
   - Masonry (0.6.1)
   - MBProgressHUD (0.9.1)
+  - MMCircularProgressView (1.0.3)
   - MWPhotoBrowser (1.4.1):
     - DACircularProgress
     - MBProgressHUD (~> 0.8)
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - FMDB (~> 2.5)
   - JSONKit (~> 1.4)
   - Masonry (~> 0.6.1)
+  - MMCircularProgressView (~> 1.0.3)
   - MWPhotoBrowser (~> 1.4.1)
   - ReactiveCocoa (~> 2.4.7)
   - RegexKitLite (~> 4.0)
@@ -71,6 +73,7 @@ SPEC CHECKSUMS:
   JSONKit: 2111ac2b11f7ea0d07bb1d9d09e650918336a134
   Masonry: 2cb49fd14d203d2db5ca6bb017135b235dde9980
   MBProgressHUD: f3747dcbd45a9e855a6b0674550651e0b7ed250c
+  MMCircularProgressView: bf9172324449731485892372adf85cc024488644
   MWPhotoBrowser: be05b3b7521e961382a4ba5579685bf5a00b93d8
   PSTCollectionView: d9f466e4554cc83260ca9bde7beb27f308e8fd76
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930

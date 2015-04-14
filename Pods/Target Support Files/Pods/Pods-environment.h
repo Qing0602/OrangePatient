@@ -91,6 +91,12 @@
 #define COCOAPODS_VERSION_MINOR_MBProgressHUD 9
 #define COCOAPODS_VERSION_PATCH_MBProgressHUD 1
 
+// MMCircularProgressView
+#define COCOAPODS_POD_AVAILABLE_MMCircularProgressView
+#define COCOAPODS_VERSION_MAJOR_MMCircularProgressView 1
+#define COCOAPODS_VERSION_MINOR_MMCircularProgressView 0
+#define COCOAPODS_VERSION_PATCH_MMCircularProgressView 3
+
 // MWPhotoBrowser
 #define COCOAPODS_POD_AVAILABLE_MWPhotoBrowser
 #define COCOAPODS_VERSION_MAJOR_MWPhotoBrowser 1
