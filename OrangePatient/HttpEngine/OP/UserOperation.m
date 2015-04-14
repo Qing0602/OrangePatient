@@ -166,11 +166,13 @@
                                                            options:NSJSONWritingPrettyPrinted
                                                              error:nil];
         NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/profile/%@",K_HOST_OF_SERVER,uid];
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/users/profile/%@",K_HOST_OF_SERVER,uid];
         [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
                                                         @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
-                                                        @"body":jsonString}];
-        [self.dataRequest setRequestMethod:@"PUT"];
+                                                        @"body":jsonString,
+                                                        @"_method":@"PUT"}];
+        [self.dataRequest addRequestHeader:@"Content-Type" value:@"application/json"];
+        
     }
     return self;
 }
