@@ -7,6 +7,7 @@
 //
 
 #import "FeedBackViewController.h"
+#import "UIManagement.h"
 
 @interface FeedBackViewController ()
 @property (nonatomic,strong) UITextView *text;
@@ -43,6 +44,7 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[_text]-10-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-100-[submit]-100-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-10-[titleLabel(20)]-10-[_text(100)]-30-[submit(26)]" options:0 metrics:nil views:views]];
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"feedBackResult" options:0 context:nil];
 }
 
 -(void) submitFeedBack{
@@ -50,11 +52,26 @@
         [self showProgressWithText:@"建议不能为空" withDelayTime:2.0f];
         return;
     }
+    [[UIManagement sharedInstance] feedBack:self.text.text];
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"feedBackResult"]) {
+        if ([[UIManagement sharedInstance].feedBackResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].feedBackResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            [self showProgressWithText:@"提交成功" withDelayTime:2.0f];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) dealloc{
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"feedBackResult"];
 }
 
 @end

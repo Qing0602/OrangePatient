@@ -40,6 +40,8 @@
 -(void) setHttpRequestPostWithUrl:(NSString *)urlStr params:(NSDictionary*)params;
 -(void) setHttpRequestPostWithUrl:(NSString *)urlStr params:(NSDictionary*)params files:(NSDictionary*)files;
 -(void) setHttpRequestPostWithUrl:(NSString *)urlStr params:(NSDictionary*)params imgDataDict:(NSDictionary*)filesDict;
+// Put方法
+-(void) setHttpRequestPutWithUrl : (NSString *)urlStr;
 // 开始异步请求
 -(void) startAsynchronous;
 // 开始同步请求

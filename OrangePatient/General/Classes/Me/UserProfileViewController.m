@@ -96,8 +96,8 @@
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"updateUserProfileResult"]) {
-        if ([[UIManagement sharedInstance].changeAvatarResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
-            [self showProgressWithText:[UIManagement sharedInstance].changeAvatarResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        if ([[UIManagement sharedInstance].updateUserProfileResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].updateUserProfileResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
         }else{
             [self showProgressWithText:@"保存成功" withDelayTime:2.0f];
         }
@@ -121,8 +121,14 @@
             [self.avatar setImageURL:[NSURL URLWithString:urlStr]];
             self.userNameLabel.text = data[@"nickname"];
             self.birthdayLabel.text = data[@"birthday"];
-            self.birthdayLabel.text = data[@"telephone"];
-            self.areaLabel.text = data[@"district_city"];
+            self.telPhoneLabel.text = data[@"telephone"];
+            NSArray *array = data[@"district_city"];
+            NSMutableString *ms = [[NSMutableString alloc] initWithCapacity:20];
+            for (NSDictionary *dic in array) {
+                [ms appendString:dic[@"name"]];
+                [ms appendString:@" "];
+            }
+            self.areaLabel.text = [ms description];
         }
     }
 }

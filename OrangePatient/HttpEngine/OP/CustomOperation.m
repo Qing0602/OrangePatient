@@ -69,6 +69,13 @@ typedef enum{
     [self configRequest];
 }
 
+-(void) setHttpRequestPutWithUrl : (NSString *)urlStr{
+    NSURL *url = [NSURL URLWithString:urlStr];
+    self.httpType = Http_Post;
+    self.dataRequest = [FormDataRequest requestWithURL:url];
+    [self configRequest];
+}
+
 //ASIHttpRequest Post
 -(void)setHttpRequestPostWithUrl:(NSString *)urlStr params:(NSDictionary*)params{
     
@@ -80,7 +87,6 @@ typedef enum{
     }
     [self configRequest];
 }
-
 
 -(void)setHttpRequestPostWithUrl:(NSString *)urlStr params:(NSDictionary*)params files:(NSDictionary*)files{
     
