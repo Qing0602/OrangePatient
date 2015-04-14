@@ -8,6 +8,10 @@
 
 #import "OrangeBaseViewController.h"
 
+
+#import "ScreeningCenterModel.h"
 @interface ScreeningCenterInfoVIewController : OrangeBaseViewController
+
+- (instancetype)initWithModel:(ScreeningCenterModel *)tempModel;
 
 @end

@@ -52,9 +52,15 @@ install_resource()
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "EaseMobSDK/EaseMobSDK/resources/EaseMob.bundle"
+  install_resource "MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.bundle"
+  install_resource "SlimeRefresh/SlimeRefresh/SlimeRefresh/sr_refresh.png"
+  install_resource "SlimeRefresh/SlimeRefresh/SlimeRefresh/sr_refresh@2X.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "EaseMobSDK/EaseMobSDK/resources/EaseMob.bundle"
+  install_resource "MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.bundle"
+  install_resource "SlimeRefresh/SlimeRefresh/SlimeRefresh/sr_refresh.png"
+  install_resource "SlimeRefresh/SlimeRefresh/SlimeRefresh/sr_refresh@2X.png"
 fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

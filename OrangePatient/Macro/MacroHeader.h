@@ -14,4 +14,6 @@
 #import "HttpMacro.h"
 #import "BaseUtils.h"
 #import "TextMacro.h"
+//Chat
+#import "EaseMob.h"
 #endif
