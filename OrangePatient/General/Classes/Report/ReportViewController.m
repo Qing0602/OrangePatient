@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 30, 200.f, 200.f)];
+    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-230)/2, 30, 230.f, 230.f)];
     [self.view addSubview:_progressView];
     
     // Do any additional setup after loading the view.

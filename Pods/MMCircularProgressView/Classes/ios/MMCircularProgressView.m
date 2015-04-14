@@ -141,9 +141,9 @@
 //defines and draws the needle stroke
 -(void)addNeedle{
     
-    UIImage *img = [[UIImage imageNamed:@"needle"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]; //with this, the tinting is easy!
+    UIImage *img = [[UIImage imageNamed:@"Report_needle"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]; //with this, the tinting is easy!
     self.needleImageView = [[UIImageView alloc] initWithImage:img];
-    
+
     [self.needleImageView setFrame:CGRectMake(CGRectGetMidX(self.trackLayer.frame)-img.size.width/2,
                                               CGRectGetMidY(self.trackLayer.frame)-img.size.height/2,
                                               img.size.width,

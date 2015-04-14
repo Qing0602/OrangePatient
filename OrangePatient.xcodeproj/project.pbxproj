@@ -88,7 +88,6 @@
 		743ECC181AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ECC171AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m */; };
 		743ECC1B1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 743ECC1A1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m */; };
 		744337371ADCEE4C000F32E2 /* Report_needle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744337351ADCEE4C000F32E2 /* Report_needle@2x.png */; };
-		744337381ADCEE4C000F32E2 /* Report_Rect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744337361ADCEE4C000F32E2 /* Report_Rect@2x.png */; };
 		744522D11ADBA278002B20F0 /* ChatSendHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7445229C1ADBA278002B20F0 /* ChatSendHelper.m */; };
 		744522D21ADBA278002B20F0 /* ChatViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7445229E1ADBA278002B20F0 /* ChatViewController+Category.m */; };
 		744522D31ADBA278002B20F0 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744522A01ADBA278002B20F0 /* ChatViewController.m */; };
@@ -139,6 +138,7 @@
 		7451A13E1AD6694D0080112E /* ScreeningCenterInfoVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7451A13D1AD6694D0080112E /* ScreeningCenterInfoVIewController.m */; };
 		74738B9A1AD5498800DE7ACA /* ChooseDoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */; };
 		74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */; };
+		747EB6981ADD0C2B00A66768 /* Report_Chart_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 747EB6971ADD0C2B00A66768 /* Report_Chart_BG@2x.png */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
 		7489DCAD1ADCDCA50098AA47 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7489DCAC1ADCDCA50098AA47 /* CircularProgressView.m */; };
 		7493BD561ADA645A008DF6FA /* ScreeningCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */; };
@@ -328,7 +328,6 @@
 		743ECC191AD425CA00715EB4 /* ScreeingDatingDoctorsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeingDatingDoctorsModel.h; sourceTree = "<group>"; };
 		743ECC1A1AD425CA00715EB4 /* ScreeingDatingDoctorsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeingDatingDoctorsModel.m; sourceTree = "<group>"; };
 		744337351ADCEE4C000F32E2 /* Report_needle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Report_needle@2x.png"; sourceTree = "<group>"; };
-		744337361ADCEE4C000F32E2 /* Report_Rect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Report_Rect@2x.png"; sourceTree = "<group>"; };
 		7445229B1ADBA278002B20F0 /* ChatSendHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSendHelper.h; sourceTree = "<group>"; };
 		7445229C1ADBA278002B20F0 /* ChatSendHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSendHelper.m; sourceTree = "<group>"; };
 		7445229D1ADBA278002B20F0 /* ChatViewController+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatViewController+Category.h"; sourceTree = "<group>"; };
@@ -417,6 +416,7 @@
 		74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDoctorModel.m; sourceTree = "<group>"; };
 		74738B9B1AD5568600DE7ACA /* SubmitDatingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitDatingInfoViewController.h; sourceTree = "<group>"; };
 		74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitDatingInfoViewController.m; sourceTree = "<group>"; };
+		747EB6971ADD0C2B00A66768 /* Report_Chart_BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Report_Chart_BG@2x.png"; sourceTree = "<group>"; };
 		74837E8F1AB086F200B030D0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		7489DCAB1ADCDCA50098AA47 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
@@ -775,8 +775,8 @@
 		744337341ADCEE4C000F32E2 /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				747EB6971ADD0C2B00A66768 /* Report_Chart_BG@2x.png */,
 				744337351ADCEE4C000F32E2 /* Report_needle@2x.png */,
-				744337361ADCEE4C000F32E2 /* Report_Rect@2x.png */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -1467,7 +1467,6 @@
 				198F14EE1ACCF1CB008C208F /* MyRecommend@3x.png in Resources */,
 				744E01CC1AC2FCD90063C4A7 /* MyDoctor_btn_search@2x.png in Resources */,
 				195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */,
-				744337381ADCEE4C000F32E2 /* Report_Rect@2x.png in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				744E01CD1AC2FCD90063C4A7 /* MyDoctor_HeadImg_default@2x.png in Resources */,
@@ -1487,6 +1486,7 @@
 				744E01C11AC2FB7C0063C4A7 /* Information_Detail_   praise.png in Resources */,
 				740E3E2E1AD7BE9D00E8BA75 /* home_icon_myDoctor@2x.png in Resources */,
 				198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */,
+				747EB6981ADD0C2B00A66768 /* Report_Chart_BG@2x.png in Resources */,
 				744E01D01AC2FCD90063C4A7 /* MyDoctor_unSelected.png in Resources */,
 				744E01CB1AC2FCD90063C4A7 /* MyDoctor_arrow@2x.png in Resources */,
 			);

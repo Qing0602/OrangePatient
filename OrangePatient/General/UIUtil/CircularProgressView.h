@@ -11,6 +11,7 @@
 
 @interface CircularProgressView : BaseUIView
 @property (nonatomic, strong)MMCircularProgressView *theProgressView;
+@property (nonatomic, strong)UIImageView *needleImageView;
 
 - (void)setProgressValue:(NSInteger)value;
 @end
