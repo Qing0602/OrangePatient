@@ -107,4 +107,11 @@ static UIManagement *sharedInstance = nil;
     UserOperation *operation = [[UserOperation alloc] initGetUserProfile:uid];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
+
+// 检查版本
+-(void) checkVersion : (NSString *)version withVersionCode : (NSString *) versionCode{
+    UserOperation *operation = [[UserOperation alloc] initVersionCheck:version withVersionCode:versionCode];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
 @end

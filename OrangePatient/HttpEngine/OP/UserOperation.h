@@ -22,6 +22,7 @@ typedef enum{
     kUpdateUserDetail,
     kUpdateUserProfile,
     kGetUserProfile,
+    kVersionCheck,
 }UserType;
 
 @interface UserOperation : CustomOperation
@@ -41,4 +42,6 @@ typedef enum{
 -(UserOperation *) initUpdateUserDetail : (NSString *) uid withBody : (NSDictionary *) body;
 -(UserOperation *) initGetUserProfile : (NSString *) uid;
 -(UserOperation *) initUpdateUserProfile : (NSString *) uid withBody : (NSDictionary *) body;
+
+-(UserOperation *) initVersionCheck : (NSString *)version withVersionCode : (NSString *) versionCode;
 @end

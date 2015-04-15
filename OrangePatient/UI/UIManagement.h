@@ -46,6 +46,8 @@
 @property (nonatomic,strong) NSDictionary *getAreaResult;
 // 获取地区
 @property (nonatomic,strong) NSDictionary *getCityResult;
+// 检查版本
+@property (nonatomic,strong) NSDictionary *checkVersionResult;
 
 // 登陆
 -(void) login : (NSString *) userName withPassword : (NSString *) password;
@@ -81,4 +83,6 @@
 -(void) getArea;
 // 获取地区
 -(void) getCity : (NSInteger) areaID;
+// 检查版本
+-(void) checkVersion : (NSString *)version withVersionCode : (NSString *) versionCode;
 @end

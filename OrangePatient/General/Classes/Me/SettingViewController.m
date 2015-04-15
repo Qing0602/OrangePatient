@@ -102,6 +102,7 @@
         }else{
             // 退出
             
+            [self.tabBarController setSelectedIndex:0];
         }
     }
 }

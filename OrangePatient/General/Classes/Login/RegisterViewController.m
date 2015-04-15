@@ -88,7 +88,7 @@
     [RACObserve([UIManagement sharedInstance], regsiterResult) subscribeNext:^(NSDictionary *registerResult){
         if (registerResult) {
             if (![registerResult[ASI_REQUEST_HAS_ERROR] boolValue]) {
-                [self closeProgress];
+                [self showProgressWithText:@"注册成功" withDelayTime:2.0f];
                 NSDictionary *data = registerResult[ASI_REQUEST_DATA];
                 UserAccountModel *userAccount = [[UserAccountModel alloc] init];
                 userAccount.userUid = data[@"uid"];

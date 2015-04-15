@@ -24,6 +24,7 @@
 -(void) updateUserDetail;
 -(void) updateUserProfile;
 -(void) getUserProfile;
+-(void) checkVersion;
 @end
 
 @implementation UserOperation
@@ -192,6 +193,19 @@
     return self;
 }
 
+-(UserOperation *) initVersionCheck : (NSString *)version withVersionCode : (NSString *) versionCode{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kVersionCheck;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/setting/version?version=%@&versionCode=%@&platform=2",
+                            K_HOST_OF_SERVER,
+                            version,
+                            versionCode];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
+
 -(void) login{
     [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -322,6 +336,15 @@
     [self startAsynchronous];
 }
 
+-(void) checkVersion{
+    [self.request setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].checkVersionResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
 
 -(void) main{
     @autoreleasepool {
@@ -364,6 +387,9 @@
                 break;
             case kGetUserProfile:
                 [self getUserProfile];
+                break;
+            case kVersionCheck:
+                [self checkVersion];
                 break;
             default:
                 break;

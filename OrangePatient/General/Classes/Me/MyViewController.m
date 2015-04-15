@@ -15,7 +15,7 @@
 #import "FeedBackViewController.h"
 #import "UIManagement.h"
 
-@interface MyViewController ()
+@interface MyViewController ()<UIAlertViewDelegate>
 @property (nonatomic,strong) UIView *myView;
 @property (nonatomic,strong) EGOImageView *avatar;
 @property (nonatomic,strong) UILabel *nickName;
@@ -84,7 +84,7 @@
     [self.myView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_nickName]-10-[_uid]-10-[_regTime]" options:NSLayoutFormatAlignAllLeft metrics:nil views:views]];
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_settingTabelView]-0-|" options:0 metrics:nil views:views]];
-    
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"checkVersionResult" options:0 context:nil];
 }
 
 -(void) goToUserProfile : (UIGestureRecognizer *) gesture{
@@ -160,6 +160,8 @@
         case 2:
             break;
         case 3:
+            [self showProgressWithText:@"正在检查更新"];
+            [[UIManagement sharedInstance] checkVersion:@"1.0" withVersionCode:@"1"];
             break;
         case 4:{
             FeedBackViewController *feedBack = [[FeedBackViewController alloc] init];
@@ -178,10 +180,33 @@
     }
 }
 
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"checkVersionResult"]) {
+        if ([[UIManagement sharedInstance].checkVersionResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].checkVersionResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            [self closeProgress];
+            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"" message:@"发现新版本,是否更新" delegate:self cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+            [alter show];
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        // NO
+    }else{
+
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) dealloc{
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"checkVersionResult"];
 }
 
 @end
