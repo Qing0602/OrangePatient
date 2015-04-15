@@ -196,7 +196,8 @@
     if (buttonIndex == 0) {
         // NO
     }else{
-
+        #warning 需要appid
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/id"]];
     }
 }
 

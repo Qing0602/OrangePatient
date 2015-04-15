@@ -24,15 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleLabel = [[UILabel alloc] init];
-    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.titleLabel.text = @"定位到的位置";
-    [self.view addSubview:self.titleLabel];
-    
-    self.currentLocation = [[UILabel alloc] init];
-    self.currentLocation.translatesAutoresizingMaskIntoConstraints = NO;
-    self.currentLocation.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.currentLocation];
+//    self.titleLabel = [[UILabel alloc] init];
+//    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+//    self.titleLabel.text = @"定位到的位置";
+//    [self.view addSubview:self.titleLabel];
+//    
+//    self.currentLocation = [[UILabel alloc] init];
+//    self.currentLocation.translatesAutoresizingMaskIntoConstraints = NO;
+//    self.currentLocation.backgroundColor = [UIColor whiteColor];
+//    [self.view addSubview:self.currentLocation];
     
     self.areaTableView = [[UITableView alloc] init];
     self.areaTableView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -40,12 +40,11 @@
     self.areaTableView.dataSource = self;
     [self.view addSubview:self.areaTableView];
     
-    NSDictionary *views = @{@"topLayoutGuide":self.topLayoutGuide,@"titleLabel":self.titleLabel,@"currentLocation":self.currentLocation,
-                            @"areaTableView":self.areaTableView};
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[titleLabel]-0-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[currentLocation]-0-|" options:0 metrics:nil views:views]];
+    NSDictionary *views = @{@"topLayoutGuide":self.topLayoutGuide,@"areaTableView":self.areaTableView};
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[titleLabel]-0-|" options:0 metrics:nil views:views]];
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[currentLocation]-0-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[areaTableView]-0-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-15-[titleLabel(20)]-10-[currentLocation(26)]-10-[areaTableView]-0-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-0-[areaTableView]-0-|" options:0 metrics:nil views:views]];
     
     [self startLocation];
     [[UIManagement sharedInstance] addObserver:self forKeyPath:@"getAreaResult" options:0 context:nil];
@@ -68,11 +67,11 @@
 
 //开始定位
 -(void)startLocation{
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.distanceFilter = 10.0f;
-    [self.locationManager startUpdatingLocation];
+//    self.locationManager = [[CLLocationManager alloc] init];
+//    self.locationManager.delegate = self;
+//    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+//    self.locationManager.distanceFilter = 10.0f;
+//    [self.locationManager startUpdatingLocation];
 }
 
 //定位代理经纬度回调
