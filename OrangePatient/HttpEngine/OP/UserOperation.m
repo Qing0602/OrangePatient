@@ -152,8 +152,9 @@
         NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/detail/%@",K_HOST_OF_SERVER,uid];
         [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
                                                         @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
-                                                        @"body":jsonString}];
-        [self.dataRequest setRequestMethod:@"PUT"];
+                                                        @"body":jsonString,
+                                                        @"_method":@"PUT"}];
+        [self.dataRequest addRequestHeader:@"Content-Type" value:@"application/json"];
     }
     return self;
 }

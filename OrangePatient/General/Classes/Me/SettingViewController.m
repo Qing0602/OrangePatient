@@ -7,8 +7,9 @@
 //
 
 #import "SettingViewController.h"
+#import "UIManagement.h"
 
-@interface SettingViewController ()
+@interface SettingViewController ()<UIActionSheetDelegate>
 @property (nonatomic,strong) UITableView *settingTabelView;
 @end
 
@@ -31,6 +32,7 @@
     NSDictionary *views = NSDictionaryOfVariableBindings(_settingTabelView);
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_settingTabelView]-0-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_settingTabelView(88)]" options:0 metrics:nil views:views]];
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"logoutResult" options:0 context:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -75,16 +77,41 @@
             [self.navigationController pushViewController:setting animated:YES];
         }
             break;
-        case 1:
-            
+        case 1:{
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"退出登录", nil];
+            [actionSheet showInView:self.view];
+        }
             break;
         default:
             break;
     }
 }
 
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        [[UIManagement sharedInstance] logout];
+    }else if (buttonIndex == 1) {
+        NSLog(@"cancel");
+    }
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"logoutResult"]) {
+        if ([[UIManagement sharedInstance].logoutResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].logoutResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            // 退出
+            
+        }
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void) dealloc{
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"logoutResult"];
 }
 
 @end

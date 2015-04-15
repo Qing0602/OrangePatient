@@ -128,8 +128,11 @@
             }
         }
         if (!result) {
-            [self.peripheralArray addObject:peripheral];
-            [self.deviceTableView reloadData];
+            NSRange foundObj=[peripheral.name rangeOfString:@"SpO" options:NSCaseInsensitiveSearch];
+            if (foundObj.length > 0) {
+                [self.peripheralArray addObject:peripheral];
+                [self.deviceTableView reloadData];
+            }
         }
         
         self.deviceCount.text = [NSString stringWithFormat:@"索搜到%lu个新设备",(unsigned long)[self.peripheralArray count]];

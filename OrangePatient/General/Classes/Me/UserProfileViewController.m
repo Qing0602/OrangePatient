@@ -175,6 +175,8 @@
                 title.text = @"头像";
                 self.avatar = [[EGOImageView alloc] init];
                 self.avatar.translatesAutoresizingMaskIntoConstraints = NO;
+                self.avatar.layer.cornerRadius = 30.0f;
+                self.avatar.layer.masksToBounds = YES;
                 [cell.contentView addSubview:self.avatar];
                 views = NSDictionaryOfVariableBindings(_avatar);
                 [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_avatar(60)]-10-|" options:0 metrics:nil views:views]];
