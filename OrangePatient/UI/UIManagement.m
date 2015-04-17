@@ -131,7 +131,71 @@ static UIManagement *sharedInstance = nil;
 -(void) getDoctors : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code{
     SettingOperation *operation = [[SettingOperation alloc] initGetDoctors:limit withOffset:offset withCode:code];
     [[NetWorkService sharedInstance] networkEngine:operation];
-    
 }
 
+#pragma mark -
+#pragma mark 信息相关网络访问
+// 获取最新健康资讯信息
+-(void) initGetRecent : (NSUInteger) offset withLimit : (NSUInteger) limit{
+    InformationOperation *operation = [[InformationOperation alloc] initGetRecent:offset withLimit:limit];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 获取指定最新健康资讯信息的详细内容
+-(void) initGetRecentDetail : (NSInteger) recentID{
+    InformationOperation *operation = [[InformationOperation alloc] initGetRecentDetail:recentID];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+#pragma mark -
+#pragma mark 医生相关网络访问
+// 我的预约医生列表
+-(void) getMyAppointmentList : (NSUInteger) offset withLimit : (NSUInteger) limit{
+    DoctorsOperation *operation = [[DoctorsOperation alloc] initGetMyAppointmentList:offset withLimit:limit];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 预约医生
+-(void) appointment : (NSString *) uid withTimeStamp : (long) timeStamp{
+    DoctorsOperation *operation = [[DoctorsOperation alloc] initAppointment:uid withTimeStamp:timeStamp];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 通过地区/医院等筛选条件选择医生
+-(void) searchDoctors : (long) districtID withHospitalID : (long) hospitalID{
+    DoctorsOperation *operation = [[DoctorsOperation alloc] initSearchDoctors:districtID withHospitalID:hospitalID];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 添加医生至我的医生列表
+-(void) followDoctor : (NSString *) uid{
+    DoctorsOperation *operation = [[DoctorsOperation alloc] initFollowDoctor:uid];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+#pragma mark -
+#pragma mark 设备相关网络访问
+// 注册我的设备
+-(void) registerDevice : (NSString *) peripheralID withName : (NSString *) name{
+    DeviceOperation *operation = [[DeviceOperation alloc] initRegisterDevice:peripheralID withName:name];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 获取我的设备
+-(void) getMyDevice{
+    DeviceOperation *operation = [[DeviceOperation alloc] initGetMyDevice];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 删除我的设备
+-(void) deleteDevice : (NSString *) peripheralID{
+    DeviceOperation *operation = [[DeviceOperation alloc] initDeleteDevice:peripheralID];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 上传我的设备
+-(void) postDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSData *) data{
+    DeviceOperation *operation = [[DeviceOperation alloc] initPostDeviceData:startTime withEndTime:endTime withPeripheralID:peripheralID withData:data];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 @end
