@@ -60,6 +60,15 @@
 // 获取指定最新健康资讯信息的详细内容
 @property (nonatomic,strong) NSDictionary *getRecentDetailResult;
 
+// 我的预约医生列表
+@property (nonatomic,strong) NSDictionary *getMyAppointmentListResult;
+// 预约医生至我的预约列表
+@property (nonatomic,strong) NSDictionary *appointmentDoctorResult;
+// 通过地区/医院等筛选条件选择医生
+@property (nonatomic,strong) NSDictionary *searchDoctorResult;
+// 添加医生至我的医生列表
+@property (nonatomic,strong) NSDictionary *followDoctorResult;
+
 // 登陆
 -(void) login : (NSString *) userName withPassword : (NSString *) password;
 // 提供手机号码获取注册、重置等验证码。typeCode:0 - 注册, 1 - 重置密码

@@ -20,7 +20,7 @@
     self = [self initCustomOperation];
     if (nil != self) {
         self.type = kGetRecent;
-        NSString *urlStr = [NSString stringWithFormat:@"%@api/info/recent?start=%ld&limit=%ld&order=DESC",K_HOST_OF_SERVER,offset,limit];
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/info/recent?start=%lu&limit=%lu&order=DESC",K_HOST_OF_SERVER,offset,limit];
         [self setHttpRequestGetWithUrl:urlStr];
     }
     return self;
@@ -30,7 +30,7 @@
     self = [self initCustomOperation];
     if (nil != self) {
         self.type = kGetRecentDetail;
-        NSString *urlStr = [NSString stringWithFormat:@"%@api/info/detail/%ld",K_HOST_OF_SERVER,recentID];
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/info/detail/%lu",K_HOST_OF_SERVER,recentID];
         [self setHttpRequestGetWithUrl:urlStr];
     }
     return self;
