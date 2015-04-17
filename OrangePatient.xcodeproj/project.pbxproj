@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18B69F64E05C1CB80152934B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EA1C7F5AB80581D41E6A58 /* libPods.a */; };
+		191A562F1ADE9C520082A5CF /* InformationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 191A562E1ADE9C520082A5CF /* InformationOperation.m */; };
 		192BCD9A1ACE9E0700137BE0 /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192BCD991ACE9E0700137BE0 /* AreaViewController.m */; };
 		192BCD9C1ACE9E6B00137BE0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 192BCD9B1ACE9E6B00137BE0 /* CoreLocation.framework */; };
 		192BCD9F1ACEC34300137BE0 /* SettingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 192BCD9E1ACEC34300137BE0 /* SettingOperation.m */; };
@@ -200,6 +201,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		191A562D1ADE9C520082A5CF /* InformationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationOperation.h; sourceTree = "<group>"; };
+		191A562E1ADE9C520082A5CF /* InformationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationOperation.m; sourceTree = "<group>"; };
 		192BCD981ACE9E0700137BE0 /* AreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaViewController.h; sourceTree = "<group>"; };
 		192BCD991ACE9E0700137BE0 /* AreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaViewController.m; sourceTree = "<group>"; };
 		192BCD9B1ACE9E6B00137BE0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -641,6 +644,8 @@
 				19D8A9261AC5D9790092688E /* UserOperation.m */,
 				192BCD9D1ACEC34300137BE0 /* SettingOperation.h */,
 				192BCD9E1ACEC34300137BE0 /* SettingOperation.m */,
+				191A562D1ADE9C520082A5CF /* InformationOperation.h */,
+				191A562E1ADE9C520082A5CF /* InformationOperation.m */,
 			);
 			path = OP;
 			sourceTree = "<group>";
@@ -1593,6 +1598,7 @@
 				74CE09001AA4A52000DD9458 /* UIImageView+Base.m in Sources */,
 				74CE08F61AA4A52000DD9458 /* NSString+Base.m in Sources */,
 				744522D11ADBA278002B20F0 /* ChatSendHelper.m in Sources */,
+				191A562F1ADE9C520082A5CF /* InformationOperation.m in Sources */,
 				7401E9BB1ACD12E9006868B2 /* SendProblemToDoctorViewController.m in Sources */,
 				19A679BD1AAB46B4006328DA /* NetWorkService.m in Sources */,
 				74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */,

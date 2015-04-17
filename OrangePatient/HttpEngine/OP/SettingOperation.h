@@ -10,8 +10,14 @@
 typedef enum{
     kGetArea,
     kGetCity,
+    kGetHospital,
+    kGetDepartment,
+    kGetDoctors,
 }SettingType;
 @interface SettingOperation : CustomOperation
 -(SettingOperation *) initGetArea;
 -(SettingOperation *) initGetCity : (NSInteger) areaID;
+-(SettingOperation *) initGetHospital : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code;
+-(SettingOperation *) initGetDepartment : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code;
+-(SettingOperation *) initGetDoctors : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code;
 @end

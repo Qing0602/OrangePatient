@@ -49,6 +49,17 @@
 // 检查版本
 @property (nonatomic,strong) NSDictionary *checkVersionResult;
 
+// 获取医院列表
+@property (nonatomic,strong) NSDictionary *getHospitalResult;
+// 获取所属医院的科室列表
+@property (nonatomic,strong) NSDictionary *getDepartmentResult;
+// 获取所属医院的科室的医生列表
+@property (nonatomic,strong) NSDictionary *getDoctorsResult;
+// 获取最新健康资讯信息
+@property (nonatomic,strong) NSDictionary *getRecentResult;
+// 获取指定最新健康资讯信息的详细内容
+@property (nonatomic,strong) NSDictionary *getRecentDetailResult;
+
 // 登陆
 -(void) login : (NSString *) userName withPassword : (NSString *) password;
 // 提供手机号码获取注册、重置等验证码。typeCode:0 - 注册, 1 - 重置密码
@@ -85,4 +96,16 @@
 -(void) getCity : (NSInteger) areaID;
 // 检查版本
 -(void) checkVersion : (NSString *)version withVersionCode : (NSString *) versionCode;
+
+// 获取医院列表
+-(void) getHospital : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code;
+// 获取所属医院的科室列表
+-(void) getDepartment : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code;
+// 获取所属医院的科室的医生列表
+-(void) getDoctors : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code;
+
+// 获取最新健康资讯信息
+-(void) initGetRecent : (NSUInteger) offset withLimit : (NSUInteger) limit;
+// 获取指定最新健康资讯信息的详细内容
+-(void) initGetRecentDetail : (NSInteger) recentID;
 @end

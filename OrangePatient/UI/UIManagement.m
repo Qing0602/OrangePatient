@@ -114,4 +114,24 @@ static UIManagement *sharedInstance = nil;
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
 
+// 获取医院列表
+-(void) getHospital : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code{
+    SettingOperation *operation = [[SettingOperation alloc] initGetHospital:limit withOffset:offset withCode:code];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 获取所属医院的科室列表
+-(void) getDepartment : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code{
+    SettingOperation *operation = [[SettingOperation alloc] initGetDepartment:limit withOffset:offset withCode:code];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+    
+}
+
+// 获取所属医院的科室的医生列表
+-(void) getDoctors : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code{
+    SettingOperation *operation = [[SettingOperation alloc] initGetDoctors:limit withOffset:offset withCode:code];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+    
+}
+
 @end

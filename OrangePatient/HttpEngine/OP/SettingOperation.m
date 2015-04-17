@@ -13,6 +13,9 @@
 @property(nonatomic) SettingType type;
 -(void) getArea;
 -(void) getCity;
+-(void) getHospital;
+-(void) getDepartment;
+-(void) getDoctors;
 @end
 
 @implementation SettingOperation
@@ -31,6 +34,36 @@
     if (nil != self) {
         self.type = kGetCity;
         NSString *urlStr = [NSString stringWithFormat:@"%@api/setting/city/%@",K_HOST_OF_SERVER,[NSString stringWithFormat:@"%ld",areaID]];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
+
+-(SettingOperation *) initGetHospital : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kGetHospital;
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/setting/hospital/%ld?start=%ld&limit=%ld",K_HOST_OF_SERVER,code,offset,limit];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
+
+-(SettingOperation *) initGetDepartment : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kGetDepartment;
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/setting/department/%ld?start=%ld&limit=%ld",K_HOST_OF_SERVER,code,offset,limit];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
+
+-(SettingOperation *) initGetDoctors : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kGetDoctors;
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/setting/doctors/%ld?start=%ld&limit=%ld",K_HOST_OF_SERVER,code,offset,limit];
         [self setHttpRequestGetWithUrl:urlStr];
     }
     return self;
@@ -56,6 +89,36 @@
     [self startAsynchronous];
 }
 
+-(void) getHospital{
+    [self.request setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].getHospitalResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
+-(void) getDepartment{
+    [self.request setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].getHospitalResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
+-(void) getDoctors{
+    [self.request setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].getHospitalResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
@@ -64,6 +127,15 @@
                 break;
             case kGetCity:
                 [self getCity];
+                break;
+            case kGetHospital:
+                [self getHospital];
+                break;
+            case kGetDepartment:
+                [self getDepartment];
+                break;
+            case kGetDoctors:
+                [self getDoctors];
                 break;
             default:
                 break;
