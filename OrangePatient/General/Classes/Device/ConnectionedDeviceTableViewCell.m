@@ -56,7 +56,7 @@
     self.deleteButton.frame = CGRectMake(SCREEN_WIDTH - 80.0f - 10.0f, 20.0f, 83.0f, 28.5f);
 }
 
--(void) setModel:(CBPeripheral *)model{
+-(void) setModel:(BlueToothModel *)model{
     if (model != nil) {
         self.deviceName.text = @"动态血氧仪";
         self.deviceDescription.text = model.name;

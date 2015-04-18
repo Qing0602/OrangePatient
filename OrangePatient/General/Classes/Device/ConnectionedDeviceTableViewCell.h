@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "BlueToothDataViewController.h"
+#import "BlueToothModel.h"
 
 @protocol ConnectionedCellDelegate <NSObject>
 
--(void) clickUnlockDevice : (CBPeripheral *) peripheral;
+-(void) clickUnlockDevice : (BlueToothModel *) peripheral;
 
 @end
 
@@ -23,7 +24,7 @@
 @property (nonatomic,strong) UILabel *deviceDescription;
 @property (nonatomic,strong) UIButton *deleteButton;
 
-@property (nonatomic,strong) CBPeripheral *peripheral;
+@property (nonatomic,strong) BlueToothModel *peripheral;
 @property (nonatomic) id<ConnectionedCellDelegate> delegate;
--(void) setModel : (CBPeripheral *) model;
+-(void) setModel : (BlueToothModel *) model;
 @end

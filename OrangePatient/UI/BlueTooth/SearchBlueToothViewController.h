@@ -14,7 +14,7 @@
 
 @interface SearchBlueToothViewController : OrangeBaseViewController<CBCentralManagerDelegate,CBPeripheralDelegate,UITableViewDataSource,UITableViewDelegate,DiscoveryCellDelegate>
 @property (nonatomic,strong) CBCentralManager *central;
-@property (nonatomic,strong) CBPeripheral *peripheral;
+//@property (nonatomic,strong) CBPeripheral *peripheral;
 
 @property (nonatomic,strong) UILabel *deviceCount;
 @property (nonatomic,strong) UITableView *deviceTableView;

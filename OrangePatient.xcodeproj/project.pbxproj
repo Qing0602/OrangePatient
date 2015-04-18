@@ -22,6 +22,7 @@
 		195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */; };
 		195C54801ABF9A2C0063E768 /* UnlockDeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */; };
 		19611FAD1ACAD60D00AFA921 /* UserAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */; };
+		19714B531AE127C30033C19D /* BlueToothModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19714B521AE127C30033C19D /* BlueToothModel.m */; };
 		1974F2681AD6BB3600A8EE0D /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 1974F2651AD6BB3600A8EE0D /* 58x58.png */; };
 		1974F2691AD6BB3600A8EE0D /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 1974F2661AD6BB3600A8EE0D /* 80x80.png */; };
 		1974F26A1AD6BB3600A8EE0D /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 1974F2671AD6BB3600A8EE0D /* 120x120.png */; };
@@ -49,6 +50,8 @@
 		198F3FE61AB6EF990017A90B /* default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE21AB6EF990017A90B /* default-667h@2x.png */; };
 		198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE31AB6EF990017A90B /* Default-736h@3x.png */; };
 		198F3FE81AB6EF990017A90B /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE41AB6EF990017A90B /* default@2x.png */; };
+		19A2655F1AE0CC9E00B0821E /* DoctorsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A2655E1AE0CC9E00B0821E /* DoctorsOperation.m */; };
+		19A265621AE0EB1100B0821E /* DeviceOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A265611AE0EB1100B0821E /* DeviceOperation.m */; };
 		19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */; };
 		19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B01AAB46B4006328DA /* UIModelCoding.m */; };
 		19A679BD1AAB46B4006328DA /* NetWorkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B21AAB46B4006328DA /* NetWorkService.m */; };
@@ -224,6 +227,8 @@
 		195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDeviceImage@3x.png"; sourceTree = "<group>"; };
 		19611FAB1ACAD60D00AFA921 /* UserAccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccountModel.h; sourceTree = "<group>"; };
 		19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccountModel.m; sourceTree = "<group>"; };
+		19714B511AE127C30033C19D /* BlueToothModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothModel.h; sourceTree = "<group>"; };
+		19714B521AE127C30033C19D /* BlueToothModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothModel.m; sourceTree = "<group>"; };
 		1974F2651AD6BB3600A8EE0D /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
 		1974F2661AD6BB3600A8EE0D /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
 		1974F2671AD6BB3600A8EE0D /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
@@ -261,6 +266,10 @@
 		198F3FE21AB6EF990017A90B /* default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-667h@2x.png"; sourceTree = "<group>"; };
 		198F3FE31AB6EF990017A90B /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		198F3FE41AB6EF990017A90B /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		19A2655D1AE0CC9E00B0821E /* DoctorsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorsOperation.h; sourceTree = "<group>"; };
+		19A2655E1AE0CC9E00B0821E /* DoctorsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorsOperation.m; sourceTree = "<group>"; };
+		19A265601AE0EB1100B0821E /* DeviceOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOperation.h; sourceTree = "<group>"; };
+		19A265611AE0EB1100B0821E /* DeviceOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOperation.m; sourceTree = "<group>"; };
 		19A679AD1AAB46B4006328DA /* AsiGetRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsiGetRequestModel.h; sourceTree = "<group>"; };
 		19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsiGetRequestModel.m; sourceTree = "<group>"; };
 		19A679AF1AAB46B4006328DA /* UIModelCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModelCoding.h; sourceTree = "<group>"; };
@@ -627,6 +636,8 @@
 				19A679B01AAB46B4006328DA /* UIModelCoding.m */,
 				19611FAB1ACAD60D00AFA921 /* UserAccountModel.h */,
 				19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */,
+				19714B511AE127C30033C19D /* BlueToothModel.h */,
+				19714B521AE127C30033C19D /* BlueToothModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -646,6 +657,10 @@
 				192BCD9E1ACEC34300137BE0 /* SettingOperation.m */,
 				191A562D1ADE9C520082A5CF /* InformationOperation.h */,
 				191A562E1ADE9C520082A5CF /* InformationOperation.m */,
+				19A2655D1AE0CC9E00B0821E /* DoctorsOperation.h */,
+				19A2655E1AE0CC9E00B0821E /* DoctorsOperation.m */,
+				19A265601AE0EB1100B0821E /* DeviceOperation.h */,
+				19A265611AE0EB1100B0821E /* DeviceOperation.m */,
 			);
 			path = OP;
 			sourceTree = "<group>";
@@ -1562,6 +1577,7 @@
 				74E462F11AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.m in Sources */,
 				744522DE1ADBA278002B20F0 /* EMChatLocationBubbleView.m in Sources */,
 				74CE09081AA4A52000DD9458 /* BaseUIView.m in Sources */,
+				19A265621AE0EB1100B0821E /* DeviceOperation.m in Sources */,
 				74CCFFF11AB5646A00DDD42E /* TextFieldWithLeftIcon.m in Sources */,
 				74BE67AD1A9F4AF7008F7C44 /* ViewController.m in Sources */,
 				7401E9B81ACD129E006868B2 /* AddDoctorForChooseDoctorCell.m in Sources */,
@@ -1609,6 +1625,7 @@
 				743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */,
 				744522DB1ADBA278002B20F0 /* EMChatAudioBubbleView.m in Sources */,
 				744522E21ADBA278002B20F0 /* EMChatViewBaseCell.m in Sources */,
+				19714B531AE127C30033C19D /* BlueToothModel.m in Sources */,
 				74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */,
 				1982A3CC1AD0AFB500233D4C /* AboutViewController.m in Sources */,
 				7401E9B51ACD1256006868B2 /* AddDoctorForChooseDoctorViewController.m in Sources */,
@@ -1624,6 +1641,7 @@
 				7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */,
 				744522E41ADBA278002B20F0 /* MessageModel.m in Sources */,
 				74CE08FD1AA4A52000DD9458 /* UIControl+Base.m in Sources */,
+				19A2655F1AE0CC9E00B0821E /* DoctorsOperation.m in Sources */,
 				74F64E781AC90B01004F44D6 /* MyDoctorListViewController.m in Sources */,
 				19611FAD1ACAD60D00AFA921 /* UserAccountModel.m in Sources */,
 				19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */,

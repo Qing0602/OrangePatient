@@ -95,9 +95,9 @@
     }
 }
 
--(void) setModel : (CBPeripheral *) peripheral{
+-(void) setModel : (BlueToothModel *) peripheral{
     if (peripheral != nil) {
-        self.deviceName.text = @"动态血氧仪";
+        self.deviceName.text = peripheral.text;
         self.deviceDescription.text = peripheral.name;
         self.peripheral = peripheral;
     }

@@ -9,12 +9,13 @@
 #import "SearchBlueToothViewController.h"
 #import "UIModelCoding.h"
 #import "UIColor+Base.h"
+#import "BlueToothModel.h"
+#import "UIManagement.h"
 
 @interface SearchBlueToothViewController ()
 @property (nonatomic,strong) NSMutableArray *uuidArray;
 @property (nonatomic,strong) NSMutableArray *peripheralArray;
-
--(void) addBlueToothCache : (NSUUID *) identifier;
+@property (nonatomic,strong) BlueToothModel *blueToothModel;
 @end
 
 @implementation SearchBlueToothViewController
@@ -51,11 +52,13 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[deviceCount]-0-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[deviceTableView]-0-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-0-[deviceCount(46)]-0-[deviceTableView]-0-[bottomLayoutGuide]" options:0 metrics:nil views:views]];
+    
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"registerDeviceResult" options:0 context:nil];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.peripheralArray count];
+    return [self.uuidArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -68,22 +71,21 @@
     if (cell == nil) {
         cell = [[DiscoveryDeviceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:discoveryDeviceCell];
     }
-    [cell setModel:[self.peripheralArray objectAtIndex:indexPath.row]];
+    [cell setModel:[self.uuidArray objectAtIndex:indexPath.row]];
     cell.delegate = self;
     return cell;
 }
 
--(void) clickAddDevice : (CBPeripheral *) peripheral{
-    [self addBlueToothCache:peripheral.identifier];
+-(void) clickAddDevice : (BlueToothModel *) peripheral{
+    self.blueToothModel = peripheral;
     [self.central stopScan];
-    BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:peripheral.identifier];
-    [self.navigationController pushViewController:blueToothData animated:YES];
+    [self showProgressWithText:@"正在添加设备"];
+    [[UIManagement sharedInstance] registerDevice:peripheral.sn withName:peripheral.name];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central{
     switch (central.state) {
@@ -122,15 +124,23 @@
     if (peripheral) {
         
         BOOL result = NO;
-        for (CBPeripheral *per in self.peripheralArray) {
-            if ([per.identifier.UUIDString isEqual:peripheral.identifier.UUIDString]) {
+        for (BlueToothModel *model in self.uuidArray) {
+            if ([model.sn isEqualToString:peripheral.identifier.UUIDString]) {
                 result = YES;
             }
         }
+        
         if (!result) {
             NSRange foundObj=[peripheral.name rangeOfString:@"SpO" options:NSCaseInsensitiveSearch];
             if (foundObj.length > 0) {
-                [self.peripheralArray addObject:peripheral];
+                BlueToothModel *model = [[BlueToothModel alloc] init];
+                model.sn = peripheral.identifier.UUIDString;
+                model.isAdd = NO;
+                model.text = @"动态血氧仪";
+                model.name = peripheral.name;
+                [self.uuidArray addObject:model];
+                BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
+                NSLog(@"%d",result);
                 [self.deviceTableView reloadData];
             }
         }
@@ -139,19 +149,30 @@
     }
 }
 
--(void) addBlueToothCache : (NSUUID *) identifier{
-    BOOL isHave = NO;
-    for (NSUUID * uuid in self.uuidArray) {
-        if ([uuid.UUIDString isEqualToString:identifier.UUIDString]) {
-            isHave = YES;
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"registerDeviceResult"]) {
+        if ([[UIManagement sharedInstance].registerDeviceResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].registerDeviceResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            [self closeProgress];
+            NSDictionary *data = [UIManagement sharedInstance].registerDeviceResult[ASI_REQUEST_DATA];
+            for (BlueToothModel *model in self.uuidArray) {
+                if ([model.sn isEqualToString:self.blueToothModel.sn]) {
+                    model.uuid = data[@"did"];
+                    model.isAdd = YES;
+                }
+            }
+            BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
+            NSLog(@"%d",result);
+            [self.deviceTableView reloadData];
+            BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:[[NSUUID alloc] initWithUUIDString:self.blueToothModel.sn]];
+            [self.navigationController pushViewController:blueToothData animated:YES];
         }
     }
-    
-    if (!isHave) {
-        [self.uuidArray addObject:identifier];
-        BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
-        NSLog(@"%d",result);
-    }
+}
+
+-(void) dealloc{
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"registerDeviceResult"];
 }
 
 @end
