@@ -79,7 +79,8 @@
 -(void) clickAddDevice : (BlueToothModel *) peripheral{
     self.blueToothModel = peripheral;
     [self.central stopScan];
-    [[UIManagement sharedInstance] registerDevice:peripheral.sn withName:peripheral.spID];
+    [self showProgressWithText:@"正在添加设备"];
+    [[UIManagement sharedInstance] registerDevice:peripheral.sn withName:peripheral.name];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,8 +136,8 @@
                 BlueToothModel *model = [[BlueToothModel alloc] init];
                 model.sn = peripheral.identifier.UUIDString;
                 model.isAdd = NO;
-                model.spID = peripheral.name;
-                model.name = @"动态血氧仪";
+                model.text = @"动态血氧仪";
+                model.name = peripheral.name;
                 [self.uuidArray addObject:model];
                 BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
                 NSLog(@"%d",result);
@@ -153,11 +154,10 @@
         if ([[UIManagement sharedInstance].registerDeviceResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
             [self showProgressWithText:[UIManagement sharedInstance].registerDeviceResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
         }else{
+            [self closeProgress];
             NSDictionary *data = [UIManagement sharedInstance].registerDeviceResult[ASI_REQUEST_DATA];
-            BlueToothModel *model = [[BlueToothModel alloc] init];
-            model.sn = self.blueToothModel.sn;
             for (BlueToothModel *model in self.uuidArray) {
-                if ([model.spID isEqualToString:self.blueToothModel.spID]) {
+                if ([model.sn isEqualToString:self.blueToothModel.sn]) {
                     model.uuid = data[@"did"];
                     model.isAdd = YES;
                 }

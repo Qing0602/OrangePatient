@@ -70,7 +70,7 @@
     
     int status = [dic[@"code"] intValue];
     
-    if (status != 200 && status != 0) {
+    if (status != 200) {
         self.hasError = YES;
         self.errorMessage = dic[@"message"];
     }else{

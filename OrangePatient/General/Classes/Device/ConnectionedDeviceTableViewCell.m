@@ -58,8 +58,8 @@
 
 -(void) setModel:(BlueToothModel *)model{
     if (model != nil) {
-        self.deviceName.text = model.name;
-        self.deviceDescription.text = model.sn;
+        self.deviceName.text = @"动态血氧仪";
+        self.deviceDescription.text = model.name;
         self.peripheral = model;
     }
 }

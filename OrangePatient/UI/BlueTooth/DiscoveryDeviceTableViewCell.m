@@ -97,8 +97,8 @@
 
 -(void) setModel : (BlueToothModel *) peripheral{
     if (peripheral != nil) {
-        self.deviceName.text = peripheral.name;
-        self.deviceDescription.text = peripheral.spID;
+        self.deviceName.text = peripheral.text;
+        self.deviceDescription.text = peripheral.name;
         self.peripheral = peripheral;
     }
 }

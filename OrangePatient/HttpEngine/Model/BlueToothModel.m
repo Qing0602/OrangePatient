@@ -21,7 +21,7 @@
     [aCoder encodeObject:self.name forKey:@"name"];
     [aCoder encodeObject:self.sn forKey:@"sn"];
     [aCoder encodeObject:self.logoUrl forKey:@"logoUrl"];
-    [aCoder encodeObject:self.spID forKey:@"spID"];
+    [aCoder encodeObject:self.text forKey:@"text"];
     [aCoder encodeBool:self.isAdd forKey:@"isAdd"];
 }
 
@@ -32,7 +32,7 @@
         self.name=[aDecoder decodeObjectForKey:@"name"];
         self.sn=[aDecoder decodeObjectForKey:@"sn"];
         self.logoUrl=[aDecoder decodeObjectForKey:@"logoUrl"];
-        self.spID = [aDecoder decodeObjectForKey:@"spID"];
+        self.text = [aDecoder decodeObjectForKey:@"text"];
         self.isAdd = [aDecoder decodeBoolForKey:@"isAdd"];
     }
     return self;
@@ -87,7 +87,7 @@
     }
     self.logoUrl = json[@"type"][@"logoUrl"];
     self.isAdd = YES;
-    self.spID = @"";
+    self.text = @"";
     return YES;
 }
 @end

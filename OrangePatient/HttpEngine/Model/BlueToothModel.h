@@ -13,7 +13,7 @@
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSString *sn;
 @property (nonatomic,strong) NSString *logoUrl;
-@property (nonatomic,strong) NSString *spID;
+@property (nonatomic,strong) NSString *text;
 @property (nonatomic) BOOL isAdd;
 -(BOOL) converJson : (NSDictionary *) json;
 @end
