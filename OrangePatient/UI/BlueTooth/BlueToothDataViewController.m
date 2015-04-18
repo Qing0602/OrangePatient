@@ -18,6 +18,8 @@
 
 #import "BlueToothDataViewController.h"
 #import "UIModelCoding.h"
+#import "UIManagement.h"
+#import "BlueToothModel.h"
 
 @interface BlueToothDataViewController ()
 @property (nonatomic,strong) NSUUID *deviceUUID;
@@ -25,6 +27,7 @@
 @property (nonatomic,strong) CBPeripheral *peripheral;
 @property (nonatomic,strong) CBCharacteristic *rx;
 @property (nonatomic,strong) CBCharacteristic *tx;
+@property (nonatomic,strong) BlueToothModel *currentModel;
 @property (nonatomic) NSInteger flag;
 -(void) setData : (NSArray *)data;
 -(void) getBlueToothData;
@@ -37,6 +40,12 @@
     self = [super init];
     if (self != nil) {
         self.deviceUUID = uuid;
+        NSMutableArray *uuidArray = [UIModelCoding deserializeModel:@"coreToothCache.cac"];
+        for (BlueToothModel *model in uuidArray) {
+            if ([model.sn isEqualToString:uuid.UUIDString]) {
+                self.currentModel = model;
+            }
+        }
     }
     return self;
 }
@@ -199,6 +208,8 @@
     [self.bgViewTwo addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_lineTwo]-0-[_bpNumber(62)]-0-[_bpName]-0-|" options:0 metrics:nil views:viewsPart2]];
     [self.bgViewTwo addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_lineTwo]-0-[_caloriesNumber(62)]-0-[_caloriesName]-0-|" options:0 metrics:nil views:viewsPart2]];
     
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"uploadMyDeviceData" options:0 context:nil];
+    
     NSArray *oldData = [UIModelCoding deserializeModel:[NSString stringWithFormat:@"%@.cac",self.deviceUUID.UUIDString]];
     [self setData:oldData];
 }
@@ -339,13 +350,24 @@
             for(int i=0;i<[self.mutableData length];i++){
                 if ( byteData[i] == 0x18 ) {
                     [self analyes:self.mutableData];
-                    [self removeBlueToothData];
+                    [[UIManagement sharedInstance] postDeviceData:1 withEndTime:1 withPeripheralID:self.currentModel.uuid withData:self.mutableData];
                     break;
                 }
             }
         }
     }else if (self.flag == 2){
         NSLog(@"删除数据 0b81");
+    }
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"uploadMyDeviceData"]) {
+        if ([[UIManagement sharedInstance].uploadMyDeviceData[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].uploadMyDeviceData[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            [self showProgressWithText:@"上传数据完毕" withDelayTime:2.0f];
+            [self removeBlueToothData];
+        }
     }
 }
 
@@ -468,6 +490,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void) dealloc{
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"uploadMyDeviceData"];
 }
 
 @end

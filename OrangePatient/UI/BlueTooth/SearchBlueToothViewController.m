@@ -153,13 +153,17 @@
         if ([[UIManagement sharedInstance].registerDeviceResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
             [self showProgressWithText:[UIManagement sharedInstance].registerDeviceResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
         }else{
+            NSDictionary *data = [UIManagement sharedInstance].registerDeviceResult[ASI_REQUEST_DATA];
             BlueToothModel *model = [[BlueToothModel alloc] init];
             model.sn = self.blueToothModel.sn;
             for (BlueToothModel *model in self.uuidArray) {
                 if ([model.spID isEqualToString:self.blueToothModel.spID]) {
+                    model.uuid = data[@"did"];
                     model.isAdd = YES;
                 }
             }
+            BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
+            NSLog(@"%d",result);
             [self.deviceTableView reloadData];
             BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:[[NSUUID alloc] initWithUUIDString:self.blueToothModel.sn]];
             [self.navigationController pushViewController:blueToothData animated:YES];

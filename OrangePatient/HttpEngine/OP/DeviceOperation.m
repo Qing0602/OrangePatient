@@ -58,11 +58,12 @@
     self = [self initCustomOperation];
     if (nil != self) {
         self.type = kPostDeviceData;
-        NSString *urlStr = [NSString stringWithFormat:@"%@/api/device/bigdata/%@",K_HOST_OF_SERVER,peripheralID];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/device/filedata/%@",K_HOST_OF_SERVER,peripheralID];
         [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
                                                         @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
                                                         @"start_time" : [NSNumber numberWithLong:startTime],
                                                         @"end_time" : [NSNumber numberWithLong:endTime],
+                                                        @"data" : data,
                                                         }];
     }
     return self;

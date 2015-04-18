@@ -158,7 +158,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     BlueToothModel *per = [self.uuidArray objectAtIndex:indexPath.row];
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:per.uuid];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:per.sn];
     BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:uuid];
     [self.navigationController pushViewController:blueToothData animated:YES];
 }

@@ -79,7 +79,7 @@
 @property (nonatomic,strong) NSDictionary *getMyDeviceResult;
 // 删除我的设备
 @property (nonatomic,strong) NSDictionary *deleteMydeviceResult;
-// 上传我的设备
+// 上传我的设备数据
 @property (nonatomic,strong) NSDictionary *uploadMyDeviceData;
 
 
