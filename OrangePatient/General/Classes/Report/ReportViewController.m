@@ -17,8 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-230)/2, 30, 230.f, 230.f)];
+    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-300)/2, 30, 300.f, 200.f)];
     [self.view addSubview:_progressView];
+    
+    UILabel *valueTitle = [[UILabel alloc] init];
+    valueTitle.text = @"氧减饱和度指数";
+    [self.view addSubview:valueTitle];
+    
     
     // Do any additional setup after loading the view.
 }
