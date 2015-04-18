@@ -39,6 +39,7 @@
     _username.delegate = self;
     _username.returnKeyType = UIReturnKeyNext;
     _username.borderStyle = UITextBorderStyleRoundedRect;
+    _username.text = @"13601148965";
     [self.view addSubview:_username];
     
     UIImageView *pwdIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, 18.f, 18.f)];
@@ -50,6 +51,7 @@
     _pwd.secureTextEntry = YES;
     _pwd.returnKeyType = UIReturnKeySend;
     _pwd.borderStyle = UITextBorderStyleRoundedRect;
+    _pwd.text = @"148965";
     [self.view addSubview:_pwd];
     
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];

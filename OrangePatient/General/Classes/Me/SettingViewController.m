@@ -101,7 +101,6 @@
             [self showProgressWithText:[UIManagement sharedInstance].logoutResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
         }else{
             // 退出
-            
             [self.tabBarController setSelectedIndex:0];
         }
     }

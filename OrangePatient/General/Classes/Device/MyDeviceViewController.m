@@ -8,15 +8,18 @@
 
 #import "MyDeviceViewController.h"
 #import "ConnectionedDeviceTableViewCell.h"
-#import "UIModelCoding.h"
+#import "UIManagement.h"
+#import "BlueToothModel.h"
+
 
 @interface MyDeviceViewController ()<ConnectionedCellDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong) NSMutableArray *uuidArray;
-@property (nonatomic,strong) NSArray *peripheralArray;
+//@property (nonatomic,strong) NSArray *peripheralArray;
 @property (nonatomic,strong) UITableView *deviceTable;
 @property (nonatomic,strong) CBCentralManager *central;
 @property (nonatomic,strong) NSString *uuid;
 @property (nonatomic,strong) UIButton *searchButton;
+@property (nonatomic,strong) BlueToothModel *deleteModel;
 -(void) searchDevice;
 @end
 
@@ -38,21 +41,62 @@
     UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithCustomView:rightView];
     self.navigationItem.rightBarButtonItem = rightBar;
     
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"getMyDeviceResult" options:0 context:nil];
+    [[UIManagement sharedInstance] addObserver:self forKeyPath:@"deleteMydeviceResult" options:0 context:nil];
     
 }
 
 -(void) viewDidAppear:(BOOL)animated{
-    self.uuidArray = [UIModelCoding deserializeModel:@"coreToothCache.cac"];
-    if (self.uuidArray == nil) {
-        self.uuidArray = [[NSMutableArray alloc] init];
-    }
-    
-    [self reloadView];
-    
-    if ([self.uuidArray count] != 0) {
-        self.central = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
-        self.peripheralArray = [self.central retrievePeripheralsWithIdentifiers:self.uuidArray];
-        [self.deviceTable reloadData];
+    [self showProgressWithText:@"加载中..."];
+    [[UIManagement sharedInstance] getMyDevice];
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"getMyDeviceResult"]) {
+        if ([[UIManagement sharedInstance].getMyDeviceResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].getMyDeviceResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            [self closeProgress];
+            NSDictionary *data  = [UIManagement sharedInstance].getMyDeviceResult[ASI_REQUEST_DATA];
+            self.uuidArray = [[NSMutableArray alloc] init];
+            for (NSDictionary *dic in data) {
+                BlueToothModel *model = [[BlueToothModel alloc] init];
+                if ([model converJson:dic]) {
+                    [self.uuidArray addObject:model];
+                }
+            }
+            
+            NSMutableArray *uuids = [[NSMutableArray alloc] init];
+            if ([self.uuidArray count] != 0) {
+                for (BlueToothModel *model in self.uuidArray) {
+                    [uuids addObject:model.uuid];
+                }
+                [self.deviceTable reloadData];
+            }
+            BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
+            NSLog(@"%d",result);
+            [self reloadView];
+        }
+    }else if([keyPath isEqualToString:@"deleteMydeviceResult"]){
+        if ([[UIManagement sharedInstance].deleteMydeviceResult[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
+            [self showProgressWithText:[UIManagement sharedInstance].deleteMydeviceResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
+        }else{
+            [self closeProgress];
+            BlueToothModel *deleted = nil;
+            for (BlueToothModel *model in self.uuidArray) {
+                if ([model.uuid isEqualToString:self.deleteModel.uuid]) {
+                    deleted = model;
+                    break;
+                }
+            }
+            if (deleted != nil) {
+                [self.uuidArray removeObject:deleted];
+                BOOL result = [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
+                NSLog(@"%d",result);
+                [self.deviceTable reloadData];
+            }
+            [self reloadView];
+        }
     }
 }
 
@@ -92,34 +136,8 @@
     }
 }
 
-- (void)centralManagerDidUpdateState:(CBCentralManager *)central{
-    switch (central.state) {
-        case CBCentralManagerStatePoweredOn:
-            // 扫描设备
-            break;
-        case CBCentralManagerStatePoweredOff:
-            NSLog(@"CBCentralManagerStatePoweredOff");
-            break;
-        case CBCentralManagerStateResetting:
-            NSLog(@"CBCentralManagerStateResetting");
-            break;
-        case CBCentralManagerStateUnauthorized:
-            NSLog(@"CBCentralManagerStateUnauthorized");
-            break;
-        case CBCentralManagerStateUnknown:
-            NSLog(@"CBCentralManagerStateUnknown");
-            break;
-        case CBCentralManagerStateUnsupported:
-            NSLog(@"CBCentralManagerStateUnsupported");
-            break;
-        default:
-            NSLog(@"default");
-            break;
-    }
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.peripheralArray count];
+    return [self.uuidArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -134,13 +152,14 @@
     }
     cell.userInteractionEnabled =YES;
     cell.delegate = self;
-    [cell setModel:[self.peripheralArray objectAtIndex:indexPath.row]];
+    [cell setModel:[self.uuidArray objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    CBPeripheral *per = [self.peripheralArray objectAtIndex:indexPath.row];
-    BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:per.identifier];
+    BlueToothModel *per = [self.uuidArray objectAtIndex:indexPath.row];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:per.uuid];
+    BlueToothDataViewController *blueToothData = [[BlueToothDataViewController alloc] initBlueToothDataVC:uuid];
     [self.navigationController pushViewController:blueToothData animated:YES];
 }
 
@@ -149,32 +168,16 @@
     [self.navigationController pushViewController:search animated:YES];
 }
 
--(void) clickUnlockDevice : (CBPeripheral *) peripheral{
-    self.uuid = peripheral.identifier.UUIDString;
+-(void) clickUnlockDevice : (BlueToothModel *) peripheral{
+    self.deleteModel = peripheral;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"确定解绑设备" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex != 0) {
-        for (NSUUID * uuid in self.uuidArray) {
-            if ([uuid.UUIDString isEqualToString:self.uuid]) {
-                [self.uuidArray removeObject:uuid];
-                break;
-            }
-        }
-        NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:self.peripheralArray];
-        for (CBPeripheral *per in temp) {
-            if ([per.identifier.UUIDString isEqualToString:self.uuid]) {
-                [temp removeObject:per];
-                break;
-            }
-        }
-        self.peripheralArray = [[NSArray alloc] initWithArray:temp];
-        [UIModelCoding serializeModel:self.uuidArray withFileName:@"coreToothCache.cac"];
-        [self.deviceTable reloadData];
-        
-        [self reloadView];
+        [self showProgressWithText:@"正在删除..."];
+        [[UIManagement sharedInstance] deleteDevice:self.deleteModel.uuid];
     }
 }
 
@@ -182,4 +185,8 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void) dealloc{
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"getMyDeviceResult"];
+    [[UIManagement sharedInstance] removeObserver:self forKeyPath:@"deleteMydeviceResult"];
+}
 @end

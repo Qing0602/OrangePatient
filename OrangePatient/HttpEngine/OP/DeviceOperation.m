@@ -45,11 +45,10 @@
 -(DeviceOperation *) initDeleteDevice : (NSString *) peripheralID{
     self = [self initCustomOperation];
     if (nil != self) {
-        self.type = kPostRegisterDevice;
-        NSString *urlStr = [NSString stringWithFormat:@"%@/api/device/detail",K_HOST_OF_SERVER];
+        self.type = kDeleteDevice;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/device/detail/%@",K_HOST_OF_SERVER,peripheralID];
         [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
                                                         @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
-                                                        @"did":peripheralID,
                                                         @"_method":@"DELETE"}];
     }
     return self;

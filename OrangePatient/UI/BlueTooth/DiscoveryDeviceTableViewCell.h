@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "BlueToothModel.h"
 
 @protocol DiscoveryCellDelegate <NSObject>
 
--(void) clickAddDevice : (CBPeripheral *) peripheral;
+-(void) clickAddDevice : (BlueToothModel *) peripheral;
 
 @end
 
@@ -25,9 +26,9 @@
 @property (nonatomic,strong) UILabel *lineTwo;
 @property (nonatomic,strong) UILabel *lineThree;
 
-@property (nonatomic,strong) CBPeripheral *peripheral;
+@property (nonatomic,strong) BlueToothModel *peripheral;
 
 @property (nonatomic) id<DiscoveryCellDelegate> delegate;
 
--(void) setModel : (CBPeripheral *) peripheral;
+-(void) setModel : (BlueToothModel *) peripheral;
 @end
