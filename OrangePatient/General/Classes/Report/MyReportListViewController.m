@@ -8,14 +8,26 @@
 
 #import "MyReportListViewController.h"
 
-@interface MyReportListViewController ()
+#import "MyReportListTableViewCell.h"
 
+@interface MyReportListViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong)NSArray *myReportList;
 @end
 
 @implementation MyReportListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UITableView *reportListTable = [[UITableView alloc] init];
+    reportListTable.delegate = self;
+    reportListTable.dataSource = self;
+    reportListTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:reportListTable];
+    
+    [reportListTable mas_makeConstraints:^(MASConstraintMaker *make){
+        make.edges.equalTo(self.view);
+    }];
     // Do any additional setup after loading the view.
 }
 
@@ -34,4 +46,12 @@
 }
 */
 
+#pragma mark - Tableview
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 40;
+}
 @end

@@ -147,6 +147,7 @@
 		7489DCAD1ADCDCA50098AA47 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7489DCAC1ADCDCA50098AA47 /* CircularProgressView.m */; };
 		7491B4AF1AE3EF160012B6C8 /* MyReportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */; };
 		7491B4B21AE3EF3F0012B6C8 /* MyReportListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4B11AE3EF3F0012B6C8 /* MyReportListTableViewCell.m */; };
+		7491B4B51AE3F0EF0012B6C8 /* MyReportListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4B41AE3F0EF0012B6C8 /* MyReportListModel.m */; };
 		7493BD561ADA645A008DF6FA /* ScreeningCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */; };
 		749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AB1AB86A6B0003F58B /* HomeViewController.m */; };
 		749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AF1AB86F580003F58B /* CustomPageControl.m */; };
@@ -439,6 +440,8 @@
 		7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReportListViewController.m; sourceTree = "<group>"; };
 		7491B4B01AE3EF3F0012B6C8 /* MyReportListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReportListTableViewCell.h; sourceTree = "<group>"; };
 		7491B4B11AE3EF3F0012B6C8 /* MyReportListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReportListTableViewCell.m; sourceTree = "<group>"; };
+		7491B4B31AE3F0EF0012B6C8 /* MyReportListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReportListModel.h; sourceTree = "<group>"; };
+		7491B4B41AE3F0EF0012B6C8 /* MyReportListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReportListModel.m; sourceTree = "<group>"; };
 		7493BD541ADA645A008DF6FA /* ScreeningCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningCenterModel.h; sourceTree = "<group>"; };
 		7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningCenterModel.m; sourceTree = "<group>"; };
 		749A11AA1AB86A6B0003F58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -1061,6 +1064,8 @@
 				7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */,
 				7491B4B01AE3EF3F0012B6C8 /* MyReportListTableViewCell.h */,
 				7491B4B11AE3EF3F0012B6C8 /* MyReportListTableViewCell.m */,
+				7491B4B31AE3F0EF0012B6C8 /* MyReportListModel.h */,
+				7491B4B41AE3F0EF0012B6C8 /* MyReportListModel.m */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -1649,6 +1654,7 @@
 				197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */,
 				744522D71ADBA278002B20F0 /* DXFaceView.m in Sources */,
 				74CE09011AA4A52000DD9458 /* UILabel+Base.m in Sources */,
+				7491B4B51AE3F0EF0012B6C8 /* MyReportListModel.m in Sources */,
 				74CE08F41AA4A52000DD9458 /* NSDictionary+Base.m in Sources */,
 				7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */,
 				744522E41ADBA278002B20F0 /* MessageModel.m in Sources */,
