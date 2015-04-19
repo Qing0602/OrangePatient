@@ -145,6 +145,8 @@
 		747EB6981ADD0C2B00A66768 /* Report_Chart_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 747EB6971ADD0C2B00A66768 /* Report_Chart_BG@2x.png */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
 		7489DCAD1ADCDCA50098AA47 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7489DCAC1ADCDCA50098AA47 /* CircularProgressView.m */; };
+		7491B4AF1AE3EF160012B6C8 /* MyReportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */; };
+		7491B4B21AE3EF3F0012B6C8 /* MyReportListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4B11AE3EF3F0012B6C8 /* MyReportListTableViewCell.m */; };
 		7493BD561ADA645A008DF6FA /* ScreeningCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */; };
 		749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AB1AB86A6B0003F58B /* HomeViewController.m */; };
 		749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AF1AB86F580003F58B /* CustomPageControl.m */; };
@@ -433,6 +435,10 @@
 		74837E901AB086F200B030D0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		7489DCAB1ADCDCA50098AA47 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
 		7489DCAC1ADCDCA50098AA47 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
+		7491B4AD1AE3EF160012B6C8 /* MyReportListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReportListViewController.h; sourceTree = "<group>"; };
+		7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReportListViewController.m; sourceTree = "<group>"; };
+		7491B4B01AE3EF3F0012B6C8 /* MyReportListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReportListTableViewCell.h; sourceTree = "<group>"; };
+		7491B4B11AE3EF3F0012B6C8 /* MyReportListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReportListTableViewCell.m; sourceTree = "<group>"; };
 		7493BD541ADA645A008DF6FA /* ScreeningCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningCenterModel.h; sourceTree = "<group>"; };
 		7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningCenterModel.m; sourceTree = "<group>"; };
 		749A11AA1AB86A6B0003F58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -1051,6 +1057,10 @@
 			children = (
 				740E3E2F1AD7BF5E00E8BA75 /* ReportViewController.h */,
 				740E3E301AD7BF5E00E8BA75 /* ReportViewController.m */,
+				7491B4AD1AE3EF160012B6C8 /* MyReportListViewController.h */,
+				7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */,
+				7491B4B01AE3EF3F0012B6C8 /* MyReportListTableViewCell.h */,
+				7491B4B11AE3EF3F0012B6C8 /* MyReportListTableViewCell.m */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -1580,7 +1590,9 @@
 				19A265621AE0EB1100B0821E /* DeviceOperation.m in Sources */,
 				74CCFFF11AB5646A00DDD42E /* TextFieldWithLeftIcon.m in Sources */,
 				74BE67AD1A9F4AF7008F7C44 /* ViewController.m in Sources */,
+				7491B4AF1AE3EF160012B6C8 /* MyReportListViewController.m in Sources */,
 				7401E9B81ACD129E006868B2 /* AddDoctorForChooseDoctorCell.m in Sources */,
+				7491B4B21AE3EF3F0012B6C8 /* MyReportListTableViewCell.m in Sources */,
 				744522D61ADBA278002B20F0 /* DXMessageToolBar.m in Sources */,
 				743ECC181AD4259F00715EB4 /* ScreeingDatingDoctorTableViewCell.m in Sources */,
 				74CE08F21AA4A52000DD9458 /* NSArray+Base.m in Sources */,
