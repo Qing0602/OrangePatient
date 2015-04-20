@@ -8,9 +8,12 @@
 
 #import "HealthInformationViewController.h"
 
+
 #import "HealthInformationTableViewCell.h"
-#import "HealthInfomationModel.h"
 #import "ADBannerScrollView.h"
+
+#import "HealthInfomationModel.h"
+#import "UIManagement.h"
 @interface HealthInformationViewController ()<ADBannerImageViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong)ADBannerScrollView *adScrollView;
@@ -20,7 +23,6 @@
 @end
 
 @implementation HealthInformationViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -43,7 +45,18 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_adScrollView]-0-[_healthInfoTable(>=200)]-0-|" options:0 metrics:nil views:constraintsViews]];
     
     
+    [RACObserve([UIManagement sharedInstance], getRecentResult) subscribeNext:^(NSDictionary *dic){
+        if (dic) {
+            if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
+                NSArray *dataArr = dic[ASI_REQUEST_DATA];
+                [self setInfomations:dataArr];
+            }else{
+                [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
+            }
+        }
+    }];
     
+    [[UIManagement sharedInstance] initGetRecent:0 withLimit:20];
     // Do any additional setup after loading the view.
 }
 
@@ -62,19 +75,15 @@
 }
 */
 #pragma mark - Setter&Getter
-- (NSArray *)infomations
-{
-    if (!_infomations) {
-        NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:10];
-        for (int i = 0; i < 10; i++) {
-            HealthInfomationModel *testModel = [[HealthInfomationModel alloc] init];
-            testModel.infoContent = @"testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest";
-            testModel.infoTitle = @"testtesttesttest";
-            [testArray addObject:testModel];
+- (void)setInfomations:(NSArray *)infomations{
+    if (infomations) {
+        NSMutableArray *tempArr = [[NSMutableArray alloc] initWithCapacity:infomations.count];
+        for (NSDictionary *dic in infomations) {
+            [tempArr addObject:[HealthInfomationModel convertModelByDic:dic]];
         }
-        _infomations = [[NSArray alloc] initWithArray:testArray];
+        _infomations = [[NSArray alloc] initWithArray:tempArr];
+        [_healthInfoTable reloadData];
     }
-    return _infomations;
 }
 #pragma mark - Tableview
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "HealthInfomationModel.h"
 #import "EGOImageView.h"
-@interface HealthInformationTableViewCell : UITableViewCell
+@interface HealthInformationTableViewCell : UITableViewCell<UIWebViewDelegate>
 /****UI****/
 @property (nonatomic, strong)EGOImageView *cellImageview;
 @property (nonatomic, strong)UILabel *cellTitle;
-@property (nonatomic, strong)UILabel *cellContent;
+@property (nonatomic, strong)UIWebView *cellContent;
 
 - (void)setContentByInfoModel:(HealthInfomationModel *)model;
 
