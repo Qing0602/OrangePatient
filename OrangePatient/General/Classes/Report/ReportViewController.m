@@ -7,6 +7,7 @@
 //
 
 #import "ReportViewController.h"
+#import "MyReportListViewController.h"
 
 #import "CircularProgressView.h"
 @interface ReportViewController ()
@@ -75,7 +76,12 @@
     [downloadReport setTitle:@"下载报告" forState:UIControlStateNormal];
     [downloadReport setBackgroundColor:RGBACOLOR(85, 194, 43, 1)];
     downloadReport.titleLabel.font = [UIFont systemFontOfSize:13];
+    [[downloadReport rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
+        MyReportListViewController *reportList = [[MyReportListViewController alloc] init];
+        [self.navigationController pushViewController:reportList animated:YES];
+    }];
     [self.view addSubview:downloadReport];
+    
     
     [valueTitle mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.equalTo(self.progressView.mas_bottom).with.offset(30);
