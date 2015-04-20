@@ -140,6 +140,7 @@
 		744E01CF1AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01C91AC2FCD90063C4A7 /* MyDoctor_Selected@2x.png */; };
 		744E01D01AC2FCD90063C4A7 /* MyDoctor_unSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01CA1AC2FCD90063C4A7 /* MyDoctor_unSelected.png */; };
 		7451A13E1AD6694D0080112E /* ScreeningCenterInfoVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7451A13D1AD6694D0080112E /* ScreeningCenterInfoVIewController.m */; };
+		7452A8F61AE4F20900819918 /* HealthInfoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7452A8F51AE4F20900819918 /* HealthInfoDetailViewController.m */; };
 		74738B9A1AD5498800DE7ACA /* ChooseDoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */; };
 		74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */; };
 		747EB6981ADD0C2B00A66768 /* Report_Chart_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 747EB6971ADD0C2B00A66768 /* Report_Chart_BG@2x.png */; };
@@ -427,6 +428,8 @@
 		744E01CA1AC2FCD90063C4A7 /* MyDoctor_unSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyDoctor_unSelected.png; sourceTree = "<group>"; };
 		7451A13C1AD6694D0080112E /* ScreeningCenterInfoVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningCenterInfoVIewController.h; sourceTree = "<group>"; };
 		7451A13D1AD6694D0080112E /* ScreeningCenterInfoVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningCenterInfoVIewController.m; sourceTree = "<group>"; };
+		7452A8F41AE4F20900819918 /* HealthInfoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInfoDetailViewController.h; sourceTree = "<group>"; };
+		7452A8F51AE4F20900819918 /* HealthInfoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInfoDetailViewController.m; sourceTree = "<group>"; };
 		74738B981AD5498800DE7ACA /* ChooseDoctorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDoctorModel.h; sourceTree = "<group>"; };
 		74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDoctorModel.m; sourceTree = "<group>"; };
 		74738B9B1AD5568600DE7ACA /* SubmitDatingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitDatingInfoViewController.h; sourceTree = "<group>"; };
@@ -760,6 +763,8 @@
 				744E01B51AC2F77D0063C4A7 /* HealthInformationTableViewCell.m */,
 				744E01B61AC2F77D0063C4A7 /* HealthInformationViewController.h */,
 				744E01B71AC2F77D0063C4A7 /* HealthInformationViewController.m */,
+				7452A8F41AE4F20900819918 /* HealthInfoDetailViewController.h */,
+				7452A8F51AE4F20900819918 /* HealthInfoDetailViewController.m */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -1638,6 +1643,7 @@
 				74BE67A71A9F4AF7008F7C44 /* main.m in Sources */,
 				7489DCAD1ADCDCA50098AA47 /* CircularProgressView.m in Sources */,
 				742DEAE21ACBA2A400882138 /* TwoTablesCityCell.m in Sources */,
+				7452A8F61AE4F20900819918 /* HealthInfoDetailViewController.m in Sources */,
 				744522E51ADBA278002B20F0 /* MessageModelManager.m in Sources */,
 				743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */,
 				744522DB1ADBA278002B20F0 /* EMChatAudioBubbleView.m in Sources */,
