@@ -32,6 +32,9 @@
 -(void) setData : (NSArray *)data;
 -(void) getBlueToothData;
 -(void) removeBlueToothData;
+-(NSTimeInterval) getStartDate;
+-(NSTimeInterval) getEndDate;
+-(NSMutableArray *) formatData;
 @end
 
 @implementation BlueToothDataViewController
@@ -350,7 +353,13 @@
             for(int i=0;i<[self.mutableData length];i++){
                 if ( byteData[i] == 0x18 ) {
                     [self analyes:self.mutableData];
-                    [[UIManagement sharedInstance] postDeviceData:1 withEndTime:1 withPeripheralID:self.currentModel.uuid withData:self.mutableData];
+                    if (data != nil) {
+                        NSTimeInterval start = [self getStartDate];
+                        NSTimeInterval end = start + [self getEndDate];
+                        NSMutableArray *data = [self formatData];
+                        NSDictionary *json = @{@"start_time":[NSNumber numberWithLong:start],@"end_time":[NSNumber numberWithLong:end],@"data_len":[NSNumber numberWithInteger:[data count]],@"data":data};
+                        [[UIManagement sharedInstance] postDeviceData:start withEndTime:end withPeripheralID:self.currentModel.uuid withData:json];
+                    }
                     break;
                 }
             }
@@ -360,13 +369,67 @@
     }
 }
 
+-(NSTimeInterval) getStartDate{
+    BlueToothDateData *dateData = self.analyesData[0];
+    NSString *date = [NSString stringWithFormat:@"%ld-%ld-%ld",dateData.years,dateData.month,dateData.days];
+    BlueToothTimeData *timeData = self.analyesData[1];
+    NSString *time = [NSString stringWithFormat:@"%ld:%ld:%ld",timeData.hours,timeData.mins,timeData.sec];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat: @"yyyy-M-d H:m:s"];
+    NSString *temp = [NSString stringWithFormat:@"%@ %@",date,time];
+    NSDate *destDate= [dateFormatter dateFromString:temp];
+    return [destDate timeIntervalSince1970];
+}
+
+-(NSTimeInterval) getEndDate{
+    NSInteger count = 0;
+    for (int i = 2; i<[self.analyesData count]; i++) {
+        BlueToothData *blueTooth = self.analyesData[i];
+        count += [blueTooth.data count];
+    }
+    return count / 2 * 5;
+}
+
+-(NSMutableArray *) formatData{
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    for (int i = 2; i<[self.analyesData count]; i++) {
+        BlueToothData *blueTooth = self.analyesData[i];
+        for (NSNumber *number in blueTooth.data) {
+            [dataArray addObject:number];
+        }
+    }
+    
+    if ([dataArray count] == 0) {
+        return nil;
+    }else{
+        return dataArray;
+    }
+    
+//    
+//    NSMutableString *data = [[NSMutableString alloc] init];
+//    for (int i = 2; i<[self.analyesData count]; i++) {
+//        BlueToothData *blueTooth = self.analyesData[i];
+//        for (NSNumber *number in blueTooth.data) {
+//            [data appendString:[number stringValue]];
+//            [data appendString:@","];
+//        }
+//    }
+//    if ([data length] > 1) {
+//        NSString *temp = [data substringWithRange:NSMakeRange(0, data.length - 1)];
+//        return [NSString stringWithFormat:@"[%@]",temp];
+//    }else{
+//        return nil;
+//    }
+}
+
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"uploadMyDeviceData"]) {
         if ([[UIManagement sharedInstance].uploadMyDeviceData[ASI_REQUEST_HAS_ERROR] boolValue] == YES) {
             [self showProgressWithText:[UIManagement sharedInstance].uploadMyDeviceData[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:3.0f];
         }else{
             [self showProgressWithText:@"上传数据完毕" withDelayTime:2.0f];
-            [self removeBlueToothData];
+//            [self removeBlueToothData];
         }
     }
 }

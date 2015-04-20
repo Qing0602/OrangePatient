@@ -46,6 +46,8 @@
         self.addDevice.translatesAutoresizingMaskIntoConstraints = NO;
         [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateNormal];
         [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateHighlighted];
+        [self.addDevice setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.addDevice setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [self.addDevice addTarget:self action:@selector(clickAddDevice) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.addDevice];
         
@@ -88,6 +90,9 @@
 }
 
 -(void) clickAddDevice{
+    if (self.peripheral.isAdd) {
+        return;
+    }
     if (self.delegate != nil) {
         if ([self.delegate respondsToSelector:@selector(clickAddDevice:)]) {
             [self.delegate clickAddDevice:self.peripheral];
@@ -97,9 +102,20 @@
 
 -(void) setModel : (BlueToothModel *) peripheral{
     if (peripheral != nil) {
-        self.deviceName.text = peripheral.text;
+        self.deviceName.text = @"动态血氧仪";
         self.deviceDescription.text = peripheral.name;
         self.peripheral = peripheral;
+        if (peripheral.isAdd) {
+            [self.addDevice setImage:nil forState:UIControlStateNormal];
+            [self.addDevice setImage:nil forState:UIControlStateHighlighted];
+            [self.addDevice setTitle:@"已添加" forState:UIControlStateNormal];
+            [self.addDevice setTitle:@"已添加" forState:UIControlStateHighlighted];
+        }else{
+            [self.addDevice setTitle:@"" forState:UIControlStateNormal];
+            [self.addDevice setTitle:@"" forState:UIControlStateHighlighted];
+            [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateNormal];
+            [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateHighlighted];
+        }
     }
 }
 

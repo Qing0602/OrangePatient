@@ -194,7 +194,7 @@ static UIManagement *sharedInstance = nil;
 }
 
 // 上传我的设备
--(void) postDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSData *) data{
+-(void) postDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSDictionary *) data{
     DeviceOperation *operation = [[DeviceOperation alloc] initPostDeviceData:startTime withEndTime:endTime withPeripheralID:peripheralID withData:data];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }

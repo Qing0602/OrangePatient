@@ -154,6 +154,6 @@
 // 删除我的设备
 -(void) deleteDevice : (NSString *) peripheralID;
 // 上传我的设备
--(void) postDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSData *) data;
+-(void) postDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSDictionary *) data;
 
 @end

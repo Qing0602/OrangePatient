@@ -19,5 +19,5 @@ typedef enum{
 -(DeviceOperation *) initGetMyDevice;
 -(DeviceOperation *) initRegisterDevice : (NSString *) peripheralID withName : (NSString *) name;
 -(DeviceOperation *) initDeleteDevice : (NSString *) peripheralID;
--(DeviceOperation *) initPostDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSData *) data;
+-(DeviceOperation *) initPostDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSDictionary *) data;
 @end
