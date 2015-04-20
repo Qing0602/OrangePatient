@@ -7,7 +7,7 @@
 //
 
 #import "HealthInformationViewController.h"
-
+#import "HealthInfoDetailViewController.h"
 
 #import "HealthInformationTableViewCell.h"
 #import "ADBannerScrollView.h"
@@ -102,10 +102,18 @@
     HealthInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:infomationCellIden];
     if (!cell) {
         cell = [[HealthInformationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infomationCellIden];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
     [cell setContentByInfoModel:self.infomations[indexPath.row]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    HealthInfomationModel *model = self.infomations[indexPath.row];
+    HealthInfoDetailViewController *detail = [[HealthInfoDetailViewController alloc] initWithInfoModel:model];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma mark - ADBannerScrollViewDelegate
 - (void)itemTapped:(ADBannerModel *)model

@@ -8,7 +8,8 @@
 #define HOURS_IN_DAY 24
 #define SECONDS_IN_DAY (HOURS_IN_DAY * SECONDS_IN_HOUR)
 
-#define DATE_FORMAT_YMD @"yyyy-MM-dd HH:mm:ss"
+#define DATE_FORMAT_YMDHMS @"yyyy-MM-dd HH:mm:ss"
+#define DATE_FORMAT_YMD @"yyyy-MM-dd"
 
 @implementation NSDate (iCatering)
 #pragma mark - private
@@ -27,10 +28,15 @@
 + (NSDate *)dateWithString:(NSString *)dateStr
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter  alloc] init];
-    [dateFormat setDateFormat:DATE_FORMAT_YMD];
+    [dateFormat setDateFormat:DATE_FORMAT_YMDHMS];
     return  [dateFormat dateFromString:dateStr];
 }
 
+- (NSString *)stringDate{
+    NSDateFormatter *dateFormat = [[NSDateFormatter  alloc] init];
+    [dateFormat setDateFormat:DATE_FORMAT_YMD];
+    return [dateFormat stringFromDate:self];
+}
 #pragma mark - Relative dates from the current date
 + (NSDate *)dateTomorrow {
     NSTimeInterval timeInterval = [NSDate timeIntervalSinceReferenceDate] + (SECONDS_IN_DAY * 1);

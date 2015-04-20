@@ -32,6 +32,7 @@
         _cellContent.scrollView.scrollEnabled = NO;
         _cellContent.delegate = self;
         _cellContent.userInteractionEnabled = NO;
+        _cellContent.backgroundColor = [UIColor clearColor];
         //_cellContent.font = [UIFont systemFontOfSize:12.f];
         //_cellContent.textColor = [UIColor lightGrayColor];
         //_cellContent.numberOfLines = 3;
@@ -85,7 +86,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -94,5 +94,6 @@
 
     [self.cellContent stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '60%'"];
     [self.cellContent stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextFillColor= 'lightGray'"];
+    //[self.cellContent stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='#ff00ff'"];
 }
 @end

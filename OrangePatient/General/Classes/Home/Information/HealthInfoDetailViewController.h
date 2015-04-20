@@ -7,7 +7,9 @@
 //
 
 #import "OrangeBaseViewController.h"
-
+#import "HealthInfomationModel.h"
 @interface HealthInfoDetailViewController : OrangeBaseViewController
+
+- (instancetype)initWithInfoModel:(HealthInfomationModel *)infoModel;
 
 @end

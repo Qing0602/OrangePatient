@@ -8,6 +8,7 @@
 @interface NSDate (Base)
 #pragma mark - Normal
 + (NSDate *)dateWithString:(NSString *)dateStr;
+- (NSString *)stringDate;
 #pragma mark - Relative dates from the current date
 + (NSDate *)dateTomorrow;
 

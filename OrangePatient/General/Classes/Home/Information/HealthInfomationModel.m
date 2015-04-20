@@ -23,6 +23,7 @@
     tempModel.clickedNum = [dic[@"clicked"] integerValue];
     tempModel.commentNum = [dic[@"comment"] integerValue];
     tempModel.likeNum = [dic[@"like"] integerValue];
+    tempModel.infoPublishTime = [dic[@"publish_time"] longLongValue];
     return tempModel;
 }
 @end

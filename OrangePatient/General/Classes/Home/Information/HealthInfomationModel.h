@@ -27,6 +27,7 @@
 @property (nonatomic)NSInteger commentNum;
 //like
 @property (nonatomic)NSInteger likeNum;
+@property (nonatomic)long infoPublishTime;
 //more
 //@property (nonatomic)NSInteger more;
 //message
