@@ -28,7 +28,7 @@
 @property (nonatomic,strong) CBCharacteristic *rx;
 @property (nonatomic,strong) CBCharacteristic *tx;
 @property (nonatomic,strong) BlueToothModel *currentModel;
-@property (nonatomic) NSInteger flag;
+@property (nonatomic) BlueOperationType BlueOperation;
 -(void) setData : (NSArray *)data;
 -(void) getBlueToothData;
 -(void) removeBlueToothData;
@@ -56,7 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.flag = -1;
+    self.BlueOperation = kNone;
     
     self.bgViewOne = [[UIView alloc] init];
     self.bgViewOne.translatesAutoresizingMaskIntoConstraints = NO;
@@ -319,7 +319,7 @@
 // 获取完整数据
 -(void) getBlueToothData{
     if (self.rx != nil && self.tx != nil) {
-        self.flag = 1;
+        self.BlueOperation = kGetBlueData;
         Byte command[] = { 0x7D, 0x81, 0xA6, 0xFF, 0xFF };
         self.mutableData = [[NSMutableData alloc] init];
         self.analyesData = [[NSMutableArray alloc] init];
@@ -332,7 +332,7 @@
 // 删除蓝牙数据
 -(void) removeBlueToothData{
     if (self.tx != nil) {
-        self.flag = 2;
+        self.BlueOperation = kDeleteBlueData;
         Byte command[] = { 0x7D, 0x81, 0xAE, 0xFF, 0xFF };
         self.mutableData = [[NSMutableData alloc] init];
         NSData *data = [[NSData alloc] initWithBytes:command length:5];
@@ -347,7 +347,7 @@
     [self.mutableData appendData:data];
     Byte *byteData = (Byte *)[self.mutableData bytes];
     
-    if (self.flag == 1) {
+    if (self.BlueOperation == kGetBlueData) {
         if (data.length == 4 && byteData[0] == 0x18) {
             // 无数据
             self.state.text = @"无新数据";
@@ -367,7 +367,7 @@
                 }
             }
         }
-    }else if (self.flag == 2){
+    }else if (self.BlueOperation == kDeleteBlueData){
         NSLog(@"删除数据 0b81");
     }
 }
