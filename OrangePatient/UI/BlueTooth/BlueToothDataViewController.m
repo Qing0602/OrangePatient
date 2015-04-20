@@ -28,7 +28,7 @@
 @property (nonatomic,strong) CBCharacteristic *rx;
 @property (nonatomic,strong) CBCharacteristic *tx;
 @property (nonatomic,strong) BlueToothModel *currentModel;
-@property (nonatomic) NSInteger flag;
+@property (nonatomic) BlueOperationType BlueOperation;
 -(void) setData : (NSArray *)data;
 -(void) getBlueToothData;
 -(void) removeBlueToothData;
@@ -56,7 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.flag = -1;
+    self.BlueOperation = kNone;
     
     self.bgViewOne = [[UIView alloc] init];
     self.bgViewOne.translatesAutoresizingMaskIntoConstraints = NO;
@@ -91,7 +91,8 @@
     self.state.textColor = [UIColor whiteColor];
     self.state.textAlignment = NSTextAlignmentCenter;
     self.state.font = [UIFont boldSystemFontOfSize:14.0f];
-    self.state.text = @"√\n传输成功";
+//    self.state.text = @"√\n传输成功";
+    self.state.text = @"传输中...";
     self.state.numberOfLines = 2;
     [self.bgViewOne addSubview:self.state];
     
@@ -318,7 +319,7 @@
 // 获取完整数据
 -(void) getBlueToothData{
     if (self.rx != nil && self.tx != nil) {
-        self.flag = 1;
+        self.BlueOperation = kGetBlueData;
         Byte command[] = { 0x7D, 0x81, 0xA6, 0xFF, 0xFF };
         self.mutableData = [[NSMutableData alloc] init];
         self.analyesData = [[NSMutableArray alloc] init];
@@ -331,7 +332,7 @@
 // 删除蓝牙数据
 -(void) removeBlueToothData{
     if (self.tx != nil) {
-        self.flag = 2;
+        self.BlueOperation = kDeleteBlueData;
         Byte command[] = { 0x7D, 0x81, 0xAE, 0xFF, 0xFF };
         self.mutableData = [[NSMutableData alloc] init];
         NSData *data = [[NSData alloc] initWithBytes:command length:5];
@@ -346,13 +347,15 @@
     [self.mutableData appendData:data];
     Byte *byteData = (Byte *)[self.mutableData bytes];
     
-    if (self.flag == 1) {
+    if (self.BlueOperation == kGetBlueData) {
         if (data.length == 4 && byteData[0] == 0x18) {
             // 无数据
+            self.state.text = @"无新数据";
         }else{
             for(int i=0;i<[self.mutableData length];i++){
                 if ( byteData[i] == 0x18 ) {
                     [self analyes:self.mutableData];
+                    self.state.text = @"√\n传输成功";
                     if (data != nil) {
                         NSTimeInterval start = [self getStartDate];
                         NSTimeInterval end = start + [self getEndDate];
@@ -364,7 +367,7 @@
                 }
             }
         }
-    }else if (self.flag == 2){
+    }else if (self.BlueOperation == kDeleteBlueData){
         NSLog(@"删除数据 0b81");
     }
 }
@@ -405,22 +408,6 @@
     }else{
         return dataArray;
     }
-    
-//    
-//    NSMutableString *data = [[NSMutableString alloc] init];
-//    for (int i = 2; i<[self.analyesData count]; i++) {
-//        BlueToothData *blueTooth = self.analyesData[i];
-//        for (NSNumber *number in blueTooth.data) {
-//            [data appendString:[number stringValue]];
-//            [data appendString:@","];
-//        }
-//    }
-//    if ([data length] > 1) {
-//        NSString *temp = [data substringWithRange:NSMakeRange(0, data.length - 1)];
-//        return [NSString stringWithFormat:@"[%@]",temp];
-//    }else{
-//        return nil;
-//    }
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{

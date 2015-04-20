@@ -13,6 +13,12 @@
 #import "BlueToothTimeData.h"
 #import "BlueToothData.h"
 
+typedef enum{
+    kNone = 0,
+    kGetBlueData,
+    kDeleteBlueData,
+}BlueOperationType;
+
 @interface BlueToothDataViewController : OrangeBaseViewController<CBCentralManagerDelegate,CBPeripheralDelegate>
 
 @property (nonatomic,strong) CBCentralManager *central;
