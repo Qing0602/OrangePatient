@@ -91,7 +91,8 @@
     self.state.textColor = [UIColor whiteColor];
     self.state.textAlignment = NSTextAlignmentCenter;
     self.state.font = [UIFont boldSystemFontOfSize:14.0f];
-    self.state.text = @"√\n传输成功";
+//    self.state.text = @"√\n传输成功";
+    self.state.text = @"传输中...";
     self.state.numberOfLines = 2;
     [self.bgViewOne addSubview:self.state];
     
@@ -349,10 +350,12 @@
     if (self.flag == 1) {
         if (data.length == 4 && byteData[0] == 0x18) {
             // 无数据
+            self.state.text = @"无新数据";
         }else{
             for(int i=0;i<[self.mutableData length];i++){
                 if ( byteData[i] == 0x18 ) {
                     [self analyes:self.mutableData];
+                    self.state.text = @"√\n传输成功";
                     if (data != nil) {
                         NSTimeInterval start = [self getStartDate];
                         NSTimeInterval end = start + [self getEndDate];
@@ -405,22 +408,6 @@
     }else{
         return dataArray;
     }
-    
-//    
-//    NSMutableString *data = [[NSMutableString alloc] init];
-//    for (int i = 2; i<[self.analyesData count]; i++) {
-//        BlueToothData *blueTooth = self.analyesData[i];
-//        for (NSNumber *number in blueTooth.data) {
-//            [data appendString:[number stringValue]];
-//            [data appendString:@","];
-//        }
-//    }
-//    if ([data length] > 1) {
-//        NSString *temp = [data substringWithRange:NSMakeRange(0, data.length - 1)];
-//        return [NSString stringWithFormat:@"[%@]",temp];
-//    }else{
-//        return nil;
-//    }
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
