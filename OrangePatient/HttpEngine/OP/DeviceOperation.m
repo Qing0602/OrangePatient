@@ -54,16 +54,20 @@
     return self;
 }
 
--(DeviceOperation *) initPostDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSData *) data{
+-(DeviceOperation *) initPostDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSDictionary *) data{
     self = [self initCustomOperation];
     if (nil != self) {
         self.type = kPostDeviceData;
-        NSString *urlStr = [NSString stringWithFormat:@"%@/api/device/filedata/%@",K_HOST_OF_SERVER,peripheralID];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/device/bigdata/%@",K_HOST_OF_SERVER,peripheralID];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data
+                                                           options:NSJSONWritingPrettyPrinted
+                                                             error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
                                                         @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
                                                         @"start_time" : [NSNumber numberWithLong:startTime],
                                                         @"end_time" : [NSNumber numberWithLong:endTime],
-                                                        @"data" : data,
+                                                        @"body" : jsonString,
                                                         }];
     }
     return self;
