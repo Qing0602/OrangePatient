@@ -7,11 +7,12 @@
 //
 
 #import "BaseUIView.h"
-#import "MMCircularProgressView.h"
 
 @interface CircularProgressView : BaseUIView
-@property (nonatomic, strong)MMCircularProgressView *theProgressView;
 @property (nonatomic, strong)UIImageView *needleImageView;
-
+//value
+@property (nonatomic, strong)UILabel *value;
+//valueDesc
+@property (nonatomic, strong)UILabel *valueDesc;
 - (void)setProgressValue:(NSInteger)value;
 @end
