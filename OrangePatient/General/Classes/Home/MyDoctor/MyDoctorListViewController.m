@@ -13,6 +13,7 @@
 #import "DoctorBaseTableViewCell.h"
 
 #import "MyDoctorsModel.h"
+#import "UIManagement.h"
 @interface MyDoctorListViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic) DoctorListLoadStatus loadStatus;
 @property (nonatomic, strong)NSMutableArray *myDoctorList;
@@ -23,7 +24,7 @@
 - (instancetype)initWithDoctors:(NSArray *)doctors{
     self = [super init];
     if (self) {
-        
+        [self setMyDoctorList:[[NSMutableArray alloc] initWithArray:doctors]];
     }
     return self;
 }
@@ -38,6 +39,29 @@
     _doctorListTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _doctorListTable.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
     [self.view addSubview:_doctorListTable];
+    
+    __weak MyDoctorListViewController *weakSelf = self;
+    [_doctorListTable addPullToRefreshWithActionHandler:^{
+        weakSelf.loadStatus = DoctorListLoadStatusRefresh;
+        [[UIManagement sharedInstance] getMyAppointmentList:0 withLimit:20];
+    }];
+    
+    [_doctorListTable addInfiniteScrollingWithActionHandler:^{
+        weakSelf.loadStatus = DoctorListLoadStatusAppend;
+        [[UIManagement sharedInstance] getMyAppointmentList:weakSelf.myDoctorList.count withLimit:20];
+    }];
+    
+    [RACObserve([UIManagement sharedInstance], getMyAppointmentListResult) subscribeNext:^(NSDictionary *dic){
+        if (dic) {
+            if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
+                [self closeProgress];
+                NSMutableArray *dataArr = dic[ASI_REQUEST_DATA];
+                [self setMyDoctorList:dataArr];
+            }else{
+                [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
+            }
+        }
+    }];
     // Do any additional setup after loading the view.
 }
 
@@ -64,11 +88,9 @@
         NSMutableArray *tempDoctorsList = [[NSMutableArray alloc] initWithCapacity:10];
         for (NSDictionary *dic in myDoctorList) {
             NSLog(@"%@",dic);
-            MyDoctorsModel *model = [[MyDoctorsModel alloc] init];
-            model.doctorHostpital = [NSString stringWithFormat:@"中心医院"];
-            model.doctorTitle = [NSString stringWithFormat:@"主治医生"];
-            model.doctorUserName = [NSString stringWithFormat:@"用户名"];
-            [tempDoctorsList addObject:model];
+            if (dic && dic.allKeys.count>0) {
+                [tempDoctorsList addObject:[MyDoctorsModel convertModelByDic:dic]];
+            }
         }
         
         switch (self.loadStatus) {

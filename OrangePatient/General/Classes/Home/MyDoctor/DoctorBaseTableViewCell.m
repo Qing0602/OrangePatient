@@ -87,8 +87,8 @@
 {
     [self.cellImageview setImageURL:model.doctorAvatar];
     [self.cellTitle setText:model.doctorUserName];
-    [self.cellContent setText:model.doctorHostpital];
-    [self.cellSubTitle setText:model.doctorTitle];
+    [self.cellContent setText:model.doctorGrade];
+    [self.cellSubTitle setText:model.doctorComment];
 }
 
 - (void)awakeFromNib {

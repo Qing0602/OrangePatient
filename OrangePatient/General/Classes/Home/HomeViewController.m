@@ -94,7 +94,7 @@
 //                    myDoctor.hidesBottomBarWhenPushed = YES;
 //                    [self.navigationController pushViewController:myDoctor animated:YES];
                     [self showProgressWithText:@"正在获取"];
-                    [[UIManagement sharedInstance] getMyAppointmentList:0 withLimit:1];
+                    [[UIManagement sharedInstance] getMyAppointmentList:0 withLimit:20];
                 }
                     break;
                 case 3:

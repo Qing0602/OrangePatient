@@ -18,5 +18,24 @@
 @property (nonatomic, strong)NSString *doctorHostpital;
 //头衔
 @property (nonatomic, strong)NSString *doctorTitle;
+//uid
+@property (nonatomic, strong)NSString *doctorID;
+//mobile
+@property (nonatomic, strong)NSString *doctorMobile;
+//email
+@property (nonatomic, strong)NSString *doctorEmail;
+//im_username
+@property (nonatomic, strong)NSString *doctorIMUsername;
+//im_nickname
+@property (nonatomic, strong)NSString *doctorIMNickName;
+//grade
+@property (nonatomic, strong)NSString *doctorGrade;
+//comment
+@property (nonatomic, strong)NSString *doctorComment;
+//friendstatus
+@property (nonatomic)NSInteger doctorFriendStatus;
+//status
+@property (nonatomic)NSInteger doctorStatus;
 
++ (MyDoctorsModel *)convertModelByDic:(NSDictionary *)dic;
 @end
