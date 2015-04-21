@@ -9,14 +9,25 @@
 #import "MyDoctorListViewController.h"
 #import "ChatViewController.h"
 
+#import "SVPullToRefresh.h"
 #import "DoctorBaseTableViewCell.h"
+
 #import "MyDoctorsModel.h"
 @interface MyDoctorListViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic, strong)NSArray *myDoctorList;
+@property(nonatomic) DoctorListLoadStatus loadStatus;
+@property (nonatomic, strong)NSMutableArray *myDoctorList;
 @property (nonatomic, strong)UITableView *doctorListTable;
 @end
 
 @implementation MyDoctorListViewController
+- (instancetype)initWithDoctors:(NSArray *)doctors{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的医生";
@@ -30,27 +41,50 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)closePullRefreshView{
+    switch (self.loadStatus) {
+        case DoctorListLoadStatusRefresh:
+            [self.doctorListTable.pullToRefreshView stopAnimating];
+            break;
+        case DoctorListLoadStatusAppend:
+            [self.doctorListTable.infiniteScrollingView stopAnimating];
+        default:
+            break;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Setter&Getter
-- (NSArray *)myDoctorList
-{
-    if (!_myDoctorList) {
-        NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:10];
-        for (int i = 0; i < 10; i++) {
+- (void)setMyDoctorList:(NSMutableArray *)myDoctorList{
+    if (myDoctorList.count) {
+        NSMutableArray *tempDoctorsList = [[NSMutableArray alloc] initWithCapacity:10];
+        for (NSDictionary *dic in myDoctorList) {
+            NSLog(@"%@",dic);
             MyDoctorsModel *model = [[MyDoctorsModel alloc] init];
-            model.doctorHostpital = [NSString stringWithFormat:@"中心医院%d",i];
-            model.doctorTitle = [NSString stringWithFormat:@"主治医生%d",i];
-            model.doctorUserName = [NSString stringWithFormat:@"用户名%d",i];
-            [testArray addObject:model];
+            model.doctorHostpital = [NSString stringWithFormat:@"中心医院"];
+            model.doctorTitle = [NSString stringWithFormat:@"主治医生"];
+            model.doctorUserName = [NSString stringWithFormat:@"用户名"];
+            [tempDoctorsList addObject:model];
         }
-        _myDoctorList = [[NSArray alloc] initWithArray:testArray];
+        
+        switch (self.loadStatus) {
+            case DoctorListLoadStatusRefresh:
+                _myDoctorList = [[NSMutableArray alloc] initWithArray:tempDoctorsList];
+                break;
+            case DoctorListLoadStatusAppend:
+                [_myDoctorList addObjectsFromArray:tempDoctorsList];
+            default:
+                break;
+        }
+        [self closePullRefreshView];
+        [self.doctorListTable reloadData];
     }
-    return _myDoctorList;
 }
+
 #pragma mark - Tableview
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

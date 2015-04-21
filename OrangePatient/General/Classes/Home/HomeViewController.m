@@ -15,6 +15,8 @@
 #import "MedicalScreeningViewController.h"
 
 #import "ADBannerScrollView.h"
+
+#import "UIManagement.h"
 @interface HomeViewController()<ADBannerScrollViewDelegate>
 
 @property (nonatomic, strong)ADBannerScrollView *adScrollView;
@@ -62,7 +64,16 @@
         make.height.mas_equalTo(1);
     }];
     
-    
+    [RACObserve([UIManagement sharedInstance], getMyAppointmentListResult) subscribeNext:^(NSDictionary *dic){
+        if (dic) {
+            if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
+                [self closeProgress];
+                NSMutableArray *dataArr = dic[ASI_REQUEST_DATA];
+            }else{
+                [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
+            }
+        }
+    }];
     
     for (int i = 0; i<4; i++) {
     
@@ -79,9 +90,11 @@
                     break;
                 case 2:
                 {
-                    MyDoctorViewController *myDoctor = [[MyDoctorViewController alloc] init];
-                    myDoctor.hidesBottomBarWhenPushed = YES;
-                    [self.navigationController pushViewController:myDoctor animated:YES];
+//                    MyDoctorViewController *myDoctor = [[MyDoctorViewController alloc] init];
+//                    myDoctor.hidesBottomBarWhenPushed = YES;
+//                    [self.navigationController pushViewController:myDoctor animated:YES];
+                    [self showProgressWithText:@"正在获取"];
+                    [[UIManagement sharedInstance] getMyAppointmentList:0 withLimit:1];
                 }
                     break;
                 case 3:

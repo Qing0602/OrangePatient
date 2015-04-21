@@ -11,15 +11,17 @@
 
 #import "HealthInformationTableViewCell.h"
 #import "ADBannerScrollView.h"
+#import "SVPullToRefresh.h"
 
 #import "HealthInfomationModel.h"
 #import "UIManagement.h"
 @interface HealthInformationViewController ()<ADBannerImageViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@property(nonatomic) InformationLoadStatus loadStatus;
 
 @property (nonatomic, strong)ADBannerScrollView *adScrollView;
 @property (nonatomic, strong)UITableView *healthInfoTable;
 
-@property (nonatomic, strong)NSArray *infomations;
+@property (nonatomic, strong)NSMutableArray *infomations;
 @end
 
 @implementation HealthInformationViewController
@@ -39,6 +41,17 @@
     _healthInfoTable.backgroundColor = [UIColor redColor];
     [self.view addSubview:_healthInfoTable];
     
+    __weak HealthInformationViewController *weakSelf = self;
+    [_healthInfoTable addPullToRefreshWithActionHandler:^{
+        weakSelf.loadStatus = InformationLoadStatusRefresh;
+        [[UIManagement sharedInstance] initGetRecent:0 withLimit:20];
+    }];
+    
+    [_healthInfoTable addInfiniteScrollingWithActionHandler:^{
+        weakSelf.loadStatus = InformationLoadStatusAppend;
+        [[UIManagement sharedInstance] initGetRecent:weakSelf.infomations.count withLimit:20];
+    }];
+    
     NSDictionary *constraintsViews = NSDictionaryOfVariableBindings(_adScrollView,_healthInfoTable);
     //NSDictionary *constraintsViews = @{@"adScrollview":self.adScrollView,@"tableview":self.healthInfoTable};
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_healthInfoTable]-0-|" options:0 metrics:nil views:constraintsViews]];
@@ -48,9 +61,10 @@
     [RACObserve([UIManagement sharedInstance], getRecentResult) subscribeNext:^(NSDictionary *dic){
         if (dic) {
             if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
-                NSArray *dataArr = dic[ASI_REQUEST_DATA];
+                NSMutableArray *dataArr = dic[ASI_REQUEST_DATA];
                 [self setInfomations:dataArr];
             }else{
+                [self closePullRefreshView];
                 [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
             }
         }
@@ -58,6 +72,18 @@
     
     [[UIManagement sharedInstance] initGetRecent:0 withLimit:20];
     // Do any additional setup after loading the view.
+}
+
+- (void)closePullRefreshView{
+    switch (self.loadStatus) {
+        case InformationLoadStatusRefresh:
+            [self.healthInfoTable.pullToRefreshView stopAnimating];
+            break;
+        case InformationLoadStatusAppend:
+            [self.healthInfoTable.infiniteScrollingView stopAnimating];
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,13 +101,24 @@
 }
 */
 #pragma mark - Setter&Getter
-- (void)setInfomations:(NSArray *)infomations{
+- (void)setInfomations:(NSMutableArray *)infomations{
     if (infomations) {
         NSMutableArray *tempArr = [[NSMutableArray alloc] initWithCapacity:infomations.count];
         for (NSDictionary *dic in infomations) {
-            [tempArr addObject:[HealthInfomationModel convertModelByDic:dic]];
+            if (dic && dic.allKeys.count > 0) {
+                [tempArr addObject:[HealthInfomationModel convertModelByDic:dic]];
+            }
         }
-        _infomations = [[NSArray alloc] initWithArray:tempArr];
+        switch (self.loadStatus) {
+            case InformationLoadStatusRefresh:
+                _infomations = [[NSMutableArray alloc] initWithArray:tempArr];
+                break;
+            case InformationLoadStatusAppend:
+                [_infomations addObjectsFromArray:tempArr];
+            default:
+                break;
+        }
+        [self closePullRefreshView];
         [_healthInfoTable reloadData];
     }
 }

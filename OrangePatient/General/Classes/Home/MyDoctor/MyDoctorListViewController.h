@@ -7,6 +7,10 @@
 //
 
 #import "OrangeBaseViewController.h"
+typedef enum{
+    DoctorListLoadStatusRefresh, // 刷新
+    DoctorListLoadStatusAppend,  // 追加
+} DoctorListLoadStatus;
 
 @interface MyDoctorListViewController : OrangeBaseViewController
 

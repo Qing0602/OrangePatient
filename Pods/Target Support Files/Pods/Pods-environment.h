@@ -91,12 +91,6 @@
 #define COCOAPODS_VERSION_MINOR_MBProgressHUD 9
 #define COCOAPODS_VERSION_PATCH_MBProgressHUD 1
 
-// MMCircularProgressView
-#define COCOAPODS_POD_AVAILABLE_MMCircularProgressView
-#define COCOAPODS_VERSION_MAJOR_MMCircularProgressView 1
-#define COCOAPODS_VERSION_MINOR_MMCircularProgressView 0
-#define COCOAPODS_VERSION_PATCH_MMCircularProgressView 3
-
 // MWPhotoBrowser
 #define COCOAPODS_POD_AVAILABLE_MWPhotoBrowser
 #define COCOAPODS_VERSION_MAJOR_MWPhotoBrowser 1
@@ -162,6 +156,12 @@
 #define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 2
+
+// SVPullToRefresh
+#define COCOAPODS_POD_AVAILABLE_SVPullToRefresh
+#define COCOAPODS_VERSION_MAJOR_SVPullToRefresh 0
+#define COCOAPODS_VERSION_MINOR_SVPullToRefresh 4
+#define COCOAPODS_VERSION_PATCH_SVPullToRefresh 1
 
 // SlimeRefresh
 #define COCOAPODS_POD_AVAILABLE_SlimeRefresh

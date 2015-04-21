@@ -8,6 +8,11 @@
 
 #import "OrangeBaseViewController.h"
 
+typedef enum{
+    InformationLoadStatusRefresh, // 刷新
+    InformationLoadStatusAppend,  // 追加
+} InformationLoadStatus;
+
 @interface HealthInformationViewController : OrangeBaseViewController
 
 @end
