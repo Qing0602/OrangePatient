@@ -8,6 +8,11 @@
 
 #import "OrangeBaseViewController.h"
 
+typedef NS_ENUM(NSInteger,HospitalListLoadStatus){
+    HospitalListLoadStatusRefresh = 1, // 刷新
+    HospitalListLoadStatusAppend,  // 追加
+} ;
+
 @class MyDoctorCitysModel;
 @class MyDoctorHospitalsModel;
 @interface TwoTablesViewController : OrangeBaseViewController<UITableViewDataSource,UITableViewDelegate>
@@ -17,5 +22,5 @@
 //医院table
 @property (nonatomic, strong)UITableView *hospitalTable;
 //CityModel
-@property (nonatomic, strong)NSArray *contentData;
+@property (nonatomic, strong)NSMutableArray *contentData;
 @end

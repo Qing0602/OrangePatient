@@ -8,14 +8,17 @@
 
 #import "TwoTablesViewController.h"
 
-
-
+#import "SVPullToRefresh.h"
 #import "TwoTablesCityCell.h"
 #import "TwoTablesHospitalCell.h"
+
+#import "UIManagement.h"
 @interface TwoTablesViewController ()
 {
-    NSInteger currentCityIndex;
+
 }
+@property(nonatomic) HospitalListLoadStatus loadStatus;
+@property(nonatomic) NSInteger currentCityIndex;
 @end
 
 @implementation TwoTablesViewController
@@ -23,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    currentCityIndex = 0;
+    self.currentCityIndex = 0;
     
     _cityTable = [[UITableView alloc] init];
     _cityTable.delegate = self;
@@ -40,6 +43,52 @@
     _hospitalTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _hospitalTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_hospitalTable];
+
+    
+    //城市kvo
+    [RACObserve([UIManagement sharedInstance], getAreaResult) subscribeNext:^(NSDictionary *dic){
+        if (dic) {
+            if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
+                //[self closeProgress];
+                NSMutableArray *dataArr = dic[ASI_REQUEST_DATA];
+                [self setContentData:dataArr];
+                if (dataArr.count) {
+                    NSDictionary *firstCity = dataArr[0];
+                    [[UIManagement sharedInstance] getHospital:0 withOffset:20 withCode:[firstCity[@"code"] integerValue]];
+                }
+            }else{
+                [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
+            }
+        }
+    }];
+    //医院kvo
+    [RACObserve([UIManagement sharedInstance], getHospitalResult) subscribeNext:^(NSDictionary *dic){
+        if (dic) {
+            if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
+                [self closeProgress];
+                NSArray *dataArr = dic[ASI_REQUEST_DATA];
+                [self setHospitalInCurrentCitys:dataArr];
+            }else{
+                [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
+            }
+        }
+    }];
+    
+    __weak TwoTablesViewController *weakSelf = self;
+    [_hospitalTable addPullToRefreshWithActionHandler:^{
+        weakSelf.loadStatus = HospitalListLoadStatusRefresh;
+        MyDoctorCitysModel *cityModel = weakSelf.contentData[weakSelf.currentCityIndex];
+        [[UIManagement sharedInstance] getHospital:0 withOffset:20 withCode:cityModel.cityCode];
+    }];
+    
+    [_hospitalTable addInfiniteScrollingWithActionHandler:^{
+        weakSelf.loadStatus = HospitalListLoadStatusAppend;
+        MyDoctorCitysModel *cityModel = weakSelf.contentData[weakSelf.currentCityIndex];
+        [[UIManagement sharedInstance] getHospital:cityModel.hospitals.count withOffset:20 withCode:cityModel.cityCode];
+    }];
+    
+    [self showProgressWithText:@"正在获取"];
+    [[UIManagement sharedInstance] getArea];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(_cityTable,_hospitalTable);
     NSDictionary *metrics = @{@"cityWidth":@(SCREEN_WIDTH/3),@"hospitalWidht":@(SCREEN_WIDTH*2/3)};
@@ -54,6 +103,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (MyDoctorCitysModel *)getCurrentCityModel{
+    return self.contentData[self.currentCityIndex];
+}
+
+- (void)closePullRefreshView{
+    switch (self.loadStatus) {
+        case HospitalListLoadStatusRefresh:
+            [self.hospitalTable.pullToRefreshView stopAnimating];
+            break;
+        case HospitalListLoadStatusAppend:
+            [self.hospitalTable.infiniteScrollingView stopAnimating];
+        default:
+            break;
+    }
+}
 /*
 #pragma mark - Navigation
 
@@ -64,31 +128,42 @@
 }
 */
 #pragma mark - Setter&Getter
-- (NSArray *)contentData
-{
-    if (!_contentData) {
-        //TestData
-        NSMutableArray *citys = [[NSMutableArray alloc] initWithCapacity:10];
-        NSMutableArray *hospitals = [[NSMutableArray alloc] initWithCapacity:5];
-        for (int i = 0; i< 10; i++) {
-            [hospitals removeAllObjects];
-            for (int j = 0; j<5; j++) {
-                MyDoctorHospitalsModel *hospitalModel = [[MyDoctorHospitalsModel alloc] init];
-                hospitalModel.hospitalName = [NSString stringWithFormat:@"城市%d,中日友好医院%d",i,j];
-                hospitalModel.screeningCenterName = [NSString stringWithFormat:@"城市%d,水上社区医院筛查中心%d",i,j];
-                [hospitals addObject:hospitalModel];
+- (void)setContentData:(NSArray *)contentData{
+    if (contentData) {
+        NSMutableArray *citys = [[NSMutableArray alloc] initWithCapacity:contentData.count];
+        for (NSDictionary *dic in contentData) {
+            if (dic && dic.allKeys.count) {
+                [citys addObject:[MyDoctorCitysModel convertModelByDic:dic]];
             }
-            MyDoctorCitysModel *cityModel = [[MyDoctorCitysModel alloc] init];
-            cityModel.cityName = [NSString stringWithFormat:@"城市%d",i];
-            cityModel.hospitals = [[NSArray alloc] initWithArray:hospitals];
-            [citys addObject:cityModel];
+        }
+        _contentData = [[NSMutableArray alloc] initWithArray:citys];
+        [self.cityTable  reloadData];
+    }
+}
+
+- (void)setHospitalInCurrentCitys:(NSArray *)hospitals{
+    if (hospitals.count) {
+        MyDoctorCitysModel *cityModel = [self getCurrentCityModel];
+        NSInteger cityCode = cityModel.cityCode;
+        
+        NSMutableArray *tempHospitals = [[NSMutableArray alloc] initWithCapacity:hospitals.count];
+        for (NSDictionary *hospital in hospitals) {
+            if (hospitals && hospital.allKeys.count) {
+                MyDoctorHospitalsModel *hospitalModel = [MyDoctorHospitalsModel convertModelByDic:hospital];
+                hospitalModel.cityCode = cityCode;
+                [tempHospitals addObject:hospitalModel];
+            }
         }
         
-        _contentData = [[NSArray alloc] initWithArray:citys];
+        cityModel.hospitals = [[NSMutableArray alloc] initWithArray:tempHospitals];
+        [self.hospitalTable reloadData];
     }
     
-    return _contentData;
+
+
 }
+
+
 #pragma mark - Tableview
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -101,7 +176,7 @@
         return self.contentData.count;
     }else
     {
-        MyDoctorCitysModel *cityModel = self.contentData[currentCityIndex];
+        MyDoctorCitysModel *cityModel = self.contentData[self.currentCityIndex];
         return cityModel.hospitals.count;
     }
 }
@@ -118,7 +193,7 @@
             //cell.selectionStyle = UITableViewCellSelectionStyleGray;
         }
         
-        if (indexPath.row == currentCityIndex) {
+        if (indexPath.row == self.currentCityIndex) {
             [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
         }
         [cell setContentByInfoModel:self.contentData[indexPath.row]];
@@ -130,7 +205,7 @@
             cell = [[TwoTablesHospitalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cityTableViewCellIden];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        MyDoctorCitysModel *cityModel = self.contentData[currentCityIndex];
+        MyDoctorCitysModel *cityModel = [self getCurrentCityModel];
         [cell setContentByInfoModel:cityModel.hospitals[indexPath.row]];
         
         return cell;
@@ -140,8 +215,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.cityTable) {
-        currentCityIndex = indexPath.row;
-        [self.hospitalTable reloadData];
+        self.currentCityIndex = indexPath.row;
+        MyDoctorCitysModel *cityModel = [self getCurrentCityModel];
+        
+        if (cityModel.hospitals.count) [self.hospitalTable reloadData];
+        else {
+            [self showProgressWithText:@"正在获取"];
+            [[UIManagement sharedInstance] getHospital:0 withOffset:20 withCode:cityModel.cityCode];
+        }
+
     }
 }
 @end

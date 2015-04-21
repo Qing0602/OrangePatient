@@ -11,6 +11,12 @@
 @interface MyDoctorCitysModel : BaseNSObject
 //城市
 @property (nonatomic, strong)NSString *cityName;
+//code
+@property (nonatomic)NSInteger cityCode;
+//status
+@property (nonatomic)NSInteger cityStatus;
 //医院
 @property (nonatomic, strong)NSArray *hospitals;
+
++ (MyDoctorCitysModel *)convertModelByDic:(NSDictionary *)dic;
 @end

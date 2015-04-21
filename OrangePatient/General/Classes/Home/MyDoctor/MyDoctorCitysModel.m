@@ -10,4 +10,12 @@
 
 @implementation MyDoctorCitysModel
 
++ (MyDoctorCitysModel *)convertModelByDic:(NSDictionary *)dic{
+    MyDoctorCitysModel *model = [[MyDoctorCitysModel alloc] init];
+    model.cityCode = [dic[@"code"] integerValue];
+    model.cityName = dic[@"name"];
+    model.cityStatus = [dic[@"status"] integerValue];
+    return model;
+}
+
 @end

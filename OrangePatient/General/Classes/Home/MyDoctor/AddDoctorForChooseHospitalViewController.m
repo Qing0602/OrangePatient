@@ -37,9 +37,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    AddDoctorForChooseDoctorViewController *addDoctor = [[AddDoctorForChooseDoctorViewController alloc] init];
-    [self.navigationController pushViewController:addDoctor animated:YES];
+    
+    if (tableView == self.hospitalTable) {
+        AddDoctorForChooseDoctorViewController *addDoctor = [[AddDoctorForChooseDoctorViewController alloc] init];
+        [self.navigationController pushViewController:addDoctor animated:YES];
+    }else [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+
 }
 
 @end

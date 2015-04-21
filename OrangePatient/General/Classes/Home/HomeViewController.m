@@ -70,7 +70,11 @@
                 [self closeProgress];
                 NSMutableArray *dataArr = dic[ASI_REQUEST_DATA];
             }else{
-                [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
+                if ([dic[ASI_REQUEST_ERROR_MESSAGE] isEqualToString:@"没有数据"]) {
+                    [self closeProgress];
+                    MyDoctorViewController *myDoctor = [[MyDoctorViewController alloc] init];
+                    [self.navigationController pushViewController:myDoctor animated:YES];
+                }else [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
             }
         }
     }];
