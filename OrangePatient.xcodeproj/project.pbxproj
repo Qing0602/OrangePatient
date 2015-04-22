@@ -336,6 +336,7 @@
 		74CE090A1AA4A52000DD9458 /* OrangeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CE08731AA4A52000DD9458 /* OrangeBaseViewController.m */; };
 		74CE09471AA4B27100DD9458 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE09461AA4B27100DD9458 /* UIKit.framework */; };
 		74CE09491AA4B27700DD9458 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE09481AA4B27700DD9458 /* Foundation.framework */; };
+		74E3DABC1AE7B5C00059A2DC /* Login_Btn_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E3DABB1AE7B5C00059A2DC /* Login_Btn_BG@2x.png */; };
 		74E462F11AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E462F01AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.m */; };
 		74F64E781AC90B01004F44D6 /* MyDoctorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F64E771AC90B01004F44D6 /* MyDoctorListViewController.m */; };
 		74F64E7B1AC90BA8004F44D6 /* ChooseHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F64E7A1AC90BA8004F44D6 /* ChooseHospitalViewController.m */; };
@@ -828,6 +829,7 @@
 		74CE09441AA4B25E00DD9458 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		74CE09461AA4B27100DD9458 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74CE09481AA4B27700DD9458 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		74E3DABB1AE7B5C00059A2DC /* Login_Btn_BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login_Btn_BG@2x.png"; sourceTree = "<group>"; };
 		74E462EF1AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDoctorForChooseHospitalViewController.h; sourceTree = "<group>"; };
 		74E462F01AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDoctorForChooseHospitalViewController.m; sourceTree = "<group>"; };
 		74F64E761AC90B01004F44D6 /* MyDoctorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorListViewController.h; sourceTree = "<group>"; };
@@ -1665,6 +1667,7 @@
 		74CCFFE81AB55C0800DDD42E /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				74E3DABB1AE7B5C00059A2DC /* Login_Btn_BG@2x.png */,
 				74CCFFE91AB55C7A00DDD42E /* Login_Logo@2x.png */,
 				74CCFFEA1AB55C7A00DDD42E /* Login_password_icon@2x.png */,
 				74CCFFEB1AB55C7A00DDD42E /* Login_userName_icon@2x.png */,
@@ -2047,6 +2050,7 @@
 				19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */,
 				7406A5FF1AE7A29400696043 /* chatBar_more_cardSelected@2x.png in Resources */,
 				7406A6521AE7A29400696043 /* chat_sender_audio_playing_full@2x.png in Resources */,
+				74E3DABC1AE7B5C00059A2DC /* Login_Btn_BG@2x.png in Resources */,
 				7406A5D11AE7A29400696043 /* VoiceSearchFeedback004@2x.png in Resources */,
 				7406A63E1AE7A29400696043 /* chat_receiver_audio_playing000@2x.png in Resources */,
 				7406A60D1AE7A29400696043 /* chat_location_preview@2x.png in Resources */,
