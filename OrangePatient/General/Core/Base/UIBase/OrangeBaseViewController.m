@@ -109,8 +109,8 @@
     NSString *imagePressName = @"";
     switch (type) {
         case kCustomNavLeftType1:
-            imageName = @"NaviLeftType1";
-            imagePressName = @"NaviLeftTypePress1";
+            imageName = @"Register_Nav_Back";
+            //imagePressName = @"NaviLeftTypePress1";
             break;
         case kCustomNavLeftType2:
             imageName = @"NaviLeftType2";

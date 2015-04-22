@@ -271,8 +271,6 @@
 		744523011ADBA804002B20F0 /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 744522FD1ADBA804002B20F0 /* NSDateFormatter+Category.m */; };
 		744523021ADBA804002B20F0 /* NSString+Valid.m in Sources */ = {isa = PBXBuildFile; fileRef = 744522FF1ADBA804002B20F0 /* NSString+Valid.m */; };
 		7449C53F1AB67336009AF4DD /* ChooseSexControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449C53E1AB67336009AF4DD /* ChooseSexControl.m */; };
-		7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5411AB674A9009AF4DD /* btn_selected@2x.png */; };
-		7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */; };
 		744E01B81AC2F77D0063C4A7 /* HealthInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01B31AC2F77D0063C4A7 /* HealthInfomationModel.m */; };
 		744E01B91AC2F77D0063C4A7 /* HealthInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01B51AC2F77D0063C4A7 /* HealthInformationTableViewCell.m */; };
 		744E01BA1AC2F77D0063C4A7 /* HealthInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01B71AC2F77D0063C4A7 /* HealthInformationViewController.m */; };
@@ -708,8 +706,6 @@
 		744522FF1ADBA804002B20F0 /* NSString+Valid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Valid.m"; sourceTree = "<group>"; };
 		7449C53D1AB67336009AF4DD /* ChooseSexControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSexControl.h; sourceTree = "<group>"; };
 		7449C53E1AB67336009AF4DD /* ChooseSexControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSexControl.m; sourceTree = "<group>"; };
-		7449C5411AB674A9009AF4DD /* btn_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_selected@2x.png"; sourceTree = "<group>"; };
-		7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_unselected@2x.png"; sourceTree = "<group>"; };
 		744E01B21AC2F77D0063C4A7 /* HealthInfomationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInfomationModel.h; sourceTree = "<group>"; };
 		744E01B31AC2F77D0063C4A7 /* HealthInfomationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInfomationModel.m; sourceTree = "<group>"; };
 		744E01B41AC2F77D0063C4A7 /* HealthInformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInformationTableViewCell.h; sourceTree = "<group>"; };
@@ -1483,15 +1479,6 @@
 			path = Emoji;
 			sourceTree = "<group>";
 		};
-		7449C5401AB674A9009AF4DD /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				7449C5411AB674A9009AF4DD /* btn_selected@2x.png */,
-				7449C5421AB674A9009AF4DD /* btn_unselected@2x.png */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		744E01BB1AC2FB7C0063C4A7 /* Information */ = {
 			isa = PBXGroup;
 			children = (
@@ -1885,7 +1872,6 @@
 				74E1DE531AB9D45700FA86AD /* HomePage */,
 				198F3FE91AB6F43A0017A90B /* Device */,
 				198F3FE01AB6EDC10017A90B /* LaunchImage */,
-				7449C5401AB674A9009AF4DD /* Common */,
 				74CCFFE81AB55C0800DDD42E /* Login */,
 			);
 			path = Resources;
@@ -2055,7 +2041,6 @@
 				197F62EE1ABA188D0054E72D /* AddDevice@2x.png in Resources */,
 				7406A5DE1AE7A29400696043 /* VoiceSearchFeedback011.png in Resources */,
 				7406A5C31AE7A29400696043 /* chatFire_audioPlaying0@2x.png in Resources */,
-				7449C5431AB674A9009AF4DD /* btn_selected@2x.png in Resources */,
 				7406A6091AE7A29400696043 /* chat_location_detail_disclosure@2x.png in Resources */,
 				197F62EF1ABA188D0054E72D /* AddDevice@3x.png in Resources */,
 				7406A5FC1AE7A29400696043 /* chatBar_more_card.png in Resources */,
@@ -2084,7 +2069,6 @@
 				7406A60F1AE7A29400696043 /* faceDelete@2x.png in Resources */,
 				7406A5D21AE7A29400696043 /* VoiceSearchFeedback005.png in Resources */,
 				7406A5D41AE7A29400696043 /* VoiceSearchFeedback006.png in Resources */,
-				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				7406A5EE1AE7A29400696043 /* VoiceSearchFeedback019.png in Resources */,
 				7406A5F51AE7A29400696043 /* call_out_h@2x.png in Resources */,
 				7406A6541AE7A29400696043 /* chat_sender_bg@2x.png in Resources */,
@@ -2135,7 +2119,6 @@
 				7406A61C1AE7A29400696043 /* chatBar_moreSelected.png in Resources */,
 				7406A6311AE7A29400696043 /* chatBar_more_camera@2x.png in Resources */,
 				7406A63F1AE7A29400696043 /* chat_receiver_audio_playing001.png in Resources */,
-				7449C5441AB674A9009AF4DD /* btn_unselected@2x.png in Resources */,
 				7406A5FB1AE7A29400696043 /* chat_video_play.png in Resources */,
 				7406A5CA1AE7A29400696043 /* VoiceSearchFeedback001.png in Resources */,
 				744E01CD1AC2FCD90063C4A7 /* MyDoctor_HeadImg_default@2x.png in Resources */,
