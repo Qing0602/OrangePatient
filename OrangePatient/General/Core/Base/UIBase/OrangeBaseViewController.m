@@ -85,6 +85,8 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    self.navigationItem.leftBarButtonItem = [self createNavLeftButton:kCustomNavLeftType1 withSEL:@selector(navBack)];
 	//self.view.backgroundColor = [UIColor colorWithHexString:@"#f5f0eb"];
     self.view.backgroundColor = [UIColor colorWithRed:234/255.f green:234/255.f blue:234/255.f alpha:1.f];
     float currentVersion = 7.0;
@@ -98,6 +100,14 @@
     }else{
         _screenTop = 0.0f;
     }
+}
+
+- (void)creatLeftBackBtnItem{
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Register_Nav_Back"] style:UIBarButtonItemStyleBordered target:self action:@selector(navBack)];
+}
+
+- (void)navBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*! @brief 初始化导航栏左侧按钮

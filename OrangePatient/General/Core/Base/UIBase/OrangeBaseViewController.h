@@ -50,6 +50,8 @@ typedef enum{
 @property (nonatomic,strong) NSString *willShowViewControllerClassName;
 @property (nonatomic,readonly,getter = getScreenTop) float screenTop;
 
+- (void)creatLeftBackBtnItem;
+
 /*! @brief 获取当前IOS版本
  *
  */

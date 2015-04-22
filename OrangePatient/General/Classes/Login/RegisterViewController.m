@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Orange. All rights reserved.
 //
 
-#define RegisterBtn_Width SCREEN_WIDTH*2/3
+#define RegisterBtn_Width 258
 
 #import "RegisterViewController.h"
 #import "ChooseSexControl.h"
@@ -14,6 +14,8 @@
 #import "UIManagement.h"
 #import <QuartzCore/QuartzCore.h>
 @interface RegisterViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@property (nonatomic, strong)NSTimer *timer;
+@property (nonatomic)NSUInteger smsTime;
 @property (nonatomic, strong)UIButton *registerBtn;
 @property (nonatomic, strong)UIView *pickerSuperView;
 //选择性别
@@ -38,6 +40,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.title = REGISTER_PAGE_TITLE;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:REGISTER_PAGE_TEXT_LOGIN style:UIBarButtonItemStyleDone target:self action:@selector(backToLogin)];
@@ -61,6 +65,7 @@
     [_registerBtn setFrame:CGRectMake((SCREEN_WIDTH-RegisterBtn_Width)/2, CGRectGetMaxY(registerTip.frame)+14.f, RegisterBtn_Width, 30.f)];
     _registerBtn.layer.masksToBounds = YES;
     _registerBtn.layer.cornerRadius = 5.f;
+    [_registerBtn setBackgroundImage:[UIImage imageNamed:@"Register_Btn_BG"] forState:UIControlStateNormal];
     //_registerBtn.backgroundColor = [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f];
     [_registerBtn setTitle:REGISTER_PAGE_REGISTER_BTN_TITLE forState:UIControlStateNormal];
     [_registerBtn addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
@@ -117,13 +122,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    RAC(self.registerBtn,backgroundColor) = [RACSignal combineLatest:@[
-                                                          self.usernameInput.rac_textSignal,
-                                                          self.veriCodeInput.rac_textSignal,
-                                                          RACObserve(self, birthdayDate)] reduce:^(NSString *username,NSString *veriCode,UILabel *date){
-                                                              return (username.length>0&&veriCode.length==6&&date.text.length >0)?
-                                                              [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f]:[UIColor grayColor];
-                                                          }];
     RAC(self.registerBtn,enabled) = [RACSignal combineLatest:@[
                                                                        self.usernameInput.rac_textSignal,
                                                                        self.veriCodeInput.rac_textSignal,
@@ -260,21 +258,23 @@
                 
                 self.getVeriCode = [UIButton buttonWithType:UIButtonTypeCustom];
                 [self.getVeriCode setTitle:@"获取验证码" forState:UIControlStateNormal];
+                [self.getVeriCode setBackgroundImage:[UIImage imageNamed:@"Register_GetVeriCode"] forState:UIControlStateNormal];
                 self.getVeriCode.titleLabel.font = [UIFont systemFontOfSize:14.f];
                 //self.getVeriCode.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
-                [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-100.f, (Register_TableviewCell_Height-24.f)/2, 100.f, 24.f)];
+                [self.getVeriCode setFrame:CGRectMake(SCREEN_WIDTH-SCREEN_WIDTH/30-95.f, (Register_TableviewCell_Height-25.f)/2, 95.f, 25.f)];
                 [[self.getVeriCode rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
                     @strongify(self);
                     [self closeKeyboard];
+                    sender.enabled = NO;
+                    self.smsTime = 120;
+                    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(lastTime) userInfo:nil repeats:YES];
                     [[UIManagement sharedInstance] getVerifyCode:self.phoneNumInput.text withType:0];
                 }];
                 [cell.contentView addSubview:self.getVeriCode];
                 
-                RAC(self.getVeriCode,backgroundColor) = [RACSignal combineLatest:@[
+                RAC(self.getVeriCode,enabled) = [RACSignal combineLatest:@[
                                                                            self.phoneNumInput.rac_textSignal] reduce:^(NSString *phoneNum){
-                                                                               return [NSString isTelNumber:phoneNum] ?
-                                                                               [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f]:
-                                                                               [UIColor grayColor];
+                                                                               return @([NSString isTelNumber:phoneNum]);
                                                                            }];
             }
                 break;
@@ -373,5 +373,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - NSTimer
+-(void)lastTime
+{
+    self.smsTime = self.smsTime - 1;
+    if (self.smsTime == 0) {
+        [self.timer invalidate];
+        self.timer = nil;
+        self.getVeriCode.enabled = YES;
+        [self.getVeriCode setTitle:@"获取验证码" forState:UIControlStateNormal];
+    }else{
+        [self.getVeriCode setTitle:[NSString stringWithFormat:@"%ld秒后重试", (long)self.smsTime] forState:UIControlStateNormal];
+    }
 
+    
+}
 @end
