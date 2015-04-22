@@ -55,12 +55,13 @@
     [self.view addSubview:_pwd];
     
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginBtn setFrame:CGRectMake(CGRectGetMinX(_pwd.frame), CGRectGetMaxY(_pwd.frame)+26.f, CGRectGetWidth(_pwd.frame), 30.f)];
-    //loginBtn.backgroundColor = [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f];
-    [loginBtn setTitle:LOGIN_PAGE_LOGIN_BTN_TITLE forState:UIControlStateNormal];
+    [loginBtn setFrame:CGRectMake((SCREEN_WIDTH-258)/2, CGRectGetMaxY(_pwd.frame)+26.f, 258, 38.f)];
+    [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    [loginBtn setBackgroundImage:[UIImage imageNamed:@"Login_Btn_BG"] forState:UIControlStateNormal];
     [loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginBtn];
     
+    /*
     RAC(loginBtn,backgroundColor) = [RACSignal combineLatest:@[
                                                                self.username.rac_textSignal,
                                                                self.pwd.rac_textSignal] reduce:^(NSString *username,NSString *pwd){
@@ -68,6 +69,7 @@
                                                                    [UIColor colorWithRed:85/255.f green:194/255.f blue:43/255.f alpha:1.f]:
                                                                    [UIColor grayColor];
                                                                }];
+     */
     RAC(loginBtn,enabled) = [RACSignal combineLatest:@[
                                                                self.username.rac_textSignal,
                                                                self.pwd.rac_textSignal] reduce:^(NSString *username,NSString *pwd){
