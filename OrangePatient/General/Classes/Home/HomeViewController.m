@@ -13,6 +13,7 @@
 #import "MyDoctorViewController.h"
 #import "MyDoctorListViewController.h"
 #import "MedicalScreeningViewController.h"
+#import "ChatViewController.h"
 
 #import "ADBannerScrollView.h"
 
@@ -104,6 +105,10 @@
                 case 3:
                 {
                     
+                    
+                    ChatViewController *chat = [[ChatViewController alloc] initWithChatter:@"我的客服" isGroup:NO];
+                    chat.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:chat animated:YES];
                 }
                     break;
                 case 4:
