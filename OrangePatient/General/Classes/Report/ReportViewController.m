@@ -74,7 +74,7 @@
     
     UIButton *downloadReport = [UIButton buttonWithType:UIButtonTypeCustom];
     [downloadReport setTitle:@"下载报告" forState:UIControlStateNormal];
-    [downloadReport setBackgroundColor:RGBACOLOR(85, 194, 43, 1)];
+    [downloadReport setBackgroundImage:[UIImage imageNamed:@"Login_Btn_BG"] forState:UIControlStateNormal];
     downloadReport.titleLabel.font = [UIFont systemFontOfSize:13];
     [[downloadReport rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
         MyReportListViewController *reportList = [[MyReportListViewController alloc] init];
@@ -135,7 +135,7 @@
     [downloadReport mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.equalTo(lsao2Label.mas_bottom).with.offset(20);
         make.centerX.equalTo(self.view.mas_centerX);
-        make.width.mas_equalTo(180);
+        make.width.mas_equalTo(258);
         make.height.mas_equalTo(24);
     }];
     // Do any additional setup after loading the view.
