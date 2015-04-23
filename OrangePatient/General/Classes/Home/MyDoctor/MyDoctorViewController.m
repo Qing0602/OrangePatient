@@ -23,13 +23,13 @@
     
     UIImageView *logo = [[UIImageView alloc] init];
     logo.translatesAutoresizingMaskIntoConstraints = NO;
+    [logo setImage:[UIImage imageNamed:@"MyDoctor_Null_BG"]];
     //[logo setFrame:CGRectMake(SCREEN_WIDTH-LOGO_WIDTH, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)]
     //[logo setImage:[UIImage imageNamed:@"MyDoctor_Logo"] forState:UIControlStateNormal];
 //    logo.layer.borderWidth = 2.f;
 //    logo.layer.borderColor = [UIColor orangeColor].CGColor;
 //    logo.layer.masksToBounds = YES;
 //    logo.layer.cornerRadius = 10.f;
-    logo.backgroundColor = [UIColor redColor];
     [self.view addSubview:logo];
     
     UILabel *tipLabel = [[UILabel alloc] init];
@@ -42,8 +42,9 @@
     
     UIButton *addMyDoctorBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     addMyDoctorBtn.translatesAutoresizingMaskIntoConstraints = NO;
-    addMyDoctorBtn.backgroundColor   = [UIColor greenColor];
-    [addMyDoctorBtn setTitle:@"添加我的医生" forState:UIControlStateNormal];
+    [addMyDoctorBtn setBackgroundImage:[UIImage imageNamed:@"MyDoctor_Null_Btn_BG"] forState:UIControlStateNormal];
+    //addMyDoctorBtn.backgroundColor   = [UIColor greenColor];
+    //[addMyDoctorBtn setTitle:@"添加我的医生" forState:UIControlStateNormal];
     RACSignal *btnTap = [addMyDoctorBtn rac_signalForControlEvents:UIControlEventTouchUpInside];
     [btnTap subscribeNext:^(UIButton *sender){
         AddDoctorForChooseHospitalViewController *addDoctor = [[AddDoctorForChooseHospitalViewController alloc] init];
@@ -52,14 +53,14 @@
     [self.view addSubview:addMyDoctorBtn];
     
     NSDictionary *views = @{@"topLayoutGuide":self.topLayoutGuide,@"logo":logo,@"tipLabel":tipLabel,@"addMyDoctorBtn":addMyDoctorBtn};
-    NSDictionary *metrics = @{@"btnWidth":@(SCREEN_WIDTH/2),@"labelWidth":@(SCREEN_WIDTH/2+40)};
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[logo(btnWidth)]" options:0 metrics:metrics views:views]];
+    NSDictionary *metrics = @{@"btnWidth":@218,@"labelWidth":@(SCREEN_WIDTH/2+40)};
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[logo(165)]" options:0 metrics:metrics views:views]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:logo attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[tipLabel(labelWidth)]" options:0 metrics:metrics views:views]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:tipLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[addMyDoctorBtn(tipLabel)]" options:0 metrics:metrics views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[addMyDoctorBtn(labelWidth)]" options:0 metrics:metrics views:views]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:addMyDoctorBtn attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]->=100@1000-[logo(btnWidth)]-16-[tipLabel(20)]-28-[addMyDoctorBtn(40)]->=100-|" options:0 metrics:metrics views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]->=100@1000-[logo(165)]-16-[tipLabel(20)]-28-[addMyDoctorBtn(38)]->=100-|" options:0 metrics:metrics views:views]];
     
     
     // Do any additional setup after loading the view.
