@@ -33,10 +33,10 @@ typedef enum{
 }CustomNavigationBarLeftButton;
 
 typedef enum{
-    /*! @brief 我的资料页编辑
+    /*! @brief 搜索图标
      *
      */
-    kCustomNavRightType1,
+    kCustomNavRightTypeSearchIcon,
 }CustomNavigationBarRightButton;
 
 @interface OrangeBaseViewController : UIViewController<MBProgressHUDDelegate,PalmVCBaseProtocol>{

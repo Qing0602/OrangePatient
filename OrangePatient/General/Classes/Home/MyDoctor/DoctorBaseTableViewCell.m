@@ -15,7 +15,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _cellImageview = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"Information_Cell_DefaultImage"]];
+        _cellImageview = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"MyDoctor_Default_Avatar"]];
         _cellImageview.translatesAutoresizingMaskIntoConstraints = NO;
         _cellImageview.backgroundColor = [UIColor redColor];
         [self.contentView addSubview:_cellImageview];

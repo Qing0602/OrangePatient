@@ -21,6 +21,8 @@
     
     self.title = @"我的医生";
     
+    self.navigationItem.rightBarButtonItem = [self createNavRightButton:kCustomNavRightTypeSearchIcon withSEL:@selector(searchDocotr)];
+    
     UIImageView *logo = [[UIImageView alloc] init];
     logo.translatesAutoresizingMaskIntoConstraints = NO;
     [logo setImage:[UIImage imageNamed:@"MyDoctor_Null_BG"]];
@@ -64,6 +66,11 @@
     
     
     // Do any additional setup after loading the view.
+}
+
+- (void)searchDocotr{
+    AddDoctorForChooseHospitalViewController *addDoctor = [[AddDoctorForChooseHospitalViewController alloc] init];
+    [self.navigationController pushViewController:addDoctor animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

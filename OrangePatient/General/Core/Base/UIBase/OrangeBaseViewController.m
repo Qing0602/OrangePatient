@@ -165,15 +165,15 @@
         x = 7.0f;
     }
     switch (type) {
-        case kCustomNavRightType1:
-            imageName = @"NaviRightType1";
-            imagePressName = @"NaviRightTypePress1";
+        case kCustomNavRightTypeSearchIcon:
+            imageName = @"MyDoctor_Search";
+            //imagePressName = @"NaviRightTypePress1";
             break;
         default:
             break;
     }
     
-    if ([imageName isEqualToString:@""] || [imagePressName isEqualToString:@""]) {
+    if ([imageName isEqualToString:@""]) {
         return nil;
     }
     
