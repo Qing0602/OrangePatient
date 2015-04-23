@@ -37,6 +37,10 @@ typedef enum{
      *
      */
     kCustomNavRightTypeSearchIcon,
+    /*! @brief 报告图标
+     *
+     */
+    kCustomNavRightTypeReportListIcon,
 }CustomNavigationBarRightButton;
 
 @interface OrangeBaseViewController : UIViewController<MBProgressHUDDelegate,PalmVCBaseProtocol>{

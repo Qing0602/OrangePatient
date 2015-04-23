@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [self createNavRightButton:kCustomNavRightTypeReportListIcon withSEL:@selector(checkMyReportList)];
+    
     _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-300)/2, 20, 300.f, 200.f)];
     [self.view addSubview:_progressView];
     
@@ -139,6 +141,11 @@
         make.height.mas_equalTo(24);
     }];
     // Do any additional setup after loading the view.
+}
+
+- (void)checkMyReportList{
+    MyReportListViewController *reportList = [[MyReportListViewController alloc] init];
+    [self.navigationController pushViewController:reportList animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

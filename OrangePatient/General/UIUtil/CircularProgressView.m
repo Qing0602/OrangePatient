@@ -19,7 +19,7 @@
         [self addSubview:rectImageview];
 
         //156,150
-        self.needleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(66, 70, 156, 150)];
+        self.needleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(66, 60, 160, 160)];
         [self.needleImageView setImage:[UIImage imageNamed:@"Report_needle"]];
         [self addSubview:self.needleImageView];
         
@@ -58,8 +58,11 @@
     self.value.text = [NSString stringWithFormat:@"%ld",(long)value];
     self.valueDesc.text = [self getValueDescByValue:value];
     //160 + progressValue*220-270
-    //CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(180);
-    CGAffineTransform finalTransform = CGAffineTransformMakeRotation(270);
+    //5 - 4度
+    //15 -45度
+    //30 -120度
+    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(120);
+    CGAffineTransform finalTransform = CGAffineTransformMakeRotation(progressOvalEndAngle);
     [self.needleImageView setTransform:finalTransform];
 //    [self.theProgressView setProgress:progressValue];
 //    [self.theProgressView startAnimation];

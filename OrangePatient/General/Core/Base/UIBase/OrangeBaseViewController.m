@@ -169,6 +169,8 @@
             imageName = @"MyDoctor_Search";
             //imagePressName = @"NaviRightTypePress1";
             break;
+        case kCustomNavRightTypeReportListIcon:
+            imageName = @"Report_Nav_Right";
         default:
             break;
     }
