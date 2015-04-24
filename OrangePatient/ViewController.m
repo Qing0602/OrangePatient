@@ -40,7 +40,7 @@
     [self.view addSubview:myDoctorList];
     
     UIButton *sendProblem = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [sendProblem setFrame:CGRectMake(110.f, 240.f, 100.f, 40.f)];
+    [sendProblem setFrame:CGRectMake(110.f, 300.f, 100.f, 40.f)];
     [sendProblem setTitle:@"问题描述" forState:UIControlStateNormal];
     [sendProblem addTarget:self action:@selector(sendProblemPage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sendProblem];
