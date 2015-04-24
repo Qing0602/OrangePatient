@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "HomeViewController.h"
 #import "MyDoctorListViewController.h"
+#import "SendProblemToDoctorViewController.h"
 @interface ViewController ()
 
 @end
@@ -37,6 +38,12 @@
     [myDoctorList setTitle:@"我的医生列表" forState:UIControlStateNormal];
     [myDoctorList addTarget:self action:@selector(myDoctorListPage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:myDoctorList];
+    
+    UIButton *sendProblem = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [sendProblem setFrame:CGRectMake(110.f, 240.f, 100.f, 40.f)];
+    [sendProblem setTitle:@"问题描述" forState:UIControlStateNormal];
+    [sendProblem addTarget:self action:@selector(sendProblemPage) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:sendProblem];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -58,6 +65,12 @@
     MyDoctorListViewController *myDoctorList = [[MyDoctorListViewController alloc] init];
     myDoctorList.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:myDoctorList animated:YES];
+}
+
+- (void)sendProblemPage{
+    SendProblemToDoctorViewController *sendProblem = [[SendProblemToDoctorViewController alloc] init];
+    sendProblem.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:sendProblem animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

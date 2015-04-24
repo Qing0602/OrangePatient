@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"问题描述";
     // Do any additional setup after loading the view.
 }
 

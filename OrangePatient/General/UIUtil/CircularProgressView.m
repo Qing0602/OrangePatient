@@ -14,12 +14,12 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *rectImageview = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, 300.f, 200.f)];
+        UIImageView *rectImageview = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, 275.f, 225.f)];
         [rectImageview setImage:[UIImage imageNamed:@"Report_Chart_BG"]];
         [self addSubview:rectImageview];
 
         //156,150
-        self.needleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(66, 60, 160, 160)];
+        self.needleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(56, 64, 160, 151)];
         [self.needleImageView setImage:[UIImage imageNamed:@"Report_needle"]];
         [self addSubview:self.needleImageView];
         
@@ -61,7 +61,7 @@
     //5 - 4度
     //15 -45度
     //30 -120度
-    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(120);
+    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(60);
     CGAffineTransform finalTransform = CGAffineTransformMakeRotation(progressOvalEndAngle);
     [self.needleImageView setTransform:finalTransform];
 //    [self.theProgressView setProgress:progressValue];
