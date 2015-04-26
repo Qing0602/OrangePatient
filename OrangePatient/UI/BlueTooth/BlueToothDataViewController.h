@@ -19,6 +19,11 @@ typedef enum{
     kDeleteBlueData,
 }BlueOperationType;
 
+typedef enum{
+    kSPO202,
+    kSPO209,
+}DeviceVersion;
+
 @interface BlueToothDataViewController : OrangeBaseViewController<CBCentralManagerDelegate,CBPeripheralDelegate>
 
 @property (nonatomic,strong) CBCentralManager *central;
@@ -40,6 +45,8 @@ typedef enum{
 @property (nonatomic,strong) UILabel *bpName;
 @property (nonatomic,strong) UILabel *caloriesNumber;
 @property (nonatomic,strong) UILabel *caloriesName;
+
+@property (nonatomic) DeviceVersion deviceVersion;
 
 @property (nonatomic,strong) NSMutableArray *analyesData;
 -(id) initBlueToothDataVC : (NSUUID *) uuid;

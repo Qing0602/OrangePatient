@@ -8,9 +8,10 @@
 
 
 //服务的UUID
-#define UUIDSTR_ISSC_PROPRIETARY_SERVICE        @"49535343-FE7D-4AE5-8FA9-9FAFD2O5E455"
-#define UUIDSTR_CONNECTION_PARAMETER_CHAR       @"49535343-6DAA-4DO2-ABF6-19569ACA69FE"
-#define UUIDSTR_AIR_PATCH_CHAR                  @"49535343-ACA3-481C-91EC-D85E28A6O318"
+//#define UUIDSTR_ISSC_PROPRIETARY_SERVICE        @"49535343-FE7D-4AE5-8FA9-9FAFD2O5E455"
+//#define UUIDSTR_CONNECTION_PARAMETER_CHAR       @"49535343-6DAA-4DO2-ABF6-19569ACA69FE"
+//#define UUIDSTR_AIR_PATCH_CHAR                  @"49535343-ACA3-481C-91EC-D85E28A6O318"
+#define UUIDSERVICE                             @"49535343-FE7D-4AE5-8FA9-9FAFD205E455"
 // 写入的特性UUID
 #define UUIDSTR_ISSC_TRANS_TX                   @"49535343-8841-43F4-A8D4-ECBE34729BB3"
 // 读取特性的UUID
@@ -35,6 +36,9 @@
 -(NSTimeInterval) getStartDate;
 -(NSTimeInterval) getEndDate;
 -(NSMutableArray *) formatData;
+
+// 获取血氧
+-(void) getSPO;
 @end
 
 @implementation BlueToothDataViewController
@@ -284,6 +288,16 @@
 
 // 连接设备成功
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
+    NSRange foundObj202=[[peripheral.name uppercaseString] rangeOfString:@"SPO202" options:NSCaseInsensitiveSearch];
+    NSRange foundObj209=[[peripheral.name uppercaseString] rangeOfString:@"SPO209" options:NSCaseInsensitiveSearch];
+    if (foundObj202.length > 0) {
+        self.deviceVersion = kSPO202;
+    }else if (foundObj209.length > 0){
+        self.deviceVersion = kSPO209;
+    }else{
+        [self showProgressWithText:@"未知设备" withDelayTime:2.0f];
+        return;
+    }
     [peripheral discoverServices:nil];
 }
 
@@ -313,10 +327,14 @@
         }
     }
     
-    [self getBlueToothData];
+    if (self.deviceVersion == kSPO202) {
+        [self getBlueToothData];
+    }else{
+        [self getSPO];
+    }
 }
 
-// 获取完整数据
+// 获取完整数据 -- 一代表
 -(void) getBlueToothData{
     if (self.rx != nil && self.tx != nil) {
         self.BlueOperation = kGetBlueData;
@@ -329,12 +347,24 @@
     }
 }
 
-// 删除蓝牙数据
+// 删除蓝牙数据 -- 一代表
 -(void) removeBlueToothData{
     if (self.tx != nil) {
         self.BlueOperation = kDeleteBlueData;
         Byte command[] = { 0x7D, 0x81, 0xAE, 0xFF, 0xFF };
         self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:5];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+// 获取血氧 -- 二代表
+-(void) getSPO{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0xA3, 0x00, 0x00, 0x00, 0x00,0x23 };
+        self.mutableData = [[NSMutableData alloc] init];
+        self.analyesData = [[NSMutableArray alloc] init];
         NSData *data = [[NSData alloc] initWithBytes:command length:5];
         [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
         [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
@@ -347,28 +377,32 @@
     [self.mutableData appendData:data];
     Byte *byteData = (Byte *)[self.mutableData bytes];
     
-    if (self.BlueOperation == kGetBlueData) {
-        if (data.length == 4 && byteData[0] == 0x18) {
-            // 无数据
-            self.state.text = @"无新数据";
-        }else{
-            for(int i=0;i<[self.mutableData length];i++){
-                if ( byteData[i] == 0x18 ) {
-                    [self analyes:self.mutableData];
-                    self.state.text = @"√\n传输成功";
-                    if (data != nil) {
-                        NSTimeInterval start = [self getStartDate];
-                        NSTimeInterval end = start + [self getEndDate];
-                        NSMutableArray *data = [self formatData];
-                        NSDictionary *json = @{@"start_time":[NSNumber numberWithLong:start],@"end_time":[NSNumber numberWithLong:end],@"data_len":[NSNumber numberWithInteger:[data count]],@"data":data};
-                        [[UIManagement sharedInstance] postDeviceData:start withEndTime:end withPeripheralID:self.currentModel.uuid withData:json];
+    if (self.deviceVersion == kSPO209) {
+        
+    }else{
+        if (self.BlueOperation == kGetBlueData) {
+            if (data.length == 4 && byteData[0] == 0x18) {
+                // 无数据
+                self.state.text = @"无新数据";
+            }else{
+                for(int i=0;i<[self.mutableData length];i++){
+                    if ( byteData[i] == 0x18 ) {
+                        [self analyes:self.mutableData];
+                        self.state.text = @"√\n传输成功";
+                        if (data != nil) {
+                            NSTimeInterval start = [self getStartDate];
+                            NSTimeInterval end = start + [self getEndDate];
+                            NSMutableArray *data = [self formatData];
+                            NSDictionary *json = @{@"start_time":[NSNumber numberWithLong:start],@"end_time":[NSNumber numberWithLong:end],@"data_len":[NSNumber numberWithInteger:[data count]],@"data":data};
+                            [[UIManagement sharedInstance] postDeviceData:start withEndTime:end withPeripheralID:self.currentModel.uuid withData:json];
+                        }
+                        break;
                     }
-                    break;
                 }
             }
+        }else if (self.BlueOperation == kDeleteBlueData){
+            NSLog(@"删除数据 0b81");
         }
-    }else if (self.BlueOperation == kDeleteBlueData){
-        NSLog(@"删除数据 0b81");
     }
 }
 
