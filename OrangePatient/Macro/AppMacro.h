@@ -39,4 +39,7 @@
 //Register
 #define Register_TableviewCell_Height 52.f
 
+//问题描述
+#define SendProblemToDoctor_TableviewCell_NormalHeight 40.f
+
 #endif

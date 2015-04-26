@@ -63,8 +63,6 @@
     
     _registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_registerBtn setFrame:CGRectMake((SCREEN_WIDTH-RegisterBtn_Width)/2, CGRectGetMaxY(registerTip.frame)+14.f, RegisterBtn_Width, 30.f)];
-    _registerBtn.layer.masksToBounds = YES;
-    _registerBtn.layer.cornerRadius = 5.f;
     [_registerBtn setBackgroundImage:[UIImage imageNamed:@"Register_Btn_BG"] forState:UIControlStateNormal];
     //_registerBtn.backgroundColor = [UIColor colorWithRed:227/255.f green:75/255.f blue:45/255.f alpha:1.f];
     [_registerBtn setTitle:REGISTER_PAGE_REGISTER_BTN_TITLE forState:UIControlStateNormal];

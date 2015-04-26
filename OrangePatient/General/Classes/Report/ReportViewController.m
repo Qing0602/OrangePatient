@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [self createNavRightButton:kCustomNavRightTypeReportListIcon withSEL:@selector(checkMyReportList)];
     
-    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-300)/2, 20, 300.f, 200.f)];
+    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-275)/2, 20, 275.f, 225.f)];
     [self.view addSubview:_progressView];
     
     UILabel *valueTitle = [[UILabel alloc] init];
