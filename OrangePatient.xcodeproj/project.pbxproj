@@ -284,6 +284,7 @@
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
 		7489DCAD1ADCDCA50098AA47 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7489DCAC1ADCDCA50098AA47 /* CircularProgressView.m */; };
 		748B53D71AEE453600D5D658 /* MyDoctorDepartmentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 748B53D61AEE453600D5D658 /* MyDoctorDepartmentsModel.m */; };
+		748B53D91AEE4CB300D5D658 /* Cell_Btn_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 748B53D81AEE4CB300D5D658 /* Cell_Btn_BG@2x.png */; };
 		7491B4AF1AE3EF160012B6C8 /* MyReportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */; };
 		7491B4B21AE3EF3F0012B6C8 /* MyReportListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4B11AE3EF3F0012B6C8 /* MyReportListTableViewCell.m */; };
 		7491B4B51AE3F0EF0012B6C8 /* MyReportListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4B41AE3F0EF0012B6C8 /* MyReportListModel.m */; };
@@ -726,6 +727,7 @@
 		7489DCAC1ADCDCA50098AA47 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
 		748B53D51AEE453600D5D658 /* MyDoctorDepartmentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorDepartmentsModel.h; sourceTree = "<group>"; };
 		748B53D61AEE453600D5D658 /* MyDoctorDepartmentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoctorDepartmentsModel.m; sourceTree = "<group>"; };
+		748B53D81AEE4CB300D5D658 /* Cell_Btn_BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cell_Btn_BG@2x.png"; sourceTree = "<group>"; };
 		7491B4AD1AE3EF160012B6C8 /* MyReportListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReportListViewController.h; sourceTree = "<group>"; };
 		7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReportListViewController.m; sourceTree = "<group>"; };
 		7491B4B01AE3EF3F0012B6C8 /* MyReportListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReportListTableViewCell.h; sourceTree = "<group>"; };
@@ -1894,6 +1896,7 @@
 		74E6AF661AE7BDCD00CD5B4D /* UIControl */ = {
 			isa = PBXGroup;
 			children = (
+				748B53D81AEE4CB300D5D658 /* Cell_Btn_BG@2x.png */,
 				74E6AF671AE7BDCD00CD5B4D /* SexControl_Selected@2x.png */,
 				74E6AF681AE7BDCD00CD5B4D /* SexControl_Unselected@2x.png */,
 			);
@@ -2060,6 +2063,7 @@
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
 				1974F2691AD6BB3600A8EE0D /* 80x80.png in Resources */,
+				748B53D91AEE4CB300D5D658 /* Cell_Btn_BG@2x.png in Resources */,
 				7406A60F1AE7A29400696043 /* faceDelete@2x.png in Resources */,
 				7406A5D21AE7A29400696043 /* VoiceSearchFeedback005.png in Resources */,
 				7406A5D41AE7A29400696043 /* VoiceSearchFeedback006.png in Resources */,
