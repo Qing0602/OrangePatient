@@ -11,16 +11,27 @@
 @interface MyDoctorHospitalsModel : BaseNSObject
 //医院名称
 @property (nonatomic, strong)NSString *hospitalName;
-//所属筛查中心
-@property (nonatomic, strong)NSString *screeningCenterName;
 //城市ID
 @property (nonatomic)NSInteger cityCode;
 //医院ID
 @property (nonatomic, strong)NSString *hospitalCode;
+//logoUrl
+@property (nonatomic, strong)NSString *hospitalLogoUrl;
+//grade
+@property (nonatomic, strong)NSString *hospitalGrade;
+//address
+@property (nonatomic, strong)NSString *hospitalAddress;
+//phone
+@property (nonatomic, strong)NSString *hospitalPhone;
+//content
+@property (nonatomic, strong)NSString *hospitalContent;
+//status
+@property (nonatomic)NSInteger hospitalStatus;
 //部门
-@property (nonatomic, strong)NSString *departmentCode;
-@property (nonatomic, strong)NSString *departmentName;
-@property (nonatomic)NSInteger departmentStatus;
+@property (nonatomic, strong)NSMutableArray *departmentList;
+//@property (nonatomic, strong)NSString *departmentCode;
+//@property (nonatomic, strong)NSString *departmentName;
+//@property (nonatomic)NSInteger departmentStatus;
 
 + (MyDoctorHospitalsModel *)convertModelByDic:(NSDictionary *)dic;
 @end

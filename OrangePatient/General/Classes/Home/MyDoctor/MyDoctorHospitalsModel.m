@@ -7,19 +7,27 @@
 //
 
 #import "MyDoctorHospitalsModel.h"
-
+#import "MyDoctorDepartmentsModel.h"
 @implementation MyDoctorHospitalsModel
 
 + (MyDoctorHospitalsModel *)convertModelByDic:(NSDictionary *)dic{
     MyDoctorHospitalsModel *model = [[MyDoctorHospitalsModel alloc] init];
     model.hospitalCode = dic[@"code"];
     model.hospitalName = dic[@"name"];
-    NSDictionary *departmentListDic = dic[@"departmentList"];
-    if (departmentListDic.allKeys.count) {
-        model.departmentCode = departmentListDic[@"code"];
-        model.departmentName = departmentListDic[@"name"];
-        model.departmentStatus = [departmentListDic[@"status"] integerValue];
+    model.hospitalAddress = dic[@"address"];
+    model.hospitalContent = dic[@"content"];
+    model.hospitalGrade = dic[@"grade"];
+    model.hospitalLogoUrl = dic[@"logourl"];
+    model.hospitalPhone = dic[@"phone"];
+    model.hospitalStatus = [dic[@"status"] integerValue];
+    NSArray *departmentListArr = dic[@"departmentList"];
+    NSMutableArray *tempDepartmentList = [[NSMutableArray alloc] initWithCapacity:departmentListArr.count];
+    for (NSDictionary *department in departmentListArr) {
+        if (department && department.allKeys.count) {
+            [tempDepartmentList addObject:[MyDoctorDepartmentsModel convertModelByDic:department]];
+        }
     }
+    model.departmentList = tempDepartmentList;
     return model;
 }
 
