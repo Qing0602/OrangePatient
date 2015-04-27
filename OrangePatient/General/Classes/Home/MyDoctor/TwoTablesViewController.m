@@ -54,7 +54,7 @@
                 [self setContentData:dataArr];
                 if (dataArr.count) {
                     NSDictionary *firstCity = dataArr[0];
-                    [[UIManagement sharedInstance] getHospital:0 withOffset:20 withCode:[firstCity[@"code"] integerValue]];
+                    [[UIManagement sharedInstance] getHospital:20 withOffset:0 withCode:[firstCity[@"code"] integerValue]];
                 }
             }else{
                 [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
