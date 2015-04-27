@@ -12,6 +12,7 @@
 #import "BlueToothDateData.h"
 #import "BlueToothTimeData.h"
 #import "BlueToothData.h"
+#import "BlueToothModel2.h"
 
 typedef enum{
     kNone = 0,

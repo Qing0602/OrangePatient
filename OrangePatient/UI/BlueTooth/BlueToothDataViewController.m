@@ -37,8 +37,13 @@
 -(NSTimeInterval) getEndDate;
 -(NSMutableArray *) formatData;
 
-// 获取血氧
+// 获取二代血氧
 -(void) getSPO;
+// 解析二代血氧数据 -- 返回是否还有未读取数据
+-(BOOL) analyesSPO : (Byte *)bytes;
+// 二代数据model
+@property (nonatomic,strong) BlueToothModel2 *blueToothModel2;
+
 @end
 
 @implementation BlueToothDataViewController
@@ -363,8 +368,18 @@
 -(void) getSPO{
     if (self.rx != nil && self.tx != nil) {
         Byte command[] = { 0xA3, 0x00, 0x00, 0x00, 0x00,0x23 };
-        self.mutableData = [[NSMutableData alloc] init];
-        self.analyesData = [[NSMutableArray alloc] init];
+        self.blueToothModel2 = [[BlueToothModel2 alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:5];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+// 继续获取血氧 -- 二代表
+-(void) continueGetSPO{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0xA3, 0x00, 0x00, 0x00, 0x00,0x23 };
+        self.blueToothModel2 = [[BlueToothModel2 alloc] init];
         NSData *data = [[NSData alloc] initWithBytes:command length:5];
         [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
         [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
@@ -373,13 +388,27 @@
 
 // 监听数据
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
-    NSData *data = characteristic.value;
-    [self.mutableData appendData:data];
-    Byte *byteData = (Byte *)[self.mutableData bytes];
-    
     if (self.deviceVersion == kSPO209) {
-        
+        NSData *data = characteristic.value;
+        Byte *bytes = (Byte *)[data bytes];
+        switch (bytes[0]) {
+            case 0xD3:
+                {
+                    if (![self analyesSPO:bytes]) {
+                        [self continueGetSPO];
+                    }else{
+                        // do somethings
+                    }
+                }
+                break;
+                
+            default:
+                break;
+        }
     }else{
+        NSData *data = characteristic.value;
+        [self.mutableData appendData:data];
+        Byte *byteData = (Byte *)[self.mutableData bytes];
         if (self.BlueOperation == kGetBlueData) {
             if (data.length == 4 && byteData[0] == 0x18) {
                 // 无数据
@@ -570,6 +599,16 @@
     }
     [self.analyesData addObject:data];
     return result;
+}
+
+// 解析二代血氧数据 -- 返回是否还有未读取数据
+-(BOOL) analyesSPO : (Byte *)bytes;{
+    
+    BOOL finshed = bytes[1] >> 7 & 0x01;
+    for (int i = 2; i<16; i++) {
+        [self.blueToothModel2.spo2Array addObject:[NSNumber numberWithInteger:(bytes[i])]];
+    }
+    return finshed;
 }
 
 - (void)didReceiveMemoryWarning {

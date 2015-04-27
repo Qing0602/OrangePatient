@@ -21,6 +21,7 @@
 		195C547E1ABF9A2C0063E768 /* UnlockDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547A1ABF9A2C0063E768 /* UnlockDevice@3x.png */; };
 		195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */; };
 		195C54801ABF9A2C0063E768 /* UnlockDeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */; };
+		195FAB931AEE6D4D004520AC /* BlueToothModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 195FAB921AEE6D4D004520AC /* BlueToothModel2.m */; };
 		19611FAD1ACAD60D00AFA921 /* UserAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */; };
 		19714B531AE127C30033C19D /* BlueToothModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19714B521AE127C30033C19D /* BlueToothModel.m */; };
 		1974F2681AD6BB3600A8EE0D /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 1974F2651AD6BB3600A8EE0D /* 58x58.png */; };
@@ -379,6 +380,8 @@
 		195C547A1ABF9A2C0063E768 /* UnlockDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDevice@3x.png"; sourceTree = "<group>"; };
 		195C547B1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDeviceImage@2x.png"; sourceTree = "<group>"; };
 		195C547C1ABF9A2C0063E768 /* UnlockDeviceImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UnlockDeviceImage@3x.png"; sourceTree = "<group>"; };
+		195FAB911AEE6D4D004520AC /* BlueToothModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothModel2.h; sourceTree = "<group>"; };
+		195FAB921AEE6D4D004520AC /* BlueToothModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothModel2.m; sourceTree = "<group>"; };
 		19611FAB1ACAD60D00AFA921 /* UserAccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccountModel.h; sourceTree = "<group>"; };
 		19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccountModel.m; sourceTree = "<group>"; };
 		19714B511AE127C30033C19D /* BlueToothModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothModel.h; sourceTree = "<group>"; };
@@ -950,6 +953,8 @@
 				19611FAC1ACAD60D00AFA921 /* UserAccountModel.m */,
 				19714B511AE127C30033C19D /* BlueToothModel.h */,
 				19714B521AE127C30033C19D /* BlueToothModel.m */,
+				195FAB911AEE6D4D004520AC /* BlueToothModel2.h */,
+				195FAB921AEE6D4D004520AC /* BlueToothModel2.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2275,6 +2280,7 @@
 				744522DC1ADBA278002B20F0 /* EMChatBaseBubbleView.m in Sources */,
 				74E462F11AC4555B009E02A6 /* AddDoctorForChooseHospitalViewController.m in Sources */,
 				744522DE1ADBA278002B20F0 /* EMChatLocationBubbleView.m in Sources */,
+				195FAB931AEE6D4D004520AC /* BlueToothModel2.m in Sources */,
 				74CE09081AA4A52000DD9458 /* BaseUIView.m in Sources */,
 				19A265621AE0EB1100B0821E /* DeviceOperation.m in Sources */,
 				74CCFFF11AB5646A00DDD42E /* TextFieldWithLeftIcon.m in Sources */,
