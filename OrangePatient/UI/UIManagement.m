@@ -133,6 +133,11 @@ static UIManagement *sharedInstance = nil;
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
 
+-(void)getMyService{
+    SettingOperation *operation = [[SettingOperation alloc] initGetDoctors:limit withOffset:offset withCode:code];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
 #pragma mark -
 #pragma mark 信息相关网络访问
 // 获取最新健康资讯信息
