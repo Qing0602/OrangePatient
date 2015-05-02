@@ -63,13 +63,14 @@
     switch (model.doctorStatus) {
         case Doctor_Status_ShouldAdd:
         {
-            self.doctorStatusBtn.backgroundColor = [UIColor orangeColor];
+            [self.doctorStatusBtn setBackgroundImage:[UIImage imageNamed:@"Cell_Btn_BG"] forState:UIControlStateNormal];
             [self.doctorStatusBtn setTitle:@"添加" forState:UIControlStateNormal];
             [self.doctorStatusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
             break;
         case Doctor_Status_Waiting:
         {
+            [self.doctorStatusBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
             self.doctorStatusBtn.backgroundColor = [UIColor grayColor];
             [self.doctorStatusBtn setTitle:@"等待验证" forState:UIControlStateNormal];
             [self.doctorStatusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -77,6 +78,7 @@
             break;
         case Doctor_Status_Added:
         {
+            [self.doctorStatusBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
             self.doctorStatusBtn.backgroundColor = [UIColor clearColor];
             [self.doctorStatusBtn setTitle:@"已添加" forState:UIControlStateNormal];
             [self.doctorStatusBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];

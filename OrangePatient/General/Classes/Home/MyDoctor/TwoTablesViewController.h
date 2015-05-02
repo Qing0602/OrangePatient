@@ -23,4 +23,6 @@ typedef NS_ENUM(NSInteger,HospitalListLoadStatus){
 @property (nonatomic, strong)UITableView *hospitalTable;
 //CityModel
 @property (nonatomic, strong)NSMutableArray *contentData;
+
+- (MyDoctorCitysModel *)getCurrentCityModel;
 @end

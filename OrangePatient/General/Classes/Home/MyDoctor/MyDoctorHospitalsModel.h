@@ -29,9 +29,14 @@
 @property (nonatomic)NSInteger hospitalStatus;
 //部门
 @property (nonatomic, strong)NSMutableArray *departmentList;
+//code
+@property (nonatomic, strong)NSString *departmentCode;
+//name
+@property (nonatomic, strong)NSString  *departmentName;
 //@property (nonatomic, strong)NSString *departmentCode;
 //@property (nonatomic, strong)NSString *departmentName;
 //@property (nonatomic)NSInteger departmentStatus;
 
 + (MyDoctorHospitalsModel *)convertModelByDic:(NSDictionary *)dic;
+- (NSMutableArray *)convertModelByDic:(NSDictionary *)dic;
 @end

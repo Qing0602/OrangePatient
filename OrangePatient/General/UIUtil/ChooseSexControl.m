@@ -11,7 +11,7 @@
 
 
 @implementation ChooseSexControl
-
+/*
 - (instancetype)initWithOrigin:(CGPoint)point
 {
     CGRect viewFrame = CGRectMake(point.x, point.y, Control_Width, Control_Height);
@@ -40,8 +40,8 @@
         [_female setTitle:@"女" forState:UIControlStateNormal];
         _female.backgroundColor = [UIColor yellowColor];
         [_female setTitleEdgeInsets:UIEdgeInsetsMake(0.f,-10.f, 0.f,  _female.frame.size.width/2)];
-        [_female setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
-        [_female setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
+        [_female setImage:[UIImage imageNamed:@"SexControl_Selected"] forState:UIControlStateSelected];
+        [_female setImage:[UIImage imageNamed:@"SexControl_Unselected"] forState:UIControlStateNormal];
         [_female setImageEdgeInsets:UIEdgeInsetsMake((viewFrame.size.height-17)/4, _female.frame.size.width/2+textAndImageIntervel, (viewFrame.size.height-17)/4, 0)];
         [_female addTarget:self action:@selector(chooseSex:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -64,7 +64,7 @@
     
     return self;
 }
-
+*/
 - (instancetype)init
 {
     self = [super init];
@@ -74,8 +74,8 @@
         [_male setTitle:@"男" forState:UIControlStateNormal];
         [_male setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_male setTitleEdgeInsets:UIEdgeInsetsMake(0.f, -20.f, 0.f, Control_Width/4)];
-        [_male setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
-        [_male setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
+        [_male setImage:[UIImage imageNamed:@"SexControl_Selected"] forState:UIControlStateSelected];
+        [_male setImage:[UIImage imageNamed:@"SexControl_Unselected"] forState:UIControlStateNormal];
         [_male setImageEdgeInsets:UIEdgeInsetsMake((Control_Height-23)/4,  Control_Width/4, (Control_Height-23)/4, 0.f)];
         [_male addTarget:self action:@selector(chooseSex:) forControlEvents:UIControlEventTouchUpInside];
         _male.selected = YES;
@@ -85,8 +85,8 @@
         [_female setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_female setTitle:@"女" forState:UIControlStateNormal];
         [_female setTitleEdgeInsets:UIEdgeInsetsMake(0.f,-20.f, 0.f,  Control_Width/4)];
-        [_female setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
-        [_female setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
+        [_female setImage:[UIImage imageNamed:@"SexControl_Selected"] forState:UIControlStateSelected];
+        [_female setImage:[UIImage imageNamed:@"SexControl_Unselected"] forState:UIControlStateNormal];
         [_female setImageEdgeInsets:UIEdgeInsetsMake((Control_Height-23)/4, Control_Width/4, (Control_Height-23)/4, 0)];
         [_female addTarget:self action:@selector(chooseSex:) forControlEvents:UIControlEventTouchUpInside];
         

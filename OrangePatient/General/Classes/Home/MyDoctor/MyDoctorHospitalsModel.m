@@ -31,4 +31,27 @@
     return model;
 }
 
+- (NSMutableArray *)convertModelByDic:(NSDictionary *)dic{
+    NSMutableArray *hospitalDepartmentsList = [[NSMutableArray alloc] init];
+    
+    NSArray *departmentListArr = dic[@"departmentList"];
+    for (NSDictionary *department in departmentListArr) {
+        if (department && department.allKeys.count) {
+            MyDoctorHospitalsModel *model = [[MyDoctorHospitalsModel alloc] init];
+            model.hospitalCode = dic[@"code"];
+            model.hospitalName = dic[@"name"];
+            model.hospitalAddress = dic[@"address"];
+            model.hospitalContent = dic[@"content"];
+            model.hospitalGrade = dic[@"grade"];
+            model.hospitalLogoUrl = dic[@"logourl"];
+            model.hospitalPhone = dic[@"phone"];
+            model.hospitalStatus = [dic[@"status"] integerValue];
+            model.departmentCode = department[@"code"];
+            model.departmentName = department[@"name"];
+            [hospitalDepartmentsList addObject:model];
+        }
+    }
+    return hospitalDepartmentsList;
+}
+
 @end

@@ -23,13 +23,12 @@
         _cellTitle = [[UILabel alloc] init];
         _cellTitle.font = [UIFont systemFontOfSize:14.f];
         _cellTitle.translatesAutoresizingMaskIntoConstraints = NO;
-        _cellTitle.backgroundColor = [UIColor greenColor];
         [self.contentView addSubview:_cellTitle];
         
         _cellContent = [[UILabel alloc] init];
         _cellContent.font = [UIFont systemFontOfSize:13.f];
         _cellContent.textColor = [UIColor lightGrayColor];
-        _cellContent.backgroundColor = [UIColor greenColor];
+        [_cellContent sizeToFit];
         _cellContent.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_cellContent];
         
@@ -50,19 +49,23 @@
         [_cellTitle mas_makeConstraints:^(MASConstraintMaker *make){
             make.left.equalTo(_cellImageview.mas_right).and.offset(10);
             make.top.mas_equalTo(DoctorBaseCellPadding);
-            make.size.mas_equalTo(CGSizeMake(140.f, 16.f));
+            make.right.mas_equalTo(-70);
+            make.height.mas_equalTo(16.f);
+
         }];
         
         [_cellContent mas_makeConstraints:^(MASConstraintMaker *make){
             make.left.equalTo(self.cellTitle.mas_left);
+            make.right.equalTo(self.cellTitle.mas_right);
+            make.height.equalTo(self.cellTitle.mas_height);
             make.top.equalTo(self.cellTitle.mas_bottom).with.offset(6);
-            make.size.mas_equalTo(CGSizeMake(140.f, 16.f));
         }];
         
         [_cellSubTitle mas_makeConstraints:^(MASConstraintMaker *make){
             make.left.equalTo(self.cellTitle.mas_left);
+            make.right.equalTo(self.cellTitle.mas_right);
+            make.height.equalTo(self.cellTitle.mas_height);
             make.top.equalTo(self.cellContent.mas_bottom).with.offset(6);
-            make.size.mas_equalTo(CGSizeMake(140.f, 16.f));
         }];
         /*
         NSDictionary *views = NSDictionaryOfVariableBindings(_cellImageview,_cellTitle,_cellContent,_cellSubTitle);
@@ -87,7 +90,7 @@
 {
     [self.cellImageview setImageURL:model.doctorAvatar];
     [self.cellTitle setText:model.doctorUserName];
-    [self.cellContent setText:model.doctorGrade];
+    [self.cellContent setText:model.doctorDepartment];
     [self.cellSubTitle setText:model.doctorComment];
 }
 

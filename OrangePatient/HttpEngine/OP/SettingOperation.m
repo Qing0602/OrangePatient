@@ -112,7 +112,7 @@
 -(void) getDoctors{
     [self.request setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
-            [UIManagement sharedInstance].getHospitalResult = data;
+            [UIManagement sharedInstance].getDoctorsResult = data;
         };
         dispatch_async(dispatch_get_main_queue(), updateTagBlock);
     }];
