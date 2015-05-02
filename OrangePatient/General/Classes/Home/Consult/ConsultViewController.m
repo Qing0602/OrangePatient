@@ -28,7 +28,6 @@
     _serviceListTable.delegate = self;
     _serviceListTable.dataSource = self;
     _serviceListTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    _serviceListTable.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
     [self.view addSubview:_serviceListTable];
     
     [RACObserve([UIManagement sharedInstance], myServiceResult) subscribeNext:^(NSDictionary *dic){
@@ -91,7 +90,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ChatViewController *chatController = [[ChatViewController alloc] initWithChatter:@"test" isGroup:NO];
+    MyServiceModel *model = self.myServiceList[indexPath.row];
+    ChatViewController *chatController = [[ChatViewController alloc] initWithChatter:model.serviceImNickname isGroup:NO];
     [self.navigationController pushViewController:chatController animated:YES];
 }
 
