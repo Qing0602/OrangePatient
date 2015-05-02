@@ -9,6 +9,8 @@
 
 #import "DoctorBaseTableViewCell.h"
 
+#import "MyDoctorsModel.h"
+#import "MyServiceModel.h"
 @implementation DoctorBaseTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -86,12 +88,22 @@
     
 }
 
-- (void)setContentByInfoModel:(MyDoctorsModel *)model
+- (void)setContentByInfoModel:(id)model
 {
-    [self.cellImageview setImageURL:model.doctorAvatar];
-    [self.cellTitle setText:model.doctorUserName];
-    [self.cellContent setText:model.doctorDepartment];
-    [self.cellSubTitle setText:model.doctorComment];
+    if ([model isKindOfClass:[MyDoctorsModel class]]) {
+        MyDoctorsModel *doctorModel = (MyDoctorsModel *)model;
+        [self.cellImageview setImageURL:doctorModel.doctorAvatar];
+        [self.cellTitle setText:doctorModel.doctorUserName];
+        [self.cellContent setText:doctorModel.doctorDepartment];
+        [self.cellSubTitle setText:doctorModel.doctorComment];
+    }else if ([model isKindOfClass:[MyServiceModel class]]){
+        MyServiceModel *serviceModel = (MyServiceModel *)model;
+        [self.cellImageview setImageURL:[NSURL URLWithString:serviceModel.serviceAvatar]];
+        [self.cellTitle setText:serviceModel.serviceNickname];
+        [self.cellContent setText:serviceModel.serviceMobile];
+        [self.cellSubTitle setText:serviceModel.serviceEmail];
+    }
+
 }
 
 - (void)awakeFromNib {

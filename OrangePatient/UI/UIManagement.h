@@ -129,7 +129,7 @@
 // 获取所属医院的科室的医生列表
 -(void) getDoctors : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code;
 //获取我的客服列表
--(void)getMyService;
+-(void)getMyServiceList;
 #pragma mark -
 #pragma mark 信息相关网络访问
 // 获取最新健康资讯信息

@@ -133,8 +133,8 @@ static UIManagement *sharedInstance = nil;
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
 
--(void)getMyService{
-    SettingOperation *operation = [[SettingOperation alloc] initGetDoctors:limit withOffset:offset withCode:code];
+-(void)getMyServiceList{
+    SettingOperation *operation = [[SettingOperation alloc] initGetService];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
 

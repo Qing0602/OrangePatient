@@ -290,6 +290,7 @@
 		7491B4B21AE3EF3F0012B6C8 /* MyReportListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4B11AE3EF3F0012B6C8 /* MyReportListTableViewCell.m */; };
 		7491B4B51AE3F0EF0012B6C8 /* MyReportListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4B41AE3F0EF0012B6C8 /* MyReportListModel.m */; };
 		7493BD561ADA645A008DF6FA /* ScreeningCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */; };
+		749884421AF4CDA8009CB1DB /* MyServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749884411AF4CDA8009CB1DB /* MyServiceModel.m */; };
 		749A11AC1AB86A6B0003F58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AB1AB86A6B0003F58B /* HomeViewController.m */; };
 		749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AF1AB86F580003F58B /* CustomPageControl.m */; };
 		749A11B31AB86F6E0003F58B /* ADBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11B21AB86F6E0003F58B /* ADBannerModel.m */; };
@@ -739,6 +740,8 @@
 		7491B4B41AE3F0EF0012B6C8 /* MyReportListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReportListModel.m; sourceTree = "<group>"; };
 		7493BD541ADA645A008DF6FA /* ScreeningCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningCenterModel.h; sourceTree = "<group>"; };
 		7493BD551ADA645A008DF6FA /* ScreeningCenterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningCenterModel.m; sourceTree = "<group>"; };
+		749884401AF4CDA8009CB1DB /* MyServiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyServiceModel.h; sourceTree = "<group>"; };
+		749884411AF4CDA8009CB1DB /* MyServiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyServiceModel.m; sourceTree = "<group>"; };
 		749A11AA1AB86A6B0003F58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		749A11AB1AB86A6B0003F58B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		749A11AE1AB86F580003F58B /* CustomPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPageControl.h; sourceTree = "<group>"; };
@@ -1280,6 +1283,8 @@
 			children = (
 				7432C7431AC06D2C00073379 /* ConsultViewController.h */,
 				7432C7441AC06D2C00073379 /* ConsultViewController.m */,
+				749884401AF4CDA8009CB1DB /* MyServiceModel.h */,
+				749884411AF4CDA8009CB1DB /* MyServiceModel.m */,
 			);
 			path = Consult;
 			sourceTree = "<group>";
@@ -2380,6 +2385,7 @@
 				192BCDA21ACED23C00137BE0 /* CityViewController.m in Sources */,
 				744522D81ADBA278002B20F0 /* FacialView.m in Sources */,
 				744522EC1ADBA4EF002B20F0 /* XHMessageTextView.m in Sources */,
+				749884421AF4CDA8009CB1DB /* MyServiceModel.m in Sources */,
 				7432C7451AC06D2C00073379 /* ConsultViewController.m in Sources */,
 				748B53D71AEE453600D5D658 /* MyDoctorDepartmentsModel.m in Sources */,
 				19A67A1B1AAB47B8006328DA /* UIManagement.m in Sources */,

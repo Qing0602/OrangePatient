@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EGOImageView.h"
-#import "MyDoctorsModel.h"
+
 @interface DoctorBaseTableViewCell : UITableViewCell
 /****UI****/
 @property (nonatomic, strong)EGOImageView *cellImageview;
@@ -19,5 +19,5 @@
 @property (nonatomic, strong)UILabel *cellContent;
 @property (nonatomic, strong)UILabel *cellSubTitle;
 
-- (void)setContentByInfoModel:(MyDoctorsModel *)model;
+- (void)setContentByInfoModel:(id)model;
 @end
