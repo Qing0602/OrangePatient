@@ -13,6 +13,18 @@
 		192BCD9C1ACE9E6B00137BE0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 192BCD9B1ACE9E6B00137BE0 /* CoreLocation.framework */; };
 		192BCD9F1ACEC34300137BE0 /* SettingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 192BCD9E1ACEC34300137BE0 /* SettingOperation.m */; };
 		192BCDA21ACED23C00137BE0 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192BCDA11ACED23C00137BE0 /* CityViewController.m */; };
+		1939DB631AF650F300EB4544 /* MyAbout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB591AF650F300EB4544 /* MyAbout@2x.png */; };
+		1939DB641AF650F300EB4544 /* MyAbout@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB5A1AF650F300EB4544 /* MyAbout@3x.png */; };
+		1939DB651AF650F300EB4544 /* MyCheckVersion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB5B1AF650F300EB4544 /* MyCheckVersion@2x.png */; };
+		1939DB661AF650F300EB4544 /* MyCheckVersion@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB5C1AF650F300EB4544 /* MyCheckVersion@3x.png */; };
+		1939DB671AF650F300EB4544 /* MyFeedBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB5D1AF650F300EB4544 /* MyFeedBack@2x.png */; };
+		1939DB681AF650F300EB4544 /* MyFeedBack@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB5E1AF650F300EB4544 /* MyFeedBack@3x.png */; };
+		1939DB691AF650F300EB4544 /* MyShopping@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB5F1AF650F300EB4544 /* MyShopping@2x.png */; };
+		1939DB6A1AF650F300EB4544 /* MyShopping@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB601AF650F300EB4544 /* MyShopping@3x.png */; };
+		1939DB6B1AF650F300EB4544 /* MySystem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB611AF650F300EB4544 /* MySystem@2x.png */; };
+		1939DB6C1AF650F300EB4544 /* MySystem@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB621AF650F300EB4544 /* MySystem@3x.png */; };
+		1939DB6F1AF656F700EB4544 /* MyAccessoryImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB6D1AF656F700EB4544 /* MyAccessoryImage@2x.png */; };
+		1939DB701AF656F700EB4544 /* MyAccessoryImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1939DB6E1AF656F700EB4544 /* MyAccessoryImage@3x.png */; };
 		193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537A1AB754990079C424 /* SearchDevice@2x.png */; };
 		193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 193C537B1AB754990079C424 /* SearchDevice@3x.png */; };
 		1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1950174A1AAC2D9A00A7E7A1 /* CoreBluetooth.framework */; };
@@ -367,6 +379,18 @@
 		192BCD9E1ACEC34300137BE0 /* SettingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingOperation.m; sourceTree = "<group>"; };
 		192BCDA01ACED23C00137BE0 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
 		192BCDA11ACED23C00137BE0 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		1939DB591AF650F300EB4544 /* MyAbout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyAbout@2x.png"; sourceTree = "<group>"; };
+		1939DB5A1AF650F300EB4544 /* MyAbout@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyAbout@3x.png"; sourceTree = "<group>"; };
+		1939DB5B1AF650F300EB4544 /* MyCheckVersion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyCheckVersion@2x.png"; sourceTree = "<group>"; };
+		1939DB5C1AF650F300EB4544 /* MyCheckVersion@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyCheckVersion@3x.png"; sourceTree = "<group>"; };
+		1939DB5D1AF650F300EB4544 /* MyFeedBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyFeedBack@2x.png"; sourceTree = "<group>"; };
+		1939DB5E1AF650F300EB4544 /* MyFeedBack@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyFeedBack@3x.png"; sourceTree = "<group>"; };
+		1939DB5F1AF650F300EB4544 /* MyShopping@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyShopping@2x.png"; sourceTree = "<group>"; };
+		1939DB601AF650F300EB4544 /* MyShopping@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyShopping@3x.png"; sourceTree = "<group>"; };
+		1939DB611AF650F300EB4544 /* MySystem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MySystem@2x.png"; sourceTree = "<group>"; };
+		1939DB621AF650F300EB4544 /* MySystem@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MySystem@3x.png"; sourceTree = "<group>"; };
+		1939DB6D1AF656F700EB4544 /* MyAccessoryImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyAccessoryImage@2x.png"; sourceTree = "<group>"; };
+		1939DB6E1AF656F700EB4544 /* MyAccessoryImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyAccessoryImage@3x.png"; sourceTree = "<group>"; };
 		193C537A1AB754990079C424 /* SearchDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDevice@2x.png"; sourceTree = "<group>"; };
 		193C537B1AB754990079C424 /* SearchDevice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchDevice@3x.png"; sourceTree = "<group>"; };
 		195017461AAC2D7900A7E7A1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -890,6 +914,18 @@
 		198F14E81ACCF1CB008C208F /* My */ = {
 			isa = PBXGroup;
 			children = (
+				1939DB6D1AF656F700EB4544 /* MyAccessoryImage@2x.png */,
+				1939DB6E1AF656F700EB4544 /* MyAccessoryImage@3x.png */,
+				1939DB591AF650F300EB4544 /* MyAbout@2x.png */,
+				1939DB5A1AF650F300EB4544 /* MyAbout@3x.png */,
+				1939DB5B1AF650F300EB4544 /* MyCheckVersion@2x.png */,
+				1939DB5C1AF650F300EB4544 /* MyCheckVersion@3x.png */,
+				1939DB5D1AF650F300EB4544 /* MyFeedBack@2x.png */,
+				1939DB5E1AF650F300EB4544 /* MyFeedBack@3x.png */,
+				1939DB5F1AF650F300EB4544 /* MyShopping@2x.png */,
+				1939DB601AF650F300EB4544 /* MyShopping@3x.png */,
+				1939DB611AF650F300EB4544 /* MySystem@2x.png */,
+				1939DB621AF650F300EB4544 /* MySystem@3x.png */,
 				198F14E91ACCF1CB008C208F /* MyRecommend@2x.png */,
 				198F14EA1ACCF1CB008C208F /* MyRecommend@3x.png */,
 				198F14EB1ACCF1CB008C208F /* MySetting@2x.png */,
@@ -2015,10 +2051,13 @@
 				7406A6071AE7A29400696043 /* chat_location_annotation_someone@2x.png in Resources */,
 				7406A5DC1AE7A29400696043 /* VoiceSearchFeedback010.png in Resources */,
 				195C547F1ABF9A2C0063E768 /* UnlockDeviceImage@2x.png in Resources */,
+				1939DB6A1AF650F300EB4544 /* MyShopping@3x.png in Resources */,
 				7406A5C61AE7A29400696043 /* chatFire_audioPlaying2.png in Resources */,
 				74CCFFEE1AB55C7A00DDD42E /* Login_userName_icon@2x.png in Resources */,
+				1939DB631AF650F300EB4544 /* MyAbout@2x.png in Resources */,
 				740E3E1E1AD7B68B00E8BA75 /* tabbar_report@2x.png in Resources */,
 				7406A5C41AE7A29400696043 /* chatFire_audioPlaying1.png in Resources */,
+				1939DB671AF650F300EB4544 /* MyFeedBack@2x.png in Resources */,
 				198F14ED1ACCF1CB008C208F /* MyRecommend@2x.png in Resources */,
 				7406A6271AE7A29400696043 /* chatBar_colorMore_audioCallSelected@2x.png in Resources */,
 				7406A62C1AE7A29400696043 /* chatBar_colorMore_photo@2x.png in Resources */,
@@ -2067,6 +2106,7 @@
 				7406A60D1AE7A29400696043 /* chat_location_preview@2x.png in Resources */,
 				74BE67B21A9F4AF7008F7C44 /* Images.xcassets in Resources */,
 				74CCFFEC1AB55C7A00DDD42E /* Login_Logo@2x.png in Resources */,
+				1939DB691AF650F300EB4544 /* MyShopping@2x.png in Resources */,
 				1974F2691AD6BB3600A8EE0D /* 80x80.png in Resources */,
 				748B53D91AEE4CB300D5D658 /* Cell_Btn_BG@2x.png in Resources */,
 				7406A60F1AE7A29400696043 /* faceDelete@2x.png in Resources */,
@@ -2078,11 +2118,13 @@
 				7406A6541AE7A29400696043 /* chat_sender_bg@2x.png in Resources */,
 				7406A6031AE7A29400696043 /* chatBar_more_faceSelected@2x.png in Resources */,
 				7406A5F71AE7A29400696043 /* call_silence@2x.png in Resources */,
+				1939DB6F1AF656F700EB4544 /* MyAccessoryImage@2x.png in Resources */,
 				7406A61A1AE7A29400696043 /* chatBar_more.png in Resources */,
 				7406A6301AE7A29400696043 /* chatBar_more_camera.png in Resources */,
 				7406A5CE1AE7A29400696043 /* VoiceSearchFeedback003.png in Resources */,
 				7406A6511AE7A29400696043 /* chat_sender_audio_playing_full.png in Resources */,
 				7406A64D1AE7A29400696043 /* chat_sender_audio_playing_002.png in Resources */,
+				1939DB6C1AF650F300EB4544 /* MySystem@3x.png in Resources */,
 				7406A5F11AE7A29400696043 /* VoiceSearchFeedback020@2x.png in Resources */,
 				7406A60E1AE7A29400696043 /* faceDelete.png in Resources */,
 				7406A5ED1AE7A29400696043 /* VoiceSearchFeedback018@2x.png in Resources */,
@@ -2090,6 +2132,7 @@
 				7406A5CD1AE7A29400696043 /* VoiceSearchFeedback002@2x.png in Resources */,
 				7406A6161AE7A29400696043 /* chatBar_keyboard.png in Resources */,
 				7406A5D91AE7A29400696043 /* VoiceSearchFeedback008@2x.png in Resources */,
+				1939DB681AF650F300EB4544 /* MyFeedBack@3x.png in Resources */,
 				7406A6361AE7A29400696043 /* chatBar_more_locationSelected.png in Resources */,
 				7406A6061AE7A29400696043 /* chat_location_annotation_someone.png in Resources */,
 				197F62F31ABA2AEF0054E72D /* NavSearchDevice@3x.png in Resources */,
@@ -2107,6 +2150,7 @@
 				7406A62B1AE7A29400696043 /* chatBar_colorMore_locationSelected@2x.png in Resources */,
 				740E3E1C1AD7B68B00E8BA75 /* tabbar_home@2x.png in Resources */,
 				740E3E2D1AD7BE9D00E8BA75 /* home_icon_information@2x.png in Resources */,
+				1939DB641AF650F300EB4544 /* MyAbout@3x.png in Resources */,
 				7406A63B1AE7A29400696043 /* chatBar_more_photoSelected@2x.png in Resources */,
 				7406A6351AE7A29400696043 /* chatBar_more_location@2x.png in Resources */,
 				198F14EE1ACCF1CB008C208F /* MyRecommend@3x.png in Resources */,
@@ -2153,6 +2197,7 @@
 				7406A6181AE7A29400696043 /* chatBar_keyboardSelected.png in Resources */,
 				7406A64A1AE7A29400696043 /* chat_sender_audio_playing_000@2x.png in Resources */,
 				7406A62A1AE7A29400696043 /* chatBar_colorMore_location@2x.png in Resources */,
+				1939DB661AF650F300EB4544 /* MyCheckVersion@3x.png in Resources */,
 				7406A6341AE7A29400696043 /* chatBar_more_location.png in Resources */,
 				7406A5CC1AE7A29400696043 /* VoiceSearchFeedback002.png in Resources */,
 				7406A6501AE7A29400696043 /* chat_sender_audio_playing_003@2x.png in Resources */,
@@ -2175,6 +2220,7 @@
 				74E6AF631AE7BDC600CD5B4D /* Register_Btn_BG@2x.png in Resources */,
 				7406A60C1AE7A29400696043 /* chat_location_preview.png in Resources */,
 				7406A6451AE7A29400696043 /* chat_receiver_audio_playing_full.png in Resources */,
+				1939DB651AF650F300EB4544 /* MyCheckVersion@2x.png in Resources */,
 				197F62F21ABA2AEF0054E72D /* NavSearchDevice@2x.png in Resources */,
 				7406A63A1AE7A29400696043 /* chatBar_more_photoSelected.png in Resources */,
 				7406A5E41AE7A29400696043 /* VoiceSearchFeedback014.png in Resources */,
@@ -2186,6 +2232,7 @@
 				7406A6401AE7A29400696043 /* chat_receiver_audio_playing001@2x.png in Resources */,
 				1974F2681AD6BB3600A8EE0D /* 58x58.png in Resources */,
 				7406A64C1AE7A29400696043 /* chat_sender_audio_playing_001@2x.png in Resources */,
+				1939DB6B1AF650F300EB4544 /* MySystem@2x.png in Resources */,
 				7406A6431AE7A29400696043 /* chat_receiver_audio_playing003.png in Resources */,
 				7406A5F01AE7A29400696043 /* VoiceSearchFeedback020.png in Resources */,
 				7406A5C51AE7A29400696043 /* chatFire_audioPlaying1@2x.png in Resources */,
@@ -2203,6 +2250,7 @@
 				198F3FE71AB6EF990017A90B /* Default-736h@3x.png in Resources */,
 				7406A6041AE7A29400696043 /* chatBar_textBg.png in Resources */,
 				7406A62E1AE7A29400696043 /* chatBar_colorMore_video@2x.png in Resources */,
+				1939DB701AF656F700EB4544 /* MyAccessoryImage@3x.png in Resources */,
 				7406A5C91AE7A29400696043 /* chatFire_audioPlaying3@2x.png in Resources */,
 				74E6AF641AE7BDC600CD5B4D /* Register_GetVeriCode@2x.png in Resources */,
 				7406A5D71AE7A29400696043 /* VoiceSearchFeedback007@2x.png in Resources */,

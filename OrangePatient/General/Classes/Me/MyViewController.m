@@ -75,7 +75,7 @@
     
     NSDictionary *views = NSDictionaryOfVariableBindings(_myView,_avatar,_nickName,_uid,_regTime,_settingTabelView);
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_myView]-0-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_myView(113)]-10-[_settingTabelView(264)]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_myView(113)]-10-[_settingTabelView(318)]" options:0 metrics:nil views:views]];
     [self.myView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[_avatar(71)]" options:0 metrics:nil views:views]];
     [self.myView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_avatar(71)]" options:0 metrics:nil views:views]];
     [self.myView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_avatar]-10-[_nickName]-0-|" options:0 metrics:nil views:views]];
@@ -93,8 +93,16 @@
     [self.navigationController pushViewController:userProfile animated:YES];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 4) {
+        return 10.0f;
+    }else{
+        return 44.0f;
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -112,31 +120,55 @@
         NSDictionary *views = NSDictionaryOfVariableBindings(line);
         [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[line]-0-|" options:0 metrics:nil views:views]];
         [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[line(1)]-0-|" options:0 metrics:nil views:views]];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MyAccessoryImage"]];
+        CGRect rect = [UIScreen mainScreen].bounds;
+        imageView.frame = CGRectMake(rect.size.width - 26.0f - 20.0f, 7.0, 26.0f, 26.0f);
         switch (indexPath.row) {
             case 0:{
                 cell.textLabel.text = @"设置";
                 cell.imageView.image = [UIImage imageNamed:@"MySetting"];
+                [cell.contentView addSubview:imageView];
             }
                 break;
             case 1:{
                 cell.textLabel.text = @"系统通知";
+                cell.imageView.image = [UIImage imageNamed:@"MySystem"];
+                [cell.contentView addSubview:imageView];
             }
                 break;
             case 2:{
                 cell.textLabel.text = @"推荐给朋友";
                 cell.imageView.image = [UIImage imageNamed:@"MyRecommend"];
+                [cell.contentView addSubview:imageView];
             }
                 break;
             case 3:{
-                cell.textLabel.text = @"检查更新";
+                cell.textLabel.text = @"商城";
+                cell.imageView.image = [UIImage imageNamed:@"MyShopping"];
+                [cell.contentView addSubview:imageView];
             }
                 break;
             case 4:{
-                cell.textLabel.text = @"意见反馈";
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCellStyleDefault"];
+                cell.contentView.backgroundColor = [UIColor colorWithHexString:@"#eeeeee"];
             }
                 break;
             case 5:{
                 cell.textLabel.text = @"关于橙意";
+                cell.imageView.image = [UIImage imageNamed:@"MyAbout"];
+                [cell.contentView addSubview:imageView];
+            }
+                break;
+            case 6:{
+                cell.textLabel.text = @"意见反馈";
+                cell.imageView.image = [UIImage imageNamed:@"MyFeedBack"];
+                [cell.contentView addSubview:imageView];
+            }
+                break;
+            case 7:{
+                cell.textLabel.text = @"检查更新";
+                cell.imageView.image = [UIImage imageNamed:@"MyCheckVersion"];
+                [cell.contentView addSubview:imageView];
             }
                 break;
             default:
@@ -154,25 +186,37 @@
             [self.navigationController pushViewController:setting animated:YES];
         }
             break;
-        case 1:
+        case 1:{
             
+        }
             break;
-        case 2:
+        case 2:{
+            
+        }
             break;
-        case 3:
-            [self showProgressWithText:@"正在检查更新"];
-            [[UIManagement sharedInstance] checkVersion:@"1.0" withVersionCode:@"1"];
+        case 3:{
+            
+        }
             break;
         case 4:{
-            FeedBackViewController *feedBack = [[FeedBackViewController alloc] init];
-            feedBack.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:feedBack animated:YES];
+            
         }
             break;
         case 5:{
             AboutViewController *about = [[AboutViewController alloc] init];
             about.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:about animated:YES];
+        }
+            break;
+        case 6:{
+            FeedBackViewController *feedBack = [[FeedBackViewController alloc] init];
+            feedBack.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:feedBack animated:YES];
+        }
+            break;
+        case 7:{
+            [self showProgressWithText:@"正在检查更新"];
+            [[UIManagement sharedInstance] checkVersion:@"1.0" withVersionCode:@"1"];
         }
             break;
         default:
