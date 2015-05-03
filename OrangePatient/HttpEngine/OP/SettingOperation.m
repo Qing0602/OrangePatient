@@ -69,6 +69,16 @@
     return self;
 }
 
+-(SettingOperation *) initGetService{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kGetService;
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/setting/mykefu",K_HOST_OF_SERVER];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
+
 -(void) getArea{
     [self.request setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -112,12 +122,23 @@
 -(void) getDoctors{
     [self.request setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
-            [UIManagement sharedInstance].getHospitalResult = data;
+            [UIManagement sharedInstance].getDoctorsResult = data;
         };
         dispatch_async(dispatch_get_main_queue(), updateTagBlock);
     }];
     [self startAsynchronous];
 }
+
+- (void)getService{
+    [self.request setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].myServiceResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
 
 -(void) main{
     @autoreleasepool {
@@ -137,6 +158,9 @@
             case kGetDoctors:
                 [self getDoctors];
                 break;
+            case kGetService:
+            [self getService];
+            break;
             default:
                 break;
         }

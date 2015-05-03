@@ -82,6 +82,8 @@
 // 上传我的设备数据
 @property (nonatomic,strong) NSDictionary *uploadMyDeviceData;
 
+//我的客服列表
+@property (nonatomic,strong) NSDictionary *myServiceResult;
 
 // 登陆
 -(void) login : (NSString *) userName withPassword : (NSString *) password;
@@ -126,7 +128,8 @@
 -(void) getDepartment : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code;
 // 获取所属医院的科室的医生列表
 -(void) getDoctors : (NSUInteger) limit withOffset : (NSUInteger) offset withCode : (NSInteger) code;
-
+//获取我的客服列表
+-(void)getMyServiceList;
 #pragma mark -
 #pragma mark 信息相关网络访问
 // 获取最新健康资讯信息

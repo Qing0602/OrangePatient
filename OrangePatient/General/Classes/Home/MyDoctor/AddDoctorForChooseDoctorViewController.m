@@ -9,16 +9,29 @@
 #import "AddDoctorForChooseDoctorViewController.h"
 
 #import "AddDoctorForChooseDoctorCell.h"
-@interface AddDoctorForChooseDoctorViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "ChooseDoctorModel.h"
+@interface AddDoctorForChooseDoctorViewController ()<UITableViewDataSource,UITableViewDelegate>{
+    NSString *_hospitalName;
+}
 @property (nonatomic, strong)UITableView *chooseDoctorTableview;
 @property (nonatomic, strong)NSArray *couldSelectedDoctorsList;
+@property (nonatomic, strong)ChooseDoctorModel *model;
+
 @end
 
 @implementation AddDoctorForChooseDoctorViewController
-
+- (instancetype)initWithDoctorModel:(ChooseDoctorModel *)chooseDoctorModel andHospitalName:(NSString *)hospitalName{
+    self = [super init];
+    if (self) {
+        self.model = chooseDoctorModel;
+        _hospitalName = hospitalName;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = _hospitalName;
     
     _chooseDoctorTableview = [[UITableView alloc] init];
     _chooseDoctorTableview.dataSource = self;
@@ -67,7 +80,7 @@
 #pragma mark - UITableview
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.couldSelectedDoctorsList.count;
+    return self.couldSelectedDoctorsList.count+1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,7 +95,10 @@
     if (!cell) {
         cell = [[AddDoctorForChooseDoctorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chooseDoctorCellIden];
     }
-    [cell setContentByInfoModel:self.couldSelectedDoctorsList[indexPath.row]];
+    [cell setContentByInfoModel:self.couldSelectedDoctorsList[indexPath.row-1]];
     return cell;
+    
+
 }
+
 @end

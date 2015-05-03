@@ -13,7 +13,6 @@
 #import "MyDoctorViewController.h"
 #import "MyDoctorListViewController.h"
 #import "MedicalScreeningViewController.h"
-#import "ChatViewController.h"
 
 #import "ADBannerScrollView.h"
 
@@ -104,11 +103,9 @@
                     break;
                 case 3:
                 {
-                    
-                    
-                    ChatViewController *chat = [[ChatViewController alloc] initWithChatter:@"我的客服" isGroup:NO];
-                    chat.hidesBottomBarWhenPushed = YES;
-                    [self.navigationController pushViewController:chat animated:YES];
+                    ConsultViewController *consult = [[ConsultViewController alloc] init];
+                    consult.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:consult animated:YES];
                 }
                     break;
                 case 4:

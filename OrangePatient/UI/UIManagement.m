@@ -133,6 +133,11 @@ static UIManagement *sharedInstance = nil;
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
 
+-(void)getMyServiceList{
+    SettingOperation *operation = [[SettingOperation alloc] initGetService];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
 #pragma mark -
 #pragma mark 信息相关网络访问
 // 获取最新健康资讯信息

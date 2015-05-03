@@ -36,6 +36,8 @@
 @property (nonatomic)NSInteger doctorFriendStatus;
 //status
 @property (nonatomic)NSInteger doctorStatus;
+//department
+@property (nonatomic, strong)NSString *doctorDepartment;
 
 + (MyDoctorsModel *)convertModelByDic:(NSDictionary *)dic;
 @end

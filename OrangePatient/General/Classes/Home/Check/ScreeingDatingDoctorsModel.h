@@ -15,7 +15,5 @@ typedef NS_ENUM(NSInteger, Doctor_Dating_Status){
 
 @interface ScreeingDatingDoctorsModel : MyDoctorsModel
 
-@property (nonatomic, strong)NSString *doctorDetail;
-@property (nonatomic)NSInteger doctorDatingStatus;
 
 @end

@@ -48,7 +48,7 @@
 - (void)setContentByInfoModel:(MyDoctorHospitalsModel *)model
 {
     [self.cellTitle setText:model.hospitalName];
-    [self.cellContent setText:model.hospitalContent];
+    [self.cellContent setText:model.departmentName];
 }
 
 - (void)awakeFromNib {

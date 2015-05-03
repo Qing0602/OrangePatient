@@ -7,7 +7,8 @@
 //
 
 #import "OrangeBaseViewController.h"
-
+@class MyDoctorHospitalsModel;
+@class ScreeingDatingDoctorsModel;
 @interface ScreeningDatingDoctorViewController : OrangeBaseViewController
-
+- (instancetype)initWithHospital:(MyDoctorHospitalsModel *)model andDoctors:(NSArray *)doctors;
 @end

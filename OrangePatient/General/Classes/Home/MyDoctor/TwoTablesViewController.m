@@ -69,22 +69,24 @@
                 NSArray *dataArr = dic[ASI_REQUEST_DATA];
                 [self setHospitalInCurrentCitys:dataArr];
             }else{
+                [self closePullRefreshView];
                 [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
             }
         }
     }];
+
     
     __weak TwoTablesViewController *weakSelf = self;
     [_hospitalTable addPullToRefreshWithActionHandler:^{
         weakSelf.loadStatus = HospitalListLoadStatusRefresh;
         MyDoctorCitysModel *cityModel = weakSelf.contentData[weakSelf.currentCityIndex];
-        [[UIManagement sharedInstance] getHospital:0 withOffset:20 withCode:cityModel.cityCode];
+        [[UIManagement sharedInstance] getHospital:20 withOffset:0 withCode:cityModel.cityCode];
     }];
     
     [_hospitalTable addInfiniteScrollingWithActionHandler:^{
         weakSelf.loadStatus = HospitalListLoadStatusAppend;
         MyDoctorCitysModel *cityModel = weakSelf.contentData[weakSelf.currentCityIndex];
-        [[UIManagement sharedInstance] getHospital:cityModel.hospitals.count withOffset:20 withCode:cityModel.cityCode];
+        [[UIManagement sharedInstance] getHospital:20 withOffset:cityModel.hospitals.count withCode:cityModel.cityCode];
     }];
     
     [self showProgressWithText:@"正在获取"];
@@ -144,23 +146,24 @@
 - (void)setHospitalInCurrentCitys:(NSArray *)hospitals{
     if (hospitals.count) {
         MyDoctorCitysModel *cityModel = [self getCurrentCityModel];
-        NSInteger cityCode = cityModel.cityCode;
+        if (self.loadStatus == HospitalListLoadStatusRefresh) {
+            cityModel.hospitals = nil;
+        }
+        
+        //NSInteger cityCode = cityModel.cityCode;
         
         NSMutableArray *tempHospitals = [[NSMutableArray alloc] initWithCapacity:hospitals.count];
         for (NSDictionary *hospital in hospitals) {
             if (hospitals && hospital.allKeys.count) {
-                MyDoctorHospitalsModel *hospitalModel = [MyDoctorHospitalsModel convertModelByDic:hospital];
-                hospitalModel.cityCode = cityCode;
-                [tempHospitals addObject:hospitalModel];
+                //hospitalModel.cityCode = cityCode
+                [tempHospitals addObjectsFromArray:[[MyDoctorHospitalsModel alloc] convertModelByDic:hospital]];
             }
         }
         
         cityModel.hospitals = [[NSMutableArray alloc] initWithArray:tempHospitals];
+        [self closePullRefreshView];
         [self.hospitalTable reloadData];
     }
-    
-
-
 }
 
 
@@ -221,9 +224,8 @@
         if (cityModel.hospitals.count) [self.hospitalTable reloadData];
         else {
             [self showProgressWithText:@"正在获取"];
-            [[UIManagement sharedInstance] getHospital:0 withOffset:20 withCode:cityModel.cityCode];
+            [[UIManagement sharedInstance] getHospital:20 withOffset:0 withCode:cityModel.cityCode];
         }
-
     }
 }
 @end

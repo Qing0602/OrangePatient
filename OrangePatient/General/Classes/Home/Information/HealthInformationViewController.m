@@ -61,6 +61,7 @@
     [RACObserve([UIManagement sharedInstance], getRecentResult) subscribeNext:^(NSDictionary *dic){
         if (dic) {
             if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
+                [self closeProgress];
                 NSMutableArray *dataArr = dic[ASI_REQUEST_DATA];
                 [self setInfomations:dataArr];
             }else{
@@ -70,6 +71,7 @@
         }
     }];
     
+    [self showProgressWithText:@"正在获取..."];
     [[UIManagement sharedInstance] initGetRecent:0 withLimit:20];
     // Do any additional setup after loading the view.
 }

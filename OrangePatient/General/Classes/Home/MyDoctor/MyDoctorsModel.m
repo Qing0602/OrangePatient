@@ -22,7 +22,7 @@
     model.doctorMobile = dic[@"mobile"];
     model.doctorStatus = [dic[@"status"] integerValue];
     model.doctorUserName = dic[@"name"];
-    
+    model.doctorDepartment = dic[@"department"];
     return model;
 }
 @end

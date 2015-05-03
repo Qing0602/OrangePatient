@@ -57,24 +57,26 @@
 {
     [super setContentByInfoModel:model];
     self.datingModel = model;
-    [self.doctorInfoDetail setText:model.doctorDetail];
-    switch (model.doctorDatingStatus) {
-        case Doctor_Dating_Status_dated:
-        {
-            self.doctorDatingStatus.backgroundColor = [UIColor orangeColor];
-            [self.doctorDatingStatus setTitle:@"预约" forState:UIControlStateNormal];
-            [self.doctorDatingStatus setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        }
-            break;
+    //[self.doctorInfoDetail setText:model.doctorDetail];
+    switch (model.doctorFriendStatus) {
         case Doctor_Dating_Status_ShouldDating:
         {
-            self.doctorDatingStatus.backgroundColor = [UIColor grayColor];
-            [self.doctorDatingStatus setTitle:@"预约中" forState:UIControlStateNormal];
+            [self.doctorDatingStatus setBackgroundImage:[UIImage imageNamed:@"Cell_Btn_BG"] forState:UIControlStateNormal];
+            [self.doctorDatingStatus setTitle:@"预约" forState:UIControlStateNormal];
             [self.doctorDatingStatus setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
             break;
         case Doctor_Dating_Status_Waiting:
         {
+            [self.doctorDatingStatus setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+            self.doctorDatingStatus.backgroundColor = [UIColor grayColor];
+            [self.doctorDatingStatus setTitle:@"预约中" forState:UIControlStateNormal];
+            [self.doctorDatingStatus setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        }
+            break;
+        case Doctor_Dating_Status_dated:
+        {
+            [self.doctorDatingStatus setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
             self.doctorDatingStatus.backgroundColor = [UIColor clearColor];
             [self.doctorDatingStatus setTitle:@"已预约" forState:UIControlStateNormal];
             [self.doctorDatingStatus setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
