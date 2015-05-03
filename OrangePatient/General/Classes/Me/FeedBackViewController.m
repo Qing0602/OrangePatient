@@ -9,8 +9,9 @@
 #import "FeedBackViewController.h"
 #import "UIManagement.h"
 
-@interface FeedBackViewController ()
+@interface FeedBackViewController ()<UITextViewDelegate>
 @property (nonatomic,strong) UITextView *text;
+@property (nonatomic,strong) UILabel *contentLabel;
 -(void) submitFeedBack;
 @end
 
@@ -18,33 +19,63 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UILabel *titleType = [[UILabel alloc] init];
+    titleType.translatesAutoresizingMaskIntoConstraints = NO;
+    titleType.text = @"您的意见:";
+    titleType.font = [UIFont boldSystemFontOfSize:17.0f];
+    [self.view addSubview:titleType];
+    
+    self.contentLabel = [[UILabel alloc] init];
+    self.contentLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.contentLabel];
+    
+    UILabel *descLabel = [[UILabel alloc] init];
+    descLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    descLabel.text = @"选择反馈意见类型 >";
+    descLabel.font = [UIFont systemFontOfSize:15.0f];
+    descLabel.textColor = [UIColor colorWithHexString:@"#666666"];
+    [self.view addSubview:descLabel];
+    
+    UILabel *line = [[UILabel alloc] init];
+    line.translatesAutoresizingMaskIntoConstraints = NO;
+    line.backgroundColor = [UIColor colorWithHexString:@"#d0cfd3"];
+    [self.view addSubview:line];
+    
     UILabel *title = [[UILabel alloc] init];
     title.translatesAutoresizingMaskIntoConstraints = NO;
-    title.font = [UIFont systemFontOfSize:14.0f];
-    title.text = @"您的意见";
+    title.font = [UIFont systemFontOfSize:17.0f];
+    title.font = [UIFont boldSystemFontOfSize:17.0f];
+    title.text = @"其他意见:";
     [self.view addSubview:title];
     
     self.text = [[UITextView alloc] init];
     self.text.translatesAutoresizingMaskIntoConstraints = NO;
+    self.text.text = @"如用户体验不好，医患互动不及时等....";
+    self.text.textColor = [UIColor colorWithHexString:@"#666666"];
+    self.text.font = [UIFont systemFontOfSize:17.0f];
+    self.text.delegate = self;
     [self.view addSubview:self.text];
     
-    UIButton *submit = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    submit.translatesAutoresizingMaskIntoConstraints = NO;
-    [submit setTitle:@"提交" forState:UIControlStateNormal];
-    [submit.layer setMasksToBounds:YES];
-    [submit.layer setCornerRadius:5.0];
-    [submit.layer setBorderWidth:1.0];
-    [submit.layer setBorderColor:[UIColor grayColor].CGColor];
-    submit.backgroundColor = [UIColor whiteColor];
-    [submit addTarget:self action:@selector(submitFeedBack) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:submit];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submitFeedBack)];
+    rightButton.tintColor = [UIColor colorWithHexString:@"#ef7f30"];
+    self.navigationItem.rightBarButtonItem = rightButton;
     
-    NSDictionary *views = @{@"topLayoutGuide":self.topLayoutGuide,@"titleLabel":title,@"_text":self.text,@"submit":submit};
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[titleLabel]-10-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[_text]-10-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-100-[submit]-100-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-10-[titleLabel(20)]-10-[_text(100)]-30-[submit(26)]" options:0 metrics:nil views:views]];
+    NSDictionary *views = @{@"topLayoutGuide":self.topLayoutGuide,@"titleLabel":title,@"_text":self.text,@"titleType" : titleType,@"contentLabel" : self.contentLabel,@"descLabel":descLabel,@"line":line};
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-21-[titleType(80@998)]-10-[contentLabel(>=60@997)]-10-[descLabel(140@999)]-18-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[line]-0-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-21-[titleLabel]-21-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-16-[_text]-16-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-20-[titleType(20)]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-20-[contentLabel(20)]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide]-20-[descLabel(20)]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[titleType]-16-[line(1)]" options:0 metrics:nil views:views]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[line]-16-[titleLabel(20)]-1-[_text(100)]" options:0 metrics:nil views:views]];
     [[UIManagement sharedInstance] addObserver:self forKeyPath:@"feedBackResult" options:0 context:nil];
+    self.title = @"意见反馈";
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 -(void) submitFeedBack{
@@ -62,6 +93,12 @@
         }else{
             [self showProgressWithText:@"提交成功" withDelayTime:2.0f];
         }
+    }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    if ([textView.text isEqualToString:@"如用户体验不好，医患互动不及时等...."]) {
+        textView.text = @"";
     }
 }
 
