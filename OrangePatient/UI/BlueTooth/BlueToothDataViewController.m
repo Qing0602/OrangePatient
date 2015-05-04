@@ -30,6 +30,10 @@
 @property (nonatomic,strong) CBCharacteristic *tx;
 @property (nonatomic,strong) BlueToothModel *currentModel;
 @property (nonatomic) BlueOperationType BlueOperation;
+
+// 二代表空间数量
+@property (nonatomic) NSInteger count;
+
 -(void) setData : (NSArray *)data;
 -(void) getBlueToothData;
 -(void) removeBlueToothData;
@@ -37,10 +41,17 @@
 -(NSTimeInterval) getEndDate;
 -(NSMutableArray *) formatData;
 
+// 获取二代血氧未读数量
+-(void) getSPOCount;
+// 解析片段数据空间信息
+-(NSInteger) analyesCount : (Byte *)bytes;
 // 获取二代血氧
 -(void) getSPO;
 // 解析二代血氧数据 -- 返回是否还有未读取数据
--(BOOL) analyesSPO : (Byte *)bytes;
+-(NSInteger) analyesSPO : (Byte *)bytes with : (NSInteger) head;
+
+// 获取二代卡路里未读数量
+-(void) getCalories;
 // 二代数据model
 @property (nonatomic,strong) BlueToothModel2 *blueToothModel2;
 
@@ -335,7 +346,8 @@
     if (self.deviceVersion == kSPO202) {
         [self getBlueToothData];
     }else{
-        [self getSPO];
+//        [self getSPOCount];
+        [self getCalories];
     }
 }
 
@@ -364,12 +376,25 @@
     }
 }
 
+// 获取二代血氧未读数量
+-(void) getSPOCount{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x90, 0x00, 0x10 };
+        self.blueToothModel2 = [[BlueToothModel2 alloc] init];
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
 // 获取血氧 -- 二代表
 -(void) getSPO{
     if (self.rx != nil && self.tx != nil) {
-        Byte command[] = { 0xA3, 0x00, 0x00, 0x00, 0x00,0x23 };
+        Byte command[] = { 0x91, 0x00, 0x11 };
         self.blueToothModel2 = [[BlueToothModel2 alloc] init];
-        NSData *data = [[NSData alloc] initWithBytes:command length:5];
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
         [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
         [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
     }
@@ -380,28 +405,60 @@
     if (self.rx != nil && self.tx != nil) {
         Byte command[] = { 0xA3, 0x00, 0x00, 0x00, 0x00,0x23 };
         self.blueToothModel2 = [[BlueToothModel2 alloc] init];
-        NSData *data = [[NSData alloc] initWithBytes:command length:5];
+        NSData *data = [[NSData alloc] initWithBytes:command length:6];
         [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
         [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
     }
 }
 
+// 获取二代卡路里未读数量
+-(void) getCalories{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x90, 0x01, 0x11 };
+        self.blueToothModel2 = [[BlueToothModel2 alloc] init];
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+
 // 监听数据
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
     if (self.deviceVersion == kSPO209) {
         NSData *data = characteristic.value;
-        Byte *bytes = (Byte *)[data bytes];
+        [self.mutableData appendData:data];
+        Byte *bytes = (Byte *)[self.mutableData bytes];
         switch (bytes[0]) {
             case 0xD3:
                 {
-                    if (![self analyesSPO:bytes]) {
-                        [self continueGetSPO];
+                    NSInteger count = [self analyesSPO:bytes with:0xE1];
+                    NSInteger temp = [self.mutableData length] % 11;
+                    if (count != self.count) {
+                        if (temp == 0 && (count % 15) == 0) {
+                            [self continueGetSPO];
+                        }
                     }else{
-                        // do somethings
+                        if (temp == 0) {
+                            // do somethings
+                        }
                     }
                 }
                 break;
-                
+            case 0xE0:
+                {
+                    self.count = [self analyesCount:bytes];
+                    NSInteger type = bytes[1];
+                    if (self.count > 0) {
+                        if (type == 0) {
+                            [self getSPO];
+                        }else if (type == 1){
+                            NSLog(@"C");
+                        }
+                    }
+                }
+                break;
             default:
                 break;
         }
@@ -437,9 +494,9 @@
 
 -(NSTimeInterval) getStartDate{
     BlueToothDateData *dateData = self.analyesData[0];
-    NSString *date = [NSString stringWithFormat:@"%ld-%ld-%ld",dateData.years,dateData.month,dateData.days];
+    NSString *date = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)dateData.years,(long)dateData.month,(long)dateData.days];
     BlueToothTimeData *timeData = self.analyesData[1];
-    NSString *time = [NSString stringWithFormat:@"%ld:%ld:%ld",timeData.hours,timeData.mins,timeData.sec];
+    NSString *time = [NSString stringWithFormat:@"%ld:%ld:%ld",(long)timeData.hours,(long)timeData.mins,(long)timeData.sec];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat: @"yyyy-M-d H:m:s"];
@@ -602,13 +659,25 @@
 }
 
 // 解析二代血氧数据 -- 返回是否还有未读取数据
--(BOOL) analyesSPO : (Byte *)bytes;{
-    
-    BOOL finshed = bytes[1] >> 7 & 0x01;
-    for (int i = 2; i<16; i++) {
-        [self.blueToothModel2.spo2Array addObject:[NSNumber numberWithInteger:(bytes[i])]];
+-(NSInteger) analyesSPO : (Byte *)bytes with : (NSInteger) head{
+    NSInteger count = 0;
+    NSInteger len = sizeof(bytes);
+    for (int i = 0 ; i < len ; i++) {
+        if (bytes[i] == head) {
+            count += 1;
+        }
     }
-    return finshed;
+    return count;
+}
+
+// 解析片段数据空间信息
+-(NSInteger) analyesCount : (Byte *)bytes{
+    NSInteger count = 0;
+    
+    NSNumber *low = [NSNumber numberWithInteger:bytes[3]];
+    NSNumber *high = [NSNumber numberWithInteger:bytes[4]];
+    count = [high integerValue] * 128 + [low integerValue];
+    return count;
 }
 
 - (void)didReceiveMemoryWarning {
