@@ -12,6 +12,7 @@
 #import "MyViewController.h"
 #import "ReportViewController.h"
 
+#import "AppDelegate+EaseMob.h"
 @interface AppDelegate ()
 
 @end
@@ -68,7 +69,8 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{[UIColor orangeColor]:NSForegroundColorAttributeName}];
     [self.window makeKeyAndVisible];
     
-    
+    // 初始化环信SDK，详细内容在AppDelegate+EaseMob.m 文件中
+    [self easemobApplication:application didFinishLaunchingWithOptions:launchOptions];
     return YES;
 }
 

@@ -59,6 +59,10 @@
             NSLog(@"%@",dic);
             if (dic && dic.allKeys.count>0) {
                 [tempDoctorsList addObject:[MyServiceModel convertModelByDic:dic]];
+                BOOL isSuccess = [[EaseMob sharedInstance].chatManager addBuddy:dic[@"im_username"] message:@"我想添加你为好友" error:nil];
+                if (isSuccess) {
+                    NSLog(@"添加成功");
+                }
             }
         }
         _myServiceList = [[NSArray alloc] initWithArray:tempDoctorsList];
@@ -91,7 +95,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     MyServiceModel *model = self.myServiceList[indexPath.row];
-    ChatViewController *chatController = [[ChatViewController alloc] initWithChatter:model.serviceImNickname isGroup:NO];
+    ChatViewController *chatController = [[ChatViewController alloc] initWithChatter:model.serviceImUsername isGroup:NO];
+    chatController.title = model.serviceImNickname;
     [self.navigationController pushViewController:chatController animated:YES];
 }
 
