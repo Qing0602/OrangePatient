@@ -11,4 +11,6 @@
 @interface BlueToothModel2 : UIModelCoding
 // 血氧数据
 @property (nonatomic,strong) NSMutableArray *spo2Array;
+// 卡路里数据
+@property (nonatomic,strong) NSMutableArray *caloriesArray;
 @end

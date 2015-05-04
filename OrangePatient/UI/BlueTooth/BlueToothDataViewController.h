@@ -25,6 +25,15 @@ typedef enum{
     kSPO209,
 }DeviceVersion;
 
+typedef enum{
+    // 单独一组包未完成
+    kDataIsNotFinsh,
+    // 单独一组包传输完成
+    kDataIsFinshed,
+    // 所有数据接收完成
+    kDataIsOver,
+}DataType;
+
 @interface BlueToothDataViewController : OrangeBaseViewController<CBCentralManagerDelegate,CBPeripheralDelegate>
 
 @property (nonatomic,strong) CBCentralManager *central;

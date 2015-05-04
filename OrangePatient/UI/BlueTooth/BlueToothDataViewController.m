@@ -47,11 +47,29 @@
 -(NSInteger) analyesCount : (Byte *)bytes;
 // 获取二代血氧
 -(void) getSPO;
+// 继续获取血氧 -- 二代表
+-(void) continueGetSPO;
 // 解析二代血氧数据 -- 返回是否还有未读取数据
 -(NSInteger) analyesSPO : (Byte *)bytes with : (NSInteger) head;
 
+// 添加一组数据到血氧model
+-(void) addDataToSPOModel;
+// 分析卡路里数据
+-(DataType) analysesSPO : (NSData *) data;
+
 // 获取二代卡路里未读数量
+-(void) getCaloriesCount;
+// 获取二代卡路里单个数量
 -(void) getCalories;
+// 继续获取二代表卡路里数据
+-(void) continueGetCalories;
+// 获取二代连续卡路里数据
+-(void) getBlockCalories;
+// 添加一组数据到卡路里model
+-(void) addDataToCaloriesModel;
+// 分析卡路里数据
+-(DataType) analysesCalories : (NSData *) data;
+
 // 二代数据model
 @property (nonatomic,strong) BlueToothModel2 *blueToothModel2;
 
@@ -310,6 +328,7 @@
         self.deviceVersion = kSPO202;
     }else if (foundObj209.length > 0){
         self.deviceVersion = kSPO209;
+        self.blueToothModel2 = [[BlueToothModel2 alloc] init];
     }else{
         [self showProgressWithText:@"未知设备" withDelayTime:2.0f];
         return;
@@ -346,8 +365,8 @@
     if (self.deviceVersion == kSPO202) {
         [self getBlueToothData];
     }else{
-//        [self getSPOCount];
-        [self getCalories];
+        [self getSPOCount];
+//        [self getCalories];
     }
 }
 
@@ -376,11 +395,14 @@
     }
 }
 
+
+
+
+
 // 获取二代血氧未读数量
 -(void) getSPOCount{
     if (self.rx != nil && self.tx != nil) {
         Byte command[] = { 0x90, 0x00, 0x10 };
-        self.blueToothModel2 = [[BlueToothModel2 alloc] init];
         self.mutableData = [[NSMutableData alloc] init];
         NSData *data = [[NSData alloc] initWithBytes:command length:3];
         [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
@@ -392,7 +414,6 @@
 -(void) getSPO{
     if (self.rx != nil && self.tx != nil) {
         Byte command[] = { 0x91, 0x00, 0x11 };
-        self.blueToothModel2 = [[BlueToothModel2 alloc] init];
         self.mutableData = [[NSMutableData alloc] init];
         NSData *data = [[NSData alloc] initWithBytes:command length:3];
         [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
@@ -403,24 +424,53 @@
 // 继续获取血氧 -- 二代表
 -(void) continueGetSPO{
     if (self.rx != nil && self.tx != nil) {
-        Byte command[] = { 0xA3, 0x00, 0x00, 0x00, 0x00,0x23 };
-        self.blueToothModel2 = [[BlueToothModel2 alloc] init];
-        NSData *data = [[NSData alloc] initWithBytes:command length:6];
+        Byte command[] = { 0x91, 0x01, 0x12 };
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
         [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
         [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
     }
 }
 
+
+
+
+
 // 获取二代卡路里未读数量
--(void) getCalories{
+-(void) getCaloriesCount{
     if (self.rx != nil && self.tx != nil) {
         Byte command[] = { 0x90, 0x01, 0x11 };
-        self.blueToothModel2 = [[BlueToothModel2 alloc] init];
         self.mutableData = [[NSMutableData alloc] init];
         NSData *data = [[NSData alloc] initWithBytes:command length:3];
         [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
         [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
     }
+}
+
+// 获取二代卡路里单个数量
+-(void) getCalories{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x92, 0x00, 0x12 };
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+// 继续获取二代表卡路里数据
+-(void) continueGetCalories{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x92, 0x01, 0x13 };
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+// 获取二代连续卡路里数据
+-(void) getBlockCalories{
+    
 }
 
 
@@ -433,18 +483,36 @@
         switch (bytes[0]) {
             case 0xD3:
                 {
-                    NSInteger count = [self analyesSPO:bytes with:0xE1];
-                    NSInteger temp = [self.mutableData length] % 11;
-                    if (count != self.count) {
-                        if (temp == 0 && (count % 15) == 0) {
-                            [self continueGetSPO];
-                        }
+                    // 脉率血氧
+                    DataType type = [self analysesSPO:self.mutableData];
+                    if (type == kDataIsFinshed) {
+                        // 接收一组完成，还有剩余数据
+                        [self addDataToSPOModel];
+                        [self continueGetSPO];
+                    }else if(type == kDataIsOver){
+                        // 接收全部完成,没有剩余数据
+                        [self addDataToSPOModel];
+                        
                     }else{
-                        if (temp == 0) {
-                            // do somethings
-                        }
+                        
                     }
                 }
+                break;
+            case 0xE2:{
+                // 卡路里
+                DataType type = [self analysesCalories:self.mutableData];
+                if (type == kDataIsFinshed) {
+                    // 接收一组完成，还有剩余数据
+                    [self addDataToCaloriesModel];
+                    [self continueGetCalories];
+                }else if(type == kDataIsOver){
+                    // 接收全部完成,没有剩余数据
+                    [self continueGetCalories];
+                    
+                }else{
+                    
+                }
+            }
                 break;
             case 0xE0:
                 {
@@ -678,6 +746,108 @@
     NSNumber *high = [NSNumber numberWithInteger:bytes[4]];
     count = [high integerValue] * 128 + [low integerValue];
     return count;
+}
+
+// 分析卡路里数据
+-(DataType) analysesCalories : (NSData *) data{
+    DataType result = kDataIsNotFinsh;
+    NSInteger len = [data length];
+    NSInteger temp = len % 11;
+    NSInteger count = len / 11;
+    if (temp == 0 && count == 16) {
+        // 数据完整，判断是否还有数据
+        Byte *bytes = (Byte *)[data bytes];
+        BOOL isOver = NO;
+        for (int i = 1; i < len; i += 11) {
+            NSInteger height = bytes[i];
+            if (((height >> 6) & 0x01) == 1) {
+                isOver = YES;
+                break;
+            }
+        }
+        if (isOver) {
+            result = kDataIsOver;
+        }else{
+            result = kDataIsFinshed;
+        }
+    }else if(temp == 0 && count != 16){
+        // 数据不满16包，判断是否还有数据
+        Byte *bytes = (Byte *)[data bytes];
+        BOOL isOver = NO;
+        for (int i = 1; i < len; i += 11) {
+            NSInteger height = bytes[i];
+            if (((height >> 6) & 0x01) == 1) {
+                isOver = YES;
+                break;
+            }
+        }
+        if (isOver) {
+            result = kDataIsOver;
+        }else{
+            result = kDataIsNotFinsh;
+        }
+    }
+    
+    return result;
+}
+
+// 分析卡路里数据
+-(DataType) analysesSPO : (NSData *) data{
+    DataType result = kDataIsNotFinsh;
+    NSInteger len = [data length];
+    NSInteger temp = len % 11;
+    NSInteger count = len / 11;
+    if (temp == 0 && count == 16) {
+        // 数据完整，判断是否还有数据
+        Byte *bytes = (Byte *)[data bytes];
+        BOOL isOver = NO;
+        for (int i = 1; i < len; i += 11) {
+            NSInteger height = bytes[i];
+            if (((height >> 6) & 0x01) == 1) {
+                isOver = YES;
+                break;
+            }
+        }
+        if (isOver) {
+            result = kDataIsOver;
+        }else{
+            result = kDataIsFinshed;
+        }
+    }else if(temp == 0 && count != 16){
+        // 数据不满16包，判断是否还有数据
+        Byte *bytes = (Byte *)[data bytes];
+        BOOL isOver = NO;
+        for (int i = 1; i < len; i += 11) {
+            NSInteger height = bytes[i];
+            if (((height >> 6) & 0x01) == 1) {
+                isOver = YES;
+                break;
+            }
+        }
+        if (isOver) {
+            result = kDataIsOver;
+        }else{
+            result = kDataIsNotFinsh;
+        }
+    }
+    
+    return result;
+}
+
+// 添加一组数据到卡路里model
+-(void) addDataToCaloriesModel{
+    for (NSInteger i = 0; i<[self.mutableData length]; i += 11) {
+        NSData *data = [self.mutableData subdataWithRange:NSMakeRange(i * 11, 11)];
+        [self.blueToothModel2.caloriesArray addObject:data];
+    }
+}
+
+// 添加一组数据到血氧model
+-(void) addDataToSPOModel{
+    for (NSInteger i = 0; i<[self.mutableData length]; i += 11) {
+        NSData *data = [self.mutableData subdataWithRange:NSMakeRange(i * 11, 11)];
+        [self.blueToothModel2.spo2Array addObject:data];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
