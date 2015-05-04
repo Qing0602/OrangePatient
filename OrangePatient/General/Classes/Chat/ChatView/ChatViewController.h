@@ -10,9 +10,9 @@
   * from EaseMob Technologies.
   */
 
-#import <UIKit/UIKit.h>
+#import "OrangeBaseViewController.h"
 
-@interface ChatViewController : UIViewController
+@interface ChatViewController : OrangeBaseViewController
 
 - (instancetype)initWithChatter:(NSString *)chatter isGroup:(BOOL)isGroup;
 

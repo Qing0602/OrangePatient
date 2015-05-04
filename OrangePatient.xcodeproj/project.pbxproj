@@ -291,6 +291,9 @@
 		744E01BA1AC2F77D0063C4A7 /* HealthInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 744E01B71AC2F77D0063C4A7 /* HealthInformationViewController.m */; };
 		744E01C01AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744E01BC1AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png */; };
 		7451A13E1AD6694D0080112E /* ScreeningCenterInfoVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7451A13D1AD6694D0080112E /* ScreeningCenterInfoVIewController.m */; };
+		7452723C1AF7A4E500ADF13E /* chatListCellHead.png in Resources */ = {isa = PBXBuildFile; fileRef = 7452723A1AF7A4E500ADF13E /* chatListCellHead.png */; };
+		7452723D1AF7A4E500ADF13E /* chatListCellHead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7452723B1AF7A4E500ADF13E /* chatListCellHead@2x.png */; };
+		745272401AF7A60800ADF13E /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = 7452723F1AF7A60800ADF13E /* AppDelegate+EaseMob.m */; };
 		7452A8F61AE4F20900819918 /* HealthInfoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7452A8F51AE4F20900819918 /* HealthInfoDetailViewController.m */; };
 		74738B9A1AD5498800DE7ACA /* ChooseDoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */; };
 		74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */; };
@@ -743,6 +746,10 @@
 		744E01BC1AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Information_Cell_DefaultImage@2x.png"; sourceTree = "<group>"; };
 		7451A13C1AD6694D0080112E /* ScreeningCenterInfoVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreeningCenterInfoVIewController.h; sourceTree = "<group>"; };
 		7451A13D1AD6694D0080112E /* ScreeningCenterInfoVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreeningCenterInfoVIewController.m; sourceTree = "<group>"; };
+		7452723A1AF7A4E500ADF13E /* chatListCellHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatListCellHead.png; sourceTree = "<group>"; };
+		7452723B1AF7A4E500ADF13E /* chatListCellHead@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chatListCellHead@2x.png"; sourceTree = "<group>"; };
+		7452723E1AF7A60800ADF13E /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
+		7452723F1AF7A60800ADF13E /* AppDelegate+EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+EaseMob.m"; sourceTree = "<group>"; };
 		7452A8F41AE4F20900819918 /* HealthInfoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInfoDetailViewController.h; sourceTree = "<group>"; };
 		7452A8F51AE4F20900819918 /* HealthInfoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInfoDetailViewController.m; sourceTree = "<group>"; };
 		74738B981AD5498800DE7ACA /* ChooseDoctorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDoctorModel.h; sourceTree = "<group>"; };
@@ -1059,6 +1066,8 @@
 		7406A5251AE7A29400696043 /* ChatView */ = {
 			isa = PBXGroup;
 			children = (
+				7452723A1AF7A4E500ADF13E /* chatListCellHead.png */,
+				7452723B1AF7A4E500ADF13E /* chatListCellHead@2x.png */,
 				7406A5261AE7A29400696043 /* audio */,
 				7406A5571AE7A29400696043 /* call_out.png */,
 				7406A5581AE7A29400696043 /* call_out@2x.png */,
@@ -1649,6 +1658,8 @@
 			children = (
 				74BE67A81A9F4AF7008F7C44 /* AppDelegate.h */,
 				74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */,
+				7452723E1AF7A60800ADF13E /* AppDelegate+EaseMob.h */,
+				7452723F1AF7A60800ADF13E /* AppDelegate+EaseMob.m */,
 				74BE67AB1A9F4AF7008F7C44 /* ViewController.h */,
 				74BE67AC1A9F4AF7008F7C44 /* ViewController.m */,
 				19A679A91AAB46B4006328DA /* HttpEngine */,
@@ -2072,8 +2083,10 @@
 				7406A5F21AE7A29400696043 /* call_out.png in Resources */,
 				7406A5C21AE7A29400696043 /* chatFire_audioPlaying0.png in Resources */,
 				19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */,
+				7452723D1AF7A4E500ADF13E /* chatListCellHead@2x.png in Resources */,
 				7406A5E01AE7A29400696043 /* VoiceSearchFeedback012.png in Resources */,
 				74E6AF651AE7BDC600CD5B4D /* Register_Nav_Back@2x.png in Resources */,
+				7452723C1AF7A4E500ADF13E /* chatListCellHead.png in Resources */,
 				74BE67B51A9F4AF7008F7C44 /* LaunchScreen.xib in Resources */,
 				193C537D1AB754990079C424 /* SearchDevice@3x.png in Resources */,
 				7406A6411AE7A29400696043 /* chat_receiver_audio_playing002.png in Resources */,
@@ -2378,6 +2391,7 @@
 				74BE67A71A9F4AF7008F7C44 /* main.m in Sources */,
 				7489DCAD1ADCDCA50098AA47 /* CircularProgressView.m in Sources */,
 				742DEAE21ACBA2A400882138 /* TwoTablesCityCell.m in Sources */,
+				745272401AF7A60800ADF13E /* AppDelegate+EaseMob.m in Sources */,
 				7452A8F61AE4F20900819918 /* HealthInfoDetailViewController.m in Sources */,
 				744522E51ADBA278002B20F0 /* MessageModelManager.m in Sources */,
 				743D3C8C1AAF2C550060AA90 /* LoginViewController.m in Sources */,

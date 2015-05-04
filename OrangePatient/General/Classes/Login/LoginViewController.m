@@ -99,6 +99,19 @@
                 [[NSUserDefaults standardUserDefaults] setObject:userAccount.userUid forKey:@"userUid"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 [UIModelCoding serializeModel:userAccount withFileName:SerializeUserAccountModelName];
+                //登录成功后登陆环信
+                [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:userAccount.userImUserName password:userAccount.userImPassword completion:^(NSDictionary *loginResult, EMError *error) {
+                    if (error) {
+                        NSLog(@"登录失败");
+                    }else {
+                        NSLog(@"登录成功");
+                        EMError *error = nil;
+                        NSArray *buddyList = [[EaseMob sharedInstance].chatManager fetchBuddyListWithError:&error];
+                        if (!error) {
+                            NSLog(@"获取成功 -- %@",buddyList);
+                        }
+                    }
+                } onQueue:nil];
             }else{
                 [self showProgressWithText:loginResult[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
             }

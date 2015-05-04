@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+@interface AppDelegate : UIResponder <UIApplicationDelegate,IChatManagerDelegate>
+{
+    EMConnectionState _connectionState;
+}
 @property (strong, nonatomic) UIWindow *window;
 
 
