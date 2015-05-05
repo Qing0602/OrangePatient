@@ -78,6 +78,11 @@
 		19AF65B51AB845D7002D03E9 /* DeviceImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AF65B31AB845D7002D03E9 /* DeviceImage@2x.png */; };
 		19AF65B61AB845D7002D03E9 /* DeviceImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */; };
 		19AF65B91AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */; };
+		19D43D381AF92A7100CEA376 /* FeedBackChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D43D371AF92A7100CEA376 /* FeedBackChooseViewController.m */; };
+		19D43D3D1AF92B8F00CEA376 /* MyChoosed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19D43D391AF92B8F00CEA376 /* MyChoosed@2x.png */; };
+		19D43D3E1AF92B8F00CEA376 /* MyChoosed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19D43D3A1AF92B8F00CEA376 /* MyChoosed@3x.png */; };
+		19D43D3F1AF92B8F00CEA376 /* MyUnChoosed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19D43D3B1AF92B8F00CEA376 /* MyUnChoosed@2x.png */; };
+		19D43D401AF92B8F00CEA376 /* MyUnChoosed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19D43D3C1AF92B8F00CEA376 /* MyUnChoosed@3x.png */; };
 		19D8A9271AC5D9790092688E /* UserOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D8A9261AC5D9790092688E /* UserOperation.m */; };
 		19F0B7ED1AB09B720079CBD9 /* BlueToothDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F0B7EC1AB09B720079CBD9 /* BlueToothDateData.m */; };
 		7401E9B51ACD1256006868B2 /* AddDoctorForChooseDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7401E9B41ACD1256006868B2 /* AddDoctorForChooseDoctorViewController.m */; };
@@ -478,6 +483,12 @@
 		19AF65B41AB845D7002D03E9 /* DeviceImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeviceImage@3x.png"; sourceTree = "<group>"; };
 		19AF65B71AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryDeviceTableViewCell.h; sourceTree = "<group>"; };
 		19AF65B81AB8A157002D03E9 /* DiscoveryDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryDeviceTableViewCell.m; sourceTree = "<group>"; };
+		19D43D361AF92A7100CEA376 /* FeedBackChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackChooseViewController.h; sourceTree = "<group>"; };
+		19D43D371AF92A7100CEA376 /* FeedBackChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackChooseViewController.m; sourceTree = "<group>"; };
+		19D43D391AF92B8F00CEA376 /* MyChoosed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyChoosed@2x.png"; sourceTree = "<group>"; };
+		19D43D3A1AF92B8F00CEA376 /* MyChoosed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyChoosed@3x.png"; sourceTree = "<group>"; };
+		19D43D3B1AF92B8F00CEA376 /* MyUnChoosed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyUnChoosed@2x.png"; sourceTree = "<group>"; };
+		19D43D3C1AF92B8F00CEA376 /* MyUnChoosed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyUnChoosed@3x.png"; sourceTree = "<group>"; };
 		19D8A9251AC5D9790092688E /* UserOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOperation.h; sourceTree = "<group>"; };
 		19D8A9261AC5D9790092688E /* UserOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserOperation.m; sourceTree = "<group>"; };
 		19F0B7EB1AB09B720079CBD9 /* BlueToothDateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDateData.h; sourceTree = "<group>"; };
@@ -924,6 +935,10 @@
 		198F14E81ACCF1CB008C208F /* My */ = {
 			isa = PBXGroup;
 			children = (
+				19D43D391AF92B8F00CEA376 /* MyChoosed@2x.png */,
+				19D43D3A1AF92B8F00CEA376 /* MyChoosed@3x.png */,
+				19D43D3B1AF92B8F00CEA376 /* MyUnChoosed@2x.png */,
+				19D43D3C1AF92B8F00CEA376 /* MyUnChoosed@3x.png */,
 				1939DB6D1AF656F700EB4544 /* MyAccessoryImage@2x.png */,
 				1939DB6E1AF656F700EB4544 /* MyAccessoryImage@3x.png */,
 				1939DB591AF650F300EB4544 /* MyAbout@2x.png */,
@@ -1614,6 +1629,8 @@
 				1982A3CB1AD0AFB500233D4C /* AboutViewController.m */,
 				1982A3CD1AD0AFFC00233D4C /* FeedBackViewController.h */,
 				1982A3CE1AD0AFFC00233D4C /* FeedBackViewController.m */,
+				19D43D361AF92A7100CEA376 /* FeedBackChooseViewController.h */,
+				19D43D371AF92A7100CEA376 /* FeedBackChooseViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -2148,6 +2165,7 @@
 				7406A5ED1AE7A29400696043 /* VoiceSearchFeedback018@2x.png in Resources */,
 				7406A5CB1AE7A29400696043 /* VoiceSearchFeedback001@2x.png in Resources */,
 				7406A5CD1AE7A29400696043 /* VoiceSearchFeedback002@2x.png in Resources */,
+				19D43D401AF92B8F00CEA376 /* MyUnChoosed@3x.png in Resources */,
 				7406A6161AE7A29400696043 /* chatBar_keyboard.png in Resources */,
 				7406A5D91AE7A29400696043 /* VoiceSearchFeedback008@2x.png in Resources */,
 				1939DB681AF650F300EB4544 /* MyFeedBack@3x.png in Resources */,
@@ -2195,6 +2213,7 @@
 				7406A64F1AE7A29400696043 /* chat_sender_audio_playing_003.png in Resources */,
 				7406A6391AE7A29400696043 /* chatBar_more_photo@2x.png in Resources */,
 				7406A60A1AE7A29400696043 /* chat_location_detail_disclosureHL.png in Resources */,
+				19D43D3E1AF92B8F00CEA376 /* MyChoosed@3x.png in Resources */,
 				7406A6481AE7A29400696043 /* chat_receiver_bg@2x.png in Resources */,
 				198F14EF1ACCF1CB008C208F /* MySetting@2x.png in Resources */,
 				198F14F01ACCF1CB008C208F /* MySetting@3x.png in Resources */,
@@ -2211,6 +2230,7 @@
 				7406A5EC1AE7A29400696043 /* VoiceSearchFeedback018.png in Resources */,
 				7406A6281AE7A29400696043 /* chatBar_colorMore_camera@2x.png in Resources */,
 				7406A5EB1AE7A29400696043 /* VoiceSearchFeedback017@2x.png in Resources */,
+				19D43D3F1AF92B8F00CEA376 /* MyUnChoosed@2x.png in Resources */,
 				7417BEE21AE8DA4B0097041B /* Report_Nav_Right@2x.png in Resources */,
 				7406A6181AE7A29400696043 /* chatBar_keyboardSelected.png in Resources */,
 				7406A64A1AE7A29400696043 /* chat_sender_audio_playing_000@2x.png in Resources */,
@@ -2221,6 +2241,7 @@
 				7406A6501AE7A29400696043 /* chat_sender_audio_playing_003@2x.png in Resources */,
 				7406A6201AE7A29400696043 /* chatBar_recordBg.png in Resources */,
 				7406A60B1AE7A29400696043 /* chat_location_detail_disclosureHL@2x.png in Resources */,
+				19D43D3D1AF92B8F00CEA376 /* MyChoosed@2x.png in Resources */,
 				744E01C01AC2FB7C0063C4A7 /* Information_Cell_DefaultImage@2x.png in Resources */,
 				7406A6051AE7A29400696043 /* chatBar_textBg@2x.png in Resources */,
 				7406A6191AE7A29400696043 /* chatBar_keyboardSelected@2x.png in Resources */,
@@ -2405,6 +2426,7 @@
 				74F64E811AC90CD9004F44D6 /* DoctorBaseTableViewCell.m in Sources */,
 				74CE08FB1AA4A52000DD9458 /* UIButton+Base.m in Sources */,
 				74CE09051AA4A52000DD9458 /* BaseUIButton.m in Sources */,
+				19D43D381AF92A7100CEA376 /* FeedBackChooseViewController.m in Sources */,
 				198F14F61ACD4D72008C208F /* ChangePasswordViewController.m in Sources */,
 				197766081AB314D500B21037 /* MyDeviceViewController.m in Sources */,
 				744522D71ADBA278002B20F0 /* DXFaceView.m in Sources */,

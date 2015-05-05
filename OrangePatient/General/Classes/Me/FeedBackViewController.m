@@ -8,6 +8,7 @@
 
 #import "FeedBackViewController.h"
 #import "UIManagement.h"
+#import "FeedBackChooseViewController.h"
 
 @interface FeedBackViewController ()<UITextViewDelegate>
 @property (nonatomic,strong) UITextView *text;
@@ -23,6 +24,9 @@
     UILabel *titleType = [[UILabel alloc] init];
     titleType.translatesAutoresizingMaskIntoConstraints = NO;
     titleType.text = @"您的意见:";
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+    [titleType addGestureRecognizer:tap1];
+    titleType.userInteractionEnabled = YES;
     titleType.font = [UIFont boldSystemFontOfSize:17.0f];
     [self.view addSubview:titleType];
     
@@ -35,6 +39,9 @@
     descLabel.text = @"选择反馈意见类型 >";
     descLabel.font = [UIFont systemFontOfSize:15.0f];
     descLabel.textColor = [UIColor colorWithHexString:@"#666666"];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+    [descLabel addGestureRecognizer:tap];
+    descLabel.userInteractionEnabled = YES;
     [self.view addSubview:descLabel];
     
     UILabel *line = [[UILabel alloc] init];
@@ -76,6 +83,8 @@
     [[UIManagement sharedInstance] addObserver:self forKeyPath:@"feedBackResult" options:0 context:nil];
     self.title = @"意见反馈";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(choose:) name:@"choose" object:nil];
 }
 
 -(void) submitFeedBack{
@@ -101,6 +110,26 @@
         textView.text = @"";
     }
 }
+
+-(void) tap{
+    FeedBackChooseViewController *choose = [[FeedBackChooseViewController alloc] init];
+    [self.navigationController pushViewController:choose animated:YES];
+}
+
+-(void) choose : (NSNotification *) notification{
+    NSMutableArray *array = notification.object;
+    NSMutableString *text = [[NSMutableString alloc] init];
+    for (NSInteger i = 0 ; i<[array count]; i++) {
+        if (i == [array count] - 1) {
+            [text appendString:array[i]];
+        }else{
+            [text appendString:array[i]];
+            [text appendString:@","];
+        }
+    }
+    self.contentLabel.text = text;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
