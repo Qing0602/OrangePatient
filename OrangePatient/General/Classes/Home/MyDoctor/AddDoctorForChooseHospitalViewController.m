@@ -13,7 +13,9 @@
 #import "MyDoctorHospitalsModel.h"
 #import "MyDoctorCitysModel.h"
 #import "UIManagement.h"
-@interface AddDoctorForChooseHospitalViewController ()
+@interface AddDoctorForChooseHospitalViewController (){
+    NSInteger _selectedIndex;
+}
 
 @end
 
@@ -30,7 +32,10 @@
                 [self closeProgress];
                 NSArray *dataArr = dic[ASI_REQUEST_DATA];
                 if (dataArr.count) {
-                    
+                    MyDoctorCitysModel *cityModel = [self getCurrentCityModel];
+                    MyDoctorHospitalsModel *hospitalModel = cityModel.hospitals[_selectedIndex];
+                    AddDoctorForChooseDoctorViewController *addDoctor = [[AddDoctorForChooseDoctorViewController alloc] initWithDoctorModel:dataArr andHospitalName:hospitalModel.hospitalName];
+                    [self.navigationController pushViewController:addDoctor animated:YES];
                 }else [self showProgressWithText:@"当前部门无医生" withDelayTime:2.f];
             }else{
                 [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
@@ -62,6 +67,7 @@
     if (tableView == self.hospitalTable) {
         MyDoctorCitysModel *cityModel = [self getCurrentCityModel];
         MyDoctorHospitalsModel *hospitalModel = cityModel.hospitals[indexPath.row];
+        _selectedIndex = indexPath.row;
         [self showProgressWithText:@"正在获取..."];
         [[UIManagement sharedInstance] getDoctors:20 withOffset:0  withCode:[hospitalModel.departmentCode integerValue]];
     }else [super tableView:tableView didSelectRowAtIndexPath:indexPath];

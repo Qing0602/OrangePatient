@@ -99,8 +99,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ScreeningCenterInfoVIewController *centerInfo = [[ScreeningCenterInfoVIewController alloc] initWithModel:nil];
-    [self.navigationController pushViewController:centerInfo animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.row == 0) {
+        ScreeningCenterInfoVIewController *centerInfo = [[ScreeningCenterInfoVIewController alloc] initWithModel:nil];
+        [self.navigationController pushViewController:centerInfo animated:YES];
+    }
+
 }
 
 #pragma mark - Delegate

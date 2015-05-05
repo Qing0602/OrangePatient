@@ -8,24 +8,20 @@
 
 #import "ScreeningCenterInfoVIewController.h"
 
-#import <MapKit/MapKit.h>
 #import "EGOImageView.h"
+#import "MyDoctorHospitalsModel.h"
 @interface ScreeningCenterInfoVIewController(){
     
 }
-@property (nonatomic, strong)ScreeningCenterModel *model;
+@property (nonatomic, strong)MyDoctorHospitalsModel *model;
 
 @end
 @implementation ScreeningCenterInfoVIewController
 
-- (instancetype)initWithModel:(ScreeningCenterModel *)tempModel{
+- (instancetype)initWithModel:(MyDoctorHospitalsModel *)tempModel{
     self = [super init];
     if (self) {
-        ScreeningCenterModel *testModel = [[ScreeningCenterModel alloc] init];
-        testModel.centerAddress = @"地址地址地址地址";
-        testModel.centerIntroduce = @"介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介";
-        testModel.centerPhoneNumber = @"022-23452212";
-        self.model = testModel;
+        self.model = tempModel;
     }
     return self;
 }
@@ -41,7 +37,7 @@
     
     //筛查点照片
     EGOImageView *imageview = [[EGOImageView alloc] init];
-    [imageview setImageURL:[NSURL URLWithString:self.model.centerImagePath]];
+    [imageview setImageURL:[NSURL URLWithString:self.model.hospitalLogoUrl]];
     imageview.backgroundColor = [UIColor redColor];
     [contentScrollview addSubview:imageview];
     //介绍
@@ -55,7 +51,7 @@
     centerIntroduce.numberOfLines = 0;
     centerIntroduce.font = [UIFont systemFontOfSize:12.f];
     centerIntroduce.textColor = [UIColor lightGrayColor];
-    centerIntroduce.text = self.model.centerIntroduce;
+    centerIntroduce.text = self.model.hospitalContent;
     [contentScrollview addSubview:centerIntroduce];
     
     //line
@@ -66,21 +62,13 @@
     //地址
     UILabel *centerAddress = [[UILabel alloc] init];
     centerAddress.font = [UIFont systemFontOfSize:12.f];
-    centerAddress.text = [NSString stringWithFormat:@"地址:%@",self.model.centerAddress];
+    centerAddress.text = [NSString stringWithFormat:@"地址:%@",self.model.hospitalAddress];
     [contentScrollview addSubview:centerAddress];
     //咨询电话
     UILabel *centerPhoneNum = [[UILabel alloc] init];
     centerPhoneNum.font = [UIFont systemFontOfSize:12.f];
-    centerPhoneNum.text = [NSString stringWithFormat:@"咨询电话:%@",self.model.centerPhoneNumber];
+    centerPhoneNum.text = [NSString stringWithFormat:@"咨询电话:%@",self.model.hospitalPhone];
     [contentScrollview addSubview:centerPhoneNum];
-    //地理位置
-    MKMapView *centerMapView = [[MKMapView alloc] init];
-    [contentScrollview addSubview:centerMapView];
-    
-    CLLocationCoordinate2D centerPlace;
-    centerPlace.latitude = self.model.centerPlaceLagitude;
-    centerPlace.longitude = self.model.centerPlaceLongitude;
-    [centerMapView setRegion:MKCoordinateRegionMake(centerPlace, MKCoordinateSpanMake(0.2, 0.2))];
     
     const CGFloat itemOffset = 15.f;
     
@@ -132,12 +120,6 @@
         make.height.mas_equalTo(20);
     }];
     
-    [centerMapView mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.mas_equalTo(0);
-        make.width.mas_equalTo(contentScrollview.mas_width);
-        make.top.equalTo(centerPhoneNum.mas_bottom).with.offset(itemOffset);
-        make.height.mas_equalTo(100);
-    }];
 }
 
 @end

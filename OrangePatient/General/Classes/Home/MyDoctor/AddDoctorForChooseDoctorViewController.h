@@ -9,5 +9,5 @@
 #import "OrangeBaseViewController.h"
 @class ChooseDoctorModel;
 @interface AddDoctorForChooseDoctorViewController : OrangeBaseViewController
-- (instancetype)initWithDoctorModel:(ChooseDoctorModel *)chooseDoctorModel andHospitalName:(NSString *)hospitalName;
+- (instancetype)initWithDoctorModel:(NSArray *)doctorModels andHospitalName:(NSString *)hospitalName;
 @end

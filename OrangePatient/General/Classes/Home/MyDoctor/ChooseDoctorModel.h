@@ -16,7 +16,9 @@ typedef NS_ENUM(NSInteger, Doctor_Status){
 
 @interface ChooseDoctorModel : MyDoctorsModel
 //简介
-@property (nonatomic, strong)NSString *doctorAbstract;
-//添加状态
-@property (nonatomic)NSInteger doctorStatus;
+@property (nonatomic, strong)NSString *doctorSpeciality;
+//WorkTime
+@property (nonatomic, strong)NSString *doctorWorktime;
+
++ (ChooseDoctorModel *)convertModelByDic:(NSDictionary *)dic;
 @end
