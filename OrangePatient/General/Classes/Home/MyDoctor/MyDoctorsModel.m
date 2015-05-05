@@ -11,7 +11,7 @@
 @implementation MyDoctorsModel
 + (MyDoctorsModel *)convertModelByDic:(NSDictionary *)dic{
     MyDoctorsModel *model = [[MyDoctorsModel alloc] init];
-    model.doctorAvatar = dic[@"logoUrl"];
+    model.doctorAvatar = [NSURL URLWithString:dic[@"logoUrl"]];
     model.doctorComment = dic[@"comment"];
     model.doctorEmail = dic[@"email"];
     model.doctorFriendStatus = [dic[@"friendstatus"] integerValue];

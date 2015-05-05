@@ -11,6 +11,7 @@
 
 #import "MyDoctorsModel.h"
 #import "MyServiceModel.h"
+#import "ScreeingDatingDoctorsModel.h"
 @implementation DoctorBaseTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -23,21 +24,20 @@
         [self.contentView addSubview:_cellImageview];
         
         _cellTitle = [[UILabel alloc] init];
-        _cellTitle.font = [UIFont systemFontOfSize:14.f];
+        _cellTitle.font = [UIFont systemFontOfSize:13.f];
         _cellTitle.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_cellTitle];
         
         _cellContent = [[UILabel alloc] init];
-        _cellContent.font = [UIFont systemFontOfSize:13.f];
+        _cellContent.font = [UIFont systemFontOfSize:12.f];
         _cellContent.textColor = [UIColor lightGrayColor];
         [_cellContent sizeToFit];
         _cellContent.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_cellContent];
         
         _cellSubTitle = [[UILabel alloc] init];
-        _cellSubTitle.font = [UIFont systemFontOfSize:13.f];
+        _cellSubTitle.font = [UIFont systemFontOfSize:12.f];
         _cellSubTitle.textColor = [UIColor lightGrayColor];
-        _cellSubTitle.backgroundColor = [UIColor greenColor];
         _cellSubTitle.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_cellSubTitle];
         
@@ -52,20 +52,20 @@
             make.left.equalTo(_cellImageview.mas_right).and.offset(10);
             make.top.mas_equalTo(DoctorBaseCellPadding);
             make.right.mas_equalTo(-70);
-            make.height.mas_equalTo(16.f);
-
+            //make.width.mas_equalTo(50);
+            make.height.mas_equalTo(14.f);
         }];
         
         [_cellContent mas_makeConstraints:^(MASConstraintMaker *make){
             make.left.equalTo(self.cellTitle.mas_left);
-            make.right.equalTo(self.cellTitle.mas_right);
+            make.right.mas_equalTo(-20);
             make.height.equalTo(self.cellTitle.mas_height);
             make.top.equalTo(self.cellTitle.mas_bottom).with.offset(6);
         }];
         
         [_cellSubTitle mas_makeConstraints:^(MASConstraintMaker *make){
             make.left.equalTo(self.cellTitle.mas_left);
-            make.right.equalTo(self.cellTitle.mas_right);
+            make.right.equalTo(self.cellContent.mas_right);
             make.height.equalTo(self.cellTitle.mas_height);
             make.top.equalTo(self.cellContent.mas_bottom).with.offset(6);
         }];
@@ -95,7 +95,7 @@
         [self.cellImageview setImageURL:doctorModel.doctorAvatar];
         [self.cellTitle setText:doctorModel.doctorUserName];
         [self.cellContent setText:doctorModel.doctorDepartment];
-        [self.cellSubTitle setText:doctorModel.doctorComment];
+        [self.cellSubTitle setText:@"门诊时间:"];
     }else if ([model isKindOfClass:[MyServiceModel class]]){
         MyServiceModel *serviceModel = (MyServiceModel *)model;
         [self.cellImageview setImageURL:[NSURL URLWithString:serviceModel.serviceAvatar]];
