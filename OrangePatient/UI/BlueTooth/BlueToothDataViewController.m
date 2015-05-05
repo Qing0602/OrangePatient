@@ -41,21 +41,25 @@
 -(NSTimeInterval) getEndDate;
 -(NSMutableArray *) formatData;
 
+// 校对时间
+-(void) updateDateTime;
+
 // 获取二代血氧未读数量
 -(void) getSPOCount;
-// 解析片段数据空间信息
--(NSInteger) analyesCount : (Byte *)bytes;
 // 获取二代血氧
 -(void) getSPO;
 // 继续获取血氧 -- 二代表
 -(void) continueGetSPO;
 // 解析二代血氧数据 -- 返回是否还有未读取数据
 -(NSInteger) analyesSPO : (Byte *)bytes with : (NSInteger) head;
-
 // 添加一组数据到血氧model
 -(void) addDataToSPOModel;
 // 分析卡路里数据
 -(DataType) analysesSPO : (NSData *) data;
+// 解析片段数据空间信息
+-(NSInteger) analyesCount : (Byte *)bytes;
+// 血氧数据获取完成
+-(void) finishedSPO;
 
 // 获取二代卡路里未读数量
 -(void) getCaloriesCount;
@@ -69,6 +73,25 @@
 -(void) addDataToCaloriesModel;
 // 分析卡路里数据
 -(DataType) analysesCalories : (NSData *) data;
+// 卡路里数据获取完成
+-(void) finishedCalories;
+
+
+// 获取二代脉搏波未读数据
+-(void) getBPCount;
+// 获取二代脉搏波单个数据
+-(void) getBP;
+// 继续获取二代脉搏波数据
+-(void) continueGetBP;
+// 获取二代连续脉搏波数据
+-(void) getBlockBP;
+// 添加一组数据到脉搏波model
+-(void) addDataToBPModel;
+// 分析脉搏波数据
+-(DataType) analysesBP : (NSData *) data;
+// 脉搏数据获取完成
+-(void) finishedBP;
+
 
 // 二代数据model
 @property (nonatomic,strong) BlueToothModel2 *blueToothModel2;
@@ -255,6 +278,7 @@
     
     NSArray *oldData = [UIModelCoding deserializeModel:[NSString stringWithFormat:@"%@.cac",self.deviceUUID.UUIDString]];
     [self setData:oldData];
+    [self updateDateTime];
 }
 
 -(void) setData : (NSArray *)data{
@@ -397,6 +421,39 @@
 
 
 
+// 校对时间
+-(void) updateDateTime{
+    if (self.rx != nil && self.tx != nil) {
+        NSDate *now = [NSDate date];
+        
+        Byte year = (now.year - 2000);
+        NSInteger yearInt = now.year - 2000;
+        
+        Byte month = now.month;
+        NSInteger monthInt = now.month;
+        
+        Byte day = now.day;
+        NSInteger dayInt = now.day;
+        
+        Byte hour = now.hour + 8;
+        NSInteger hourInt = now.hour;
+        
+        Byte mins = now.minute;
+        NSInteger minsInt = now.minute;
+        
+        Byte second = now.seconds;
+        NSInteger secondInt = now.seconds;
+        
+        NSInteger sum = yearInt + monthInt + dayInt + hourInt + minsInt + secondInt + 3;
+        Byte temp = sum;
+    
+        Byte command[] = { 0x83, year, month, day, hour,mins,second,0x00,0x00,temp};
+        NSData *data = [[NSData alloc] initWithBytes:command length:10];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
 
 
 // 获取二代血氧未读数量
@@ -431,6 +488,15 @@
     }
 }
 
+// 血氧数据获取完成
+-(void) finishedSPO{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x91, 0x7F, 0x10 };
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
 
 
 
@@ -473,6 +539,70 @@
     
 }
 
+// 卡路里数据获取完成
+-(void) finishedCalories{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x92, 0x7F, 0x11 };
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+
+
+
+// 获取二代脉搏波未读数据
+-(void) getBPCount{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x90, 0x04, 0x14 };
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+// 获取二代脉搏波单个数据
+-(void) getBP{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x98, 0x00, 0x18 };
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+
+// 继续获取二代脉搏波数据
+-(void) continueGetBP{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x98, 0x01, 0x19 };
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+// 获取二代连续脉搏波数据
+-(void) getBlockBP{
+    
+}
+
+// 脉搏数据获取完成
+-(void) finishedBP{
+    if (self.rx != nil && self.tx != nil) {
+        Byte command[] = { 0x98, 0x7F, 0x17 };
+        self.mutableData = [[NSMutableData alloc] init];
+        NSData *data = [[NSData alloc] initWithBytes:command length:3];
+        [self.peripheral setNotifyValue:YES forCharacteristic:self.rx];
+        [self.peripheral writeValue: data forCharacteristic:self.tx type:CBCharacteristicWriteWithResponse];
+    }
+}
+
 
 // 监听数据
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
@@ -507,7 +637,30 @@
                     [self continueGetCalories];
                 }else if(type == kDataIsOver){
                     // 接收全部完成,没有剩余数据
-                    [self continueGetCalories];
+                    [self addDataToCaloriesModel];
+                    
+                }else{
+                    
+                }
+            }
+                break;
+            case 0xF3:{
+                // 校对时间
+                if (bytes[1] == 0x00) {
+                    NSLog(@"ok");
+                }
+            }
+                break;
+            case 0xE8:{
+                // 脉搏波
+                DataType type = [self analysesBP:self.mutableData];
+                if (type == kDataIsFinshed) {
+                    // 接收一组完成，还有剩余数据
+                    [self addDataToBPModel];
+                    [self continueGetBP];
+                }else if(type == kDataIsOver){
+                    // 接收全部完成,没有剩余数据
+                    [self addDataToBPModel];
                     
                 }else{
                     
@@ -834,6 +987,49 @@
     return result;
 }
 
+// 分析脉搏波数据
+-(DataType) analysesBP : (NSData *) data{
+    DataType result = kDataIsNotFinsh;
+    NSInteger len = [data length];
+    NSInteger temp = len % 17;
+    NSInteger count = len / 17;
+    if (temp == 0 && count == 16) {
+        // 数据完整，判断是否还有数据
+        Byte *bytes = (Byte *)[data bytes];
+        BOOL isOver = NO;
+        for (int i = 1; i < len; i += 17) {
+            NSInteger height = bytes[i];
+            if (((height >> 6) & 0x01) == 1) {
+                isOver = YES;
+                break;
+            }
+        }
+        if (isOver) {
+            result = kDataIsOver;
+        }else{
+            result = kDataIsFinshed;
+        }
+    }else if(temp == 0 && count != 16){
+        // 数据不满16包，判断是否还有数据
+        Byte *bytes = (Byte *)[data bytes];
+        BOOL isOver = NO;
+        for (int i = 1; i < len; i += 17) {
+            NSInteger height = bytes[i];
+            if (((height >> 6) & 0x01) == 1) {
+                isOver = YES;
+                break;
+            }
+        }
+        if (isOver) {
+            result = kDataIsOver;
+        }else{
+            result = kDataIsNotFinsh;
+        }
+    }
+    
+    return result;
+}
+
 // 添加一组数据到卡路里model
 -(void) addDataToCaloriesModel{
     for (NSInteger i = 0; i<[self.mutableData length]; i += 11) {
@@ -847,6 +1043,14 @@
     for (NSInteger i = 0; i<[self.mutableData length]; i += 11) {
         NSData *data = [self.mutableData subdataWithRange:NSMakeRange(i * 11, 11)];
         [self.blueToothModel2.spo2Array addObject:data];
+    }
+}
+
+// 添加一组数据到脉搏波model
+-(void) addDataToBPModel{
+    for (NSInteger i = 0; i<[self.mutableData length]; i += 17) {
+        NSData *data = [self.mutableData subdataWithRange:NSMakeRange(i * 17, 17)];
+        [self.blueToothModel2.bpArray addObject:data];
     }
 }
 

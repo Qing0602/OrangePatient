@@ -13,4 +13,6 @@
 @property (nonatomic,strong) NSMutableArray *spo2Array;
 // 卡路里数据
 @property (nonatomic,strong) NSMutableArray *caloriesArray;
+// 脉搏波数据
+@property (nonatomic,strong) NSMutableArray *bpArray;
 @end

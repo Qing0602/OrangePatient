@@ -14,6 +14,7 @@
     if (self != nil) {
         self.spo2Array = [[NSMutableArray alloc] init];
         self.caloriesArray = [[NSMutableArray alloc] init];
+        self.bpArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -22,6 +23,7 @@
     [super encodeWithCoder:aCoder];
     [aCoder encodeObject:self.spo2Array forKey:@"spo2Array"];
     [aCoder encodeObject:self.caloriesArray forKey:@"caloriesArray"];
+    [aCoder encodeObject:self.bpArray forKey:@"bpArray"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
@@ -29,6 +31,7 @@
     if (nil != self) {
         self.spo2Array = [aDecoder decodeObjectForKey:@"spo2Array"];
         self.caloriesArray = [aDecoder decodeObjectForKey:@"caloriesArray"];
+        self.bpArray = [aDecoder decodeObjectForKey:@"bpArray"];
     }
     return self;
 }
