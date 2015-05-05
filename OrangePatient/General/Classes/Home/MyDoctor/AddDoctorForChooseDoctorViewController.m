@@ -15,15 +15,14 @@
 }
 @property (nonatomic, strong)UITableView *chooseDoctorTableview;
 @property (nonatomic, strong)NSArray *couldSelectedDoctorsList;
-@property (nonatomic, strong)ChooseDoctorModel *model;
 
 @end
 
 @implementation AddDoctorForChooseDoctorViewController
-- (instancetype)initWithDoctorModel:(ChooseDoctorModel *)chooseDoctorModel andHospitalName:(NSString *)hospitalName{
+- (instancetype)initWithDoctorModel:(NSArray *)doctorModels andHospitalName:(NSString *)hospitalName{
     self = [super init];
     if (self) {
-        self.model = chooseDoctorModel;
+        self.couldSelectedDoctorsList = doctorModels;
         _hospitalName = hospitalName;
     }
     return self;
@@ -60,27 +59,19 @@
 }
 */
 #pragma mark - Getter&Setter
-- (NSArray *)couldSelectedDoctorsList
-{
-    if (!_couldSelectedDoctorsList) {
-        NSMutableArray *testArray = [[NSMutableArray alloc] initWithCapacity:10];
-        for (int i = 0; i < 10; i++) {
-            ChooseDoctorModel *model = [[ChooseDoctorModel alloc] init];
-            model.doctorHostpital = [NSString stringWithFormat:@"中心医院%d",i];
-            model.doctorTitle = [NSString stringWithFormat:@"主治医生%d",i];
-            model.doctorUserName = [NSString stringWithFormat:@"用户名%d",i];
-            model.doctorAbstract = @"dadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsadadadsada";
-            model.doctorStatus = i%3;
-            [testArray addObject:model];
+- (void)setCouldSelectedDoctorsList:(NSArray *)couldSelectedDoctorsList{
+    NSMutableArray *tempCouldSelectedDoctorsList = [[NSMutableArray alloc] initWithCapacity:couldSelectedDoctorsList.count];
+    for (NSDictionary *dic in couldSelectedDoctorsList) {
+        if (dic && dic.allKeys.count) {
+            [tempCouldSelectedDoctorsList addObject:[ChooseDoctorModel convertModelByDic:dic]];
         }
-        _couldSelectedDoctorsList = [[NSArray alloc] initWithArray:testArray];
     }
-    return _couldSelectedDoctorsList;
+    _couldSelectedDoctorsList = [[NSArray alloc] initWithArray:tempCouldSelectedDoctorsList];
 }
 #pragma mark - UITableview
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.couldSelectedDoctorsList.count+1;
+    return self.couldSelectedDoctorsList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,7 +86,7 @@
     if (!cell) {
         cell = [[AddDoctorForChooseDoctorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chooseDoctorCellIden];
     }
-    [cell setContentByInfoModel:self.couldSelectedDoctorsList[indexPath.row-1]];
+    [cell setContentByInfoModel:self.couldSelectedDoctorsList[indexPath.row]];
     return cell;
     
 

@@ -18,15 +18,15 @@
         _doctorAbstract = [[UILabel alloc] init];
         _doctorAbstract.textColor = [UIColor lightGrayColor];
         _doctorAbstract.font = [UIFont systemFontOfSize:12.f];
-        _doctorAbstract.backgroundColor = [UIColor yellowColor];
         _doctorAbstract.numberOfLines = 2.f;
-        _doctorAbstract.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_doctorAbstract];
         
         _doctorStatusBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _doctorStatusBtn.translatesAutoresizingMaskIntoConstraints = NO;
         _doctorStatusBtn.titleLabel.font = [UIFont systemFontOfSize:12.f];
         [self.contentView addSubview:_doctorStatusBtn];
+        
+        self.cellContent.textColor = [UIColor blackColor];
+        self.cellSubTitle.textColor = [UIColor blackColor];
         
         [[self.doctorStatusBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
             if ([sender.titleLabel.text isEqualToString:@"添加"]) {
@@ -37,6 +37,14 @@
             
         }];
         
+        [self.cellTitle mas_makeConstraints:^(MASConstraintMaker *make){
+            make.right.mas_equalTo(-190);
+        }];
+        
+        [self.cellSubTitle mas_makeConstraints:^(MASConstraintMaker *make){
+            make.right.mas_equalTo(-180);
+        }];
+        
         [_doctorAbstract mas_makeConstraints:^(MASConstraintMaker *make){
             make.top.equalTo(self.cellSubTitle.mas_bottom).with.offset(6);
             make.left.equalTo(self.cellSubTitle.mas_left);
@@ -45,10 +53,10 @@
         }];
         
         [_doctorStatusBtn mas_makeConstraints:^(MASConstraintMaker *make){
-            make.centerY.equalTo(self.cellContent.mas_centerY);
+            make.centerY.equalTo(self.cellTitle.mas_centerY);
             make.right.mas_equalTo(@(-DoctorBaseCellPadding));
             make.width.mas_equalTo(@60);
-            make.height.mas_equalTo(self.cellContent.mas_height).and.offset(8);
+            make.height.mas_equalTo(self.cellTitle.mas_height).and.offset(8);
         }];
     }
     
@@ -58,8 +66,12 @@
 - (void)setContentByInfoModel:(ChooseDoctorModel *)model
 {
     self.dtModel = model;
-    [super setContentByInfoModel:model];
-    [self.doctorAbstract setText:model.doctorAbstract];
+    //[super setContentByInfoModel:model];
+    [self.doctorAbstract setText:model.doctorSpeciality];
+    [self.cellImageview setImageURL:model.doctorAvatar];
+    [self.cellTitle setText:model.doctorUserName];
+    [self.cellContent setText:model.doctorDepartment];
+    [self.cellSubTitle setText:model.doctorGrade];
     switch (model.doctorStatus) {
         case Doctor_Status_ShouldAdd:
         {

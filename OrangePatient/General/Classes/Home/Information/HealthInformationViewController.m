@@ -22,15 +22,24 @@
 @property (nonatomic, strong)UITableView *healthInfoTable;
 
 @property (nonatomic, strong)NSMutableArray *infomations;
+@property (nonatomic, strong)NSArray *adModels;
 @end
 
 @implementation HealthInformationViewController
+- (instancetype)initWithADModels:(NSArray *)adTempModels{
+    self = [super init];
+    if (self) {
+        self.adModels = adTempModels;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"健康资讯";
     
-    _adScrollView = [[ADBannerScrollView alloc] initWithFrame:CGRectMake(0.f, 0.f, SCREEN_WIDTH, SCREEN_WIDTH/2) placeholdImage:[UIImage imageNamed:@""] models:@[@"a",@"a",@"a",@"a",@"a"]];
+    _adScrollView = [[ADBannerScrollView alloc] initWithFrame:CGRectMake(0.f, 0.f, SCREEN_WIDTH, SCREEN_WIDTH/2) placeholdImage:[UIImage imageNamed:@""] models:self.adModels];
     [self.view addSubview:_adScrollView];
     
     _healthInfoTable = [[UITableView alloc] init];
@@ -86,6 +95,16 @@
         default:
             break;
     }
+}
+
+- (void)setAdModels:(NSArray *)adModels{
+    NSMutableArray *tempADs = [[NSMutableArray alloc] initWithCapacity:adModels.count];
+    for (NSDictionary *dic in adModels) {
+        if (dic && dic.allKeys.count) {
+            [tempADs addObject:[ADBannerModel convertModelByDic:dic]];
+        }
+    }
+    _adModels = [[NSArray alloc] initWithArray:tempADs];
 }
 
 - (void)didReceiveMemoryWarning {

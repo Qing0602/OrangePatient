@@ -152,6 +152,10 @@ static UIManagement *sharedInstance = nil;
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
 
+- (void)initGetAD{
+    InformationOperation *operation = [[InformationOperation alloc] initGetAD];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 #pragma mark -
 #pragma mark 医生相关网络访问
 // 我的预约医生列表

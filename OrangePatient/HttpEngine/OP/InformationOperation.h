@@ -11,9 +11,11 @@
 typedef enum{
     kGetRecent,
     kGetRecentDetail,
+    kGetAD,
 }InforType;
 
 @interface InformationOperation : CustomOperation
 -(InformationOperation *) initGetRecent : (NSUInteger) offset withLimit : (NSUInteger) limit;
 -(InformationOperation *) initGetRecentDetail : (NSInteger) recentID;
+-(InformationOperation *) initGetAD;
 @end

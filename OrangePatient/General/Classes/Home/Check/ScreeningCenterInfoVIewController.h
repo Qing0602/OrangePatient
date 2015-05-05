@@ -9,9 +9,9 @@
 #import "OrangeBaseViewController.h"
 
 
-#import "ScreeningCenterModel.h"
+@class MyDoctorHospitalsModel;
 @interface ScreeningCenterInfoVIewController : OrangeBaseViewController
 
-- (instancetype)initWithModel:(ScreeningCenterModel *)tempModel;
+- (instancetype)initWithModel:(MyDoctorHospitalsModel *)tempModel;
 
 @end

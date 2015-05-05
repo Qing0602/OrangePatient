@@ -13,7 +13,7 @@
 #import "MyDoctorHospitalsModel.h"
 
 #import "ScreeingDatingDoctorTableViewCell.h"
-
+#import "DoctorBaseTableViewCell.h"
 @interface ScreeningDatingDoctorViewController()<UITableViewDataSource,UITableViewDelegate,ScreeingDatingDoctorTableViewCellDelegate,EGOImageLoaderObserver>{
 
 }
@@ -52,8 +52,10 @@
 - (void)setCouldDatingDoctorList:(NSArray *)couldDatingDoctorList{
     NSMutableArray *tempCouldDatingDoctors = [[NSMutableArray alloc] initWithCapacity:couldDatingDoctorList.count];
     for (NSDictionary *doctorInfo in couldDatingDoctorList) {
-        ScreeingDatingDoctorsModel *tempModel = (ScreeingDatingDoctorsModel *)[ScreeingDatingDoctorsModel convertModelByDic:doctorInfo];
-        [tempCouldDatingDoctors addObject:tempModel];
+        if (doctorInfo && doctorInfo.allKeys.count) {
+            ScreeingDatingDoctorsModel *tempModel = [ScreeingDatingDoctorsModel convertModelByDic:doctorInfo];
+            [tempCouldDatingDoctors addObject:tempModel];
+        }
     }
     _couldDatingDoctorList = [[NSArray alloc] initWithArray:tempCouldDatingDoctors];
 }
@@ -62,12 +64,12 @@
 #pragma mark - UITableview
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.couldDatingDoctorList.count;
+    return self.couldDatingDoctorList.count+1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120.f;
+    return  indexPath.row == 0 ? 85:120;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,13 +77,12 @@
     static NSString *datingDoctorCellIden = @"DatingDoctorCellIden";
     static NSString *hospitalCellIden = @"HospitalCellIden";
     if (indexPath.row == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:hospitalCellIden];
+        DoctorBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:hospitalCellIden];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:hospitalCellIden];
-            [[EGOImageLoader sharedImageLoader] loadImageForURL:[NSURL URLWithString:self.hospitalsModel.hospitalLogoUrl] observer:self];
-            [cell.imageView setImage:[UIImage imageNamed:@"Information_Cell_DefaultImage"]];
-            cell.textLabel.text = self.hospitalsModel.hospitalName;
-            cell.detailTextLabel.text = @"testtesttest";
+            cell = [[DoctorBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:hospitalCellIden];
+            [cell.cellImageview setImageURL:[NSURL URLWithString:self.hospitalsModel.hospitalLogoUrl]];
+            cell.cellTitle.text = self.hospitalsModel.hospitalName;
+            cell.cellContent.text = self.hospitalsModel.hospitalContent;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         return cell;
@@ -91,15 +92,19 @@
             cell = [[ScreeingDatingDoctorTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:datingDoctorCellIden];
             cell.delegate = self;
         }
-        [cell setContentByInfoModel:self.couldDatingDoctorList[indexPath.row]];
+        [cell setContentByInfoModel:self.couldDatingDoctorList[indexPath.row-1]];
         return cell;
     }
 
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ScreeningCenterInfoVIewController *centerInfo = [[ScreeningCenterInfoVIewController alloc] initWithModel:nil];
-    [self.navigationController pushViewController:centerInfo animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.row == 0) {
+        ScreeningCenterInfoVIewController *centerInfo = [[ScreeningCenterInfoVIewController alloc] initWithModel:nil];
+        [self.navigationController pushViewController:centerInfo animated:YES];
+    }
+
 }
 
 #pragma mark - Delegate
