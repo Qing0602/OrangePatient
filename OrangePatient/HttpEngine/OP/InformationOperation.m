@@ -36,6 +36,16 @@
     return self;
 }
 
+-(InformationOperation *) initGetAD{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kGetAD;
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/info/ad",K_HOST_OF_SERVER];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
+
 -(void) getRecent{
     [self.request setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -56,6 +66,15 @@
     [self startAsynchronous];
 }
 
+- (void)getAD{
+    [self.request setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].getADResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
@@ -64,6 +83,9 @@
                 break;
             case kGetRecentDetail:
                 [self getRecentDetail];
+                break;
+            case kGetAD:
+                [self getAD];
                 break;
             default:
                 break;

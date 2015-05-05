@@ -62,7 +62,8 @@
 @property (nonatomic,strong) NSDictionary *getRecentResult;
 // 获取指定最新健康资讯信息的详细内容
 @property (nonatomic,strong) NSDictionary *getRecentDetailResult;
-
+//获取广告
+@property (nonatomic,strong) NSDictionary *getADResult;
 
 // 我的预约医生列表
 @property (nonatomic,strong) NSDictionary *getMyAppointmentListResult;
@@ -136,7 +137,8 @@
 -(void) initGetRecent : (NSUInteger) offset withLimit : (NSUInteger) limit;
 // 获取指定最新健康资讯信息的详细内容
 -(void) initGetRecentDetail : (NSInteger) recentID;
-
+//获取内容推广和客户广告列表
+- (void)initGetAD;
 #pragma mark -
 #pragma mark 医生相关网络访问
 // 我的预约医生列表

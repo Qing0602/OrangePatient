@@ -9,5 +9,15 @@
 #import "ADBannerModel.h"
 
 @implementation ADBannerModel
-
++ (ADBannerModel *)convertModelByDic:(NSDictionary *)dic{
+    ADBannerModel *model = [[ADBannerModel alloc] init];
+    model.title = dic[@"title"];
+    NSDictionary *pictures = dic[@"pictures"];
+    if (pictures) {
+        model.imageUrl = [NSURL URLWithString:pictures[@"big"]];
+    }
+    model.content = dic[@"content"];
+    model.link = dic[@"url"];
+    return model;
+}
 @end

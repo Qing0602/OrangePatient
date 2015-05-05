@@ -15,4 +15,6 @@ typedef enum{
 
 @interface HealthInformationViewController : OrangeBaseViewController
 
+- (instancetype)initWithADModels:(NSArray *)adTempModels;
+
 @end

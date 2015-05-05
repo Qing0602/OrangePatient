@@ -79,6 +79,20 @@
         }
     }];
     
+    [RACObserve([UIManagement sharedInstance], getADResult) subscribeNext:^(NSDictionary *dic){
+        if (dic) {
+            if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
+                [self closeProgress];
+                NSMutableArray *dataArr = dic[ASI_REQUEST_DATA];
+                HealthInformationViewController *healthInformation = [[HealthInformationViewController alloc] initWithADModels:dataArr];
+                healthInformation.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:healthInformation animated:YES];
+            }else{
+                [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
+            }
+        }
+    }];
+    
     for (int i = 0; i<4; i++) {
     
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -87,9 +101,8 @@
             switch (sender.tag) {
                 case 1:
                 {
-                    HealthInformationViewController *healthInformation = [[HealthInformationViewController alloc] init];
-                    healthInformation.hidesBottomBarWhenPushed = YES;
-                    [self.navigationController pushViewController:healthInformation animated:YES];
+                    [self showProgressWithText:@"正在获取..."];
+                    [[UIManagement sharedInstance] initGetAD];
                 }
                     break;
                 case 2:

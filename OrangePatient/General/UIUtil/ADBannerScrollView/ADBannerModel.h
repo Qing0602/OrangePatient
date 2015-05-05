@@ -10,8 +10,11 @@
 
 @interface ADBannerModel : NSObject
 
+
 @property (nonatomic, strong)NSURL *imageUrl;
 @property (nonatomic, strong)NSString *title;
+@property (nonatomic, strong)NSString *content;
 @property (nonatomic, strong)NSString *link;
 
++ (ADBannerModel *)convertModelByDic:(NSDictionary *)dic;
 @end
