@@ -150,8 +150,7 @@
     [self hidePicker];
 }
 
-- (void)viewPicker
-{
+- (void)viewPicker{
     if (self.pickerSuperView.frame.origin.y == SCREEN_HEIGHT) {
         [self closeKeyboard];
         [UIView animateWithDuration:0.5 animations:^{
@@ -159,13 +158,10 @@
             pickerFrame.origin.y = 0;
             self.pickerSuperView.frame = pickerFrame;
         }];
-        
     }
-    
 }
 
-- (void)hidePicker
-{
+- (void)hidePicker{
     if (self.pickerSuperView.frame.origin.y != SCREEN_HEIGHT) {
         [UIView animateWithDuration:0.5 animations:^{
             CGRect pickerFrame = self.pickerSuperView.frame;
@@ -173,21 +169,17 @@
             self.pickerSuperView.frame = pickerFrame;
         }];
     }
-    
 }
 #pragma mark - Tableview
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 4;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return Register_TableviewCell_Height;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     @weakify (self);
     static NSString *cellIden = @"registerTableViewCellIden";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
@@ -372,8 +364,7 @@
 }
 */
 #pragma mark - NSTimer
--(void)lastTime
-{
+-(void)lastTime{
     self.smsTime = self.smsTime - 1;
     if (self.smsTime == 0) {
         [self.timer invalidate];
@@ -383,7 +374,5 @@
     }else{
         [self.getVeriCode setTitle:[NSString stringWithFormat:@"%ld秒后重试", (long)self.smsTime] forState:UIControlStateNormal];
     }
-
-    
 }
 @end

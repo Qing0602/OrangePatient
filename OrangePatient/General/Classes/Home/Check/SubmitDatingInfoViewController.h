@@ -8,6 +8,9 @@
 
 #import "OrangeBaseViewController.h"
 
+@class ScreeingDatingDoctorsModel;
 @interface SubmitDatingInfoViewController : OrangeBaseViewController
+
+- (instancetype)initWithDoctorModel:(ScreeingDatingDoctorsModel *)model;
 
 @end

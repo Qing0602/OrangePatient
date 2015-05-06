@@ -41,5 +41,6 @@
 
 //问题描述
 #define SendProblemToDoctor_TableviewCell_NormalHeight 40.f
+#define SendProblemToDoctor_TableviewCell_LargeHeight 60.f
 
 #endif

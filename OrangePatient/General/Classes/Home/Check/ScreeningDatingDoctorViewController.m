@@ -109,7 +109,7 @@
 
 #pragma mark - Delegate
 - (void)willDatingDoctor:(ScreeingDatingDoctorsModel *)model{
-    SubmitDatingInfoViewController *submitDating = [[SubmitDatingInfoViewController alloc] init];
+    SubmitDatingInfoViewController *submitDating = [[SubmitDatingInfoViewController alloc] initWithDoctorModel:model];
     [self.navigationController pushViewController:submitDating animated:YES];
 }
 

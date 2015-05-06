@@ -8,7 +8,11 @@
 
 #import "SubmitDatingInfoViewController.h"
 
+#import "ScreeingDatingDoctorsModel.h"
+
 #import "ChooseSexControl.h"
+
+#import "UIManagement.h"
 @interface SubmitDatingInfoViewController()<UIScrollViewDelegate,UITextFieldDelegate>
 //scrollview
 @property (nonatomic, strong)UIScrollView *contentScrollview;
@@ -24,6 +28,8 @@
 @property (nonatomic, strong)UITextField *medicalIDInput;
 //电话号码
 @property (nonatomic, strong)UITextField *phoneNumberInput;
+//doctorModel
+@property (nonatomic, strong)ScreeingDatingDoctorsModel *doctorModel;
 @end
 @implementation SubmitDatingInfoViewController
 
@@ -109,6 +115,14 @@
     return _sexControl;
 }
 #pragma mark - LifeCycle
+- (instancetype)initWithDoctorModel:(ScreeingDatingDoctorsModel *)model{
+    self = [super init];
+    if (self) {
+        _doctorModel = model;
+    }
+    return self;
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.title = @"提交预约信息";
@@ -145,7 +159,8 @@
     datingBtn.layer.borderWidth = 1.f;
     datingBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [[datingBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
-    
+        [self showProgressWithText:@"正在提交"];
+        [[UIManagement sharedInstance] appointment:self.doctorModel.doctorID withTimeStamp:[[NSDate date] timeIntervalSinceNow]];
     }];
     [self.view addSubview:datingBtn];
     
@@ -188,6 +203,18 @@
         make.top.equalTo(phoneNumLabel.mas_bottom).with.offset(30);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(30);
+    }];
+    
+    //kvo
+    [RACObserve([UIManagement sharedInstance], appointmentDoctorResult) subscribeNext:^(NSDictionary *dic){
+        if (dic) {
+            if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
+                [self closeProgress];
+                NSArray *dataArr = dic[ASI_REQUEST_DATA];
+            }else{
+                [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
+            }
+        }
     }];
 }
 

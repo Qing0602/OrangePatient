@@ -44,7 +44,6 @@
                     [self.delegate willDatingDoctor:self.datingModel];
                 }
             }
-            
         }];
         
         [self.cellTitle mas_makeConstraints:^(MASConstraintMaker *make){
