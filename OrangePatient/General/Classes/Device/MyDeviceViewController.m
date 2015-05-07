@@ -30,6 +30,8 @@
     
     
     self.title = @"数据采集";
+    self.navigationItem.leftBarButtonItem = nil;
+    
     UIButton *rightButtonT=[UIButton buttonWithType:UIButtonTypeCustom];
     rightButtonT.frame=CGRectMake(0.0f, 0.0f, 44.0f, 44.0f);
     [rightButtonT setImage:[UIImage imageNamed:@"NavSearchDevice"] forState:UIControlStateNormal];

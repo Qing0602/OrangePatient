@@ -9,17 +9,21 @@
 #import "CircularProgressView.h"
 
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
-@implementation CircularProgressView
+@implementation CircularProgressView{
+    NSInteger testInter;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *rectImageview = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, 275.f, 225.f)];
+        testInter = 0;
+        
+        UIImageView *rectImageview = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, 275.f, 260.f)];
         [rectImageview setImage:[UIImage imageNamed:@"Report_Chart_BG"]];
         [self addSubview:rectImageview];
 
         //156,150
-        self.needleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(56, 64, 160, 151)];
+        self.needleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(46, 65, 179, 179)];
         [self.needleImageView setImage:[UIImage imageNamed:@"Report_needle"]];
         [self addSubview:self.needleImageView];
         
@@ -53,19 +57,29 @@
 
 
 - (void)setProgressValue:(NSInteger)value{
-    CGFloat progressValue = value/50.f;
-    progressValue = 50.f;
+    CGFloat progressValue = (value-5)*4.5;
+
     self.value.text = [NSString stringWithFormat:@"%ld",(long)value];
     self.valueDesc.text = [self getValueDescByValue:value];
     //160 + progressValue*220-270
-    //5 - 4度
+    //5 - 0度
     //15 -45度
-    //30 -120度
-    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(60);
+    //30 -112度
+    //45 - 180度
+    //55 - 225度
+    //[NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(test) userInfo:nil repeats:YES];
+    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(progressValue);
     CGAffineTransform finalTransform = CGAffineTransformMakeRotation(progressOvalEndAngle);
     [self.needleImageView setTransform:finalTransform];
 //    [self.theProgressView setProgress:progressValue];
 //    [self.theProgressView startAnimation];
+}
+
+- (void)test{
+    testInter++;
+    CGFloat progressOvalEndAngle = DEGREES_TO_RADIANS(testInter);
+    CGAffineTransform finalTransform = CGAffineTransformMakeRotation(progressOvalEndAngle);
+    [self.needleImageView setTransform:finalTransform];
 }
 
 - (NSString *)getValueDescByValue:(NSInteger)tempValue{

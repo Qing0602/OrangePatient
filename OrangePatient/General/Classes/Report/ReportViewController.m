@@ -21,9 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = [self createNavRightButton:kCustomNavRightTypeReportListIcon withSEL:@selector(checkMyReportList)];
     
-    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-275)/2, 10, 275.f, 225.f)];
+    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-275)/2, -10, 275.f, 260.f)];
     [self.view addSubview:_progressView];
     
     UILabel *valueTitle = [[UILabel alloc] init];
@@ -86,7 +87,7 @@
     
     
     [valueTitle mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.equalTo(self.progressView.mas_bottom).with.offset(0);
+        make.top.equalTo(self.progressView.mas_bottom).with.offset(-20);
         make.width.mas_equalTo(200);
         make.centerX.equalTo(self.view.mas_centerX);
         make.height.mas_equalTo(16);
@@ -161,7 +162,7 @@
     [self.odi4ValueLabel setAttributedText:str];
     [self.tValueLabel setText:@"50%"];
     [self.lsao2ValueLabel setText:@"10%"];
-    [self.progressView setProgressValue:30];
+    [self.progressView setProgressValue:50];
 }
 
 /*

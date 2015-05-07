@@ -31,6 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
+    
     self.myView = [[UIView alloc] init];
     self.myView.translatesAutoresizingMaskIntoConstraints = NO;
     self.myView.backgroundColor = [UIColor whiteColor];
