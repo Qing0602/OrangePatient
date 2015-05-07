@@ -306,6 +306,7 @@
 		7489DCAD1ADCDCA50098AA47 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7489DCAC1ADCDCA50098AA47 /* CircularProgressView.m */; };
 		748B53D71AEE453600D5D658 /* MyDoctorDepartmentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 748B53D61AEE453600D5D658 /* MyDoctorDepartmentsModel.m */; };
 		748B53D91AEE4CB300D5D658 /* Cell_Btn_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 748B53D81AEE4CB300D5D658 /* Cell_Btn_BG@2x.png */; };
+		7490085A1AFB4B2400F4B82C /* Report_Chart_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 749008591AFB4B2400F4B82C /* Report_Chart_BG@2x.png */; };
 		7491B4AF1AE3EF160012B6C8 /* MyReportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */; };
 		7491B4B21AE3EF3F0012B6C8 /* MyReportListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4B11AE3EF3F0012B6C8 /* MyReportListTableViewCell.m */; };
 		7491B4B51AE3F0EF0012B6C8 /* MyReportListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7491B4B41AE3F0EF0012B6C8 /* MyReportListModel.m */; };
@@ -315,7 +316,6 @@
 		749A11B01AB86F580003F58B /* CustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11AF1AB86F580003F58B /* CustomPageControl.m */; };
 		749A11B31AB86F6E0003F58B /* ADBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11B21AB86F6E0003F58B /* ADBannerModel.m */; };
 		749A11B61AB86F7F0003F58B /* ADBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 749A11B51AB86F7F0003F58B /* ADBannerScrollView.m */; };
-		74B8A4691AEA483D00146E8B /* Report_Chart_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74B8A4681AEA483D00146E8B /* Report_Chart_BG@2x.png */; };
 		74B8A46B1AEA485500146E8B /* Report_needle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74B8A46A1AEA485500146E8B /* Report_needle@2x.png */; };
 		74BE67A71A9F4AF7008F7C44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A61A9F4AF7008F7C44 /* main.m */; };
 		74BE67AA1A9F4AF7008F7C44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */; };
@@ -774,6 +774,7 @@
 		748B53D51AEE453600D5D658 /* MyDoctorDepartmentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoctorDepartmentsModel.h; sourceTree = "<group>"; };
 		748B53D61AEE453600D5D658 /* MyDoctorDepartmentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoctorDepartmentsModel.m; sourceTree = "<group>"; };
 		748B53D81AEE4CB300D5D658 /* Cell_Btn_BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cell_Btn_BG@2x.png"; sourceTree = "<group>"; };
+		749008591AFB4B2400F4B82C /* Report_Chart_BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Report_Chart_BG@2x.png"; sourceTree = "<group>"; };
 		7491B4AD1AE3EF160012B6C8 /* MyReportListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReportListViewController.h; sourceTree = "<group>"; };
 		7491B4AE1AE3EF160012B6C8 /* MyReportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReportListViewController.m; sourceTree = "<group>"; };
 		7491B4B01AE3EF3F0012B6C8 /* MyReportListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReportListTableViewCell.h; sourceTree = "<group>"; };
@@ -792,7 +793,6 @@
 		749A11B21AB86F6E0003F58B /* ADBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBannerModel.m; sourceTree = "<group>"; };
 		749A11B41AB86F7F0003F58B /* ADBannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBannerScrollView.h; sourceTree = "<group>"; };
 		749A11B51AB86F7F0003F58B /* ADBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBannerScrollView.m; sourceTree = "<group>"; };
-		74B8A4681AEA483D00146E8B /* Report_Chart_BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Report_Chart_BG@2x.png"; sourceTree = "<group>"; };
 		74B8A46A1AEA485500146E8B /* Report_needle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Report_needle@2x.png"; sourceTree = "<group>"; };
 		74BE67A11A9F4AF7008F7C44 /* OrangePatient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangePatient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BE67A51A9F4AF7008F7C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1406,7 +1406,7 @@
 		744337341ADCEE4C000F32E2 /* Report */ = {
 			isa = PBXGroup;
 			children = (
-				74B8A4681AEA483D00146E8B /* Report_Chart_BG@2x.png */,
+				749008591AFB4B2400F4B82C /* Report_Chart_BG@2x.png */,
 				74B8A46A1AEA485500146E8B /* Report_needle@2x.png */,
 				7417BEE11AE8DA4B0097041B /* Report_Nav_Right@2x.png */,
 			);
@@ -2127,7 +2127,6 @@
 				7406A5D51AE7A29400696043 /* VoiceSearchFeedback006@2x.png in Resources */,
 				193C537C1AB754990079C424 /* SearchDevice@2x.png in Resources */,
 				7406A5F41AE7A29400696043 /* call_out_h.png in Resources */,
-				74B8A4691AEA483D00146E8B /* Report_Chart_BG@2x.png in Resources */,
 				740DBB1F1AE8D5000002850F /* MyDoctor_Search@2x.png in Resources */,
 				7406A6131AE7A29400696043 /* chatBar_face@2x.png in Resources */,
 				198F3FE81AB6EF990017A90B /* default@2x.png in Resources */,
@@ -2175,6 +2174,7 @@
 				7406A6461AE7A29400696043 /* chat_receiver_audio_playing_full@2x.png in Resources */,
 				7406A61D1AE7A29400696043 /* chatBar_moreSelected@2x.png in Resources */,
 				7406A5F31AE7A29400696043 /* call_out@2x.png in Resources */,
+				7490085A1AFB4B2400F4B82C /* Report_Chart_BG@2x.png in Resources */,
 				7406A5C81AE7A29400696043 /* chatFire_audioPlaying3.png in Resources */,
 				7406A6531AE7A29400696043 /* chat_sender_bg.png in Resources */,
 				7406A5D81AE7A29400696043 /* VoiceSearchFeedback008.png in Resources */,

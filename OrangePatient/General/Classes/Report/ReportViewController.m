@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [self createNavRightButton:kCustomNavRightTypeReportListIcon withSEL:@selector(checkMyReportList)];
     
-    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-275)/2, 20, 275.f, 225.f)];
+    _progressView = [[CircularProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-275)/2, 10, 275.f, 225.f)];
     [self.view addSubview:_progressView];
     
     UILabel *valueTitle = [[UILabel alloc] init];
@@ -86,14 +86,14 @@
     
     
     [valueTitle mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.equalTo(self.progressView.mas_bottom).with.offset(30);
+        make.top.equalTo(self.progressView.mas_bottom).with.offset(0);
         make.width.mas_equalTo(200);
         make.centerX.equalTo(self.view.mas_centerX);
         make.height.mas_equalTo(16);
     }];
     
     [odi4Label mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.equalTo(valueTitle.mas_bottom).with.offset(20);
+        make.top.equalTo(valueTitle.mas_bottom).with.offset(10);
         make.left.mas_equalTo(4);
         make.right.mas_equalTo(-SCREEN_WIDTH*2/5);
         make.height.mas_equalTo(14);
@@ -135,7 +135,7 @@
     }];
     
     [downloadReport mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.equalTo(lsao2Label.mas_bottom).with.offset(20);
+        make.top.equalTo(lsao2Label.mas_bottom).with.offset(10);
         make.centerX.equalTo(self.view.mas_centerX);
         make.width.mas_equalTo(258);
         make.height.mas_equalTo(24);
