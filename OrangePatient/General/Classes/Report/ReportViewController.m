@@ -10,6 +10,8 @@
 #import "MyReportListViewController.h"
 
 #import "CircularProgressView.h"
+
+#import "UIManagement.h"
 @interface ReportViewController ()
 @property (nonatomic, strong)CircularProgressView *progressView;
 @property (nonatomic, strong)UILabel *odi4ValueLabel;
@@ -141,6 +143,20 @@
         make.width.mas_equalTo(258);
         make.height.mas_equalTo(24);
     }];
+    
+    [RACObserve([UIManagement sharedInstance], userDashboardResult) subscribeNext:^(NSDictionary *dic){
+        if (dic) {
+            if (![dic[ASI_REQUEST_HAS_ERROR] boolValue]) {
+                [self closeProgress];
+                NSDictionary *report = dic[ASI_REQUEST_DATA];
+            }else{
+                [self showProgressWithText:dic[ASI_REQUEST_ERROR_MESSAGE] withDelayTime:2.f];
+            }
+        }
+    }];
+    
+    [self showProgressWithText:@"正在获取..."];
+    [[UIManagement sharedInstance] getUserDashboard:[UIManagement sharedInstance].userAccount.userUid];
     // Do any additional setup after loading the view.
 }
 

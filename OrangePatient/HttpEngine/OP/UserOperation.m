@@ -206,6 +206,33 @@
     return self;
 }
 
+-(UserOperation *)initUserReport:(NSString *)uid withStart:(NSInteger)start withLimit:(NSInteger)limit{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kGetUserReport;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/report/%@?oauth_token=%@&oauth_token_secret=%@&start=%ld&limit=%ld",
+                            K_HOST_OF_SERVER,
+                            uid,
+                            [UIManagement sharedInstance].userAccount.userOauthToken,
+                            [UIManagement sharedInstance].userAccount.userOauthTokenSecret,start,limit];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
+
+-(UserOperation *)initUserDashboard:(NSString *)uid{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kGetUserDashboard;
+        NSString *urlStr = [NSString stringWithFormat:@"%@/api/users/dashboard/%@?oauth_token=%@&oauth_token_secret=%@",
+                            K_HOST_OF_SERVER,
+                            uid,
+                            [UIManagement sharedInstance].userAccount.userOauthToken,
+                            [UIManagement sharedInstance].userAccount.userOauthTokenSecret];
+        [self setHttpRequestGetWithUrl:urlStr];
+    }
+    return self;
+}
 -(void) login{
     [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -346,6 +373,26 @@
     [self startAsynchronous];
 }
 
+- (void)getUserReport{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].userReportResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
+- (void)getUserDashboard{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].userDashboardResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
@@ -390,6 +437,12 @@
                 break;
             case kVersionCheck:
                 [self checkVersion];
+                break;
+            case kGetUserReport:
+                [self getUserReport];
+                break;
+            case kGetUserDashboard:
+                [self getUserDashboard];
                 break;
             default:
                 break;

@@ -73,6 +73,18 @@ static UIManagement *sharedInstance = nil;
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
 
+//获取用户报告
+-(void) getUserReport : (NSString *)uid withStart:(NSInteger)start withLimit:(NSInteger)limit{
+    UserOperation *operation = [[UserOperation alloc] initUserReport:uid withStart:start withLimit:limit];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
+// 获取用户实时指标
+-(void) getUserDashboard:(NSString *)uid{
+    UserOperation *operation = [[UserOperation alloc] initUserDashboard:uid];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
+
 // 更新头像
 -(void) changeAvatar : (NSString *) uid withImage : (NSData *) image{
     UserOperation *operation = [[UserOperation alloc] initChangeAvatar:uid withImage:image];

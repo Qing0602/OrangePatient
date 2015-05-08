@@ -38,6 +38,10 @@
 @property (nonatomic,strong) NSDictionary *addFriendResult;
 // 删除好友
 @property (nonatomic,strong) NSDictionary *deleteFriendResult;
+// 获取用户报告
+@property (nonatomic,strong)NSDictionary *userReportResult;
+// 获取用户实时指标
+@property (nonatomic,strong)NSDictionary *userDashboardResult;
 // 更新头像
 @property (nonatomic,strong) NSDictionary *changeAvatarResult;
 @property (nonatomic,strong) NSDictionary *updateUserDetailResult;
@@ -105,7 +109,10 @@
 -(void) addFriend : (NSString *) uid;
 // 删除好友
 -(void) deleteFriend : (NSString *) uid;
-
+//获取用户报告
+-(void) getUserReport : (NSString *)uid withStart : (NSInteger) start withLimit : (NSInteger) limit;
+// 获取用户实时指标
+-(void) getUserDashboard:(NSString *)uid;
 // 更新头像
 -(void) changeAvatar : (NSString *) uid withImage : (NSData *) image;
 
@@ -160,5 +167,7 @@
 -(void) deleteDevice : (NSString *) peripheralID;
 // 上传我的设备
 -(void) postDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSDictionary *) data;
+
+
 
 @end
