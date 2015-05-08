@@ -21,7 +21,7 @@
 - (instancetype)initWithModel:(MyDoctorHospitalsModel *)tempModel{
     self = [super init];
     if (self) {
-        self.model = tempModel;
+        _model = tempModel;
     }
     return self;
 }
@@ -29,6 +29,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    self.navigationItem.rightBarButtonItem = [self createNavRightButton:kCustomNavRightTypeSearchIcon withSEL:@selector(searchHospital)];
     
     UIScrollView *contentScrollview = [[UIScrollView alloc] init];
     contentScrollview.showsVerticalScrollIndicator = NO;
@@ -122,4 +123,7 @@
     
 }
 
+- (void)searchHospital{
+    
+}
 @end

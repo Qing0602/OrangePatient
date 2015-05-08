@@ -300,6 +300,7 @@
 		7452723D1AF7A4E500ADF13E /* chatListCellHead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7452723B1AF7A4E500ADF13E /* chatListCellHead@2x.png */; };
 		745272401AF7A60800ADF13E /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = 7452723F1AF7A60800ADF13E /* AppDelegate+EaseMob.m */; };
 		7452A8F61AE4F20900819918 /* HealthInfoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7452A8F51AE4F20900819918 /* HealthInfoDetailViewController.m */; };
+		746155AB1AFC8D590017C42D /* OrangeDropControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 746155AA1AFC8D590017C42D /* OrangeDropControl.m */; };
 		74738B9A1AD5498800DE7ACA /* ChooseDoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */; };
 		74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74738B9C1AD5568600DE7ACA /* SubmitDatingInfoViewController.m */; };
 		74837E911AB086F200B030D0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74837E901AB086F200B030D0 /* RegisterViewController.m */; };
@@ -763,6 +764,8 @@
 		7452723F1AF7A60800ADF13E /* AppDelegate+EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+EaseMob.m"; sourceTree = "<group>"; };
 		7452A8F41AE4F20900819918 /* HealthInfoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthInfoDetailViewController.h; sourceTree = "<group>"; };
 		7452A8F51AE4F20900819918 /* HealthInfoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthInfoDetailViewController.m; sourceTree = "<group>"; };
+		746155A91AFC8D590017C42D /* OrangeDropControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrangeDropControl.h; sourceTree = "<group>"; };
+		746155AA1AFC8D590017C42D /* OrangeDropControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrangeDropControl.m; sourceTree = "<group>"; };
 		74738B981AD5498800DE7ACA /* ChooseDoctorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDoctorModel.h; sourceTree = "<group>"; };
 		74738B991AD5498800DE7ACA /* ChooseDoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDoctorModel.m; sourceTree = "<group>"; };
 		74738B9B1AD5568600DE7ACA /* SubmitDatingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitDatingInfoViewController.h; sourceTree = "<group>"; };
@@ -1900,6 +1903,8 @@
 				7449C53E1AB67336009AF4DD /* ChooseSexControl.m */,
 				7489DCAB1ADCDCA50098AA47 /* CircularProgressView.h */,
 				7489DCAC1ADCDCA50098AA47 /* CircularProgressView.m */,
+				746155A91AFC8D590017C42D /* OrangeDropControl.h */,
+				746155AA1AFC8D590017C42D /* OrangeDropControl.m */,
 				749A11AD1AB86EC00003F58B /* ADBannerScrollView */,
 			);
 			path = UIUtil;
@@ -2459,6 +2464,7 @@
 				19D8A9271AC5D9790092688E /* UserOperation.m in Sources */,
 				740E3E311AD7BF5E00E8BA75 /* ReportViewController.m in Sources */,
 				74738B9D1AD5568600DE7ACA /* SubmitDatingInfoViewController.m in Sources */,
+				746155AB1AFC8D590017C42D /* OrangeDropControl.m in Sources */,
 				744522E11ADBA278002B20F0 /* EMChatTimeCell.m in Sources */,
 				198F14F91ACD75D0008C208F /* UserProfileViewController.m in Sources */,
 				744523021ADBA804002B20F0 /* NSString+Valid.m in Sources */,
