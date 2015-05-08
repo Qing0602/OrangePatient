@@ -219,4 +219,10 @@ static UIManagement *sharedInstance = nil;
     DeviceOperation *operation = [[DeviceOperation alloc] initPostDeviceData:startTime withEndTime:endTime withPeripheralID:peripheralID withData:data];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
+
+// 删除报表
+-(void) deleteUserReport : (long) reportID withUserUid : (NSString *) userUid{
+    UserOperation *operation = [[UserOperation alloc] initDeleteUserReport:reportID withUserUid:userUid];
+    [[NetWorkService sharedInstance] networkEngine:operation];
+}
 @end

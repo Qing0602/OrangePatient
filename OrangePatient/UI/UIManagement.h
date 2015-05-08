@@ -90,6 +90,9 @@
 //我的客服列表
 @property (nonatomic,strong) NSDictionary *myServiceResult;
 
+// 删除报表
+@property (nonatomic,strong) NSDictionary *deleteReportResult;
+
 // 登陆
 -(void) login : (NSString *) userName withPassword : (NSString *) password;
 // 提供手机号码获取注册、重置等验证码。typeCode:0 - 注册, 1 - 重置密码
@@ -168,6 +171,7 @@
 // 上传我的设备
 -(void) postDeviceData : (long) startTime withEndTime : (long) endTime withPeripheralID : (NSString *) peripheralID withData : (NSDictionary *) data;
 
-
+// 删除报表
+-(void) deleteUserReport : (long) reportID withUserUid : (NSString *) userUid;
 
 @end

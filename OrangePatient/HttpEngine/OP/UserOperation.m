@@ -25,6 +25,7 @@
 -(void) updateUserProfile;
 -(void) getUserProfile;
 -(void) checkVersion;
+-(void) deleteReport;
 @end
 
 @implementation UserOperation
@@ -233,6 +234,21 @@
     }
     return self;
 }
+
+// 删除报表
+-(UserOperation *) initDeleteUserReport : (long) reportID withUserUid : (NSString *) userUid{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        self.type = kDeleteUserReport;
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/users/report/%@",K_HOST_OF_SERVER,uid];
+        [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
+                                                        @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
+                                                        @"id":[NSNumber numberWithLong:reportID],
+                                                        @"_method":@"DELETE"}];
+    }
+    return self;
+}
+
 -(void) login{
     [self.dataRequest setRequestCompleted:^(NSDictionary *data){
         dispatch_block_t updateTagBlock = ^{
@@ -393,6 +409,16 @@
     [self startAsynchronous];
 }
 
+-(void) deleteReport{
+    [self.dataRequest setRequestCompleted:^(NSDictionary *data){
+        dispatch_block_t updateTagBlock = ^{
+            [UIManagement sharedInstance].deleteReportResult = data;
+        };
+        dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+    }];
+    [self startAsynchronous];
+}
+
 -(void) main{
     @autoreleasepool {
         switch (self.type) {
@@ -443,6 +469,9 @@
                 break;
             case kGetUserDashboard:
                 [self getUserDashboard];
+                break;
+            case kDeleteUserReport:
+                [self deleteReport];
                 break;
             default:
                 break;

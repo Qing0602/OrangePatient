@@ -25,6 +25,7 @@ typedef enum{
     kVersionCheck,
     kGetUserReport,
     kGetUserDashboard,
+    kDeleteUserReport,
 }UserType;
 
 @interface UserOperation : CustomOperation
@@ -50,4 +51,7 @@ typedef enum{
 //获取用户报告
 -(UserOperation *)initUserReport:(NSString *)uid withStart : (NSInteger) start withLimit : (NSInteger) limit;;
 -(UserOperation *)initUserDashboard:(NSString *)uid;
+
+// 删除报表
+-(UserOperation *) initDeleteUserReport : (long) reportID withUserUid : (NSString *) userUid;
 @end
