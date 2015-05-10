@@ -49,6 +49,8 @@
 		1982A3CC1AD0AFB500233D4C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982A3CB1AD0AFB500233D4C /* AboutViewController.m */; };
 		1982A3CF1AD0AFFC00233D4C /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982A3CE1AD0AFFC00233D4C /* FeedBackViewController.m */; };
 		198655EB1ABA5B3B002A7C22 /* BlueToothDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198655EA1ABA5B3B002A7C22 /* BlueToothDataViewController.m */; };
+		1989D0AF1AFF37D40012CAC8 /* AboutPic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1989D0AD1AFF37D40012CAC8 /* AboutPic@2x.png */; };
+		1989D0B01AFF37D40012CAC8 /* AboutPic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1989D0AE1AFF37D40012CAC8 /* AboutPic@3x.png */; };
 		198F14E71ACCD749008C208F /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F14E61ACCD749008C208F /* MyViewController.m */; };
 		198F14ED1ACCF1CB008C208F /* MyRecommend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14E91ACCF1CB008C208F /* MyRecommend@2x.png */; };
 		198F14EE1ACCF1CB008C208F /* MyRecommend@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F14EA1ACCF1CB008C208F /* MyRecommend@3x.png */; };
@@ -436,6 +438,8 @@
 		1982A3CE1AD0AFFC00233D4C /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
 		198655E91ABA5B3B002A7C22 /* BlueToothDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothDataViewController.h; sourceTree = "<group>"; };
 		198655EA1ABA5B3B002A7C22 /* BlueToothDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothDataViewController.m; sourceTree = "<group>"; };
+		1989D0AD1AFF37D40012CAC8 /* AboutPic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AboutPic@2x.png"; sourceTree = "<group>"; };
+		1989D0AE1AFF37D40012CAC8 /* AboutPic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AboutPic@3x.png"; sourceTree = "<group>"; };
 		198F14E51ACCD749008C208F /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		198F14E61ACCD749008C208F /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		198F14E91ACCF1CB008C208F /* MyRecommend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyRecommend@2x.png"; sourceTree = "<group>"; };
@@ -938,6 +942,8 @@
 		198F14E81ACCF1CB008C208F /* My */ = {
 			isa = PBXGroup;
 			children = (
+				1989D0AD1AFF37D40012CAC8 /* AboutPic@2x.png */,
+				1989D0AE1AFF37D40012CAC8 /* AboutPic@3x.png */,
 				19D43D391AF92B8F00CEA376 /* MyChoosed@2x.png */,
 				19D43D3A1AF92B8F00CEA376 /* MyChoosed@3x.png */,
 				19D43D3B1AF92B8F00CEA376 /* MyUnChoosed@2x.png */,
@@ -2217,6 +2223,7 @@
 				198F3FE51AB6EF990017A90B /* default-568h@2x.png in Resources */,
 				740E3E2B1AD7BE9D00E8BA75 /* home_icon_check@2x.png in Resources */,
 				7406A64F1AE7A29400696043 /* chat_sender_audio_playing_003.png in Resources */,
+				1989D0B01AFF37D40012CAC8 /* AboutPic@3x.png in Resources */,
 				7406A6391AE7A29400696043 /* chatBar_more_photo@2x.png in Resources */,
 				7406A60A1AE7A29400696043 /* chat_location_detail_disclosureHL.png in Resources */,
 				19D43D3E1AF92B8F00CEA376 /* MyChoosed@3x.png in Resources */,
@@ -2302,6 +2309,7 @@
 				7406A5DD1AE7A29400696043 /* VoiceSearchFeedback010@2x.png in Resources */,
 				7406A6261AE7A29400696043 /* chatBar_colorMore_audioCall@2x.png in Resources */,
 				7406A61E1AE7A29400696043 /* chatBar_record.png in Resources */,
+				1989D0AF1AFF37D40012CAC8 /* AboutPic@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
