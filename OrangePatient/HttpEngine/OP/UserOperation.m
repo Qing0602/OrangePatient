@@ -240,11 +240,44 @@
     self = [self initCustomOperation];
     if (nil != self) {
         self.type = kDeleteUserReport;
-        NSString *urlStr = [NSString stringWithFormat:@"%@api/users/report/%@",K_HOST_OF_SERVER,uid];
+        NSString *urlStr = [NSString stringWithFormat:@"%@api/users/report/%@",K_HOST_OF_SERVER,userUid];
         [self setHttpRequestPostWithUrl:urlStr params:@{@"oauth_token" : [UIManagement sharedInstance].userAccount.userOauthToken,
                                                         @"oauth_token_secret":[UIManagement sharedInstance].userAccount.userOauthTokenSecret,
                                                         @"id":[NSNumber numberWithLong:reportID],
                                                         @"_method":@"DELETE"}];
+    }
+    return self;
+}
+
+-(UserOperation *) initDownLoadReport : (NSURL *) url withFileName : (NSString *) fileName{
+    self = [self initCustomOperation];
+    if (nil != self) {
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        
+        if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,[UIManagement sharedInstance].userAccount.userUid]]]) {
+            NSString *myDirectory = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:CachePath,[UIManagement sharedInstance].userAccount.userUid]];
+            NSError *error;
+            [[NSFileManager defaultManager] createDirectoryAtPath:myDirectory withIntermediateDirectories:NO attributes:nil error:&error];
+        }
+        NSString *filePath = [NSString stringWithFormat:@"%@%@%@",documentsDirectory,[NSString stringWithFormat:CachePath,[UIManagement sharedInstance].userAccount.userUid],fileName];
+        ASIHTTPRequest *request=[ASIHTTPRequest requestWithURL:url];
+        [request setDownloadDestinationPath:filePath];
+        [request startAsynchronous];
+        
+        [request setCompletionBlock:^{
+            dispatch_block_t updateTagBlock = ^{
+                [UIManagement sharedInstance].downloadResult = @{@"Result":@YES};
+            };
+            dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+        }];
+        [request setFailedBlock:^{
+            dispatch_block_t updateTagBlock = ^{
+                [UIManagement sharedInstance].downloadResult = @{@"Result":@NO};
+            };
+            dispatch_async(dispatch_get_main_queue(), updateTagBlock);
+        }];
     }
     return self;
 }

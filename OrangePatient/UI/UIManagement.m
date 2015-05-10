@@ -225,4 +225,9 @@ static UIManagement *sharedInstance = nil;
     UserOperation *operation = [[UserOperation alloc] initDeleteUserReport:reportID withUserUid:userUid];
     [[NetWorkService sharedInstance] networkEngine:operation];
 }
+
+// 下载文件
+-(void) initDownLoadReport : (NSURL *) url withFileName : (NSString *) fileName{
+    UserOperation *operation = [[UserOperation alloc] initDownLoadReport:url withFileName:fileName];
+}
 @end

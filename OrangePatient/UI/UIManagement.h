@@ -93,6 +93,9 @@
 // 删除报表
 @property (nonatomic,strong) NSDictionary *deleteReportResult;
 
+// 下载结果
+@property (nonatomic,strong) NSDictionary *downloadResult;
+
 // 登陆
 -(void) login : (NSString *) userName withPassword : (NSString *) password;
 // 提供手机号码获取注册、重置等验证码。typeCode:0 - 注册, 1 - 重置密码
@@ -174,4 +177,6 @@
 // 删除报表
 -(void) deleteUserReport : (long) reportID withUserUid : (NSString *) userUid;
 
+// 下载文件
+-(void) initDownLoadReport : (NSURL *) url withFileName : (NSString *) fileName;
 @end

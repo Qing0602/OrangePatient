@@ -26,6 +26,7 @@ typedef enum{
     kGetUserReport,
     kGetUserDashboard,
     kDeleteUserReport,
+    kDownLoadReport,
 }UserType;
 
 @interface UserOperation : CustomOperation
@@ -54,4 +55,5 @@ typedef enum{
 
 // 删除报表
 -(UserOperation *) initDeleteUserReport : (long) reportID withUserUid : (NSString *) userUid;
+-(UserOperation *) initDownLoadReport : (NSURL *) url withFileName : (NSString *) fileName;
 @end
