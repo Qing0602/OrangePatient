@@ -17,13 +17,10 @@
 @end
 
 @interface DiscoveryDeviceTableViewCell : UITableViewCell
-@property (nonatomic,strong) UILabel *topLable;
 @property (nonatomic,strong) UIImageView *deviceImage;
 @property (nonatomic,strong) UILabel *deviceName;
 @property (nonatomic,strong) UILabel *deviceDescription;
 @property (nonatomic,strong) UIButton *addDevice;
-@property (nonatomic,strong) UILabel *lineOne;
-@property (nonatomic,strong) UILabel *lineTwo;
 @property (nonatomic,strong) UILabel *lineThree;
 
 @property (nonatomic,strong) BlueToothModel *peripheral;

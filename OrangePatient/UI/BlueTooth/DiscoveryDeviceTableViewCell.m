@@ -18,11 +18,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self != nil) {
         
-        self.topLable = [[UILabel alloc] init];
-        self.topLable.translatesAutoresizingMaskIntoConstraints = NO;
-        self.topLable.backgroundColor = [UIColor colorWithHexString:@"#eeeeee"];
-        [self addSubview:self.topLable];
-        
         self.deviceImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DeviceImage"]];
         self.deviceImage.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:self.deviceImage];
@@ -44,22 +39,13 @@
         
         self.addDevice = [UIButton buttonWithType:UIButtonTypeCustom];
         self.addDevice.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateNormal];
-        [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateHighlighted];
-        [self.addDevice setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.addDevice setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        self.addDevice.backgroundColor = [UIColor colorWithHexString:@"#eb6100"];
+        [self.addDevice setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.addDevice setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [self.addDevice setTitle:@"添加" forState:UIControlStateNormal];
+        [self.addDevice setTitle:@"添加" forState:UIControlStateHighlighted];
         [self.addDevice addTarget:self action:@selector(clickAddDevice) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.addDevice];
-        
-        self.lineOne = [[UILabel alloc] init];
-        self.lineOne.translatesAutoresizingMaskIntoConstraints = NO;
-        self.lineOne.backgroundColor = [UIColor colorWithHexString:@"#e3e3e5"];
-        [self addSubview:self.lineOne];
-        
-        self.lineTwo = [[UILabel alloc] init];
-        self.lineTwo.translatesAutoresizingMaskIntoConstraints = NO;
-        self.lineTwo.backgroundColor = [UIColor colorWithHexString:@"#e3e3e5"];
-        [self addSubview:self.lineTwo];
         
         self.lineThree = [[UILabel alloc] init];
         self.lineThree.translatesAutoresizingMaskIntoConstraints = NO;
@@ -71,22 +57,17 @@
 
 -(void) layoutSubviews{
     [super layoutSubviews];
-    NSDictionary *views = NSDictionaryOfVariableBindings(_topLable,_deviceImage,_deviceName,_deviceDescription,_addDevice,_lineOne,_lineTwo,_lineThree);
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_topLable]-0-|" options:0 metrics:0 views:views]];
-    
+    NSDictionary *views = NSDictionaryOfVariableBindings(_deviceImage,_deviceName,_deviceDescription,_addDevice,_lineThree);
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_deviceImage(81)]-10-[_deviceName(120)]" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_topLable(11)]-0-[_deviceImage(80)]-0-[_lineOne(1)]-0-[_lineTwo(45)]" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_lineOne]-0-|" options:0 metrics:nil views:views]];
-    
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_deviceDescription(120)]" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_deviceImage(80)]" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_deviceImage(81)]-10-[_deviceDescription(120)]" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-30-[_deviceName]-15-[_deviceDescription]" options:NSLayoutFormatAlignAllLeft metrics:0 views:views]];
     
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_lineTwo(1)]-1-[_addDevice(180)]" options:0 metrics:nil views:views]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.lineTwo attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_lineOne]-0-[_addDevice(43.5)]" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_addDevice(60)]-16-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_addDevice(25)]" options:0 metrics:nil views:views]];
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_lineThree]-0-|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_lineThree(2)]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_deviceImage(81)]-0-[_lineThree(2)]" options:0 metrics:nil views:views]];
 }
 
 -(void) clickAddDevice{
@@ -111,8 +92,8 @@
             [self.addDevice setTitle:@"已添加" forState:UIControlStateNormal];
             [self.addDevice setTitle:@"已添加" forState:UIControlStateHighlighted];
         }else{
-            [self.addDevice setTitle:@"" forState:UIControlStateNormal];
-            [self.addDevice setTitle:@"" forState:UIControlStateHighlighted];
+            [self.addDevice setTitle:@"添加" forState:UIControlStateNormal];
+            [self.addDevice setTitle:@"添加" forState:UIControlStateHighlighted];
             [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateNormal];
             [self.addDevice setImage:[UIImage imageNamed:@"AddDevice"] forState:UIControlStateHighlighted];
         }
