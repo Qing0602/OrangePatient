@@ -21,6 +21,7 @@
     
     UIScrollView *scroll = [[UIScrollView alloc] init];
     scroll.translatesAutoresizingMaskIntoConstraints = NO;
+    scroll.showsVerticalScrollIndicator = NO;
     [self.view addSubview:scroll];
     
     UIView *anchor = [[UIView alloc] init];

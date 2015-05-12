@@ -11,9 +11,11 @@
 #import "MyDeviceViewController.h"
 #import "MyViewController.h"
 #import "ReportViewController.h"
-
+#import "WXApi.h"
+#import "WXApiObject.h"
 #import "AppDelegate+EaseMob.h"
-@interface AppDelegate ()
+
+@interface AppDelegate ()<UIAlertViewDelegate, WXApiDelegate>
 
 @end
 
@@ -71,8 +73,41 @@
     
     // 初始化环信SDK，详细内容在AppDelegate+EaseMob.m 文件中
     [self easemobApplication:application didFinishLaunchingWithOptions:launchOptions];
+    
+    //向微信注册
+    [WXApi registerApp:@"wx92132536c2ae6632" withDescription:@"OrangePatient"];
     return YES;
 }
+
+- (void) sendTextContent{
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.text = @"Orange Patient";
+    req.bText = YES;
+    req.scene = WXSceneTimeline;
+    [WXApi sendReq:req];
+}
+
+-(void) onResp:(BaseResp*)resp
+{
+    if([resp isKindOfClass:[SendMessageToWXResp class]])
+    {
+        NSString *strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
+        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return  [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    return  [WXApi handleOpenURL:url delegate:self];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     

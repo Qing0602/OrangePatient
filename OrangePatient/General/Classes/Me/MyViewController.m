@@ -14,6 +14,7 @@
 #import "FeedBackViewController.h"
 #import "FeedBackViewController.h"
 #import "UIManagement.h"
+#import "AppDelegate.h"
 
 @interface MyViewController ()<UIAlertViewDelegate>
 @property (nonatomic,strong) UIView *myView;
@@ -193,7 +194,8 @@
         }
             break;
         case 2:{
-            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [appDelegate sendTextContent];
         }
             break;
         case 3:{

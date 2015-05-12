@@ -67,6 +67,7 @@
 		198F3FE81AB6EF990017A90B /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 198F3FE41AB6EF990017A90B /* default@2x.png */; };
 		19A2655F1AE0CC9E00B0821E /* DoctorsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A2655E1AE0CC9E00B0821E /* DoctorsOperation.m */; };
 		19A265621AE0EB1100B0821E /* DeviceOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A265611AE0EB1100B0821E /* DeviceOperation.m */; };
+		19A3263C1B01D5B90064BCF1 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A326391B01D5B90064BCF1 /* libWeChatSDK.a */; };
 		19A679BB1AAB46B4006328DA /* AsiGetRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */; };
 		19A679BC1AAB46B4006328DA /* UIModelCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B01AAB46B4006328DA /* UIModelCoding.m */; };
 		19A679BD1AAB46B4006328DA /* NetWorkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A679B21AAB46B4006328DA /* NetWorkService.m */; };
@@ -464,6 +465,9 @@
 		19A2655E1AE0CC9E00B0821E /* DoctorsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorsOperation.m; sourceTree = "<group>"; };
 		19A265601AE0EB1100B0821E /* DeviceOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOperation.h; sourceTree = "<group>"; };
 		19A265611AE0EB1100B0821E /* DeviceOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOperation.m; sourceTree = "<group>"; };
+		19A326391B01D5B90064BCF1 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = WeChatSDK_1.5_OnlyIphone/libWeChatSDK.a; sourceTree = "<group>"; };
+		19A3263A1B01D5B90064BCF1 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = WeChatSDK_1.5_OnlyIphone/WXApi.h; sourceTree = "<group>"; };
+		19A3263B1B01D5B90064BCF1 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = WeChatSDK_1.5_OnlyIphone/WXApiObject.h; sourceTree = "<group>"; };
 		19A679AD1AAB46B4006328DA /* AsiGetRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsiGetRequestModel.h; sourceTree = "<group>"; };
 		19A679AE1AAB46B4006328DA /* AsiGetRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsiGetRequestModel.m; sourceTree = "<group>"; };
 		19A679AF1AAB46B4006328DA /* UIModelCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModelCoding.h; sourceTree = "<group>"; };
@@ -909,6 +913,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A3263C1B01D5B90064BCF1 /* libWeChatSDK.a in Frameworks */,
 				192BCD9C1ACE9E6B00137BE0 /* CoreLocation.framework in Frameworks */,
 				1950174B1AAC2D9A00A7E7A1 /* CoreBluetooth.framework in Frameworks */,
 				74CE09491AA4B27700DD9458 /* Foundation.framework in Frameworks */,
@@ -1682,6 +1687,9 @@
 		74BE67A31A9F4AF7008F7C44 /* OrangePatient */ = {
 			isa = PBXGroup;
 			children = (
+				19A326391B01D5B90064BCF1 /* libWeChatSDK.a */,
+				19A3263A1B01D5B90064BCF1 /* WXApi.h */,
+				19A3263B1B01D5B90064BCF1 /* WXApiObject.h */,
 				74BE67A81A9F4AF7008F7C44 /* AppDelegate.h */,
 				74BE67A91A9F4AF7008F7C44 /* AppDelegate.m */,
 				7452723E1AF7A60800ADF13E /* AppDelegate+EaseMob.h */,
@@ -2625,6 +2633,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrangePatient/UI/BlueTooth",
+					"$(PROJECT_DIR)/OrangePatient/WeChatSDK_1.5_OnlyIphone",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2651,6 +2660,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrangePatient/UI/BlueTooth",
+					"$(PROJECT_DIR)/OrangePatient/WeChatSDK_1.5_OnlyIphone",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

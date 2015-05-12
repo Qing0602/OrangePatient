@@ -30,5 +30,16 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx92132536c2ae6632</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>weixin</string>
+		</dict>
+	</array>
 </dict>
 </plist>
